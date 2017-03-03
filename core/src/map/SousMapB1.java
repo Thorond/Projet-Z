@@ -6,7 +6,9 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.mygdx.game.GameMain;
 
 import décors.HerbesBasses;
+import décors.HerbesHautes;
 import décors.RacineGaucheArbre;
+import décors.Trou;
 import scenes.MainMenu;
 
 public class SousMapB1 extends Sprite {
@@ -20,50 +22,61 @@ public class SousMapB1 extends Sprite {
 	
 	
 	public static void sousMapB1(GameMain game){
-		game.getBatch().draw(HerbesBasses.map6060, 0, 0);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 60);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 120);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 180);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 240);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 300);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 360);
-		game.getBatch().draw(HerbesBasses.map6060, 0, 420);
 		
-		game.getBatch().draw(HerbesBasses.map6060, 60, 0);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 60);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 120);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 180);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 240);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 300);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 360);
-		game.getBatch().draw(HerbesBasses.map6060, 60, 420);
+		Map.setTypeDeDécor(0, 0, "HerbesHautes");
+		if ( Map.décorChangé[0][0] == false ) game.getBatch().draw(HerbesHautes.gazon, 0, 0);
+		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0, 0);
 		
-		game.getBatch().draw(HerbesBasses.map6060, 120, 0);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 60);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 120);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 180);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 240);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 300);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 360);
-		game.getBatch().draw(HerbesBasses.map6060, 120, 420);
+		game.getBatch().draw(HerbesBasses.gazonNeutre, 0, 60);
+		game.getBatch().draw(HerbesHautes.gazon, 0, 120);
+		game.getBatch().draw(HerbesHautes.gazon, 0, 180);
+		Map.setTypeDeDécor(0, 240 / 60, "HerbesHautes");
+		if ( Map.décorChangé[0][240 /60 ] == false ) game.getBatch().draw(HerbesHautes.gazon, 0, 240);
+		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0, 240);
 		
-		game.getBatch().draw(HerbesBasses.map6060, 180, 0);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 60);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 120);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 180);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 240);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 300);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 360);
-		game.getBatch().draw(HerbesBasses.map6060, 180, 420);
+		game.getBatch().draw(HerbesHautes.gazon, 0, 300);
+		game.getBatch().draw(HerbesHautes.gazon, 0, 360);
+		game.getBatch().draw(HerbesHautes.gazon, 0, 420);
 		
-		game.getBatch().draw(HerbesBasses.map6060, 240, 0);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 60);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 120);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 180);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 240);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 300);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 360);
-		game.getBatch().draw(HerbesBasses.map6060, 240, 420);
+		
+		game.getBatch().draw(HerbesHautes.gazon, 60, 0);
+		game.getBatch().draw(HerbesHautes.gazon, 60, 60);
+		game.getBatch().draw(HerbesHautes.gazon, 60, 120);
+		game.getBatch().draw(HerbesHautes.gazon, 60, 180);
+		Map.setTypeDeDécor(60 / 60, 240 / 60, "HerbesHautes");
+		if ( Map.décorChangé[60 / 60 ][ 240 / 60] == false ) game.getBatch().draw(HerbesHautes.gazon, 60, 240);
+		else game.getBatch().draw(HerbesBasses.gazonNeutre, 60, 240);
+		
+		game.getBatch().draw(HerbesHautes.gazon, 60, 300);
+		game.getBatch().draw(HerbesHautes.gazon, 60, 360);
+		game.getBatch().draw(HerbesHautes.gazon, 60, 420);
+		
+		game.getBatch().draw(HerbesHautes.gazon, 120, 0);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 60);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 120);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 180);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 240);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 300);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 360);
+		game.getBatch().draw(HerbesHautes.gazon, 120, 420);
+		
+		game.getBatch().draw(HerbesHautes.gazon, 180, 0);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 60);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 120);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 180);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 240);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 300);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 360);
+		game.getBatch().draw(HerbesHautes.gazon, 180, 420);
+		
+		game.getBatch().draw(HerbesHautes.gazon, 240, 0);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 60);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 120);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 180);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 240);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 300);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 360);
+		game.getBatch().draw(HerbesHautes.gazon, 240, 420);
 		
 		if ( isBody1Created == false ) {
 			body1 = RacineGaucheArbre.createBody(370,305);
@@ -77,6 +90,16 @@ public class SousMapB1 extends Sprite {
 		}
 		game.getBatch().draw(RacineGaucheArbre.map6060, 420, 180);
 		
+		
+		game.getBatch().draw(HerbesHautes.gazon, 480, 0);
+		game.getBatch().draw(HerbesHautes.gazon, 480, 60);
+		game.getBatch().draw(HerbesHautes.gazon, 480, 120);
+		game.getBatch().draw(Trou.trou, 480, 180);
+		Map.setTypeDeDécor(480/60, 180/60, "trou");
+		game.getBatch().draw(HerbesHautes.gazon, 480, 240);
+		game.getBatch().draw(HerbesHautes.gazon, 480, 300);
+		game.getBatch().draw(HerbesHautes.gazon, 480, 360);
+		game.getBatch().draw(HerbesHautes.gazon, 480, 420);
 		
 	}
 	

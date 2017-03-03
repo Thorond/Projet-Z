@@ -10,6 +10,10 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import décors.Trou;
+import items.CoeurDeVie;
+import items.Epée;
+import map.Map;
 import map.PlacementMain;
 import map.SousMapA1;
 import map.SousMapA2;
@@ -30,7 +34,7 @@ public class MainMenu implements Screen{
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
 
 	
-	private long start;
+	public static long start;
 	
 	
 	public MainMenu(GameMain game){
@@ -38,7 +42,7 @@ public class MainMenu implements Screen{
 		this.game = game;
 		world = new World(new Vector2(0,0),true);
 		
-		Link = new MainCharacter(world, 6, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 20, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
 		
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -51,6 +55,9 @@ public class MainMenu implements Screen{
 		header = new Texture("Divers/barreHaute.png");
 		start = System.currentTimeMillis();
 		
+		Map.setTypeDeDécor();
+		Map.setDécoChangéFaux();
+		
 		
 	}
 	
@@ -58,65 +65,27 @@ public class MainMenu implements Screen{
 		if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 			Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
 			Link.setDirection("gauche");
-			
-			
-			if ( System.currentTimeMillis() - start > 250) {
-			
-				if (MainCharacter.textGauche1 == true){
-					Link.setTexture(MainCharacter.linkGauche1);
-					MainCharacter.textGauche1 = false;
-				} else {
-					Link.setTexture(MainCharacter.linkGauche2);
-					MainCharacter.textGauche1 = true;
-				}
-				start = System.currentTimeMillis();
-			} 
+			Link.représentationLink(Link);
+
 			
 		} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
 			Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
 			Link.setDirection("droite");
-			
-			if ( System.currentTimeMillis() - start > 250) {
-				if (MainCharacter.textDroite1 == true){
-					Link.setTexture(MainCharacter.linkDroite1);
-					MainCharacter.textDroite1 = false;
-				} else {
-					Link.setTexture(MainCharacter.linkDroite2);
-					MainCharacter.textDroite1 = true;
-				}
-				start = System.currentTimeMillis();
-			}
+			Link.représentationLink(Link);
 			
 		} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
 			Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
 			Link.setDirection("haut");
-			
-			if ( System.currentTimeMillis() - start > 250) {
-				if (MainCharacter.textHaut1 == true){
-					Link.setTexture(MainCharacter.linkHaut1);
-					MainCharacter.textHaut1 = false;
-				} else {
-					Link.setTexture(MainCharacter.linkHaut2);
-					MainCharacter.textHaut1 = true;
-				}
-				start = System.currentTimeMillis();
-			}
-		
+			Link.représentationLink(Link);
+
 		} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
 			Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
 			Link.setDirection("bas");
-			
-			if ( System.currentTimeMillis() - start > 250) {
-				if (MainCharacter.textBas1 == true){
-					Link.setTexture(MainCharacter.linkBas1);
-					MainCharacter.textBas1 = false;
-				} else {
-					Link.setTexture(MainCharacter.linkBas2);
-					MainCharacter.textBas1 = true;
-				}
-				start = System.currentTimeMillis();
-			}
-		} else if (Gdx.input.isKeyPressed(Input.Keys.P)){
+			Link.représentationLink(Link);
+
+		} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
+			Epée.utilisationItem(Link);
+	    } else if (Gdx.input.isKeyPressed(Input.Keys.P)){
 			sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
 			SendClass.sendClass(sauvegarde);
 		} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
@@ -130,6 +99,7 @@ public class MainMenu implements Screen{
 			else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
 			else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
 		} 
+		if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
 	}
 
 	@Override
@@ -162,18 +132,28 @@ public class MainMenu implements Screen{
 		game.getBatch().draw(Link, Link.getX(), Link.getY());
 		game.getBatch().draw(header, 0,480);
 		
-//		game.getBatch().draw(coeur, 500, 500);
+//		dessiner les coeurs de vie
+		
+		if ( System.currentTimeMillis() - CoeurDeVie.start > 10000) CoeurDeVie.setEstPrésent(false);
+		if ( CoeurDeVie.estPrésent == true 
+				&& System.currentTimeMillis() - CoeurDeVie.start < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.x , CoeurDeVie.y);
+		else if ( CoeurDeVie.estPrésent == true 
+				&& System.currentTimeMillis() - CoeurDeVie.start > 5000){
+			CoeurDeVie.clignotementCoeur();
+			if (CoeurDeVie.clignotement == true ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.x , CoeurDeVie.y);
+		}
+//		dessiner la vie
 		
 		int vie = 0 ;
 		int écart = 0;
 		while ( vie +4 <= Link.getHealth()  ){
-			game.getBatch().draw(MainCharacter.coeurPlein, 200 + écart, 500 );
+			game.getBatch().draw(MainCharacter.coeurPlein, 240 + écart, 540 );
 			vie += 4;
-			écart += 0;
+			écart += 60;
 		}
-		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 500 + écart, 500 );
-		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 500 + écart, 500 );
-		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 500 + écart, 500 );
+		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart, 540 );
+		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart, 540 );
+		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart, 540 );
 		
 		game.getBatch().end();
 		
