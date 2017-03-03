@@ -8,6 +8,8 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import scenes.MainMenu;
+
 public class MainCharacter extends Characters {
 
 	public String direction;
@@ -69,6 +71,57 @@ public class MainCharacter extends Characters {
 		return this.body;
 	}
 	
+	public void représentationLink(MainCharacter cha){
+		if (cha.getDirection().equals("gauche")){
+			if ( System.currentTimeMillis() - MainMenu.start > 250) {
+				
+				if (MainCharacter.textGauche1 == true){
+					cha.setTexture(MainCharacter.linkGauche1);
+					MainCharacter.textGauche1 = false;
+				} else {
+					cha.setTexture(MainCharacter.linkGauche2);
+					MainCharacter.textGauche1 = true;
+				}
+				MainMenu.start = System.currentTimeMillis();
+			} 
+		}
+		else if (cha.getDirection().equals("droite")){
+			if ( System.currentTimeMillis() - MainMenu.start > 250) {
+				if (MainCharacter.textDroite1 == true){
+					cha.setTexture(MainCharacter.linkDroite1);
+					MainCharacter.textDroite1 = false;
+				} else {
+					cha.setTexture(MainCharacter.linkDroite2);
+					MainCharacter.textDroite1 = true;
+				}
+				MainMenu.start = System.currentTimeMillis();
+			}
+		}
+		else if (cha.getDirection().equals("haut")){
+			if ( System.currentTimeMillis() - MainMenu.start > 250) {
+				if (MainCharacter.textHaut1 == true){
+					cha.setTexture(MainCharacter.linkHaut1);
+					MainCharacter.textHaut1 = false;
+				} else {
+					cha.setTexture(MainCharacter.linkHaut2);
+					MainCharacter.textHaut1 = true;
+				}
+				MainMenu.start = System.currentTimeMillis();
+			}
+		}
+		else if (cha.getDirection().equals("bas")){
+			if ( System.currentTimeMillis() - MainMenu.start > 250) {
+				if (MainCharacter.textBas1 == true){
+					cha.setTexture(MainCharacter.linkBas1);
+					MainCharacter.textBas1 = false;
+				} else {
+					cha.setTexture(MainCharacter.linkBas2);
+					MainCharacter.textBas1 = true;
+				}
+				MainMenu.start = System.currentTimeMillis();
+			}
+		}
+	}
 	
 
 }
