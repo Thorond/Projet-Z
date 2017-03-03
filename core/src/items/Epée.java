@@ -3,16 +3,23 @@ package items;
 import com.badlogic.gdx.graphics.Texture;
 
 import characters.MainCharacter;
+import map.Map;
 import map.PlacementMain;
 
-public class Epée extends Item{
+public class Epée {
+//	extends Item
 
-	public Epée(Texture text){
-		super(text,1);
-	}
+//	public Epée(Texture text){
+//		super(text,1);
+//	}
 	
-	public void utilisationItem( MainCharacter cha) {
-		if ( cha.getDirection() == "bas"){
+//	static a enlever
+	public static void utilisationItem( MainCharacter cha) {
+		if ( cha.getDirection().equals("bas")){
+			if ( ((int) cha.getBody().getPosition().y / 60 ) -1 >= 0 &&
+					Map.typeDeDécor[( int) cha.getBody().getPosition().x / 60 ][((int) cha.getBody().getPosition().y / 60 ) -1 ].equals("HerbesHautes")){
+				Map.setDécorChangé(( int) cha.getBody().getPosition().x / 60, ((int) cha.getBody().getPosition().y / 60) - 1, true);
+			}
 			
 //			if ( PlacementMain.positionSousMap.equals("A1") ){
 //				for ( int i = 0 ; i < SousMapA1.coordEnnemieSousMap.length ; i++){

@@ -10,6 +10,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import items.Epée;
+import map.Map;
 import map.PlacementMain;
 import map.SousMapA1;
 import map.SousMapA2;
@@ -50,6 +52,9 @@ public class MainMenu implements Screen{
 		carte = new Texture("Map.png");
 		header = new Texture("Divers/barreHaute.png");
 		start = System.currentTimeMillis();
+		
+		Map.setTypeDeDécor();
+		Map.setDécoChangéFaux();
 		
 		
 	}
@@ -116,7 +121,9 @@ public class MainMenu implements Screen{
 				}
 				start = System.currentTimeMillis();
 			}
-		} else if (Gdx.input.isKeyPressed(Input.Keys.P)){
+		} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
+			Epée.utilisationItem(Link);
+	    } else if (Gdx.input.isKeyPressed(Input.Keys.P)){
 			sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
 			SendClass.sendClass(sauvegarde);
 		} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
