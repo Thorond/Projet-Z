@@ -15,7 +15,6 @@ public class Sauvegarde implements java.io.Serializable{
 	  }
 
 	public float getCoordX() {
-		System.out.println("coucou");
 		return coordX;
 	}
 

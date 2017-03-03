@@ -29,6 +29,7 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesBasses.map6060, 0, 360);
 		game.getBatch().draw(HerbesBasses.map6060, 0, 420);
 		
+		
 		game.getBatch().draw(HerbesBasses.map6060, 60, 0);
 		game.getBatch().draw(HerbesBasses.map6060, 60, 60);
 		game.getBatch().draw(HerbesBasses.map6060, 60, 120);
