@@ -42,7 +42,7 @@ public class MainMenu implements Screen{
 		this.game = game;
 		world = new World(new Vector2(0,0),true);
 		
-		Link = new MainCharacter(world, 20, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 20, 20, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
 		
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -100,6 +100,20 @@ public class MainMenu implements Screen{
 			else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
 		} 
 		if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
+		for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
+			if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
+				for ( int j = 0 ; j < 40 ; j ++){
+					for ( int k = 0 ; k < 40 ; k ++){
+						if ( (int) Link.getBody().getPosition().x +j == CoeurDeVie.coeurDeVies[i].getX() 
+								&& (int) Link.getBody().getPosition().y +k == CoeurDeVie.coeurDeVies[i].getY() ){
+							if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+							CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+						}
+					}
+				}
+				
+			}
+		}
 	}
 
 	@Override
@@ -129,20 +143,28 @@ public class MainMenu implements Screen{
 		else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
 		
 		
-		game.getBatch().draw(Link, Link.getX(), Link.getY());
-		game.getBatch().draw(header, 0,480);
+		
+		
 		
 //		dessiner les coeurs de vie
 		
-		if ( System.currentTimeMillis() - CoeurDeVie.start > 10000) CoeurDeVie.setEstPrésent(false);
-		if ( CoeurDeVie.estPrésent == true 
-				&& System.currentTimeMillis() - CoeurDeVie.start < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.x , CoeurDeVie.y);
-		else if ( CoeurDeVie.estPrésent == true 
-				&& System.currentTimeMillis() - CoeurDeVie.start > 5000){
-			CoeurDeVie.clignotementCoeur();
-			if (CoeurDeVie.clignotement == true ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.x , CoeurDeVie.y);
+		for ( int i = 0; i< CoeurDeVie.coeurDeVies.length ; i++){
+			if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+			if ( CoeurDeVie.coeurDeVies[i].isEstPrésent() 
+					&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
+			else if ( CoeurDeVie.coeurDeVies[i].isEstPrésent()
+					&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 5000){
+				CoeurDeVie.coeurDeVies[i].clignotementCoeur();
+				if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
+			}
 		}
+		
+		
+		game.getBatch().draw(Link, Link.getX(), Link.getY());
+		
+		game.getBatch().draw(header, 0,480);
 //		dessiner la vie
+		
 		
 		int vie = 0 ;
 		int écart = 0;
@@ -154,6 +176,7 @@ public class MainMenu implements Screen{
 		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart, 540 );
 		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart, 540 );
 		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart, 540 );
+		
 		
 		game.getBatch().end();
 		
