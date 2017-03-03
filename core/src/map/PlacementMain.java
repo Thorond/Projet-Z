@@ -1,9 +1,7 @@
 package map;
 
 import characters.MainCharacter;
-import décors.RacineGaucheArbre;
 import items.CoeurDeVie;
-import scenes.MainMenu;
 
 public class PlacementMain {
 	
@@ -29,7 +27,7 @@ public class PlacementMain {
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479 , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
-			CoeurDeVie.estPrésent = false;
+			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 480 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("A2") ){
@@ -41,7 +39,7 @@ public class PlacementMain {
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479 , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
-			CoeurDeVie.estPrésent = false;
+			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x < 0 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1")  ){
@@ -54,7 +52,7 @@ public class PlacementMain {
 			perso.getBody().setTransform(perso.getBody().getPosition().x + 600, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
-			CoeurDeVie.estPrésent = false;
+			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 600 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				positionSousMap = "B1";
@@ -69,7 +67,7 @@ public class PlacementMain {
 			perso.getBody().setTransform(perso.getBody().getPosition().x - 600, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
-			CoeurDeVie.estPrésent = false;
+			CoeurDeVie.réinitialisation();
 		}
 		
 	}
