@@ -14,6 +14,7 @@ public class PlacementMain {
 	public static long start;
 	public static int x; 
 	public static int y;
+	public static String direction;
 	
 	
 	public static void posiSousMap(MainCharacter perso){
@@ -32,6 +33,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			y = 60;
+			direction = perso.getDirection();
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479 , 0);
 			Map.setTypeDeDécor();
@@ -49,6 +51,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			y = 60;
+			direction = perso.getDirection();
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479 , 0);
 			Map.setTypeDeDécor();
@@ -67,6 +70,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
+			direction = perso.getDirection();
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x + 600, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
@@ -87,8 +91,12 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
+			direction = perso.getDirection();
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x - 600, perso.getBody().getPosition().y  , 0);
+//			=============================================================================================================
+//									réinitialisation du type de décor et de leur état , et des coeurs de vies
+//			=============================================================================================================
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();

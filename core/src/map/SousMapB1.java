@@ -27,14 +27,11 @@ public class SousMapB1 extends Sprite {
 		
 		if ( Map.décorChangé[0][0] == false ) game.getBatch().draw(HerbesHautes.gazon, 0+x, 0+y);
 		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 0 + y);
-		
 		game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 60 + y);
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 180+ y);
-		
+		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 180+ y);		
 		if ( Map.décorChangé[0][240 /60 ] == false ) game.getBatch().draw(HerbesHautes.gazon, 0+x, 240+y);
 		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 240+y);
-		
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 300+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 360+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 420+ y);
@@ -43,11 +40,9 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 0+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 60+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 180+ y);
-		
+		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 180+ y);		
 		if ( Map.décorChangé[60 / 60 ][ 240 / 60] == false ) game.getBatch().draw(HerbesHautes.gazon, 60+ x, 240+ y);
-		else game.getBatch().draw(HerbesBasses.gazonNeutre, 60+ x, 240+ y);
-		
+		else game.getBatch().draw(HerbesBasses.gazonNeutre, 60+ x, 240+ y);	
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 300+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 360+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 420+ y);
@@ -136,12 +131,12 @@ public class SousMapB1 extends Sprite {
 		Map.setTypeDeDécor(60 / 60, 240 / 60, "HerbesHautes");
 		
 		if ( isBody1Created == false ) {
-			body1 = RacineGaucheArbre.createBody(370,305);
+			body1 = RacineGaucheArbre.createBody(370,315);
 			isBody1Created = true;
 		}
 		
 		if ( isBody2Created == false ) {
-			body2 = RacineGaucheArbre.createBody(430,185);
+			body2 = RacineGaucheArbre.createBody(430,200);
 			isBody2Created = true;
 		}
 		
