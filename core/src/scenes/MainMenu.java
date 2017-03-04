@@ -49,7 +49,7 @@ public class MainMenu implements Screen{
 //		à utiliser en cas de nouvelle class sauvegarde
 		
 //		PlacementMain.positionSousMap = "B1";
-//		Link = new MainCharacter(world, 10 , 4 , 50 , 50 , "bas");
+//		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		carte = new Texture("Map.png");
 		header = new Texture("Divers/barreHaute.png");
@@ -137,10 +137,107 @@ public class MainMenu implements Screen{
 		
 		
 		game.getBatch().begin();
-		if ( PlacementMain.positionSousMap.equals("A1")) game.getBatch().draw(SousMapA1.sousMapA1, 0, 0);
-		else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
-		else if ( PlacementMain.positionSousMap.equals("B1")) SousMapB1.sousMapB1(game);
-		else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
+		
+		if ( PlacementMain.défilement == true) {
+//			=============================================================================================
+//			                                    changement de map
+//			=============================================================================================
+			if ( Link.getDirection().equals("gauche")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					SousMapB1.sousMapB1(game, PlacementMain.x, 0);
+					game.getBatch().draw(SousMapA1.sousMapA1, -600 + PlacementMain.x, 0  );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					game.getBatch().draw(SousMapB2.sousMapB2, 0 + PlacementMain.x, 0 );
+					game.getBatch().draw(SousMapA2.sousMapA2, -600 + PlacementMain.x, 0  );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+				} 
+			} else if ( Link.getDirection().equals("droite")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					SousMapB1.sousMapB1(game,600 - PlacementMain.x,0);
+					game.getBatch().draw(SousMapA1.sousMapA1, 0- PlacementMain.x, 0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+					game.getBatch().draw(SousMapA2.sousMapA2, 0- PlacementMain.x, 0 );
+					game.getBatch().draw(SousMapB2.sousMapB2, 600- PlacementMain.x, 0 );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				}
+			} else if ( Link.getDirection().equals("bas")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					game.getBatch().draw(SousMapA2.sousMapA2, 0, -480 + PlacementMain.y );
+					game.getBatch().draw(SousMapA1.sousMapA1, 0, 0 + PlacementMain.y );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+					game.getBatch().draw(SousMapB2.sousMapB2, 0, -480 + PlacementMain.y );
+					SousMapB1.sousMapB1(game, 0, PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				}
+			} else if ( Link.getDirection().equals("haut")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					game.getBatch().draw(SousMapA2.sousMapA2, 0, 0 - PlacementMain.y );
+					game.getBatch().draw(SousMapA1.sousMapA1, 0, 480 - PlacementMain.y );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					game.getBatch().draw(SousMapB2.sousMapB2, 0, 0- PlacementMain.y );
+					SousMapB1.sousMapB1(game, 0, 480-PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+					
+				}
+			}
+			if ( PlacementMain.x == 600) {
+				PlacementMain.défilement = false;
+				PlacementMain.x = 0;
+			}
+			if ( PlacementMain.y == 480) {
+				PlacementMain.défilement = false;
+				PlacementMain.y = 0;
+			}
+			
+			
+		}else {
+			if ( PlacementMain.positionSousMap.equals("A1")) game.getBatch().draw(SousMapA1.sousMapA1, 0, 0);
+			else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
+			else if ( PlacementMain.positionSousMap.equals("B1")) {
+				SousMapB1.sousMapB1(game, 0,0);
+				SousMapB1.createBodyAndType();
+			}
+			else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
+		}
+		
 		
 		
 		

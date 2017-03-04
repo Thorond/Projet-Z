@@ -10,6 +10,10 @@ public class PlacementMain {
 	
 	
 	public static String positionSousMap ;
+	public static boolean défilement = false;
+	public static long start;
+	public static int x; 
+	public static int y;
 	
 	
 	public static void posiSousMap(MainCharacter perso){
@@ -24,6 +28,11 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("B2")  ){
 				positionSousMap = "B3";
 			}
+			
+			défilement = true;
+			start = System.currentTimeMillis();
+			y = 60;
+			
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479 , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
@@ -36,6 +45,11 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("B2") ){
 				positionSousMap = "B1";
 			}
+			
+			défilement = true;
+			start = System.currentTimeMillis();
+			y = 60;
+			
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479 , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
@@ -49,6 +63,11 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("B2")  ){
 				positionSousMap = "A2";
 			}
+			
+			défilement = true;
+			start = System.currentTimeMillis();
+			x = 60;
+			
 			perso.getBody().setTransform(perso.getBody().getPosition().x + 600, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
@@ -64,6 +83,11 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("B2") ){
 				positionSousMap = "C2";
 			}
+			
+			défilement = true;
+			start = System.currentTimeMillis();
+			x = 60;
+			
 			perso.getBody().setTransform(perso.getBody().getPosition().x - 600, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();

@@ -2,10 +2,13 @@ package sauvegarde;
 
 public class Sauvegarde implements java.io.Serializable{
 	  
+//	private static final long serialVersionUID = 1L;
 	private float coordX;
 	private float coordY;
 	public String direction;
 	public String posiSousMap;
+//	public int HealthMax;
+//	public int Health;
 	 
 	  public Sauvegarde(float x, float y, String direction, String posiSousMap){
 	    this.coordX = x;
