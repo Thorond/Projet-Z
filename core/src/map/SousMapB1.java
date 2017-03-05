@@ -3,8 +3,10 @@ package map;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Pnj;
 import décors.HerbesBasses;
 import décors.HerbesHautes;
 import décors.RacineGaucheArbre;
@@ -20,6 +22,13 @@ public class SousMapB1 extends Sprite {
 	public static boolean isBody2Created;
 	public static int x;
 	public static int y;
+	
+	public static Pnj monstre1;
+	public static Pnj monstre2;
+	public static Pnj monstre3;
+	public static boolean m1EstCrée = false ;
+	public static boolean m2EstCrée = false ;
+	public static boolean m3EstCrée = false ;
 	
 	
 	public static void sousMapB1(GameMain game, int x, int y){
@@ -120,9 +129,13 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 420+ y);
 		
 		
+		game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x, monstre1.getBody().getPosition().y);
+//		game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x, monstre2.getBody().getPosition().y);
+//		game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x, monstre3.getBody().getPosition().y);
+		
 	}
 	
-	public static void createBodyAndType(){
+	public static void createBodyAndType(World world){
 		
 		Map.setTypeDeDécor(0, 0, "HerbesHautes");
 		
@@ -141,6 +154,14 @@ public class SousMapB1 extends Sprite {
 		}
 		
 		Map.setTypeDeDécor(480/60, 180/60, "trou");
+		
+		
+		if ( m1EstCrée == false ) {
+			monstre1 = new Pnj(world , 20 , 10 , 4 , 390 , 200 , "bas") ;
+			m1EstCrée = true;
+		}
+		else monstre1.déplacementAléa();
+		
 	}
 	
 	public static void destroyBody(){

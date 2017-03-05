@@ -235,8 +235,8 @@ public class MainMenu implements Screen{
 			if ( PlacementMain.positionSousMap.equals("A1")) game.getBatch().draw(SousMapA1.sousMapA1, 0, 0);
 			else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
 			else if ( PlacementMain.positionSousMap.equals("B1")) {
+				SousMapB1.createBodyAndType(world);
 				SousMapB1.sousMapB1(game, 0,0);
-				SousMapB1.createBodyAndType();
 			}
 			else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
 		}
