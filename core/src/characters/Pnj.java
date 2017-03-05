@@ -150,22 +150,22 @@ public class Pnj extends Characters{
 	
 //	est en vie
 	
-	public static boolean isAlive(Pnj pnj){
-		if (pnj.getHealth() > 0 ) return true;
+	public boolean isAlive(){
+		if (this.getHealth() > 0 ) return true;
 		else return false;
 	}
 	
 //	drop des monstres
 	
-	public static void drop(){
+	public void drop(){
 		
 	}
 	
 //	subir dégats et mort
 	
-	public static void subirDégats(Pnj pnj, int dégat){
-		if ( pnj.getHealth() > 0 && pnj.getHealth() - dégat <= 0 ) Pnj.drop();
-		pnj.setHealth(pnj.getHealth() - dégat);
+	public void subirDégats( int dégat){
+		if ( this.getHealth() > 0 && this.getHealth() - dégat <= 0 ) this.drop();
+		this.setHealth(this.getHealth() - dégat);
 		
 	}
 //

@@ -30,6 +30,8 @@ public class SousMapB1 extends Sprite {
 	public static boolean m2EstCrée = false ;
 	public static boolean m3EstCrée = false ;
 	
+	public static boolean monstresPrésent = true;
+	public static Pnj[] monstres = new Pnj[3];
 	
 	public static void sousMapB1(GameMain game, int x, int y){
 		
@@ -129,9 +131,13 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 420+ y);
 		
 		
-		game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x, monstre1.getBody().getPosition().y);
-//		game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x, monstre2.getBody().getPosition().y);
-//		game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x, monstre3.getBody().getPosition().y);
+//		==================================================================
+//						Placement des dessins des monstres
+//		==================================================================
+		
+		if ( monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
+		if ( monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
+		if ( monstre3.isAlive() ) game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x + x, monstre3.getBody().getPosition().y + y);
 		
 	}
 	
@@ -157,18 +163,39 @@ public class SousMapB1 extends Sprite {
 		
 		
 		if ( m1EstCrée == false ) {
-			monstre1 = new Pnj(world , 20 , 10 , 4 , 390 , 200 , "bas") ;
+			monstre1 = new Pnj(world , 20 , 10 , 4 , 350 , 200 , "bas") ;
+			monstres[0] = monstre1;
 			m1EstCrée = true;
 		}
 		else monstre1.déplacementAléa();
+
+		if ( m2EstCrée == false ) {
+			monstre2 = new Pnj(world , 20 , 10 , 4 , 100 , 200 , "bas") ;
+			monstres[1] = monstre2;
+			m2EstCrée = true;
+		}
+		else monstre2.déplacementAléa();
+
+		if ( m3EstCrée == false ) {
+			monstre3 = new Pnj(world , 20 , 10 , 4 , 150 , 400 , "bas") ;
+			monstres[2] = monstre3;
+			m3EstCrée = true;
+		}
+		else monstre3.déplacementAléa();
 		
 	}
 	
 	public static void destroyBody(){
 		MainMenu.world.destroyBody(body1);
 		MainMenu.world.destroyBody(body2);
+		MainMenu.world.destroyBody(monstre1.getBody());
+		MainMenu.world.destroyBody(monstre2.getBody());
+		MainMenu.world.destroyBody(monstre3.getBody());
 		SousMapB1.isBody1Created = false;
 		SousMapB1.isBody2Created = false;
+		m1EstCrée = false;
+		m2EstCrée = false;
+		m3EstCrée = false;
 	}
 	
 

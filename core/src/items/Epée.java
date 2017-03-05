@@ -2,6 +2,8 @@ package items;
 
 import characters.MainCharacter;
 import map.Map;
+import map.PlacementMain;
+import map.SousMapB1;
 
 public class Epée {
 //	extends Item
@@ -45,7 +47,29 @@ public class Epée {
 			}
 			
 		}
-		
+		if (Map.typeDeDécor[((int) cha.getBody().getPosition().x / 60)  ][((int) cha.getBody().getPosition().y / 60 ) ].equals("HerbesHautes")
+					&& Map.décorChangé[((int) cha.getBody().getPosition().x / 60)  ][((int) cha.getBody().getPosition().y / 60 ) ] == false){
+			Map.setDécorChangé(((int) cha.getBody().getPosition().x / 60) , ((int) cha.getBody().getPosition().y / 60), true);
+			CoeurDeVie.remplirCoeurDeVies((int) cha.getBody().getPosition().x , (int) cha.getBody().getPosition().y );
+		}
+		if ( PlacementMain.positionSousMap.equals("B1")){
+			if ( SousMapB1.monstresPrésent ){
+				for ( int i = 0; i < SousMapB1.monstres.length ; i++){
+					if ( SousMapB1.monstres[i].isAlive() ){
+						for ( int j = 0 ; j <= 120 ; j ++){
+							for ( int k = 0 ; k <= 120 ; k++){
+								System.out.println(SousMapB1.monstres[i].getHealth());
+								if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
+										&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
+									System.out.println("Yop");
+									SousMapB1.monstres[i].setHealth(SousMapB1.monstres[i].getHealth() - cha.getStrength() );
+								}
+							}
+						}
+					}
+				}			
+			}
+		}
 	}
 	
 }
