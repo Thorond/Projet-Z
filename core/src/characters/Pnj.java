@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import items.CoeurDeVie;
 import scenes.MainMenu;
 
 public class Pnj extends Characters{
@@ -158,15 +159,23 @@ public class Pnj extends Characters{
 //	drop des monstres
 	
 	public void drop(){
-		
+		double tempo = Math.random();
+		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getBody().getPosition().x , (int) this.getBody().getPosition().y );
 	}
 	
 //	subir dégats et mort
 	
-	public void subirDégats( int dégat){
-		if ( this.getHealth() > 0 && this.getHealth() - dégat <= 0 ) this.drop();
-		this.setHealth(this.getHealth() - dégat);
-		
+	public void subirDégats( MainCharacter cha){
+		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
+			this.drop();
+			this.getBody().setTransform(-100, -100, 0);
+		} else {
+			if ( cha.getDirection().equals("droite")) this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
+			else if ( cha.getDirection().equals("gauche")) this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);
+			else if ( cha.getDirection().equals("haut")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y +30, 0);
+			else if ( cha.getDirection().equals("bas")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y -30, 0);
+		}
+		this.setHealth(this.getHealth() - cha.getStrength());
 	}
 //
 ////position relative par rapport à Link
