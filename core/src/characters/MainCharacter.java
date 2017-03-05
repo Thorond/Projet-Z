@@ -39,8 +39,8 @@ public class MainCharacter extends Characters {
 	public static Texture coeurUnQuart = new Texture("Divers/coeur1-4.png");
 	public static Texture coeurTroisQuart = new Texture("Divers/coeur3-4.png");
 	
-	public MainCharacter(World world, int HM, int health, int strenght, float x, float y, String direction){
-		super( world,linkPetit, HM, health, strenght, x,  y, direction);
+	public MainCharacter(World world, int HM, int health, int strength, float x, float y, String direction){
+		super( world,linkPetit, HM, health, strength, x,  y, direction);
 		this.world = world;
 		createBody();
 	}

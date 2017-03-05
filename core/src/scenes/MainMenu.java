@@ -42,14 +42,14 @@ public class MainMenu implements Screen{
 		this.game = game;
 		world = new World(new Vector2(0,0),true);
 		
-		Link = new MainCharacter(world, 20, 20, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 40, 23, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
 		
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
 //		à utiliser en cas de nouvelle class sauvegarde
 		
 //		PlacementMain.positionSousMap = "B1";
-//		Link = new MainCharacter(world, 10 , 4 , 50 , 50 , "bas");
+//		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		carte = new Texture("Map.png");
 		header = new Texture("Divers/barreHaute.png");
@@ -137,17 +137,117 @@ public class MainMenu implements Screen{
 		
 		
 		game.getBatch().begin();
-		if ( PlacementMain.positionSousMap.equals("A1")) game.getBatch().draw(SousMapA1.sousMapA1, 0, 0);
-		else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
-		else if ( PlacementMain.positionSousMap.equals("B1")) SousMapB1.sousMapB1(game);
-		else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
+		
+		if ( PlacementMain.défilement == true) {
+//			=============================================================================================
+//			                                    changement de map
+//			=============================================================================================
+			if ( PlacementMain.direction.equals("gauche")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					SousMapB1.sousMapB1(game, PlacementMain.x, 0);
+					game.getBatch().draw(SousMapA1.sousMapA1, -600 + PlacementMain.x, 0  );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					game.getBatch().draw(SousMapB2.sousMapB2, 0 + PlacementMain.x, 0 );
+					game.getBatch().draw(SousMapA2.sousMapA2, -600 + PlacementMain.x, 0  );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+				} 
+			} else if ( PlacementMain.direction.equals("droite")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					SousMapB1.sousMapB1(game,600 - PlacementMain.x,0);
+					game.getBatch().draw(SousMapA1.sousMapA1, 0- PlacementMain.x, 0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+					game.getBatch().draw(SousMapA2.sousMapA2, 0- PlacementMain.x, 0 );
+					game.getBatch().draw(SousMapB2.sousMapB2, 600- PlacementMain.x, 0 );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				}
+			} else if ( PlacementMain.direction.equals("bas")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					game.getBatch().draw(SousMapA2.sousMapA2, 0, -480 + PlacementMain.y );
+					game.getBatch().draw(SousMapA1.sousMapA1, 0, 0 + PlacementMain.y );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+					game.getBatch().draw(SousMapB2.sousMapB2, 0, -480 + PlacementMain.y );
+					SousMapB1.sousMapB1(game, 0, PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				}
+			} else if ( PlacementMain.direction.equals("haut")){
+				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					game.getBatch().draw(SousMapA2.sousMapA2, 0, 0 - PlacementMain.y );
+					game.getBatch().draw(SousMapA1.sousMapA1, 0, 480 - PlacementMain.y );
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					game.getBatch().draw(SousMapB2.sousMapB2, 0, 0- PlacementMain.y );
+					SousMapB1.sousMapB1(game, 0, 480-PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					
+				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+					
+				}
+			}
+			if ( PlacementMain.x == 600) {
+				PlacementMain.défilement = false;
+				PlacementMain.x = 0;
+			}
+			if ( PlacementMain.y == 480) {
+				PlacementMain.défilement = false;
+				PlacementMain.y = 0;
+			}
+			
+			
+		}else {
+//			=============================================================================================
+//                  					  affichage de la sous carte
+//			=============================================================================================
+			if ( PlacementMain.positionSousMap.equals("A1")) game.getBatch().draw(SousMapA1.sousMapA1, 0, 0);
+			else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
+			else if ( PlacementMain.positionSousMap.equals("B1")) {
+				SousMapB1.createBodyAndType(world);
+				SousMapB1.sousMapB1(game, 0,0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
+		}
 		
 		
 		
 		
 		
-//		dessiner les coeurs de vie
-		
+//		=============================================================================================
+//		                                 dessiner les coeurs de vie
+//		=============================================================================================
 		for ( int i = 0; i< CoeurDeVie.coeurDeVies.length ; i++){
 			if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
 			if ( CoeurDeVie.coeurDeVies[i].isEstPrésent() 
@@ -163,19 +263,36 @@ public class MainMenu implements Screen{
 		game.getBatch().draw(Link, Link.getX(), Link.getY());
 		
 		game.getBatch().draw(header, 0,480);
-//		dessiner la vie
+		
+//		=============================================================================================
+//											dessiner la vie
+//		=============================================================================================
 		
 		
 		int vie = 0 ;
 		int écart = 0;
+		int écart2 =0;
 		while ( vie +4 <= Link.getHealth()  ){
-			game.getBatch().draw(MainCharacter.coeurPlein, 240 + écart, 540 );
+			if ( vie < 24 ) {
+				game.getBatch().draw(MainCharacter.coeurPlein, 240 + écart, 550 );
+				écart+=60;
+			}
+			else {
+				game.getBatch().draw(MainCharacter.coeurPlein, 240 + écart2, 490 );
+				écart2 += 60;
+			}
 			vie += 4;
-			écart += 60;
+		
 		}
-		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart, 540 );
-		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart, 540 );
-		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart, 540 );
+		if (vie < 24){
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart, 550 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart, 550 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart, 550 );
+		} else {
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart2, 490 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart2, 490 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart2, 490 );
+		}
 		
 		
 		game.getBatch().end();
