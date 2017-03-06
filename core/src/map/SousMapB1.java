@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.Pnj;
+import décors.EauProfonde;
 import décors.HerbesBasses;
 import décors.HerbesHautes;
 import décors.MurDroitSolideHaut;
@@ -14,8 +15,7 @@ import décors.RacineGaucheArbre;
 import scenes.MainMenu;
 
 public class SousMapB1 extends Sprite {
-	
-	public static Texture sousMapB1 = new Texture("Corps.png");
+
 	
 	public static Body body1;
 	public static boolean isBody1Created;
@@ -63,7 +63,7 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 180+ y);		
 		if ( Map.décorChangé[0][240 /60 ] == false ) game.getBatch().draw(HerbesHautes.gazon, 0+x, 240+y);
 		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 240+y);
-		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 300+ y);
+		EauProfonde.eauProfonde(game, x, 300+y);
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 360+ y);
 		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 0+ x, 420+ y);
 		
@@ -73,8 +73,8 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 120+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 180+ y);		
 		if ( Map.décorChangé[60 / 60 ][ 240 / 60] == false ) game.getBatch().draw(HerbesHautes.gazon, 60+ x, 240+ y);
-		else game.getBatch().draw(HerbesBasses.gazonNeutre, 60+ x, 240+ y);	
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 300+ y);
+		else game.getBatch().draw(HerbesBasses.gazonNeutre, 60+ x, 240+ y);
+		EauProfonde.eauProfonde(game, 60+x, 300+y);
 		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 360+ y);
 		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 60+ x, 420+ y);
 		
@@ -155,18 +155,19 @@ public class SousMapB1 extends Sprite {
 //						Placement des dessins des monstres
 //		==================================================================
 		
-		if ( monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
-		if ( monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
-		if ( monstre3.isAlive() ) game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x + x, monstre3.getBody().getPosition().y + y);
+		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
+		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
+		if ( m3EstCrée && monstre3.isAlive() ) game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x + x, monstre3.getBody().getPosition().y + y);
 		
 	}
 	
 	public static void createBodyAndType(World world){
 		
+		Map.setTypeDeDécor(0,300/60,"EauProfonde");
+		Map.setTypeDeDécor(60/60,300/60,"EauProfonde");
+		
 		Map.setTypeDeDécor(0, 0, "HerbesHautes");
-		
 		Map.setTypeDeDécor(0, 240 / 60, "HerbesHautes");
-		
 		Map.setTypeDeDécor(60 / 60, 240 / 60, "HerbesHautes");
 		
 		if ( isBody1Created == false ) {
@@ -246,7 +247,7 @@ public class SousMapB1 extends Sprite {
 		else monstre2.déplacementAléa();
 
 		if ( m3EstCrée == false ) {
-			monstre3 = new Pnj(world , 20 , 10 , 4 , 150 , 400 , "bas") ;
+			monstre3 = new Pnj(world , 20 , 10 , 4 , 150 , 300 , "bas") ;
 			monstres[2] = monstre3;
 			m3EstCrée = true;
 		}
@@ -256,27 +257,27 @@ public class SousMapB1 extends Sprite {
 	
 	public static void destroyBody(){
 //		déstruction du corps des arbres et des monstres
-		MainMenu.world.destroyBody(body1);
-		MainMenu.world.destroyBody(body2);
-		MainMenu.world.destroyBody(monstre1.getBody());
-		MainMenu.world.destroyBody(monstre2.getBody());
-		MainMenu.world.destroyBody(monstre3.getBody());
+		if ( isBody1Created) MainMenu.world.destroyBody(body1);
+		if ( isBody2Created)MainMenu.world.destroyBody(body2);
+		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
+		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
+		if ( m3EstCrée )MainMenu.world.destroyBody(monstre3.getBody());
 		SousMapB1.isBody1Created = false;
 		SousMapB1.isBody2Created = false;
 		m1EstCrée = false;
 		m2EstCrée = false;
 		m3EstCrée = false;
 //		déstruction du corps des murs
-		MainMenu.world.destroyBody(bodyMur1);
-		MainMenu.world.destroyBody(bodyMur2);
-		MainMenu.world.destroyBody(bodyMur3);
-		MainMenu.world.destroyBody(bodyMur4);
-		MainMenu.world.destroyBody(bodyMur5);
-		MainMenu.world.destroyBody(bodyMur6);
-		MainMenu.world.destroyBody(bodyMur7);
-		MainMenu.world.destroyBody(bodyMur8);
-		MainMenu.world.destroyBody(bodyMur9);
-		MainMenu.world.destroyBody(bodyMur10);
+		if ( isBodyMur1Created)MainMenu.world.destroyBody(bodyMur1);
+		if ( isBodyMur2Created)MainMenu.world.destroyBody(bodyMur2);
+		if ( isBodyMur3Created)MainMenu.world.destroyBody(bodyMur3);
+		if ( isBodyMur4Created)MainMenu.world.destroyBody(bodyMur4);
+		if ( isBodyMur5Created)MainMenu.world.destroyBody(bodyMur5);
+		if ( isBodyMur6Created)MainMenu.world.destroyBody(bodyMur6);
+		if ( isBodyMur7Created)MainMenu.world.destroyBody(bodyMur7);
+		if ( isBodyMur8Created)MainMenu.world.destroyBody(bodyMur8);
+		if ( isBodyMur9Created)MainMenu.world.destroyBody(bodyMur9);
+		if ( isBodyMur10Created)MainMenu.world.destroyBody(bodyMur10);
 		isBodyMur1Created = false;
 		isBodyMur2Created = false;
 		isBodyMur3Created = false;

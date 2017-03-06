@@ -43,7 +43,7 @@ public class Pnj extends Characters{
 	
 	public void déplacementAléa(){
 		double tempo = Math.random();
-		if ( System.currentTimeMillis() - start > 1000) {
+		if ( System.currentTimeMillis() - start > 2000) {
 			if ( tempo < 0.25 && this.getBody().getPosition().x > 60 ){
 				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
@@ -64,7 +64,8 @@ public class Pnj extends Characters{
 			arrêt = false;
 		} 
 		if (System.currentTimeMillis() - start > 800 && arrêt == false) {
-			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 1.2f, this.getBody().getLinearVelocity().y / 1.2f);
+//			ralentissement des pnjs
+			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 1.8f, this.getBody().getLinearVelocity().y / 1.8f);
 			if ( System.currentTimeMillis() - start > 900 ) arrêt = true;
 		}
 		

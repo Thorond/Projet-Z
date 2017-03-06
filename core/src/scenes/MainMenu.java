@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import décors.EauProfonde;
 import décors.Trou;
 import items.CoeurDeVie;
 import items.Epée;
@@ -100,6 +101,7 @@ public class MainMenu implements Screen{
 			else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
 		} 
 		if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
+		if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("EauProfonde")) EauProfonde.setDamage(Link);
 		for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 			if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
 				for ( int j = 0 ; j < 40 ; j ++){
@@ -144,8 +146,8 @@ public class MainMenu implements Screen{
 //			=============================================================================================
 			if ( PlacementMain.direction.equals("gauche")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					SousMapA1.sousMapA1(game,-600 + PlacementMain.x,0);
 					SousMapB1.sousMapB1(game, PlacementMain.x, 0);
-					game.getBatch().draw(SousMapA1.sousMapA1, -600 + PlacementMain.x, 0  );
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -164,8 +166,9 @@ public class MainMenu implements Screen{
 			} else if ( PlacementMain.direction.equals("droite")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					SousMapB1.createBodyAndType(world);
+					SousMapA1.sousMapA1(game,0- PlacementMain.x,0);
 					SousMapB1.sousMapB1(game,600 - PlacementMain.x,0);
-					game.getBatch().draw(SousMapA1.sousMapA1, 0- PlacementMain.x, 0);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -183,8 +186,8 @@ public class MainMenu implements Screen{
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					SousMapA1.sousMapA1(game,0,0+ PlacementMain.y);
 					game.getBatch().draw(SousMapA2.sousMapA2, 0, -480 + PlacementMain.y );
-					game.getBatch().draw(SousMapA1.sousMapA1, 0, 0 + PlacementMain.y );
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -199,13 +202,14 @@ public class MainMenu implements Screen{
 				}
 			} else if ( PlacementMain.direction.equals("haut")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					SousMapA1.sousMapA1(game,0,480- PlacementMain.y);
 					game.getBatch().draw(SousMapA2.sousMapA2, 0, 0 - PlacementMain.y );
-					game.getBatch().draw(SousMapA1.sousMapA1, 0, 480 - PlacementMain.y );
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
+					SousMapB1.createBodyAndType(world);
 					game.getBatch().draw(SousMapB2.sousMapB2, 0, 0- PlacementMain.y );
 					SousMapB1.sousMapB1(game, 0, 480-PlacementMain.y);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
@@ -232,7 +236,10 @@ public class MainMenu implements Screen{
 //			=============================================================================================
 //                  					  affichage de la sous carte
 //			=============================================================================================
-			if ( PlacementMain.positionSousMap.equals("A1")) game.getBatch().draw(SousMapA1.sousMapA1, 0, 0);
+			if ( PlacementMain.positionSousMap.equals("A1")) {
+				SousMapA1.createBodyAndType(world);
+				SousMapA1.sousMapA1(game, 0,0);
+			}
 			else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
 			else if ( PlacementMain.positionSousMap.equals("B1")) {
 				SousMapB1.createBodyAndType(world);

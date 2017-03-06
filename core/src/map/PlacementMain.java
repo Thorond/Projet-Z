@@ -20,6 +20,7 @@ public class PlacementMain {
 	public static void posiSousMap(MainCharacter perso){
 		if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y < 0  ){
 			if ( positionSousMap.equals("A1")  ){
+				SousMapA1.destroyBody();
 				positionSousMap = "A2";
 			} else if ( positionSousMap.equals("A2") ){
 				positionSousMap = "A3";
@@ -33,7 +34,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			y = 60;
-			direction = perso.getDirection();
+			direction = "bas";
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479 , 0);
 			Map.setTypeDeDécor();
@@ -51,7 +52,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			y = 60;
-			direction = perso.getDirection();
+			direction = "haut";
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479 , 0);
 			Map.setTypeDeDécor();
@@ -70,7 +71,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
-			direction = perso.getDirection();
+			direction = "gauche";
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x + 600, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
@@ -78,6 +79,7 @@ public class PlacementMain {
 			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 600 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
+				SousMapA1.destroyBody();
 				positionSousMap = "B1";
 			} else if ( positionSousMap.equals("B1")  ){
 				positionSousMap = "C1";
@@ -91,7 +93,7 @@ public class PlacementMain {
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
-			direction = perso.getDirection();
+			direction = "droite";
 			
 			perso.getBody().setTransform(perso.getBody().getPosition().x - 600, perso.getBody().getPosition().y  , 0);
 //			=============================================================================================================
