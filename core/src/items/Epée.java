@@ -66,7 +66,7 @@ public class Epée {
 									for ( int k = -60 ; k <= 120 ; k++){
 										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
 												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha);
+											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
 											j=121;
 											k=121;
 										}
@@ -77,7 +77,7 @@ public class Epée {
 									for ( int k = -60 ; k <= 120 ; k++){
 										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
 												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha);
+											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
 											j=-121;
 											k=121;
 										}
@@ -88,7 +88,7 @@ public class Epée {
 									for ( int k = 0 ; k <= 120 ; k++){
 										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
 												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha);
+											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
 											j=121;
 											k=121;
 										}
@@ -99,7 +99,7 @@ public class Epée {
 									for ( int k = 0 ; k >= -120 ; k--){
 										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
 												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha);
+											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
 											j=121;
 											k=-121;
 										}
