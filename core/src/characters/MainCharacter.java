@@ -32,15 +32,13 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroite1 = new Texture("Personnage/link8.png");
 	public static Texture linkDroite2 = new Texture("Personnage/link6.png");
 	
-	public static Texture linkPetit = new Texture("linkPetit.png");
-	
 	public static Texture coeurPlein = new Texture("Divers/coeurPlein.png");
 	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
 	public static Texture coeurUnQuart = new Texture("Divers/coeur1-4.png");
 	public static Texture coeurTroisQuart = new Texture("Divers/coeur3-4.png");
 	
 	public MainCharacter(World world, int HM, int health, int strength, float x, float y, String direction){
-		super( world,linkPetit, HM, health, strength, x,  y, direction);
+		super( world,linkBasRepos, HM, health, strength, x,  y, direction);
 		this.world = world;
 		createBody();
 	}

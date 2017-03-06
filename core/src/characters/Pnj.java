@@ -20,7 +20,7 @@ public class Pnj extends Characters{
 	public long start;
 	public boolean arrêt = false;
 	
-	public static Texture linkPetit = new Texture("linkPetit.png");
+	public static Texture linkPetit = new Texture("Personnage/link1.png");
 	
 	public Pnj(World world, int HM, int health, int strength, float x, float y, String direction){
 		super(world,linkPetit, HM, health, strength, x,  y, direction);
@@ -43,7 +43,7 @@ public class Pnj extends Characters{
 	
 	public void déplacementAléa(){
 		double tempo = Math.random();
-		if ( System.currentTimeMillis() - start > 1000) {
+		if ( System.currentTimeMillis() - start > 2000) {
 			if ( tempo < 0.25 && this.getBody().getPosition().x > 60 ){
 				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
@@ -64,7 +64,8 @@ public class Pnj extends Characters{
 			arrêt = false;
 		} 
 		if (System.currentTimeMillis() - start > 800 && arrêt == false) {
-			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 1.2f, this.getBody().getLinearVelocity().y / 1.2f);
+//			ralentissement des pnjs
+			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 1.8f, this.getBody().getLinearVelocity().y / 1.8f);
 			if ( System.currentTimeMillis() - start > 900 ) arrêt = true;
 		}
 		
@@ -165,15 +166,15 @@ public class Pnj extends Characters{
 	
 //	subir dégats et mort
 	
-	public void subirDégats( MainCharacter cha){
+	public void subirDégats( MainCharacter cha, String direction){
 		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
 			this.drop();
 			this.getBody().setTransform(-100, -100, 0);
 		} else {
-			if ( cha.getDirection().equals("droite")) this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
-			else if ( cha.getDirection().equals("gauche")) this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);
-			else if ( cha.getDirection().equals("haut")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y +30, 0);
-			else if ( cha.getDirection().equals("bas")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y -30, 0);
+			if ( direction.equals("droite")) this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
+			else if ( direction.equals("gauche")) this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);
+			else if ( direction.equals("haut")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y +30, 0);
+			else if ( direction.equals("bas")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y -30, 0);
 		}
 		this.setHealth(this.getHealth() - cha.getStrength());
 	}
