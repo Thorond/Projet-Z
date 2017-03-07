@@ -63,6 +63,7 @@ public class SousMapB1 extends Sprite {
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 180+ y);		
 		if ( Map.décorChangé[0][240 /60 ] == false ) game.getBatch().draw(HerbesHautes.gazon, 0+x, 240+y);
 		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 240+y);
+		game.getBatch().draw(HerbesHautes.grass,0+x,250+y);
 		EauProfonde.eauProfonde(game, x, 300+y);
 		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 360+ y);
 		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 0+ x, 420+ y);

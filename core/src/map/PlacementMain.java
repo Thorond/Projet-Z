@@ -23,11 +23,13 @@ public class PlacementMain {
 				SousMapA1.destroyBody();
 				positionSousMap = "A2";
 			} else if ( positionSousMap.equals("A2") ){
+				SousMapA2.destroyBody();
 				positionSousMap = "A3";
 			} else if ( positionSousMap.equals("B1")  ){
 				positionSousMap = "B2";
 				SousMapB1.destroyBody();
 			} else if ( positionSousMap.equals("B2")  ){
+				SousMapB2.destroyBody();
 				positionSousMap = "B3";
 			}
 			
@@ -43,9 +45,11 @@ public class PlacementMain {
 		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 480 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("A2") ){
+				SousMapA2.destroyBody();
 				positionSousMap = "A1";
 			}  else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("B2") ){
+				SousMapB2.destroyBody();
 				positionSousMap = "B1";
 			}
 			
@@ -65,6 +69,7 @@ public class PlacementMain {
 				SousMapB1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 			} else if ( positionSousMap.equals("B2")  ){
+				SousMapB2.destroyBody();
 				positionSousMap = "A2";
 			}
 			
@@ -85,8 +90,10 @@ public class PlacementMain {
 				positionSousMap = "C1";
 				SousMapB1.destroyBody();
 			} else if ( positionSousMap.equals("A2" ) ){
+				SousMapA2.destroyBody();
 				positionSousMap = "B2";
 			} else if ( positionSousMap.equals("B2") ){
+				SousMapB2.destroyBody();
 				positionSousMap = "C2";
 			}
 			
