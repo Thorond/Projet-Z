@@ -146,6 +146,7 @@ public class MainMenu implements Screen{
 //			=============================================================================================
 			if ( PlacementMain.direction.equals("gauche")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					SousMapA1.createBodyAndType(world);
 					SousMapA1.sousMapA1(game,-600 + PlacementMain.x,0);
 					SousMapB1.sousMapB1(game, PlacementMain.x, 0);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
@@ -155,8 +156,9 @@ public class MainMenu implements Screen{
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 					
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
-					game.getBatch().draw(SousMapB2.sousMapB2, 0 + PlacementMain.x, 0 );
-					game.getBatch().draw(SousMapA2.sousMapA2, -600 + PlacementMain.x, 0  );
+					SousMapA2.createBodyAndType(world);
+					SousMapB2.sousMapB2(game, 0 + PlacementMain.x, 0);
+					SousMapA2.sousMapA2(game, -600 + PlacementMain.x,0);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -175,8 +177,9 @@ public class MainMenu implements Screen{
 					}
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
-					game.getBatch().draw(SousMapA2.sousMapA2, 0- PlacementMain.x, 0 );
-					game.getBatch().draw(SousMapB2.sousMapB2, 600- PlacementMain.x, 0 );
+					SousMapB2.createBodyAndType(world);
+					SousMapA2.sousMapA2(game, 0- PlacementMain.x,0);
+					SousMapB2.sousMapB2(game, 600- PlacementMain.x, 0);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -186,14 +189,16 @@ public class MainMenu implements Screen{
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+					SousMapA2.createBodyAndType(world);
 					SousMapA1.sousMapA1(game,0,0+ PlacementMain.y);
-					game.getBatch().draw(SousMapA2.sousMapA2, 0, -480 + PlacementMain.y );
+					SousMapA2.sousMapA2(game, 0,-480 + PlacementMain.y );
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
 				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
-					game.getBatch().draw(SousMapB2.sousMapB2, 0, -480 + PlacementMain.y );
+					SousMapB2.createBodyAndType(world);
+					SousMapB2.sousMapB2(game, 0, -480 + PlacementMain.y);
 					SousMapB1.sousMapB1(game, 0, PlacementMain.y);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
@@ -202,15 +207,16 @@ public class MainMenu implements Screen{
 				}
 			} else if ( PlacementMain.direction.equals("haut")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
+					SousMapA1.createBodyAndType(world);
 					SousMapA1.sousMapA1(game,0,480- PlacementMain.y);
-					game.getBatch().draw(SousMapA2.sousMapA2, 0, 0 - PlacementMain.y );
+					SousMapA2.sousMapA2(game, 0,0- PlacementMain.y );
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 					SousMapB1.createBodyAndType(world);
-					game.getBatch().draw(SousMapB2.sousMapB2, 0, 0- PlacementMain.y );
+					SousMapB2.sousMapB2(game, 0, 0-PlacementMain.y);
 					SousMapB1.sousMapB1(game, 0, 480-PlacementMain.y);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
@@ -240,12 +246,18 @@ public class MainMenu implements Screen{
 				SousMapA1.createBodyAndType(world);
 				SousMapA1.sousMapA1(game, 0,0);
 			}
-			else if ( PlacementMain.positionSousMap.equals("A2")) game.getBatch().draw(SousMapA2.sousMapA2, 10, 10);
+			else if ( PlacementMain.positionSousMap.equals("A2")){
+				SousMapA2.createBodyAndType(world);
+				SousMapA2.sousMapA2(game, 0,0 );
+			}
 			else if ( PlacementMain.positionSousMap.equals("B1")) {
 				SousMapB1.createBodyAndType(world);
 				SousMapB1.sousMapB1(game, 0,0);
 			}
-			else if ( PlacementMain.positionSousMap.equals("B2")) game.getBatch().draw(SousMapB2.sousMapB2, 30, 30);
+			else if ( PlacementMain.positionSousMap.equals("B2")) {
+				SousMapB2.createBodyAndType(world);
+				SousMapB2.sousMapB2(game, 0, 0);
+			}
 		}
 		
 		
