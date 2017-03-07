@@ -50,6 +50,8 @@ public class ClimatMontagneux {
 	public static Texture glaceFragmentée = new Texture("climatMontagneux/glaceFragmentée.png");
 	public static Texture glaceFragmentéHautGauche = new Texture("climatMontagneux/glaceFragmentéHautGauche.png");
 	public static Texture morceauGlaceHautGauche = new Texture("climatMontagneux/morceauGlaceHautGauche.png");
+	public static Texture morceauGlaceHaut = new Texture("climatMontagneux/morceauGlaceHaut.png");
+	public static Texture morceauGlaceGauche = new Texture("climatMontagneux/morceauGlaceGauche.png");
 	
 	public static Texture icebergWater = new Texture("climatMontagneux/iceBergWater.png");
 	
