@@ -52,7 +52,7 @@ public class MainMenu implements Screen{
 //		PlacementMain.positionSousMap = "B1";
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
-		carte = new Texture("Map.png");
+	
 		header = new Texture("Divers/barreHaute.png");
 		start = System.currentTimeMillis();
 		
@@ -63,58 +63,74 @@ public class MainMenu implements Screen{
 	}
 	
 	void update(float dt){
-		if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-			Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
-			Link.setDirection("gauche");
-			Link.représentationLink(Link);
-
-			
-		} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-			Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
-			Link.setDirection("droite");
-			Link.représentationLink(Link);
-			
-		} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
-			Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
-			Link.setDirection("haut");
-			Link.représentationLink(Link);
-
-		} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-			Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
-			Link.setDirection("bas");
-			Link.représentationLink(Link);
-
-		} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
-			Epée.utilisationItem(Link);
-	    } else if (Gdx.input.isKeyPressed(Input.Keys.P)){
-			sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
-			SendClass.sendClass(sauvegarde);
-		} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
-			pause();
-		} else if (Gdx.input.isKeyPressed(Input.Keys.I)){
-			resume();
-		} else {
-			Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
-			if (Link.getDirection().equals("bas")) Link.setTexture(MainCharacter.linkBasRepos);
-			else if (Link.getDirection().equals("haut")) Link.setTexture(MainCharacter.linkHautRepos);
-			else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
-			else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
-		} 
-		if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
-		if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("EauProfonde")) EauProfonde.setDamage(Link);
-		for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
-			if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
-				for ( int j = 0 ; j < 40 ; j ++){
-					for ( int k = 0 ; k < 40 ; k ++){
-						if ( (int) Link.getBody().getPosition().x +j == CoeurDeVie.coeurDeVies[i].getX() 
-								&& (int) Link.getBody().getPosition().y +k == CoeurDeVie.coeurDeVies[i].getY() ){
-							if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
-							CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+		if ( Link.getHealth()>0){
+			if (Gdx.input.isKeyPressed(Input.Keys.Q)){
+				Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
+				Link.setDirection("gauche");
+				Link.représentationLink(Link);
+	
+				
+			} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
+				Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
+				Link.setDirection("droite");
+				Link.représentationLink(Link);
+				
+			} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
+				Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
+				Link.setDirection("haut");
+				Link.représentationLink(Link);
+	
+			} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
+				Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
+				Link.setDirection("bas");
+				Link.représentationLink(Link);
+	
+			} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
+				Epée.utilisationItem(Link);
+		    } else if (Gdx.input.isKeyPressed(Input.Keys.P)){
+				sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+				SendClass.sendClass(sauvegarde);
+			} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
+				pause();
+			} else if (Gdx.input.isKeyPressed(Input.Keys.I)){
+				resume();
+			} else {
+				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
+				if (Link.getDirection().equals("bas")) Link.setTexture(MainCharacter.linkBasRepos);
+				else if (Link.getDirection().equals("haut")) Link.setTexture(MainCharacter.linkHautRepos);
+				else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
+				else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
+			} 
+			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
+			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("EauProfonde")) EauProfonde.setDamage(Link);
+			for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
+				if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
+					for ( int j = 0 ; j < 40 ; j ++){
+						for ( int k = 0 ; k < 40 ; k ++){
+							if ( (int) Link.getBody().getPosition().x +j == CoeurDeVie.coeurDeVies[i].getX() 
+									&& (int) Link.getBody().getPosition().y +k == CoeurDeVie.coeurDeVies[i].getY() ){
+								if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+								CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+							}
 						}
 					}
+					
 				}
-				
 			}
+		} else {
+			if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("A2")) SousMapA2.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("B2")) SousMapB2.destroyBody();
+			
+			Map.setTypeDeDécor();
+			Map.setDécoChangéFaux();
+			CoeurDeVie.réinitialisation();
+			
+			Link.setDirection(sauvegarde.getDirection());
+			Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
+			PlacementMain.positionSousMap = sauvegarde.posiSousMap;
+			Link.setHealth(Link.getHealthMax());
 		}
 	}
 
