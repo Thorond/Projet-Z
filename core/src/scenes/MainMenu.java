@@ -118,11 +118,13 @@ public class MainMenu implements Screen{
 				}
 			}
 		} else {
+//			suppresion des corps
 			if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("A2")) SousMapA2.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B2")) SousMapB2.destroyBody();
 			
+//			suppression des types
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
