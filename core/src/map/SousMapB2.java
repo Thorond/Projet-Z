@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import décors.ClimatMontagneux;
 import décors.EauProfonde;
 import décors.HerbesHautes;
 import décors.MurDroitSolideGauche;
@@ -65,27 +66,36 @@ public static void sousMapB2(GameMain game, int x, int y){
 		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 0+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 60+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 120+ y);
-		EauProfonde.eauProfonde(game, 300+x, 180+y);
-		EauProfonde.eauProfonde(game, 300+x, 240+y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 300+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 300+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 300+ x, 300+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 360+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 420+ y);
 		
 		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 0+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 60+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 180+ y);
-		EauProfonde.eauProfonde(game, 360+x,240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 360+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 360+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 360+ x, 300+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 360+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 420+ y);
 		
 		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 0+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 60+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 180+ y);
-		EauProfonde.eauProfonde(game, 420+x,240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 420+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 420+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 420+ x, 300+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 360+ y);
 		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 420+ y);
 		
