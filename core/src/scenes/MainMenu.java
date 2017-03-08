@@ -45,7 +45,7 @@ public class MainMenu implements Screen{
 		this.game = game;
 		world = new World(new Vector2(0,0),true);
 		
-		Link = new MainCharacter(world, 40, 23, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 40, 30, 4, sauvegarde.getCoordX() , sauvegarde.getCoordY()  , sauvegarde.getDirection());
 		
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -123,8 +123,10 @@ public class MainMenu implements Screen{
 //			suppresion des corps
 			if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("C1")) SousMapC1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("A2")) SousMapA2.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B2")) SousMapB2.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("C2")) SousMapC2.destroyBody();
 			
 //			suppression des types
 			Map.setTypeDeDécor();
@@ -365,7 +367,7 @@ public class MainMenu implements Screen{
 		
 		game.getBatch().draw(Link, Link.getX(), Link.getY());
 		
-		game.getBatch().draw(header, 0,480);
+//		game.getBatch().draw(header, 0,480);
 		
 //		=============================================================================================
 //											dessiner la vie
@@ -374,28 +376,28 @@ public class MainMenu implements Screen{
 		
 		int vie = 0 ;
 		int écart = 0;
-		int écart2 =0;
+//		int écart2 =0;
 		while ( vie +4 <= Link.getHealth()  ){
-			if ( vie < 24 ) {
-				game.getBatch().draw(MainCharacter.coeurPlein, 240 + écart, 550 );
-				écart+=60;
-			}
-			else {
-				game.getBatch().draw(MainCharacter.coeurPlein, 240 + écart2, 490 );
-				écart2 += 60;
-			}
+//			if ( vie < 40 ) {
+				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
+				écart+=15;
+//			}
+//			else {
+//				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart2, 440 );
+//				écart2 += 15;
+//			}
 			vie += 4;
 		
 		}
-		if (vie < 24){
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart, 550 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart, 550 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart, 550 );
-		} else {
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 240 + écart2, 490 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 240 + écart2, 490 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 240 + écart2, 490 );
-		}
+//		if (vie < 40){
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
+//		} else {
+//			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart2, 440 );
+//			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart2, 440 );
+//			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart2, 440 );
+//		}
 		
 		
 		game.getBatch().end();

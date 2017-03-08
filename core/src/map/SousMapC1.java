@@ -20,6 +20,8 @@ public class SousMapC1 extends Sprite {
 	public static boolean isMurGaucheCreated;
 	public static Body murDroite ;
 	public static boolean isMurDroiteCreated;
+	public static Body igloo ;
+	public static boolean isIglooCreated;
 	
 	public static void sousMapC1(GameMain game, int x, int y){
 		
@@ -182,6 +184,10 @@ public class SousMapC1 extends Sprite {
 			murDroite = ClimatMontagneux.createBody(460,280,1,210);
 			isMurDroiteCreated = true;
 		}
+		if ( isIglooCreated == false ) {
+			igloo = ClimatMontagneux.createBody(260,310,190,140);
+			isIglooCreated = true;
+		}
 		
 		
 	}
@@ -197,6 +203,8 @@ public class SousMapC1 extends Sprite {
 		isMurGaucheCreated = false;
 		if ( isMurDroiteCreated ) MainMenu.world.destroyBody(murDroite);
 		isMurDroiteCreated = false;
+		if ( isIglooCreated ) MainMenu.world.destroyBody(igloo);
+		isIglooCreated = false;
 	}
 
 }
