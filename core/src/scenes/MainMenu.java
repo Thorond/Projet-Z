@@ -65,23 +65,23 @@ public class MainMenu implements Screen{
 	void update(float dt){
 		if ( Link.getHealth()>0){
 			if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-				Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
+				Link.getBody().applyLinearImpulse(new Vector2(-1000000f,0), Link.getBody().getWorldCenter(), true);
 				Link.setDirection("gauche");
 				Link.représentationLink(Link);
 	
 				
 			} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-				Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
+				Link.getBody().applyLinearImpulse(new Vector2(+1000000f,0), Link.getBody().getWorldCenter(), true);
 				Link.setDirection("droite");
 				Link.représentationLink(Link);
 				
 			} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
-				Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
+				Link.getBody().applyLinearImpulse(new Vector2(0,+1000000f), Link.getBody().getWorldCenter(), true);
 				Link.setDirection("haut");
 				Link.représentationLink(Link);
 	
 			} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-				Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
+				Link.getBody().applyLinearImpulse(new Vector2(0,-1000000f), Link.getBody().getWorldCenter(), true);
 				Link.setDirection("bas");
 				Link.représentationLink(Link);
 	
