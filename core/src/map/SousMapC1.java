@@ -1,14 +1,29 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import décors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapC1 extends Sprite {
 	
-public static void sousMapC1(GameMain game, int x, int y){
+	public static Body murAvantGauche ;
+	public static boolean isMurAvantGaucheCreated;
+	public static Body murAvantDroite ;
+	public static boolean isMurAvantDroiteCreated;
+	public static Body murArriere ;
+	public static boolean isMurArriereCreated;
+	public static Body murGauche ;
+	public static boolean isMurGaucheCreated;
+	public static Body murDroite ;
+	public static boolean isMurDroiteCreated;
+	public static Body igloo ;
+	public static boolean isIglooCreated;
+	
+	public static void sousMapC1(GameMain game, int x, int y){
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 60+y);
@@ -145,12 +160,51 @@ public static void sousMapC1(GameMain game, int x, int y){
 	}
 	
 	public static void createBodyAndType(World world){
-	
+		Map.setTypeDeDécor(0, 0, "EauProfonde");
+		Map.setTypeDeDécor(480/60, 5, "EauProfonde");
+		Map.setTypeDeDécor(9, 5, "EauProfonde");
+		
+		if ( isMurAvantGaucheCreated == false ) {
+			murAvantGauche = ClimatMontagneux.createBody(60,100,180,100);
+			isMurAvantGaucheCreated = true;
+		}
+		if ( isMurAvantDroiteCreated == false ) {
+			murAvantDroite = ClimatMontagneux.createBody(340,100,240,100);
+			isMurAvantDroiteCreated = true;
+		}
+		if ( isMurArriereCreated == false ) {
+			murArriere = ClimatMontagneux.createBody(280,420,500,5);
+			isMurArriereCreated = true;
+		}
+		if ( isMurGaucheCreated == false ) {
+			murGauche = ClimatMontagneux.createBody(60,280,1,210);
+			isMurGaucheCreated = true;
+		}
+		if ( isMurDroiteCreated == false ) {
+			murDroite = ClimatMontagneux.createBody(460,280,1,210);
+			isMurDroiteCreated = true;
+		}
+		if ( isIglooCreated == false ) {
+			igloo = ClimatMontagneux.createBody(260,310,190,140);
+			isIglooCreated = true;
+		}
+		
 		
 	}
 	
 	public static void destroyBody(){
-
+		if ( isMurAvantGaucheCreated ) MainMenu.world.destroyBody(murAvantGauche);
+		isMurAvantGaucheCreated = false;
+		if ( isMurAvantDroiteCreated ) MainMenu.world.destroyBody(murAvantDroite);
+		isMurAvantDroiteCreated = false;
+		if ( isMurArriereCreated ) MainMenu.world.destroyBody(murArriere);
+		isMurArriereCreated = false;
+		if ( isMurGaucheCreated ) MainMenu.world.destroyBody(murGauche);
+		isMurGaucheCreated = false;
+		if ( isMurDroiteCreated ) MainMenu.world.destroyBody(murDroite);
+		isMurDroiteCreated = false;
+		if ( isIglooCreated ) MainMenu.world.destroyBody(igloo);
+		isIglooCreated = false;
 	}
 
 }

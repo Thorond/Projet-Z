@@ -23,6 +23,8 @@ public class SousMapA2 extends Sprite{
 	public static Body bodyMurGauche8;
 	public static Body bodyMurGauche9;
 	
+	
+	
 	public static boolean isBodyMurGauche2Created;
 	public static boolean isBodyMurGauche3Created;
 	public static boolean isBodyMurGauche4Created;
@@ -31,6 +33,8 @@ public class SousMapA2 extends Sprite{
 	public static boolean isBodyMurGauche7Created;
 	public static boolean isBodyMurGauche8Created;
 	public static boolean isBodyMurGauche9Created;
+	
+
 	
 	
 	public static void sousMapA2(GameMain game, int x, int y){

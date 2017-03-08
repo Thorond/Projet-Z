@@ -5,7 +5,7 @@ import map.Map;
 import map.PlacementMain;
 import map.SousMapB1;
 
-public class Epée {
+public class Epee {
 //	extends Item
 
 //	public Epée(Texture text){

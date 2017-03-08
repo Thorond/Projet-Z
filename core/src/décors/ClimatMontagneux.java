@@ -36,6 +36,32 @@ public class ClimatMontagneux {
 		
 		return body;
 	}
+	
+	public static Body createBodyPerso( String décor, String type, float x, float y){
+		BodyDef bodyDef = new BodyDef();
+		if ( type.equals("static")) bodyDef.type = BodyDef.BodyType.StaticBody;
+		else if ( type.equals("kinematic")) bodyDef.type = BodyDef.BodyType.KinematicBody;
+		else if ( type.equals("Dynamix")) bodyDef.type = BodyDef.BodyType.DynamicBody;
+		
+		if ( décor.equals("tronc") || décor.equals("grossePierre")) bodyDef.position.set(x+10,y+20);
+		else if (décor.equals("arbre")) bodyDef.position.set(x+10,y+30);
+		body = world.createBody(bodyDef);
+		
+		PolygonShape shape = new PolygonShape();
+		if (décor.equals("tronc")) shape.setAsBox(2 / 2  , 2 / 2);
+		else if (décor.equals("grossePierre")) shape.setAsBox(20 / 2  , 20 / 2);
+		else if (décor.equals("arbre")) shape.setAsBox(30 / 2  , 50 / 2);
+		
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = shape;
+		fixtureDef.density = 1;
+		
+		Fixture fixture = body.createFixture(fixtureDef);
+		
+		shape.dispose();
+		
+		return body;
+	}
 
 	
 //	objets
@@ -44,6 +70,9 @@ public class ClimatMontagneux {
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
 	public static Texture tree = new Texture("climatMontagneux/Tree.png");
 	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
+	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
+	public static Texture grossePierre = new Texture("climatMontagneux/stone2.png");
+	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
 	
 //	tile
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
