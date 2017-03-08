@@ -6,9 +6,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import décors.ClimatMontagneux;
-import décors.EauProfonde;
-import décors.HerbesHautes;
-import décors.MurDroitSolideGauche;
 import décors.MurDroitSolideHaut;
 import scenes.MainMenu;
 

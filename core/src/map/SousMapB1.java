@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.Pnj;
+import décors.ClimatMontagneux;
 import décors.EauProfonde;
 import décors.HerbesBasses;
 import décors.HerbesHautes;
@@ -56,239 +57,240 @@ public class SousMapB1 extends Sprite {
 	public static void sousMapB1(GameMain game, int x, int y){
 		
 		
-		if ( Map.décorChangé[0][0] == false ) game.getBatch().draw(HerbesHautes.gazon, 0+x, 0+y);
-		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 0 + y);
-		game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 60 + y);
-		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 180+ y);		
-		if ( Map.décorChangé[0][240 /60 ] == false ) game.getBatch().draw(HerbesHautes.gazon, 0+x, 240+y);
-		else game.getBatch().draw(HerbesBasses.gazonNeutre, 0 + x, 240+y);
-		game.getBatch().draw(HerbesHautes.grass,0+x,250+y);
-		EauProfonde.eauProfonde(game, x, 300+y);
-		game.getBatch().draw(HerbesHautes.gazon, 0+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 0+ x, 420+ y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 420+y);
+		
+		game.getBatch().draw(ClimatMontagneux.glace1,60+x,0+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau,60+x,0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,60+ x, 420+y);
+		
+		game.getBatch().draw(ClimatMontagneux.glace1,120+x,0+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,120+x,0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,120+ x, 420+y);
 		
 		
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 180+ y);		
-		if ( Map.décorChangé[60 / 60 ][ 240 / 60] == false ) game.getBatch().draw(HerbesHautes.gazon, 60+ x, 240+ y);
-		else game.getBatch().draw(HerbesBasses.gazonNeutre, 60+ x, 240+ y);
-		EauProfonde.eauProfonde(game, 60+x, 300+y);
-		game.getBatch().draw(HerbesHautes.gazon, 60+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 60+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1,180+x,0+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,180+x,0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,180+ x, 420+y);
 		
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 120+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 120+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1,240+x,0+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,240+x,0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,240+ x, 420+y);
 		
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 180+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 180+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1,300+x,0+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,300+x,0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,300+ x, 420+y);
 		
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 240+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 240+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.glace1,360+x,0+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,360+x,0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,360+ x, 420+y);
 		
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 300+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 300+ x, 420+ y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,420+ x, 420+y);
 		
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 240+ y);
-		game.getBatch().draw(RacineGaucheArbre.map6060, 360+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 360+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 360+ x, 420+ y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,480+ x, 420+y);
 		
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 120+ y);
-		game.getBatch().draw(RacineGaucheArbre.map6060, 420+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 420+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 420+ x, 420+ y);
-		
-		game.getBatch().draw(HerbesHautes.gazon, 480+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 480+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 480+ x, 120+ y);
-//		game.getBatch().draw(Trou.trou, 480, 180);
-		game.getBatch().draw(HerbesHautes.gazon, 480+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 480+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 480+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 480+ x, 420+ y);
-		
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 0+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 60+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 120+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 180+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 240+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 300+ y);
-		game.getBatch().draw(HerbesHautes.gazon, 540+ x, 360+ y);
-		game.getBatch().draw(MurDroitSolideHaut.murDroitSolideHaut, 540+ x, 420+ y);
-		
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 420+y);
 		
 //		==================================================================
 //						Placement des dessins des monstres
 //		==================================================================
 		
-		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
-		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
-		if ( m3EstCrée && monstre3.isAlive() ) game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x + x, monstre3.getBody().getPosition().y + y);
+//		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
+//		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
+//		if ( m3EstCrée && monstre3.isAlive() ) game.getBatch().draw(monstre3, monstre3.getBody().getPosition().x + x, monstre3.getBody().getPosition().y + y);
 		
 	}
 	
 	public static void createBodyAndType(World world){
 		
-		Map.setTypeDeDécor(0,300/60,"EauProfonde");
-		Map.setTypeDeDécor(60/60,300/60,"EauProfonde");
-		
-		Map.setTypeDeDécor(0, 0, "HerbesHautes");
-		Map.setTypeDeDécor(0, 240 / 60, "HerbesHautes");
-		Map.setTypeDeDécor(60 / 60, 240 / 60, "HerbesHautes");
-		
-		if ( isBody1Created == false ) {
-			body1 = RacineGaucheArbre.createBody(370,315);
-			isBody1Created = true;
-		}
-		
-		if ( isBody2Created == false ) {
-			body2 = RacineGaucheArbre.createBody(430,200);
-			isBody2Created = true;
-		}
-		
-		Map.setTypeDeDécor(480/60, 180/60, "trou");
-		
-//		========================================================================================
-//							Création des corps du mur supérieur
-//		========================================================================================
-		
-		if ( isBodyMur1Created == false ) {
-			bodyMur1 = MurDroitSolideHaut.createBody(0,430);
-			isBodyMur1Created = true;
-		}
-		if ( isBodyMur2Created == false ) {
-			bodyMur2 = MurDroitSolideHaut.createBody(60,430);
-			isBodyMur2Created = true;
-		}
-		if ( isBodyMur3Created == false ) {
-			bodyMur3 = MurDroitSolideHaut.createBody(120,430);
-			isBodyMur3Created = true;
-		}
-		if ( isBodyMur4Created == false ) {
-			bodyMur4 = MurDroitSolideHaut.createBody(180,430);
-			isBodyMur4Created = true;
-		}
-		if ( isBodyMur5Created == false ) {
-			bodyMur5 = MurDroitSolideHaut.createBody(240,430);
-			isBodyMur5Created = true;
-		}
-		if ( isBodyMur6Created == false ) {
-			bodyMur6 = MurDroitSolideHaut.createBody(300,430);
-			isBodyMur6Created = true;
-		}
-		if ( isBodyMur7Created == false ) {
-			bodyMur7 = MurDroitSolideHaut.createBody(360,430);
-			isBodyMur7Created = true;
-		}
-		if ( isBodyMur8Created == false ) {
-			bodyMur8 = MurDroitSolideHaut.createBody(420,430);
-			isBodyMur8Created = true;
-		}
-		if ( isBodyMur9Created == false ) {
-			bodyMur9 = MurDroitSolideHaut.createBody(480,430);
-			isBodyMur9Created = true;
-		}
-		if ( isBodyMur10Created == false ) {
-			bodyMur10 = MurDroitSolideHaut.createBody(540,430);
-			isBodyMur10Created = true;
-		}
+//		Map.setTypeDeDécor(0,300/60,"EauProfonde");
+//		Map.setTypeDeDécor(60/60,300/60,"EauProfonde");
+//		
+//		Map.setTypeDeDécor(0, 0, "HerbesHautes");
+//		Map.setTypeDeDécor(0, 240 / 60, "HerbesHautes");
+//		Map.setTypeDeDécor(60 / 60, 240 / 60, "HerbesHautes");
+//		
+//		if ( isBody1Created == false ) {
+//			body1 = RacineGaucheArbre.createBody(370,315);
+//			isBody1Created = true;
+//		}
+//		
+//		if ( isBody2Created == false ) {
+//			body2 = RacineGaucheArbre.createBody(430,200);
+//			isBody2Created = true;
+//		}
+//		
+//		Map.setTypeDeDécor(480/60, 180/60, "trou");
+//		
+////		========================================================================================
+////							Création des corps du mur supérieur
+////		========================================================================================
+//		
+//		if ( isBodyMur1Created == false ) {
+//			bodyMur1 = MurDroitSolideHaut.createBody(0,430);
+//			isBodyMur1Created = true;
+//		}
+//		if ( isBodyMur2Created == false ) {
+//			bodyMur2 = MurDroitSolideHaut.createBody(60,430);
+//			isBodyMur2Created = true;
+//		}
+//		if ( isBodyMur3Created == false ) {
+//			bodyMur3 = MurDroitSolideHaut.createBody(120,430);
+//			isBodyMur3Created = true;
+//		}
+//		if ( isBodyMur4Created == false ) {
+//			bodyMur4 = MurDroitSolideHaut.createBody(180,430);
+//			isBodyMur4Created = true;
+//		}
+//		if ( isBodyMur5Created == false ) {
+//			bodyMur5 = MurDroitSolideHaut.createBody(240,430);
+//			isBodyMur5Created = true;
+//		}
+//		if ( isBodyMur6Created == false ) {
+//			bodyMur6 = MurDroitSolideHaut.createBody(300,430);
+//			isBodyMur6Created = true;
+//		}
+//		if ( isBodyMur7Created == false ) {
+//			bodyMur7 = MurDroitSolideHaut.createBody(360,430);
+//			isBodyMur7Created = true;
+//		}
+//		if ( isBodyMur8Created == false ) {
+//			bodyMur8 = MurDroitSolideHaut.createBody(420,430);
+//			isBodyMur8Created = true;
+//		}
+//		if ( isBodyMur9Created == false ) {
+//			bodyMur9 = MurDroitSolideHaut.createBody(480,430);
+//			isBodyMur9Created = true;
+//		}
+//		if ( isBodyMur10Created == false ) {
+//			bodyMur10 = MurDroitSolideHaut.createBody(540,430);
+//			isBodyMur10Created = true;
+//		}
 		
 		
 //		========================================================================================
 //									Création des corps des montres
 //		========================================================================================
 		
-		if ( m1EstCrée == false ) {
-			monstre1 = new Pnj(world , 20 , 10 , 4 , 350 , 200 , "bas") ;
-			monstres[0] = monstre1;
-			m1EstCrée = true;
-		}
-		else monstre1.déplacementAléa();
-
-		if ( m2EstCrée == false ) {
-			monstre2 = new Pnj(world , 20 , 10 , 4 , 100 , 200 , "bas") ;
-			monstres[1] = monstre2;
-			m2EstCrée = true;
-		}
-		else monstre2.déplacementAléa();
-
-		if ( m3EstCrée == false ) {
-			monstre3 = new Pnj(world , 20 , 10 , 4 , 150 , 300 , "bas") ;
-			monstres[2] = monstre3;
-			m3EstCrée = true;
-		}
-		else monstre3.déplacementAléa();
+//		if ( m1EstCrée == false ) {
+//			monstre1 = new Pnj(world , 20 , 10 , 4 , 350 , 200 , "bas") ;
+//			monstres[0] = monstre1;
+//			m1EstCrée = true;
+//		}
+//		else monstre1.déplacementAléa();
+//
+//		if ( m2EstCrée == false ) {
+//			monstre2 = new Pnj(world , 20 , 10 , 4 , 100 , 200 , "bas") ;
+//			monstres[1] = monstre2;
+//			m2EstCrée = true;
+//		}
+//		else monstre2.déplacementAléa();
+//
+//		if ( m3EstCrée == false ) {
+//			monstre3 = new Pnj(world , 20 , 10 , 4 , 150 , 300 , "bas") ;
+//			monstres[2] = monstre3;
+//			m3EstCrée = true;
+//		}
+//		else monstre3.déplacementAléa();
 		
 	}
 	
 	public static void destroyBody(){
 //		déstruction du corps des arbres et des monstres
-		if ( isBody1Created) MainMenu.world.destroyBody(body1);
-		if ( isBody2Created)MainMenu.world.destroyBody(body2);
-		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
-		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
-		if ( m3EstCrée )MainMenu.world.destroyBody(monstre3.getBody());
-		SousMapB1.isBody1Created = false;
-		SousMapB1.isBody2Created = false;
-		m1EstCrée = false;
-		m2EstCrée = false;
-		m3EstCrée = false;
-//		déstruction du corps des murs
-		if ( isBodyMur1Created)MainMenu.world.destroyBody(bodyMur1);
-		if ( isBodyMur2Created)MainMenu.world.destroyBody(bodyMur2);
-		if ( isBodyMur3Created)MainMenu.world.destroyBody(bodyMur3);
-		if ( isBodyMur4Created)MainMenu.world.destroyBody(bodyMur4);
-		if ( isBodyMur5Created)MainMenu.world.destroyBody(bodyMur5);
-		if ( isBodyMur6Created)MainMenu.world.destroyBody(bodyMur6);
-		if ( isBodyMur7Created)MainMenu.world.destroyBody(bodyMur7);
-		if ( isBodyMur8Created)MainMenu.world.destroyBody(bodyMur8);
-		if ( isBodyMur9Created)MainMenu.world.destroyBody(bodyMur9);
-		if ( isBodyMur10Created)MainMenu.world.destroyBody(bodyMur10);
-		isBodyMur1Created = false;
-		isBodyMur2Created = false;
-		isBodyMur3Created = false;
-		isBodyMur4Created = false;
-		isBodyMur5Created = false;
-		isBodyMur6Created = false;
-		isBodyMur7Created = false;
-		isBodyMur8Created = false;
-		isBodyMur9Created = false;
-		isBodyMur10Created = false;
+//		if ( isBody1Created) MainMenu.world.destroyBody(body1);
+//		if ( isBody2Created)MainMenu.world.destroyBody(body2);
+//		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
+//		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
+//		if ( m3EstCrée )MainMenu.world.destroyBody(monstre3.getBody());
+//		SousMapB1.isBody1Created = false;
+//		SousMapB1.isBody2Created = false;
+//		m1EstCrée = false;
+//		m2EstCrée = false;
+//		m3EstCrée = false;
+////		déstruction du corps des murs
+//		if ( isBodyMur1Created)MainMenu.world.destroyBody(bodyMur1);
+//		if ( isBodyMur2Created)MainMenu.world.destroyBody(bodyMur2);
+//		if ( isBodyMur3Created)MainMenu.world.destroyBody(bodyMur3);
+//		if ( isBodyMur4Created)MainMenu.world.destroyBody(bodyMur4);
+//		if ( isBodyMur5Created)MainMenu.world.destroyBody(bodyMur5);
+//		if ( isBodyMur6Created)MainMenu.world.destroyBody(bodyMur6);
+//		if ( isBodyMur7Created)MainMenu.world.destroyBody(bodyMur7);
+//		if ( isBodyMur8Created)MainMenu.world.destroyBody(bodyMur8);
+//		if ( isBodyMur9Created)MainMenu.world.destroyBody(bodyMur9);
+//		if ( isBodyMur10Created)MainMenu.world.destroyBody(bodyMur10);
+//		isBodyMur1Created = false;
+//		isBodyMur2Created = false;
+//		isBodyMur3Created = false;
+//		isBodyMur4Created = false;
+//		isBodyMur5Created = false;
+//		isBodyMur6Created = false;
+//		isBodyMur7Created = false;
+//		isBodyMur8Created = false;
+//		isBodyMur9Created = false;
+//		isBodyMur10Created = false;
 	}
 	
 
