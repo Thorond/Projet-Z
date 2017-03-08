@@ -1,12 +1,51 @@
 package décors;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import scenes.MainMenu;
 
 public class ClimatMontagneux {
 	
+	public static World world = MainMenu.world;
+	public static Body body;
+	
+	public static Body createBody(float x, float y,  int largeur, int taille){
+		BodyDef bodyDef = new BodyDef();
+		bodyDef.type = BodyDef.BodyType.StaticBody;
+		bodyDef.position.set(x,y);
+		body = world.createBody(bodyDef);
+		
+		PolygonShape shape = new PolygonShape();
+		shape.setAsBox(largeur / 2  , taille / 2);
+		
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = shape;
+		fixtureDef.density = 1;
+		
+		Fixture fixture = body.createFixture(fixtureDef);
+		
+		shape.dispose();
+		
+		return body;
+	}
+
+	
+//	objets
+	
+	public static Texture crate = new Texture("climatMontagneux/Crate.png");
+	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
+	public static Texture tree = new Texture("climatMontagneux/Tree.png");
+	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
+	
+//	tile
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
 	public static Texture  arbreBasGauche = new Texture("climatMontagneux/arbreBasGauche.png");
 	public static Texture  arbreBasMilieu = new Texture("climatMontagneux/arbreBasMilieu.png");
@@ -37,6 +76,7 @@ public class ClimatMontagneux {
 	
 	public static Texture  ciel= new Texture("climatMontagneux/ciel.png");
 	public static Texture  escalierGlacé= new Texture("climatMontagneux/escalieGlacé.png");
+	public static Texture  escalierHaut= new Texture("climatMontagneux/escalierHaut.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
 	
@@ -47,11 +87,51 @@ public class ClimatMontagneux {
 	public static Texture  piedCassé2Sup= new Texture("climatMontagneux/piedCassé2Sup.png");
 	public static Texture  piedGlacéSup= new Texture("climatMontagneux/piedGlacéSup.png");
 	
+	public static Texture angleBasGauche = new Texture("climatMontagneux/angleBasGauche.png");
+	
 	public static Texture glaceFragmentée = new Texture("climatMontagneux/glaceFragmentée.png");
 	public static Texture glaceFragmentéHautGauche = new Texture("climatMontagneux/glaceFragmentéHautGauche.png");
+	public static Texture glaceFragmentéHautDroite = new Texture("climatMontagneux/glaceFragmentéeHautDroite.png");
+	public static Texture glaceFragmentéBasGauche= new Texture("climatMontagneux/glaceFragmentéeBasGauche.png");
+	public static Texture glaceFragmentéBasDroite= new Texture("climatMontagneux/glaceFragmentéeBasDroite.png");
 	public static Texture morceauGlaceHautGauche = new Texture("climatMontagneux/morceauGlaceHautGauche.png");
+	public static Texture morceauGlaceHautDroite = new Texture("climatMontagneux/morceauGlaceHautDroite.png");
 	public static Texture morceauGlaceHaut = new Texture("climatMontagneux/morceauGlaceHaut.png");
 	public static Texture morceauGlaceGauche = new Texture("climatMontagneux/morceauGlaceGauche.png");
+	public static Texture petitMorceauGlaceGauche = new Texture("climatMontagneux/petitMorceauGlaceGauche.png");
+	public static Texture morceauGlaceDroite= new Texture("climatMontagneux/morceauGlaceDroite.png");
+	public static Texture morceauGlaceBasDroite = new Texture("climatMontagneux/morceauGlaceBasDroite.png");
+	public static Texture morceauGlaceBasGauche = new Texture("climatMontagneux/morceauGlaceBasGauche.png");
+	public static Texture morceauGlacéInf = new Texture("climatMontagneux/morceauGlacéInf.png");
+	public static Texture bordGlaceFragmentée= new Texture("climatMontagneux/bordGlaceFragmentée.png");
+	public static Texture bordGlaceFragmentéeBasDroite= new Texture("climatMontagneux/bordGlaceFragmentéeBasDroite.png");
+	public static Texture bordGlaceFragmentéeBasGauche= new Texture("climatMontagneux/bordGlaceFragmentéeBasGauche.png");
+	public static Texture bordSombreDroiteGlaceFragmentée= new Texture("climatMontagneux/bordSombreDroiteGlaceFragmentée.png");
+	public static Texture bordSombreGaucheGlaceFragmentée= new Texture("climatMontagneux/bordSombreGaucheGlaceFragmentée.png");
+	public static Texture bordSombreGlaceFragmentéeBasDroite= new Texture("climatMontagneux/bordSombreGlaceFragmentéeBasDroite.png");
+	public static Texture bordSombreGlaceFragmentéeBasGauche= new Texture("climatMontagneux/bordSombreGlaceFragmentéeBasGauche.png");
+	
+	public static Texture murEauGlacéCentre= new Texture("climatMontagneux/murEauGlacéCentre.png");
+	public static Texture murEauGlacéDroite= new Texture("climatMontagneux/murEauGlacéDroite.png");
+	public static Texture murEauGlacéGauche= new Texture("climatMontagneux/murEauGlacéGauche.png");
+	public static Texture murGlacéCentre= new Texture("climatMontagneux/murGlacéCentre.png");
+	public static Texture murGlacéDroite= new Texture("climatMontagneux/murGlacéDroite.png");
+	public static Texture murGlacéGauche= new Texture("climatMontagneux/murGlacéGauche.png");
+	public static Texture murSombreGlacéCentre= new Texture("climatMontagneux/murSombreGlacéCentre.png");
+	public static Texture murSombreGlacéCentre2= new Texture("climatMontagneux/murSombreGlacéCentre2.png");
+	public static Texture murSombreGlacéDroite= new Texture("climatMontagneux/murSombreGlacéDroite.png");
+	public static Texture murSombreGlacéDroite2= new Texture("climatMontagneux/murSombreGlacéDroite2.png");
+	public static Texture murSombreGlacéDroite3= new Texture("climatMontagneux/murSombreGlacéDroite3.png");
+	public static Texture murSombreGlacéGauche= new Texture("climatMontagneux/murSombreGlacéGauche.png");
+	public static Texture murSombreGlacéGauche2= new Texture("climatMontagneux/murSombreGlacéGauche2.png");
+	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
+	
+	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
+	public static Texture cheminGlaceBas = new Texture("climatMontagneux/cheminGlaceBas.png");
+	public static Texture cheminGlaceHautDroit= new Texture("climatMontagneux/cheminGlaceHautDroit.png");
+	public static Texture cheminGlaceHautGauche = new Texture("climatMontagneux/cheminGlaceHautGauche.png");
+	
+//	public static Texture = new Texture("climatMontagneux/.png");
 	
 	public static Texture icebergWater = new Texture("climatMontagneux/iceBergWater.png");
 	
@@ -63,12 +143,12 @@ public class ClimatMontagneux {
 	public static boolean etat1 = false;
 	public static long startEau = System.currentTimeMillis();
 
-	public static void setDamage(MainCharacter cha) {
+	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
-		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 60, 0);
-		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 60, 0);
-		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -60, cha.getBody().getPosition().y , 0);
-		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +60, cha.getBody().getPosition().y , 0);
+		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
+		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
+		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
+		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
 	}
 	
 	public static void eauProfondeGlacée(GameMain game, int x, int y){
