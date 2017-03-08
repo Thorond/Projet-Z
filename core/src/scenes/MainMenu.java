@@ -13,7 +13,7 @@ import characters.MainCharacter;
 import décors.ClimatMontagneux;
 import décors.Trou;
 import items.CoeurDeVie;
-import items.Epée;
+import items.Epee;
 import map.Map;
 import map.PlacementMain;
 import map.SousMapA1;
@@ -88,7 +88,7 @@ public class MainMenu implements Screen{
 				Link.représentationLink(Link);
 	
 			} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
-				Epée.utilisationItem(Link);
+				Epee.utilisationItem(Link);
 		    } else if (Gdx.input.isKeyPressed(Input.Keys.P)){
 				sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
 				SendClass.sendClass(sauvegarde);

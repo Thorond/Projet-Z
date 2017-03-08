@@ -44,6 +44,8 @@ public class ClimatMontagneux {
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
 	public static Texture tree = new Texture("climatMontagneux/Tree.png");
 	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
+	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
+	public static Texture grossePierre = new Texture("climatMontagneux/stone2.png");
 	
 //	tile
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
