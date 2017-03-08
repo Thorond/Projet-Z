@@ -1,15 +1,49 @@
 package décors;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import scenes.MainMenu;
 
 public class ClimatMontagneux {
+	
+	public static World world = MainMenu.world;
+	public static Body body;
+	
+	public static Body createBody(float x, float y,  int largeur, int taille){
+		BodyDef bodyDef = new BodyDef();
+		bodyDef.type = BodyDef.BodyType.StaticBody;
+		bodyDef.position.set(x,y);
+		body = world.createBody(bodyDef);
+		
+		PolygonShape shape = new PolygonShape();
+		shape.setAsBox(largeur / 2  , taille / 2);
+		
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = shape;
+		fixtureDef.density = 1;
+		
+		Fixture fixture = body.createFixture(fixtureDef);
+		
+		shape.dispose();
+		
+		return body;
+	}
+
 	
 //	objets
 	
 	public static Texture crate = new Texture("climatMontagneux/Crate.png");
+	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
+	public static Texture tree = new Texture("climatMontagneux/Tree.png");
+	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
 	
 //	tile
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
@@ -42,6 +76,7 @@ public class ClimatMontagneux {
 	
 	public static Texture  ciel= new Texture("climatMontagneux/ciel.png");
 	public static Texture  escalierGlacé= new Texture("climatMontagneux/escalieGlacé.png");
+	public static Texture  escalierHaut= new Texture("climatMontagneux/escalierHaut.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
 	
@@ -51,6 +86,8 @@ public class ClimatMontagneux {
 	public static Texture  piedCassé1Sup= new Texture("climatMontagneux/piedCassé1Sup.png");
 	public static Texture  piedCassé2Sup= new Texture("climatMontagneux/piedCassé2Sup.png");
 	public static Texture  piedGlacéSup= new Texture("climatMontagneux/piedGlacéSup.png");
+	
+	public static Texture angleBasGauche = new Texture("climatMontagneux/angleBasGauche.png");
 	
 	public static Texture glaceFragmentée = new Texture("climatMontagneux/glaceFragmentée.png");
 	public static Texture glaceFragmentéHautGauche = new Texture("climatMontagneux/glaceFragmentéHautGauche.png");
@@ -106,12 +143,12 @@ public class ClimatMontagneux {
 	public static boolean etat1 = false;
 	public static long startEau = System.currentTimeMillis();
 
-	public static void setDamage(MainCharacter cha) {
+	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
-		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 60, 0);
-		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 60, 0);
-		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -60, cha.getBody().getPosition().y , 0);
-		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +60, cha.getBody().getPosition().y , 0);
+		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
+		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
+		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
+		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
 	}
 	
 	public static void eauProfondeGlacée(GameMain game, int x, int y){

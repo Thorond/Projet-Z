@@ -184,6 +184,21 @@ public class SousMapA2 extends Sprite{
 	
 	public static void createBodyAndType(World world){
 		
+		Map.setTypeDeDécor(180/60,120/60,"EauProfonde");
+		Map.setTypeDeDécor(180/60,180/60,"EauProfonde");
+		Map.setTypeDeDécor(180/60,240/60,"EauProfonde");
+		Map.setTypeDeDécor(180/60,300/60,"EauProfonde");
+		Map.setTypeDeDécor(180/60,360/60,"EauProfonde");
+		
+		Map.setTypeDeDécor(240/60,60/60,"EauProfonde");
+		Map.setTypeDeDécor(240/60,420/60,"EauProfonde");
+		
+		Map.setTypeDeDécor(300/60,60/60,"EauProfonde");
+		Map.setTypeDeDécor(360/60,60/60,"EauProfonde");
+		Map.setTypeDeDécor(420/60,60/60,"EauProfonde");
+		Map.setTypeDeDécor(480/60,60/60,"EauProfonde");
+		
+		Map.setTypeDeDécor(540/60,0/60,"EauProfonde");
 		
 //		murs gauches
 		

@@ -10,7 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
-import décors.EauProfonde;
+import décors.ClimatMontagneux;
 import décors.Trou;
 import items.CoeurDeVie;
 import items.Epée;
@@ -104,7 +104,7 @@ public class MainMenu implements Screen{
 				else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
 			} 
 			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
-			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("EauProfonde")) EauProfonde.setDamage(Link);
+			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 			for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 				if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
 					for ( int j = 0 ; j < 40 ; j ++){

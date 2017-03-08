@@ -12,7 +12,7 @@ public static void sousMapB2(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentéeBasGauche, 0 + x, 0 + y);
+		game.getBatch().draw(ClimatMontagneux.angleBasGauche, 0 + x, 0 + y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 0 + x, 60 + y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 180+ y);		
@@ -22,6 +22,7 @@ public static void sousMapB2(GameMain game, int x, int y){
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 0+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 0+ x, 420+ y);
+
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 0+ y);
@@ -106,6 +107,7 @@ public static void sousMapB2(GameMain game, int x, int y){
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
 		
 //		petitBosquet
+		game.getBatch().draw(ClimatMontagneux.tree, 20+ x, 380+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 60+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 60+ x, 60+ y);
@@ -123,9 +125,13 @@ public static void sousMapB2(GameMain game, int x, int y){
 		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 420+ x,300+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 420+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 420+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 480+ x, 300+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 480+ x, 360+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 480+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 480+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 480+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 480+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 540+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 540+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 540+ x, 420+ y);
+		
 	
 	}
 	

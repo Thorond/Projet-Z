@@ -1,6 +1,5 @@
 package map;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
@@ -8,12 +7,6 @@ import com.mygdx.game.GameMain;
 
 import characters.Pnj;
 import décors.ClimatMontagneux;
-import décors.EauProfonde;
-import décors.HerbesBasses;
-import décors.HerbesHautes;
-import décors.MurDroitSolideHaut;
-import décors.RacineGaucheArbre;
-import scenes.MainMenu;
 
 public class SousMapB1 extends Sprite {
 
