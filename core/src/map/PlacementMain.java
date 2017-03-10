@@ -37,6 +37,15 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2")  ){
 				SousMapC2.destroyBody();
 				positionSousMap = "C3";
+			} else if ( positionSousMap.equals("A3") ){
+				SousMapA3.destroyBody();
+				positionSousMap = "A4";
+			} else if ( positionSousMap.equals("B3")  ){
+				SousMapB3.destroyBody();
+				positionSousMap = "B4";
+			} else if ( positionSousMap.equals("C3")  ){
+				SousMapC3.destroyBody();
+				positionSousMap = "C4";
 			}
 			
 			défilement = true;
@@ -61,6 +70,15 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2") ){
 				SousMapC2.destroyBody();
 				positionSousMap = "C1";
+			} else if ( positionSousMap.equals("A3") ){
+				SousMapA3.destroyBody();
+				positionSousMap = "A2";
+			} else if ( positionSousMap.equals("B3") ){
+				SousMapB3.destroyBody();
+				positionSousMap = "B2";
+			} else if ( positionSousMap.equals("C3") ){
+				SousMapC3.destroyBody();
+				positionSousMap = "C2";
 			}
 			
 			défilement = true;
@@ -87,6 +105,13 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2")  ){
 				SousMapC2.destroyBody();
 				positionSousMap = "B2";
+			} else if ( positionSousMap.equals("A3") ){
+			} else if ( positionSousMap.equals("B3")  ){
+				SousMapB3.destroyBody();
+				positionSousMap = "A3";
+			} else if ( positionSousMap.equals("C3")  ){
+				SousMapC3.destroyBody();
+				positionSousMap = "B3";
 			}
 			
 			défilement = true;
@@ -114,9 +139,18 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("B2") ){
 				SousMapB2.destroyBody();
 				positionSousMap = "C2";
-			} else if ( positionSousMap.equals("c2") ){
+			} else if ( positionSousMap.equals("C2") ){
 				SousMapC2.destroyBody();
 				positionSousMap = "D2";
+			} else if ( positionSousMap.equals("A3" ) ){
+				SousMapA3.destroyBody();
+				positionSousMap = "B3";
+			} else if ( positionSousMap.equals("B3") ){
+				SousMapB3.destroyBody();
+				positionSousMap = "C3";
+			} else if ( positionSousMap.equals("C3") ){
+				SousMapC3.destroyBody();
+				positionSousMap = "D3";
 			}
 			
 			défilement = true;

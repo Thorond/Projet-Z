@@ -44,12 +44,14 @@ public class ClimatMontagneux {
 		else if ( type.equals("kinematic")) bodyDef.type = BodyDef.BodyType.KinematicBody;
 		else if ( type.equals("Dynamix")) bodyDef.type = BodyDef.BodyType.DynamicBody;
 		
-		if ( décor.equals("tronc") || décor.equals("grossePierre")) bodyDef.position.set(x+10,y+20);
+		if ( décor.equals("tronc") || décor.equals("grossePierre") 
+				|| décor.equals("tonneau")) bodyDef.position.set(x+10,y+20);
 		else if (décor.equals("arbre")) bodyDef.position.set(x+10,y+30);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		if (décor.equals("tronc")) shape.setAsBox(2 / 2  , 2 / 2);
+		if (décor.equals("tronc") ) shape.setAsBox(2 / 2  , 2 / 2);
+		else if ( décor.equals("tonneau")) shape.setAsBox(10 / 2  , 10 / 2);
 		else if (décor.equals("grossePierre")) shape.setAsBox(20 / 2  , 20 / 2);
 		else if (décor.equals("arbre")) shape.setAsBox(30 / 2  , 50 / 2);
 		
@@ -77,6 +79,7 @@ public class ClimatMontagneux {
 	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
 	public static Texture grossePierre = new Texture("climatMontagneux/stone2.png");
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
+	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
 	
 //	tile
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
