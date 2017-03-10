@@ -194,11 +194,7 @@ public class SousMapC2 extends Sprite {
 		
 //		buissons 
 		
-//		game.getBatch().draw(ClimatMontagneux.buisson, 60+ x, 60+ y);
-//		game.getBatch().draw(ClimatMontagneux.buisson, 60+ x, 180+ y);
-//		game.getBatch().draw(ClimatMontagneux.buisson, 120+ x, 180+ y);
-//		game.getBatch().draw(ClimatMontagneux.buisson, 240+ x, 60+ y);
-//		game.getBatch().draw(ClimatMontagneux.buisson, 300+ x, 120+ y);
+
 		ClimatMontagneux.buisson(isBuisson1Cut,game, 60+x, 60+y);
 		ClimatMontagneux.buisson(isBuisson2Cut,game, 60+x, 180+y);
 		ClimatMontagneux.buisson(isBuisson3Cut,game, 120+x, 180+y);

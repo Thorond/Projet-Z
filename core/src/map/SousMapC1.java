@@ -23,6 +23,15 @@ public class SousMapC1 extends Sprite {
 	public static Body igloo ;
 	public static boolean isIglooCreated;
 	
+	public static Body tonneau1 ;
+	public static boolean isTonneau1Created;
+	public static Body tonneau2 ;
+	public static boolean isTonneau2Created;
+	public static Body tonneau3 ;
+	public static boolean isTonneau3Created;
+	public static Body tonneau4 ;
+	public static boolean isTonneau4Created;
+	
 	public static void sousMapC1(GameMain game, int x, int y){
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
@@ -151,6 +160,14 @@ public class SousMapC1 extends Sprite {
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 360+y);
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 420+y);
 		
+		
+//		tonneau 
+		
+		game.getBatch().draw(ClimatMontagneux.tonneau, 70+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneau, 410+ x, 350+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneau, 410+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneau, 410+ x, 280+ y);
+		
 //		igloo
 		
 		game.getBatch().draw(ClimatMontagneux.igloo, 180+ x, 240+ y);
@@ -188,6 +205,22 @@ public class SousMapC1 extends Sprite {
 			igloo = ClimatMontagneux.createBody(260,310,190,140);
 			isIglooCreated = true;
 		}
+		if ( isTonneau1Created == false ) {
+			tonneau1 = ClimatMontagneux.createBodyPerso("tonneau","static",70,180);
+			isTonneau1Created = true;
+		}
+		if ( isTonneau2Created == false ) {
+			tonneau2 = ClimatMontagneux.createBodyPerso("tonneau","static",410,280);
+			isTonneau2Created = true;
+		}
+		if ( isTonneau3Created == false ) {
+			tonneau3 = ClimatMontagneux.createBodyPerso("tonneau","static",410,330);
+			isTonneau3Created = true;
+		}
+		if ( isTonneau4Created == false ) {
+			tonneau4 =ClimatMontagneux.createBodyPerso("tonneau","static",410,350);
+			isTonneau4Created = true;
+		}
 		
 		
 	}
@@ -205,6 +238,14 @@ public class SousMapC1 extends Sprite {
 		isMurDroiteCreated = false;
 		if ( isIglooCreated ) MainMenu.world.destroyBody(igloo);
 		isIglooCreated = false;
+		if ( isTonneau1Created ) MainMenu.world.destroyBody(tonneau1);
+		isTonneau1Created = false;
+		if ( isTonneau2Created ) MainMenu.world.destroyBody(tonneau2);
+		isTonneau2Created = false;
+		if ( isTonneau3Created ) MainMenu.world.destroyBody(tonneau3);
+		isTonneau3Created = false;
+		if ( isTonneau4Created ) MainMenu.world.destroyBody(tonneau4);
+		isTonneau4Created = false;
 	}
 
 }
