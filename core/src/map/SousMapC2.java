@@ -33,6 +33,12 @@ public class SousMapC2 extends Sprite {
 	public static Body arbre1;
 	public static boolean isArbre1Created;
 	
+	public static boolean isBuisson1Cut = false;
+	public static boolean isBuisson2Cut = false;
+	public static boolean isBuisson3Cut = false;
+	public static boolean isBuisson4Cut = false;
+	public static boolean isBuisson5Cut = false;
+	
 	public static void sousMapC2(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
@@ -188,11 +194,16 @@ public class SousMapC2 extends Sprite {
 		
 //		buissons 
 		
-		game.getBatch().draw(ClimatMontagneux.buisson, 60+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.buisson, 60+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.buisson, 120+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.buisson, 240+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.buisson, 300+ x, 120+ y);
+//		game.getBatch().draw(ClimatMontagneux.buisson, 60+ x, 60+ y);
+//		game.getBatch().draw(ClimatMontagneux.buisson, 60+ x, 180+ y);
+//		game.getBatch().draw(ClimatMontagneux.buisson, 120+ x, 180+ y);
+//		game.getBatch().draw(ClimatMontagneux.buisson, 240+ x, 60+ y);
+//		game.getBatch().draw(ClimatMontagneux.buisson, 300+ x, 120+ y);
+		ClimatMontagneux.buisson(isBuisson1Cut,game, 60+x, 60+y);
+		ClimatMontagneux.buisson(isBuisson2Cut,game, 60+x, 180+y);
+		ClimatMontagneux.buisson(isBuisson3Cut,game, 120+x, 180+y);
+		ClimatMontagneux.buisson(isBuisson4Cut,game, 240+x, 60+y);
+		ClimatMontagneux.buisson(isBuisson5Cut,game, 300+x, 120+y);
 	
 
 		
@@ -202,11 +213,16 @@ public class SousMapC2 extends Sprite {
 	
 	public static void createBodyAndType(World world){
 		
-		Map.setTypeDeDécor(1,1,"HerbesHautesGlace");
-		Map.setTypeDeDécor(1,3,"HerbesHautesGlace");
-		Map.setTypeDeDécor(2,3,"HerbesHautesGlace");
-		Map.setTypeDeDécor(4,1,"HerbesHautesGlace");
-		Map.setTypeDeDécor(5,2,"HerbesHautesGlace");
+		Map.setTypeDeDécor(1,1,"HerbesHautes");
+		Map.setTypeDeDécor(1,3,"HerbesHautes");
+		Map.setTypeDeDécor(2,3,"HerbesHautes");
+		Map.setTypeDeDécor(4,1,"HerbesHautes");
+		Map.setTypeDeDécor(5,2,"HerbesHautes");
+		if ( Map.décorChangé[1][1] == true ) isBuisson1Cut = true;
+		if ( Map.décorChangé[1][3] == true ) isBuisson2Cut = true;
+		if ( Map.décorChangé[2][3] == true ) isBuisson3Cut = true;
+		if ( Map.décorChangé[4][1] == true ) isBuisson4Cut = true;
+		if ( Map.décorChangé[5][2] == true ) isBuisson5Cut = true;
 		
 		if ( isBosquet1Created == false ) {
 			bosquet1 = ClimatMontagneux.createBody(450,180,220,200);
@@ -253,6 +269,14 @@ public class SousMapC2 extends Sprite {
 			isArbre1Created = true;
 		}
 		
+	}
+	
+	public static void destroyType(){
+		isBuisson1Cut = false;
+		isBuisson2Cut = false;
+		isBuisson3Cut = false;
+		isBuisson4Cut = false;
+		isBuisson5Cut = false;
 	}
 	
 	public static void destroyBody(){

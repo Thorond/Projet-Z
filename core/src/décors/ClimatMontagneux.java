@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import map.Map;
 import scenes.MainMenu;
 
 public class ClimatMontagneux {
@@ -70,6 +71,9 @@ public class ClimatMontagneux {
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
 	public static Texture tree = new Texture("climatMontagneux/Tree.png");
 	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
+	public static void buisson(boolean isCut,GameMain game, int x, int y ){
+		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.buisson, x, y);
+	}
 	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
 	public static Texture grossePierre = new Texture("climatMontagneux/stone2.png");
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
