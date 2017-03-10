@@ -306,6 +306,7 @@ public class MainMenu implements Screen{
 					
 				}
 			}
+			
 			if ( PlacementMain.x == 600) {
 				PlacementMain.défilement = false;
 				PlacementMain.x = 0;
@@ -341,6 +342,7 @@ public class MainMenu implements Screen{
 				SousMapB2.sousMapB2(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("C2")) {
+				SousMapC2.destroyType();
 				SousMapC2.createBodyAndType(world);
 				SousMapC2.sousMapC2(game, 0, 0);
 			}
@@ -390,9 +392,9 @@ public class MainMenu implements Screen{
 		
 		}
 //		if (vie < 40){
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
 //		} else {
 //			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart2, 440 );
 //			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart2, 440 );
