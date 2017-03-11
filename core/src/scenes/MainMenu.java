@@ -25,6 +25,9 @@ import map.SousMapB3;
 import map.SousMapC1;
 import map.SousMapC2;
 import map.SousMapC3;
+import map.SousMapD1;
+import map.SousMapD2;
+import map.SousMapD3;
 import sauvegarde.AcceptClass;
 import sauvegarde.Sauvegarde;
 import sauvegarde.SendClass;
@@ -186,10 +189,18 @@ public class MainMenu implements Screen{
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
-				} if ( PlacementMain.positionSousMap.equals("C1") ) {
-//					SousMapC1.createBodyAndType(world);
-//					SousMapC1.sousMapC1(game,-600 + PlacementMain.x,0);
-//					SousMapD1.sousMapD1(game, PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("C1") ) {
+					SousMapC1.createBodyAndType(world);
+					SousMapC1.sousMapC1(game,-600 + PlacementMain.x,0);
+					SousMapD1.sousMapD1(game, PlacementMain.x, 0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
+//					SousMapD1.createBodyAndType(world);
+//					SousMapD1.sousMapD1(game,-600 + PlacementMain.x,0);
+//					SousMapE1.sousMapE1(game, PlacementMain.x, 0);
 //					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 //						PlacementMain.x+=60;
 //						PlacementMain.start = System.currentTimeMillis();
@@ -211,7 +222,13 @@ public class MainMenu implements Screen{
 						PlacementMain.start = System.currentTimeMillis();
 					}
 				} else if (PlacementMain.positionSousMap.equals("C2")){
-					
+					SousMapC2.createBodyAndType(world);
+					SousMapD2.sousMapD2(game, 0 + PlacementMain.x, 0);
+					SousMapC2.sousMapC2(game, -600 + PlacementMain.x,0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					SousMapA3.createBodyAndType(world);
 					SousMapB3.sousMapB3(game, 0 + PlacementMain.x, 0);
@@ -229,7 +246,13 @@ public class MainMenu implements Screen{
 						PlacementMain.start = System.currentTimeMillis();
 					}
 				} else if (PlacementMain.positionSousMap.equals("C3")){
-					
+					SousMapC3.createBodyAndType(world);
+					SousMapD3.sousMapD3(game, 0 + PlacementMain.x, 0);
+					SousMapC3.sousMapC3(game, -600 + PlacementMain.x,0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
 				}
 			} else if ( PlacementMain.direction.equals("droite")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
@@ -245,6 +268,14 @@ public class MainMenu implements Screen{
 					SousMapC1.createBodyAndType(world);
 					SousMapB1.sousMapB1(game,0- PlacementMain.x,0);
 					SousMapC1.sousMapC1(game,600 - PlacementMain.x,0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
+					SousMapD1.createBodyAndType(world);
+					SousMapC1.sousMapC1(game,0- PlacementMain.x,0);
+					SousMapD1.sousMapD1(game,600 - PlacementMain.x,0);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -266,6 +297,14 @@ public class MainMenu implements Screen{
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
+				} else if ( PlacementMain.positionSousMap.equals("D2") ) {
+					SousMapD2.createBodyAndType(world);
+					SousMapC2.sousMapC2(game, 0- PlacementMain.x,0);
+					SousMapD2.sousMapD2(game, 600- PlacementMain.x, 0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B3") ) {
 					SousMapB3.createBodyAndType(world);
@@ -283,11 +322,20 @@ public class MainMenu implements Screen{
 						PlacementMain.x+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
-				} 
+				} else if ( PlacementMain.positionSousMap.equals("D3") ) {
+					SousMapD3.createBodyAndType(world);
+					SousMapC3.sousMapC3(game, 0- PlacementMain.x,0);
+					SousMapD3.sousMapD3(game, 600- PlacementMain.x, 0);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.x+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				}
 			} else if ( PlacementMain.direction.equals("bas")){
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("C1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapA2.createBodyAndType(world);
 					SousMapA1.sousMapA1(game,0,0+ PlacementMain.y);
@@ -312,6 +360,14 @@ public class MainMenu implements Screen{
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
+				} else if ( PlacementMain.positionSousMap.equals("D2") ) {
+					SousMapD2.createBodyAndType(world);
+					SousMapD2.sousMapD2(game, 0, -480 + PlacementMain.y);
+					SousMapD1.sousMapD1(game, 0, PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					SousMapA3.createBodyAndType(world);
 					SousMapA2.sousMapA2(game,0,0+ PlacementMain.y);
@@ -332,6 +388,14 @@ public class MainMenu implements Screen{
 					SousMapC3.createBodyAndType(world);
 					SousMapC3.sousMapC3(game, 0, -480 + PlacementMain.y);
 					SousMapC2.sousMapC2(game, 0, PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("D3") ) {
+					SousMapD3.createBodyAndType(world);
+					SousMapD3.sousMapD3(game, 0, -480 + PlacementMain.y);
+					SousMapD2.sousMapD2(game, 0, PlacementMain.y);
 					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
@@ -362,6 +426,14 @@ public class MainMenu implements Screen{
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
+				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
+					SousMapD1.createBodyAndType(world);
+					SousMapD2.sousMapD2(game, 0, 0-PlacementMain.y);
+					SousMapD1.sousMapD1(game, 0, 480-PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapA2.createBodyAndType(world);
 					SousMapA2.sousMapA2(game,0,480- PlacementMain.y);
@@ -386,11 +458,21 @@ public class MainMenu implements Screen{
 						PlacementMain.y+=60;
 						PlacementMain.start = System.currentTimeMillis();
 					}
-				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
+				} else if ( PlacementMain.positionSousMap.equals("D2") ) {
+					SousMapD2.createBodyAndType(world);
+					SousMapD3.sousMapD3(game, 0, 0-PlacementMain.y);
+					SousMapD2.sousMapD2(game, 0, 480-PlacementMain.y);
+					if ( System.currentTimeMillis() - PlacementMain.start > 20) {
+						PlacementMain.y+=60;
+						PlacementMain.start = System.currentTimeMillis();
+					}
+				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					
-				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B3") ) {
 					
-				} else if ( PlacementMain.positionSousMap.equals("C2") ) {
+				} else if ( PlacementMain.positionSousMap.equals("C3") ) {
+					
+				} else if ( PlacementMain.positionSousMap.equals("D3") ) {
 					
 				}
 			}
@@ -421,6 +503,10 @@ public class MainMenu implements Screen{
 				SousMapC1.createBodyAndType(world);
 				SousMapC1.sousMapC1(game, 0, 0);
 			}
+			else if ( PlacementMain.positionSousMap.equals("D1")) {
+				SousMapD1.createBodyAndType(world);
+				SousMapD1.sousMapD1(game, 0, 0);
+			}
 			else if ( PlacementMain.positionSousMap.equals("A2")){
 				SousMapA2.createBodyAndType(world);
 				SousMapA2.sousMapA2(game, 0,0 );
@@ -435,6 +521,11 @@ public class MainMenu implements Screen{
 				SousMapC2.createBodyAndType(world);
 				SousMapC2.sousMapC2(game, 0, 0);
 			}
+			else if ( PlacementMain.positionSousMap.equals("D2")) {
+				SousMapD2.destroyType();
+				SousMapD2.createBodyAndType(world);
+				SousMapD2.sousMapD2(game, 0, 0);
+			}
 			else if ( PlacementMain.positionSousMap.equals("A3")){
 				SousMapA3.createBodyAndType(world);
 				SousMapA3.sousMapA3(game, 0,0 );
@@ -448,6 +539,11 @@ public class MainMenu implements Screen{
 				SousMapC3.destroyType();
 				SousMapC3.createBodyAndType(world);
 				SousMapC3.sousMapC3(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("D3")) {
+				SousMapD3.destroyType();
+				SousMapD3.createBodyAndType(world);
+				SousMapD3.sousMapD3(game, 0, 0);
 			}
 		}
 		

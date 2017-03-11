@@ -28,6 +28,9 @@ public class PlacementMain {
 			}  else if ( positionSousMap.equals("C1")  ){
 				positionSousMap = "C2";
 				SousMapC1.destroyBody();
+			}  else if ( positionSousMap.equals("D1")  ){
+				positionSousMap = "D2";
+				SousMapD1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 				SousMapA2.destroyBody();
 				positionSousMap = "A3";
@@ -37,6 +40,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2")  ){
 				SousMapC2.destroyBody();
 				positionSousMap = "C3";
+			} else if ( positionSousMap.equals("D2")  ){
+				SousMapD2.destroyBody();
+				positionSousMap = "D3";
 			} else if ( positionSousMap.equals("A3") ){
 				SousMapA3.destroyBody();
 				positionSousMap = "A4";
@@ -46,6 +52,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C3")  ){
 				SousMapC3.destroyBody();
 				positionSousMap = "C4";
+			} else if ( positionSousMap.equals("D3")  ){
+				SousMapD3.destroyBody();
+				positionSousMap = "D4";
 			}
 			
 			défilement = true;
@@ -61,6 +70,7 @@ public class PlacementMain {
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("C1" ) ){
+			} else if ( positionSousMap.equals("D1" ) ){
 			} else if ( positionSousMap.equals("A2") ){
 				SousMapA2.destroyBody();
 				positionSousMap = "A1";
@@ -70,6 +80,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2") ){
 				SousMapC2.destroyBody();
 				positionSousMap = "C1";
+			} else if ( positionSousMap.equals("D2") ){
+				SousMapD2.destroyBody();
+				positionSousMap = "D1";
 			} else if ( positionSousMap.equals("A3") ){
 				SousMapA3.destroyBody();
 				positionSousMap = "A2";
@@ -79,6 +92,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C3") ){
 				SousMapC3.destroyBody();
 				positionSousMap = "C2";
+			}  else if ( positionSousMap.equals("D3") ){
+				SousMapD3.destroyBody();
+				positionSousMap = "D2";
 			}
 			
 			défilement = true;
@@ -98,6 +114,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C1")  ){
 				positionSousMap = "B1";
 				SousMapC1.destroyBody();
+			} else if ( positionSousMap.equals("D1")  ){
+				positionSousMap = "C1";
+				SousMapD1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 			} else if ( positionSousMap.equals("B2")  ){
 				SousMapB2.destroyBody();
@@ -105,6 +124,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2")  ){
 				SousMapC2.destroyBody();
 				positionSousMap = "B2";
+			} else if ( positionSousMap.equals("D2")  ){
+				SousMapD2.destroyBody();
+				positionSousMap = "C2";
 			} else if ( positionSousMap.equals("A3") ){
 			} else if ( positionSousMap.equals("B3")  ){
 				SousMapB3.destroyBody();
@@ -112,6 +134,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C3")  ){
 				SousMapC3.destroyBody();
 				positionSousMap = "B3";
+			} else if ( positionSousMap.equals("D3")  ){
+				SousMapD3.destroyBody();
+				positionSousMap = "C3";
 			}
 			
 			défilement = true;
@@ -133,6 +158,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C1")  ){
 				positionSousMap = "D1";
 				SousMapC1.destroyBody();
+			} else if ( positionSousMap.equals("D1")  ){
+				positionSousMap = "E1";
+				SousMapD1.destroyBody();
 			} else if ( positionSousMap.equals("A2" ) ){
 				SousMapA2.destroyBody();
 				positionSousMap = "B2";
@@ -142,6 +170,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C2") ){
 				SousMapC2.destroyBody();
 				positionSousMap = "D2";
+			} else if ( positionSousMap.equals("D2") ){
+				SousMapD2.destroyBody();
+				positionSousMap = "E2";
 			} else if ( positionSousMap.equals("A3" ) ){
 				SousMapA3.destroyBody();
 				positionSousMap = "B3";
@@ -151,6 +182,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("C3") ){
 				SousMapC3.destroyBody();
 				positionSousMap = "D3";
+			} else if ( positionSousMap.equals("D3") ){
+				SousMapD3.destroyBody();
+				positionSousMap = "E3";
 			}
 			
 			défilement = true;
