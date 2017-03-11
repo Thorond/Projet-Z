@@ -42,7 +42,7 @@ public class ClimatMontagneux {
 		BodyDef bodyDef = new BodyDef();
 		if ( type.equals("static")) bodyDef.type = BodyDef.BodyType.StaticBody;
 		else if ( type.equals("kinematic")) bodyDef.type = BodyDef.BodyType.KinematicBody;
-		else if ( type.equals("Dynamix")) bodyDef.type = BodyDef.BodyType.DynamicBody;
+		else if ( type.equals("Dynamic")) bodyDef.type = BodyDef.BodyType.DynamicBody;
 		
 		if ( décor.equals("tronc") || décor.equals("grossePierre") 
 				|| décor.equals("tonneau")) bodyDef.position.set(x+10,y+20);
@@ -163,6 +163,7 @@ public class ClimatMontagneux {
 	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
+	public static Texture cheminGlaceHori = new Texture("climatMontagneux/cheminGlaceHori.png");
 	public static Texture cheminGlaceBas = new Texture("climatMontagneux/cheminGlaceBas.png");
 	public static Texture cheminGlaceHautDroit= new Texture("climatMontagneux/cheminGlaceHautDroit.png");
 	public static Texture cheminGlaceHautGauche = new Texture("climatMontagneux/cheminGlaceHautGauche.png");
@@ -196,6 +197,17 @@ public class ClimatMontagneux {
 			else etat1=false;
 		}
 		
+	}
+	
+//	trou
+	
+	public static void setDamageTrou(MainCharacter cha) {
+		// TODO Auto-generated method stub
+		cha.setHealth(cha.getHealth() - 5 );
+		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
+		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
+		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
+		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
 	}
 
 }

@@ -30,6 +30,11 @@ public class SousMapC2 extends Sprite {
 	public static boolean isGrossePierre4Created;
 	public static Body grossePierre5;
 	public static boolean isGrossePierre5Created;
+	public static Body grossePierre6;
+	public static boolean isGrossePierre6Created;
+	public static Body grossePierre7;
+	public static boolean isGrossePierre7Created;
+	
 	public static Body arbre1;
 	public static boolean isArbre1Created;
 	
@@ -155,6 +160,10 @@ public class SousMapC2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 550+ x, 270+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 300+ x,0+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 300+ x,60+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 240+ x,0+ y);
+
+		game.getBatch().draw(ClimatMontagneux.petitePierre, 180+ x, 0+ y);
 
 		
 //		relief bas droite
@@ -260,6 +269,14 @@ public class SousMapC2 extends Sprite {
 			grossePierre5 = ClimatMontagneux.createBodyPerso("grossePierre", "static",420,270);
 			isGrossePierre5Created = true;
 		}
+		if ( isGrossePierre6Created == false ) {
+			grossePierre6 = ClimatMontagneux.createBodyPerso("grossePierre", "static",300,60);
+			isGrossePierre6Created = true;
+		}
+		if ( isGrossePierre7Created == false ) {
+			grossePierre7 = ClimatMontagneux.createBodyPerso("grossePierre", "static",240,0);
+			isGrossePierre7Created = true;
+		}
 		if ( isArbre1Created == false ) {
 			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",240,240);
 			isArbre1Created = true;
@@ -305,6 +322,12 @@ public class SousMapC2 extends Sprite {
 		
 		if ( isGrossePierre5Created) MainMenu.world.destroyBody(grossePierre5);
 		isGrossePierre5Created = false;
+		
+		if ( isGrossePierre6Created) MainMenu.world.destroyBody(grossePierre6);
+		isGrossePierre6Created = false;
+
+		if ( isGrossePierre7Created) MainMenu.world.destroyBody(grossePierre7);
+		isGrossePierre7Created = false;
 		
 		if ( isArbre1Created) MainMenu.world.destroyBody(arbre1);
 		isArbre1Created = false;

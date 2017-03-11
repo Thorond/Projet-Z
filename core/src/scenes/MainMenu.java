@@ -109,7 +109,7 @@ public class MainMenu implements Screen{
 				else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
 				else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
 			} 
-			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("trou")) Trou.setDamage(Link);
+			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 			if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x /60 )][(int) (Link.getBody().getPosition().y / 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 			for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 				if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
