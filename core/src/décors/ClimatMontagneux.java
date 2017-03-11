@@ -21,11 +21,11 @@ public class ClimatMontagneux {
 	public static Body createBody(float x, float y,  int largeur, int taille){
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.StaticBody;
-		bodyDef.position.set(x,y);
+		bodyDef.position.set(x/1.5f,y/1.5f);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(largeur / 2  , taille / 2);
+		shape.setAsBox(largeur / (2*1.5f)  , taille / (2*1.5f));
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
@@ -42,18 +42,18 @@ public class ClimatMontagneux {
 		BodyDef bodyDef = new BodyDef();
 		if ( type.equals("static")) bodyDef.type = BodyDef.BodyType.StaticBody;
 		else if ( type.equals("kinematic")) bodyDef.type = BodyDef.BodyType.KinematicBody;
-		else if ( type.equals("Dynamix")) bodyDef.type = BodyDef.BodyType.DynamicBody;
+		else if ( type.equals("Dynamic")) bodyDef.type = BodyDef.BodyType.DynamicBody;
 		
 		if ( décor.equals("tronc") || décor.equals("grossePierre") 
-				|| décor.equals("tonneau")) bodyDef.position.set(x+10,y+20);
-		else if (décor.equals("arbre")) bodyDef.position.set(x+10,y+30);
+				|| décor.equals("tonneau")) bodyDef.position.set((x+10)/1.5f,(y+20)/1.5f);
+		else if (décor.equals("arbre")) bodyDef.position.set((x+10)/1.5f,(y+30)/1.5f);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		if (décor.equals("tronc") ) shape.setAsBox(2 / 2  , 2 / 2);
-		else if ( décor.equals("tonneau")) shape.setAsBox(10 / 2  , 10 / 2);
-		else if (décor.equals("grossePierre")) shape.setAsBox(20 / 2  , 20 / 2);
-		else if (décor.equals("arbre")) shape.setAsBox(30 / 2  , 50 / 2);
+		if (décor.equals("tronc") ) shape.setAsBox((2 / 2)/1.5f  , (2 / 2)/1.5f);
+		else if ( décor.equals("tonneau")) shape.setAsBox((10 / 2)/1.5f  , (10 / 2)/1.5f);
+		else if (décor.equals("grossePierre")) shape.setAsBox((20 / 2)/1.5f  , (20 / 2)/1.5f);
+		else if (décor.equals("arbre")) shape.setAsBox((30 / 2)/1.5f  , (50 / 2)/1.5f);
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
@@ -163,6 +163,7 @@ public class ClimatMontagneux {
 	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
+	public static Texture cheminGlaceHori = new Texture("climatMontagneux/cheminGlaceHori.png");
 	public static Texture cheminGlaceBas = new Texture("climatMontagneux/cheminGlaceBas.png");
 	public static Texture cheminGlaceHautDroit= new Texture("climatMontagneux/cheminGlaceHautDroit.png");
 	public static Texture cheminGlaceHautGauche = new Texture("climatMontagneux/cheminGlaceHautGauche.png");
@@ -196,6 +197,17 @@ public class ClimatMontagneux {
 			else etat1=false;
 		}
 		
+	}
+	
+//	trou
+	
+	public static void setDamageTrou(MainCharacter cha) {
+		// TODO Auto-generated method stub
+		cha.setHealth(cha.getHealth() - 5 );
+		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
+		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
+		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
+		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
 	}
 
 }
