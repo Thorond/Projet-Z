@@ -144,7 +144,7 @@ public class PlacementMain {
 			x = 60;
 			direction = "gauche";
 			
-			perso.getBody().setTransform(perso.getBody().getPosition().x + 600, perso.getBody().getPosition().y  , 0);
+			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/1.6f, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();

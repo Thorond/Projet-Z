@@ -151,7 +151,8 @@ public class SousMapC3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 240+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 240+ x, 240+ y);
 		
-		
+		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 0+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 0+ x, 60+ y);
 		
 	}
 
