@@ -21,11 +21,11 @@ public class ClimatMontagneux {
 	public static Body createBody(float x, float y,  int largeur, int taille){
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.StaticBody;
-		bodyDef.position.set(x,y);
+		bodyDef.position.set(x/1.5f,y/1.5f);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(largeur / 2  , taille / 2);
+		shape.setAsBox(largeur / (2*1.5f)  , taille / (2*1.5f));
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
@@ -45,15 +45,15 @@ public class ClimatMontagneux {
 		else if ( type.equals("Dynamic")) bodyDef.type = BodyDef.BodyType.DynamicBody;
 		
 		if ( décor.equals("tronc") || décor.equals("grossePierre") 
-				|| décor.equals("tonneau")) bodyDef.position.set(x+10,y+20);
-		else if (décor.equals("arbre")) bodyDef.position.set(x+10,y+30);
+				|| décor.equals("tonneau")) bodyDef.position.set((x+10)/1.5f,(y+20)/1.5f);
+		else if (décor.equals("arbre")) bodyDef.position.set((x+10)/1.5f,(y+30)/1.5f);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		if (décor.equals("tronc") ) shape.setAsBox(2 / 2  , 2 / 2);
-		else if ( décor.equals("tonneau")) shape.setAsBox(10 / 2  , 10 / 2);
-		else if (décor.equals("grossePierre")) shape.setAsBox(20 / 2  , 20 / 2);
-		else if (décor.equals("arbre")) shape.setAsBox(30 / 2  , 50 / 2);
+		if (décor.equals("tronc") ) shape.setAsBox((2 / 2)/1.5f  , (2 / 2)/1.5f);
+		else if ( décor.equals("tonneau")) shape.setAsBox((10 / 2)/1.5f  , (10 / 2)/1.5f);
+		else if (décor.equals("grossePierre")) shape.setAsBox((20 / 2)/1.5f  , (20 / 2)/1.5f);
+		else if (décor.equals("arbre")) shape.setAsBox((30 / 2)/1.5f  , (50 / 2)/1.5f);
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;

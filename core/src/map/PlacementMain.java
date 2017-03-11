@@ -62,11 +62,11 @@ public class PlacementMain {
 			y = 60;
 			direction = "bas";
 			
-			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479 , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479/1.5f , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 480 ){
+		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 480/1.5f ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("C1" ) ){
@@ -102,7 +102,7 @@ public class PlacementMain {
 			y = 60;
 			direction = "haut";
 			
-			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479 , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479/1.5f , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
@@ -144,11 +144,11 @@ public class PlacementMain {
 			x = 60;
 			direction = "gauche";
 			
-			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/1.6f, perso.getBody().getPosition().y  , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/1.5f, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 600 && perso.getBody().getPosition().y > 0 ){
+		} else if (perso.getBody().getPosition().x > 600/1.5f && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
 				positionSousMap = "B1";
@@ -192,7 +192,7 @@ public class PlacementMain {
 			x = 60;
 			direction = "droite";
 			
-			perso.getBody().setTransform(perso.getBody().getPosition().x - 600, perso.getBody().getPosition().y  , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x - 600/1.5f, perso.getBody().getPosition().y  , 0);
 //			=============================================================================================================
 //									réinitialisation du type de décor et de leur état , et des coeurs de vies
 //			=============================================================================================================

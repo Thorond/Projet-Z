@@ -46,11 +46,11 @@ public class MainCharacter extends Characters {
 	void createBody(){
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.DynamicBody;
-		bodyDef.position.set(getX()/1.6f,getY()/1.6f);
+		bodyDef.position.set(getX()/1.5f,getY()/1.5f);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(getWidth() / (2*1.6f) , getHeight() / (2*1.6f));
+		shape.setAsBox(getWidth() / (2*1.5f) , getHeight() / (2*1.5f));
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
@@ -62,7 +62,7 @@ public class MainCharacter extends Characters {
 	}
 	
 	public void updatePlayer(){
-		this.setPosition(body.getPosition().x *1.6f, body.getPosition().y *1.6f);
+		this.setPosition(body.getPosition().x *1.5f, body.getPosition().y *1.5f);
 	}
 	
 	public Body getBody(){
