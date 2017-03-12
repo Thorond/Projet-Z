@@ -48,13 +48,15 @@ public class MainMenu implements Screen{
 	
 	public static long start;
 	
+	public static float PPM = 1.5f;
+	
 	
 	public MainMenu(GameMain game){
 		
 		this.game = game;
 		
 		this.box2DCamera = new OrthographicCamera();
-		this.box2DCamera.setToOrtho(false, 600 / 1.5f, 480 /1.5f);
+		this.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
 		this.box2DCamera.position.set(300,240,0);
 		
 		this.debugRenderer = new Box2DDebugRenderer();
@@ -132,8 +134,8 @@ public class MainMenu implements Screen{
 					if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
 						for ( int j = 0 ; j < 40 ; j ++){
 							for ( int k = 0 ; k < 40 ; k ++){
-								if ( (int) Link.getBody().getPosition().x +j == CoeurDeVie.coeurDeVies[i].getX() 
-										&& (int) Link.getBody().getPosition().y +k == CoeurDeVie.coeurDeVies[i].getY() ){
+								if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
+										&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
 									if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
 									CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
 								}
@@ -279,7 +281,7 @@ public class MainMenu implements Screen{
 				}
 			} else if ( PlacementMain.direction.equals("droite")){
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					Link.getBody().setTransform(Link.getBody().getPosition().x -11, Link.getBody().getPosition().y  , 0);
+					Link.getBody().setTransform(Link.getBody().getPosition().x -10, Link.getBody().getPosition().y  , 0);
 				}
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
@@ -432,7 +434,7 @@ public class MainMenu implements Screen{
 				}
 			} else if ( PlacementMain.direction.equals("haut")){
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					Link.getBody().setTransform(Link.getBody().getPosition().x , Link.getBody().getPosition().y -11 , 0);
+					Link.getBody().setTransform(Link.getBody().getPosition().x , Link.getBody().getPosition().y -10 , 0);
 				}
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 					SousMapA1.createBodyAndType(world);
