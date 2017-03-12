@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Bats;
+import characters.Pnj;
 import décors.ClimatMontagneux;
 import scenes.MainMenu;
 
@@ -27,6 +29,14 @@ public class SousMapB2 extends Sprite {
 	public static boolean isBuisson8Cut = false;
 	public static boolean isBuisson9Cut = false;
 	public static boolean isBuisson10Cut = false;
+	
+	public static Bats monstre1;
+	public static Bats monstre2;
+	public static boolean m1EstCrée = false ;
+	public static boolean m2EstCrée = false ;
+	
+	public static boolean monstresPrésent = true;
+	public static Pnj[] monstres = new Pnj[2];
 	
 	public static void sousMapB2(GameMain game, int x, int y){
 		
@@ -170,6 +180,16 @@ public class SousMapB2 extends Sprite {
 		ClimatMontagneux.buisson(isBuisson9Cut,game, 300+x, 360+y);
 		ClimatMontagneux.buisson(isBuisson10Cut,game, 300+x, 300+y);
 		
+		
+//		==================================================================
+//				Placement des dessins des monstres
+//		==================================================================
+
+//		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
+		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
+
+		
+		
 	}
 	
 	public static void createBodyAndType(World world){
@@ -210,6 +230,30 @@ public class SousMapB2 extends Sprite {
 			isBosquet2Created = true;
 		}
 		
+//		========================================================================================
+//			Création des corps des montres
+//	========================================================================================
+	
+		if ( m1EstCrée == false ) {
+			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 400 , "bas") ;
+			monstres[0] = monstre1;
+			m1EstCrée = true;
+		}
+		else {
+			monstre1.déplacementAléa();
+			monstre1.représentationBat();
+		}
+		
+		if ( m2EstCrée == false ) {
+			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
+			monstres[1] = monstre2;
+			m2EstCrée = true;
+		}
+		else {
+			monstre2.déplacementAléa();
+			monstre2.représentationBat();
+		}
+		
 	}
 	
 	public static void destroyType(){
@@ -223,6 +267,7 @@ public class SousMapB2 extends Sprite {
 		isBuisson8Cut = false;
 		isBuisson9Cut = false;
 		isBuisson10Cut = false;
+	
 	}
 	
 	public static void destroyBody(){
@@ -234,7 +279,13 @@ public class SousMapB2 extends Sprite {
 		
 		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
 		isBosquet2Created = false;
-
+		
+//		destruction monstres
+		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
+		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
+		m1EstCrée = false;
+		m2EstCrée = false;
+		
 	}
 
 	

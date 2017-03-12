@@ -211,10 +211,6 @@ public class MainMenu implements Screen{
 				} else if ( PlacementMain.positionSousMap.equals("C1") ) {
 					SousMapC1.sousMapC1(game,-600 + PlacementMain.x,0);
 					SousMapD1.sousMapD1(game, PlacementMain.x, 0);
-				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
-//					SousMapD1.createBodyAndType(world);
-//					SousMapD1.sousMapD1(game,-600 + PlacementMain.x,0);
-//					SousMapE1.sousMapE1(game, PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapB2.sousMapB2(game, 0 + PlacementMain.x, 0);
 					SousMapA2.sousMapA2(game, -600 + PlacementMain.x,0);
@@ -315,6 +311,7 @@ public class MainMenu implements Screen{
 					SousMapB2.sousMapB2(game, 0, -480 + PlacementMain.y);
 					SousMapB1.sousMapB1(game, 0, PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("C2") ) {
+					SousMapC1.sousMapC1(game, 0, PlacementMain.y);
 					SousMapC2.sousMapC2(game, 0, -480 + PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("D2") ) {
 					SousMapD2.sousMapD2(game, 0, -480 + PlacementMain.y);
