@@ -4,6 +4,7 @@ import characters.MainCharacter;
 import map.Map;
 import map.PlacementMain;
 import map.SousMapB1;
+import scenes.MainMenu;
 
 public class Epee {
 //	extends Item
@@ -18,42 +19,42 @@ public class Epee {
 	public static void utilisationItem( MainCharacter cha) {
 		if (  System.currentTimeMillis() - startAtt > 500 ) {
 			if ( cha.getDirection().equals("bas")){
-				if ( ((int) cha.getBody().getPosition().y / 60 ) -1 >= 0 &&
-						Map.typeDeDécor[( int) cha.getBody().getPosition().x / 60 ][((int) cha.getBody().getPosition().y / 60 ) -1 ].equals("HerbesHautes")
-						&& Map.décorChangé[((int) cha.getBody().getPosition().x / 60) ][((int) cha.getBody().getPosition().y / 60 ) -1] == false){
-					Map.setDécorChangé(( int) cha.getBody().getPosition().x / 60, ((int) cha.getBody().getPosition().y / 60) - 1, true);
-					CoeurDeVie.remplirCoeurDeVies((int) cha.getBody().getPosition().x, (int) cha.getBody().getPosition().y -30 );
+				if ( ((int) cha.getBody().getPosition().y *MainMenu.PPM/ 60 ) -1 >= 0 &&
+						Map.typeDeDécor[( int) (cha.getBody().getPosition().x *MainMenu.PPM / 60) ][((int) (cha.getBody().getPosition().y*MainMenu.PPM / 60 )) -1 ].equals("HerbesHautes")
+						&& Map.décorChangé[((int) (cha.getBody().getPosition().x*MainMenu.PPM / 60)) ][((int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60 )) -1] == false){
+					Map.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60), (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) - 1, true);
+					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM -30) );
 				}
 				
 			} else if ( cha.getDirection().equals("haut")){
 				if ( ((int) cha.getBody().getPosition().y / 60 ) +1 <= 7 &&
-						Map.typeDeDécor[( int) cha.getBody().getPosition().x / 60 ][((int) cha.getBody().getPosition().y / 60 ) +1 ].equals("HerbesHautes")
-						&& Map.décorChangé[((int) cha.getBody().getPosition().x / 60)  ][((int) cha.getBody().getPosition().y / 60 ) +1 ] == false){
-					Map.setDécorChangé(( int) cha.getBody().getPosition().x / 60, ((int) cha.getBody().getPosition().y / 60) +1, true);
-					CoeurDeVie.remplirCoeurDeVies((int) cha.getBody().getPosition().x, (int) cha.getBody().getPosition().y +60 );
+						Map.typeDeDécor[( int) (cha.getBody().getPosition().x *MainMenu.PPM / 60) ][((int) (cha.getBody().getPosition().y*MainMenu.PPM / 60 )) +1 ].equals("HerbesHautes")
+						&& Map.décorChangé[((int) (cha.getBody().getPosition().x*MainMenu.PPM / 60)) ][((int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60 )) +1] == false){
+					Map.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60), (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) + 1, true);
+					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM +30) );
 				}
 				
 			} else if ( cha.getDirection().equals("droite")){
 				if ( ((int) cha.getBody().getPosition().x / 60 ) +1 <= 9 &&
-						Map.typeDeDécor[((int) cha.getBody().getPosition().x / 60) +1 ][((int) cha.getBody().getPosition().y / 60 ) ].equals("HerbesHautes")
-						&& Map.décorChangé[((int) cha.getBody().getPosition().x / 60) +1 ][((int) cha.getBody().getPosition().y / 60 ) ] == false){
-					Map.setDécorChangé(((int) cha.getBody().getPosition().x / 60) +1, ((int) cha.getBody().getPosition().y / 60), true);
-					CoeurDeVie.remplirCoeurDeVies((int) cha.getBody().getPosition().x +30, (int) cha.getBody().getPosition().y );
+						Map.typeDeDécor[( int) (cha.getBody().getPosition().x *MainMenu.PPM / 60) +1 ][((int) (cha.getBody().getPosition().y*MainMenu.PPM / 60 ))  ].equals("HerbesHautes")
+						&& Map.décorChangé[((int) (cha.getBody().getPosition().x*MainMenu.PPM / 60)) +1][((int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60 )) ] == false){
+					Map.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60)+1, (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
+					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM)+30, (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
 				}
 				
 			} else if ( cha.getDirection() == "gauche"){
 				if ( ((int) cha.getBody().getPosition().x / 60 ) -1 >= 0 &&
-						Map.typeDeDécor[((int) cha.getBody().getPosition().x / 60) -1 ][((int) cha.getBody().getPosition().y / 60 ) ].equals("HerbesHautes")
-						&& Map.décorChangé[((int) cha.getBody().getPosition().x / 60) -1 ][((int) cha.getBody().getPosition().y / 60 ) ] == false){
-					Map.setDécorChangé(((int) cha.getBody().getPosition().x / 60) -1, ((int) cha.getBody().getPosition().y / 60), true);
-					CoeurDeVie.remplirCoeurDeVies((int) cha.getBody().getPosition().x -30, (int) cha.getBody().getPosition().y );
+						Map.typeDeDécor[( int) (cha.getBody().getPosition().x *MainMenu.PPM / 60) -1 ][((int) (cha.getBody().getPosition().y*MainMenu.PPM / 60 ))  ].equals("HerbesHautes")
+						&& Map.décorChangé[((int) (cha.getBody().getPosition().x*MainMenu.PPM / 60)) -1][((int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60 )) ] == false){
+					Map.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60)-1, (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
+					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM)-30, (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
 				}
 				
 			}
-			if (Map.typeDeDécor[((int) cha.getBody().getPosition().x / 60)  ][((int) cha.getBody().getPosition().y / 60 ) ].equals("HerbesHautes")
-						&& Map.décorChangé[((int) cha.getBody().getPosition().x / 60)  ][((int) cha.getBody().getPosition().y / 60 ) ] == false){
-				Map.setDécorChangé(((int) cha.getBody().getPosition().x / 60) , ((int) cha.getBody().getPosition().y / 60), true);
-				CoeurDeVie.remplirCoeurDeVies((int) cha.getBody().getPosition().x , (int) cha.getBody().getPosition().y );
+			if 	(	Map.typeDeDécor[( int) (cha.getBody().getPosition().x *MainMenu.PPM / 60)  ][((int) (cha.getBody().getPosition().y*MainMenu.PPM / 60 ))  ].equals("HerbesHautes")
+					&& Map.décorChangé[((int) (cha.getBody().getPosition().x*MainMenu.PPM / 60)) ][((int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60 )) ] == false){
+				Map.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60), (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
+				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
 			}
 			if ( PlacementMain.positionSousMap.equals("B1")){
 //				vérification que des monstres sont sur cette map

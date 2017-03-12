@@ -2,6 +2,7 @@ package map;
 
 import characters.MainCharacter;
 import items.CoeurDeVie;
+import scenes.MainMenu;
 
 public class PlacementMain {
 	
@@ -55,18 +56,31 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("D3")  ){
 				SousMapD3.destroyBody();
 				positionSousMap = "D4";
+			} else if ( positionSousMap.equals("A4") ){
+				SousMapA4.destroyBody();
+				positionSousMap = "A5";
+			} else if ( positionSousMap.equals("B4")  ){
+				SousMapB4.destroyBody();
+				positionSousMap = "B5";
+			} else if ( positionSousMap.equals("C4")  ){
+				SousMapC4.destroyBody();
+				positionSousMap = "C5";
+			} else if ( positionSousMap.equals("D4")  ){
+				SousMapD4.destroyBody();
+				positionSousMap = "D5";
 			}
 			
 			défilement = true;
 			start = System.currentTimeMillis();
 			y = 60;
+			x=0;
 			direction = "bas";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479/1.5f , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479/MainMenu.PPM , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 480/1.5f ){
+		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 430/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("C1" ) ){
@@ -95,14 +109,27 @@ public class PlacementMain {
 			}  else if ( positionSousMap.equals("D3") ){
 				SousMapD3.destroyBody();
 				positionSousMap = "D2";
+			} else if ( positionSousMap.equals("A4") ){
+				SousMapA4.destroyBody();
+				positionSousMap = "A3";
+			} else if ( positionSousMap.equals("B4") ){
+				SousMapB4.destroyBody();
+				positionSousMap = "B3";
+			} else if ( positionSousMap.equals("C4") ){
+				SousMapC4.destroyBody();
+				positionSousMap = "C3";
+			}  else if ( positionSousMap.equals("D4") ){
+				SousMapD4.destroyBody();
+				positionSousMap = "D3";
 			}
 			
 			défilement = true;
 			start = System.currentTimeMillis();
 			y = 60;
+			x=0;
 			direction = "haut";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479/1.5f , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479/MainMenu.PPM , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
@@ -137,18 +164,29 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("D3")  ){
 				SousMapD3.destroyBody();
 				positionSousMap = "C3";
+			} else if ( positionSousMap.equals("A4") ){
+			} else if ( positionSousMap.equals("B4")  ){
+				SousMapB4.destroyBody();
+				positionSousMap = "A4";
+			} else if ( positionSousMap.equals("C4")  ){
+				SousMapC4.destroyBody();
+				positionSousMap = "B4";
+			} else if ( positionSousMap.equals("D4")  ){
+				SousMapD4.destroyBody();
+				positionSousMap = "C4";
 			}
 			
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
+			y = 0;
 			direction = "gauche";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/1.5f, perso.getBody().getPosition().y  , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/MainMenu.PPM, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 600/1.5f && perso.getBody().getPosition().y > 0 ){
+		} else if (perso.getBody().getPosition().x > 560/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
 				positionSousMap = "B1";
@@ -185,14 +223,27 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("D3") ){
 				SousMapD3.destroyBody();
 				positionSousMap = "E3";
+			} else if ( positionSousMap.equals("A4" ) ){
+				SousMapA4.destroyBody();
+				positionSousMap = "B4";
+			} else if ( positionSousMap.equals("B4") ){
+				SousMapB4.destroyBody();
+				positionSousMap = "C4";
+			} else if ( positionSousMap.equals("C4") ){
+				SousMapC4.destroyBody();
+				positionSousMap = "D4";
+			} else if ( positionSousMap.equals("D4") ){
+				SousMapD4.destroyBody();
+				positionSousMap = "E4";
 			}
 			
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
+			y = 0;
 			direction = "droite";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x - 600/1.5f, perso.getBody().getPosition().y  , 0);
+//			perso.getBody().setTransform(perso.getBody().getPosition().x - 600/MainMenu.PPM, perso.getBody().getPosition().y  , 0);
 //			=============================================================================================================
 //									réinitialisation du type de décor et de leur état , et des coeurs de vies
 //			=============================================================================================================

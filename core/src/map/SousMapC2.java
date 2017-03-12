@@ -34,6 +34,8 @@ public class SousMapC2 extends Sprite {
 	public static boolean isGrossePierre6Created;
 	public static Body grossePierre7;
 	public static boolean isGrossePierre7Created;
+	public static Body cote;
+	public static boolean isCoteCreated;
 	
 	public static Body arbre1;
 	public static boolean isArbre1Created;
@@ -281,6 +283,10 @@ public class SousMapC2 extends Sprite {
 			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",240,240);
 			isArbre1Created = true;
 		}
+		if ( isCoteCreated == false ) {
+			cote = ClimatMontagneux.createBody(350,30,1,60);
+			isCoteCreated = true;
+		}
 		
 	}
 	
@@ -331,5 +337,8 @@ public class SousMapC2 extends Sprite {
 		
 		if ( isArbre1Created) MainMenu.world.destroyBody(arbre1);
 		isArbre1Created = false;
+		
+		if ( isCoteCreated) MainMenu.world.destroyBody(cote);
+		isCoteCreated = false;
 	}
 }

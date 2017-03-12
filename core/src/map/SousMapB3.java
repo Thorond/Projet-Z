@@ -1,14 +1,22 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import décors.ClimatMontagneux;
+import items.CoeurDeVie;
+import scenes.MainMenu;
 
 public class SousMapB3 extends Sprite{
 	
 	public static boolean pontCasse = false;
+	
+	public static Body bosquet1 ;
+	public static boolean isBosquet1Created;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
 	
 	public static void sousMapB3(GameMain game, int x, int y){
 		
@@ -174,6 +182,8 @@ public class SousMapB3 extends Sprite{
 			game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre2, 300+ x, 240+ y);
 			game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 360+ x, 240+ y);
 			game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 240+ y);
+			
+			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 300+ x, 180+ y);
 		} else {
 			ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
 			ClimatMontagneux.eauProfondeGlacée(game,240+ x, 60+y);
@@ -194,6 +204,8 @@ public class SousMapB3 extends Sprite{
 			ClimatMontagneux.eauProfondeGlacée(game,300+ x, 240+y);
 			ClimatMontagneux.eauProfondeGlacée(game,360+ x, 240+y);
 			ClimatMontagneux.eauProfondeGlacée(game,420+ x, 240+y);
+			
+			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 480+ x, 120+ y);
 		}
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 60+ y);
@@ -217,7 +229,11 @@ public class SousMapB3 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
+		if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
+		isBosquet1Created = false;
 		
+		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+		isBosquet2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -257,6 +273,15 @@ public class SousMapB3 extends Sprite{
 		Map.setTypeDeDécor(300/60,420/60,"EauProfonde");
 		Map.setTypeDeDécor(360/60,420/60,"EauProfonde");
 		Map.setTypeDeDécor(420/60,420/60,"EauProfonde");
+		
+		if ( isBosquet1Created == false ) {
+			bosquet1 = ClimatMontagneux.createBody(110,220,110,400);
+			isBosquet1Created = true;
+		}
+		if ( isBosquet2Created == false ) {
+			bosquet2 = ClimatMontagneux.createBody(340,60,550,80);
+			isBosquet2Created = true;
+		}
 		
 	}
 
