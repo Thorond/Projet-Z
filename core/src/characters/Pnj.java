@@ -14,18 +14,17 @@ import scenes.MainMenu;
 
 public class Pnj extends Characters{
 	
-	public String direction;
-	private World world;
-	private Body body;
+//	public String direction;
+//	private World world;
+//	private Body body;
 	public long start;
 	public boolean arrêt = false;
 	
-	public static Texture linkPetit = new Texture("Personnage/link1.png");
 	
 	public Pnj(World world, Texture text ,int HM, int health, int strength, float x, float y, String direction){
 		super(world,text, HM, health, strength, x,  y, direction);
-		this.world = world;
-		createBody(x,y);
+//		this.world = world;
+//		createBody(x,y);
 		start = System.currentTimeMillis();
 	}
 
@@ -63,31 +62,31 @@ public class Pnj extends Characters{
 		
 	}
 	
-	void createBody(float x, float y){
-		BodyDef bodyDef = new BodyDef();
-		bodyDef.type = BodyDef.BodyType.DynamicBody;
-		bodyDef.position.set(x/MainMenu.PPM,y/MainMenu.PPM);
-		body = world.createBody(bodyDef);
-		
-		PolygonShape shape = new PolygonShape();
-		shape.setAsBox((getWidth() / 2)/MainMenu.PPM , (getHeight() / 2)/MainMenu.PPM);
-		
-		FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape = shape;
-		fixtureDef.density = 1;
-		
-		Fixture fixture = body.createFixture(fixtureDef);
-		
-		shape.dispose();
-	}
-	
-	public void updatePlayer(){
-		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y*MainMenu.PPM);
-	}
-	
-	public Body getBody(){
-		return this.body;
-	}
+//	void createBody(float x, float y){
+//		BodyDef bodyDef = new BodyDef();
+//		bodyDef.type = BodyDef.BodyType.DynamicBody;
+//		bodyDef.position.set(x/MainMenu.PPM,y/MainMenu.PPM);
+//		body = world.createBody(bodyDef);
+//		
+//		PolygonShape shape = new PolygonShape();
+//		shape.setAsBox((getWidth() / 2)/MainMenu.PPM , (getHeight() / 2)/MainMenu.PPM);
+//		
+//		FixtureDef fixtureDef = new FixtureDef();
+//		fixtureDef.shape = shape;
+//		fixtureDef.density = 1;
+//		
+//		Fixture fixture = body.createFixture(fixtureDef);
+//		
+//		shape.dispose();
+//	}
+//	
+//	public void updatePlayer(){
+//		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y*MainMenu.PPM);
+//	}
+//	
+//	public Body getBody(){
+//		return this.body;
+//	}
 		
 	
 //	est en vie

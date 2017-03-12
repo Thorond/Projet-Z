@@ -185,8 +185,8 @@ public class SousMapB2 extends Sprite {
 //				Placement des dessins des monstres
 //		==================================================================
 
-//		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
-		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2, monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
+		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
+		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2.getTexture(), monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
 
 		
 		
@@ -234,15 +234,7 @@ public class SousMapB2 extends Sprite {
 //			Création des corps des montres
 //	========================================================================================
 	
-		if ( m1EstCrée == false ) {
-			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 400 , "bas") ;
-			monstres[0] = monstre1;
-			m1EstCrée = true;
-		}
-		else {
-			monstre1.déplacementAléa();
-			monstre1.représentationBat();
-		}
+		
 		
 		if ( m2EstCrée == false ) {
 			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
@@ -250,8 +242,20 @@ public class SousMapB2 extends Sprite {
 			m2EstCrée = true;
 		}
 		else {
+//			System.out.println(monstre2.getTexture());
 			monstre2.déplacementAléa();
 			monstre2.représentationBat();
+		}
+		
+		if ( m1EstCrée == false ) {
+			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 400 , "bas") ;
+			monstres[0] = monstre1;
+			m1EstCrée = true;
+		}
+		else {
+			System.out.println(monstre1.getTexture());
+			monstre1.déplacementAléa();
+			monstre1.représentationBat();
 		}
 		
 	}

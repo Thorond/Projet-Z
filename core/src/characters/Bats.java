@@ -7,7 +7,7 @@ import scenes.MainMenu;
 
 public class Bats extends Pnj{
 	
-	
+	public long start = System.currentTimeMillis();
 	
 	public boolean textBas1 = true;
 	public boolean textBas2 = true;
@@ -37,7 +37,7 @@ public class Bats extends Pnj{
 	
 	public void représentationBat(){
 		if (this.getDirection().equals("gauche")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - this.start > 200) {
 				
 				if (this.textGauche1 == true){
 					this.setTexture(batGauche1);
@@ -50,11 +50,11 @@ public class Bats extends Pnj{
 					this.setTexture(batGauche3);
 					this.textGauche1 = true;
 				}
-				MainMenu.start = System.currentTimeMillis();
+				this.start = System.currentTimeMillis();
 			} 
 		}
 		else if (this.getDirection().equals("droite")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - this.start > 200) {
 				if (this.textDroite1 == true){
 					this.setTexture(batDroite1);
 					this.textDroite1 = false;
@@ -66,11 +66,11 @@ public class Bats extends Pnj{
 					this.setTexture(batDroite3);
 					this.textDroite1 = true;
 				}
-				MainMenu.start = System.currentTimeMillis();
+				this.start = System.currentTimeMillis();
 			}
 		}
 		else if (this.getDirection().equals("haut")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - this.start > 200) {
 				if (this.textHaut1 == true){
 					this.setTexture(batHaut1);
 					this.textHaut1 = false;
@@ -82,11 +82,11 @@ public class Bats extends Pnj{
 					this.setTexture(batHaut3);
 					this.textHaut1 = true;
 				}
-				MainMenu.start = System.currentTimeMillis();
+				this.start = System.currentTimeMillis();
 			}
 		}
 		else if (this.getDirection().equals("bas")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - this.start > 200) {
 				if (this.textBas1 == true){
 					this.setTexture(batBas1);
 					this.textBas1 = false;
@@ -98,7 +98,7 @@ public class Bats extends Pnj{
 					this.setTexture(batBas3);
 					this.textBas1 = true;
 				}
-				MainMenu.start = System.currentTimeMillis();
+				this.start = System.currentTimeMillis();
 			}
 		}
 	}
