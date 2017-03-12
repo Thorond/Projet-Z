@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 public class CoeurDeVie {
 	
 	public static Texture coeurDeVie = new Texture("Divers/coeurDeVie.png");
+	public static Texture receptacleDeCoeur = new Texture("Divers/receptacleDeCoeur.png");
 	protected boolean estPrésent =false;
 	protected boolean clignotement = false;
 	protected long start;
