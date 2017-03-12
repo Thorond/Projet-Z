@@ -2,7 +2,14 @@ package characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+
+import scenes.MainMenu;
 
 
 public class Characters extends Sprite{
@@ -12,6 +19,8 @@ public class Characters extends Sprite{
 	private int Strength;
 	public String direction;
 	
+	private World world;
+	private Body body;
 	
 	public Characters(World world,Texture texture, int HM, int health, int strength, float x, float y, String direction){
 		super(texture);
@@ -20,6 +29,36 @@ public class Characters extends Sprite{
 		this.Health = health;
 		this.Strength = strength;
 		this.direction = direction;
+		this.world=world;
+		createBody(x,y);
+	}
+	
+	
+	
+	void createBody(float x, float y){
+		BodyDef bodyDef = new BodyDef();
+		bodyDef.type = BodyDef.BodyType.DynamicBody;
+		bodyDef.position.set(x/MainMenu.PPM,y/MainMenu.PPM);
+		body = world.createBody(bodyDef);
+		
+		PolygonShape shape = new PolygonShape();
+		shape.setAsBox((getWidth() / 2)/MainMenu.PPM , (getHeight() / 2)/MainMenu.PPM);
+		
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = shape;
+		fixtureDef.density = 1;
+		
+		Fixture fixture = body.createFixture(fixtureDef);
+		
+		shape.dispose();
+	}
+	
+	public void updatePlayer(){
+		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y*MainMenu.PPM);
+	}
+	
+	public Body getBody(){
+		return this.body;
 	}
 	
 	public int getHealthMax() {

@@ -154,9 +154,19 @@ public class MainMenu implements Screen{
 			if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("C1")) SousMapC1.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("D1")) SousMapD1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("A2")) SousMapA2.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B2")) SousMapB2.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("C2")) SousMapC2.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("D2")) SousMapD2.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("A3")) SousMapA3.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("B3")) SousMapB3.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("C3")) SousMapC3.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("D3")) SousMapD3.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("A4")) SousMapA4.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("B4")) SousMapB4.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("C4")) SousMapC4.destroyBody();
+			else if (PlacementMain.positionSousMap.equals("D4")) SousMapD4.destroyBody();
 			
 //			suppression des types
 			Map.setTypeDeDécor();
@@ -211,10 +221,6 @@ public class MainMenu implements Screen{
 				} else if ( PlacementMain.positionSousMap.equals("C1") ) {
 					SousMapC1.sousMapC1(game,-600 + PlacementMain.x,0);
 					SousMapD1.sousMapD1(game, PlacementMain.x, 0);
-				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
-//					SousMapD1.createBodyAndType(world);
-//					SousMapD1.sousMapD1(game,-600 + PlacementMain.x,0);
-//					SousMapE1.sousMapE1(game, PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapB2.sousMapB2(game, 0 + PlacementMain.x, 0);
 					SousMapA2.sousMapA2(game, -600 + PlacementMain.x,0);
@@ -315,6 +321,7 @@ public class MainMenu implements Screen{
 					SousMapB2.sousMapB2(game, 0, -480 + PlacementMain.y);
 					SousMapB1.sousMapB1(game, 0, PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("C2") ) {
+					SousMapC1.sousMapC1(game, 0, PlacementMain.y);
 					SousMapC2.sousMapC2(game, 0, -480 + PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("D2") ) {
 					SousMapD2.sousMapD2(game, 0, -480 + PlacementMain.y);
