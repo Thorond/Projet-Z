@@ -32,10 +32,10 @@ public class SousMapB2 extends Sprite {
 	
 	public static Bats monstre1;
 	public static Bats monstre2;
-	public static boolean m1EstCrÈe = false ;
-	public static boolean m2EstCrÈe = false ;
+	public static boolean m1EstCr√©e = false ;
+	public static boolean m2EstCr√©e = false ;
 	
-	public static boolean monstresPrÈsent = true;
+	public static boolean monstresPr√©sent = true;
 	public static Pnj[] monstres = new Pnj[2];
 	
 	public static void sousMapB2(GameMain game, int x, int y){
@@ -43,19 +43,19 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.angleBasGauche, 0 + x, 0 + y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInfGau, 0 + x, 60 + y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©InfGau, 0 + x, 60 + y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 180+ y);		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0 + x,240 + y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 360+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈGau, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Gau, 0+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈSupGau, 0+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©SupGau, 0+ x, 420+ y);
 
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInfGau, 60+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©InfGau, 60+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 180+ y);		
@@ -65,7 +65,7 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 120+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInf, 120+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Inf, 120+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 120+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 120+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 120+ x, 180+ y);
@@ -75,7 +75,7 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 120+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 180+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInf, 180+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Inf, 180+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 180+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 180+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 180+ x, 180+ y);
@@ -85,7 +85,7 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 180+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 240+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInf, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Inf, 240+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 240+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 240+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 240+ x, 180+ y);
@@ -95,7 +95,7 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 240+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInf, 300+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Inf, 300+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 180+ y);
@@ -105,7 +105,7 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 300+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInfDroi, 360+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©InfDroi, 360+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 180+ y);
@@ -114,9 +114,9 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 360+ x, 420+ y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 0+y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈInf, 420+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Inf, 420+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 240+ y);
@@ -125,7 +125,7 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 420+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 480+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈGau, 480+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Gau, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 480+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 480+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 480+ x, 180+ y);
@@ -185,12 +185,12 @@ public class SousMapB2 extends Sprite {
 //				Placement des dessins des monstres
 //		==================================================================
 
-		if ( m1EstCrÈe && monstre1.isAlive() ) { 
+		if ( m1EstCr√©e && monstre1.isAlive() ) { 
 			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
-		} else if ( m1EstCrÈe == false){
+		} else if ( m1EstCr√©e == false){
 			game.getBatch().draw(Bats.batBas1, 200 + x +30, 400 + y +100);
 		}
-		if ( m2EstCrÈe && monstre2.isAlive() ) {
+		if ( m2EstCr√©e && monstre2.isAlive() ) {
 			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
 		}
 
@@ -199,28 +199,28 @@ public class SousMapB2 extends Sprite {
 	}
 	
 	public static void createBodyAndType(World world){
-		Map.setTypeDeDÈcor(0,0,"EauProfonde");
+		Map.setTypeDeD√©cor(0,0,"EauProfonde");
 		
-		Map.setTypeDeDÈcor(6,0,"HerbesHautes");
-		Map.setTypeDeDÈcor(1,3,"HerbesHautes");
-		Map.setTypeDeDÈcor(2,3,"HerbesHautes");
-		Map.setTypeDeDÈcor(4,1,"HerbesHautes");
-		Map.setTypeDeDÈcor(5,2,"HerbesHautes");
-		if ( Map.dÈcorChangÈ[6][0] == true ) isBuisson1Cut = true;
-		if ( Map.dÈcorChangÈ[1][3] == true ) isBuisson2Cut = true;
-		if ( Map.dÈcorChangÈ[2][3] == true ) isBuisson3Cut = true;
-		if ( Map.dÈcorChangÈ[4][1] == true ) isBuisson4Cut = true;
-		if ( Map.dÈcorChangÈ[5][2] == true ) isBuisson5Cut = true;
-		Map.setTypeDeDÈcor(480/60,120/60,"HerbesHautes");
-		Map.setTypeDeDÈcor(480/60,180/60,"HerbesHautes");
-		Map.setTypeDeDÈcor(540/60,180/60,"HerbesHautes");
-		Map.setTypeDeDÈcor(300/60,360/60,"HerbesHautes");
-		Map.setTypeDeDÈcor(300/60,300/60,"HerbesHautes");
-		if ( Map.dÈcorChangÈ[8][2] == true ) isBuisson6Cut = true;
-		if ( Map.dÈcorChangÈ[8][3] == true ) isBuisson7Cut = true;
-		if ( Map.dÈcorChangÈ[9][3] == true ) isBuisson8Cut = true;
-		if ( Map.dÈcorChangÈ[5][6] == true ) isBuisson9Cut = true;
-		if ( Map.dÈcorChangÈ[5][5] == true ) isBuisson10Cut = true;
+		Map.setTypeDeD√©cor(6,0,"HerbesHautes");
+		Map.setTypeDeD√©cor(1,3,"HerbesHautes");
+		Map.setTypeDeD√©cor(2,3,"HerbesHautes");
+		Map.setTypeDeD√©cor(4,1,"HerbesHautes");
+		Map.setTypeDeD√©cor(5,2,"HerbesHautes");
+		if ( Map.d√©corChang√©[6][0] == true ) isBuisson1Cut = true;
+		if ( Map.d√©corChang√©[1][3] == true ) isBuisson2Cut = true;
+		if ( Map.d√©corChang√©[2][3] == true ) isBuisson3Cut = true;
+		if ( Map.d√©corChang√©[4][1] == true ) isBuisson4Cut = true;
+		if ( Map.d√©corChang√©[5][2] == true ) isBuisson5Cut = true;
+		Map.setTypeDeD√©cor(480/60,120/60,"HerbesHautes");
+		Map.setTypeDeD√©cor(480/60,180/60,"HerbesHautes");
+		Map.setTypeDeD√©cor(540/60,180/60,"HerbesHautes");
+		Map.setTypeDeD√©cor(300/60,360/60,"HerbesHautes");
+		Map.setTypeDeD√©cor(300/60,300/60,"HerbesHautes");
+		if ( Map.d√©corChang√©[8][2] == true ) isBuisson6Cut = true;
+		if ( Map.d√©corChang√©[8][3] == true ) isBuisson7Cut = true;
+		if ( Map.d√©corChang√©[9][3] == true ) isBuisson8Cut = true;
+		if ( Map.d√©corChang√©[5][6] == true ) isBuisson9Cut = true;
+		if ( Map.d√©corChang√©[5][5] == true ) isBuisson10Cut = true;
 		
 		if ( isArbre1Created == false ) {
 			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",20,380);
@@ -237,31 +237,31 @@ public class SousMapB2 extends Sprite {
 		}
 		
 //		========================================================================================
-//			CrÈation des corps des montres
+//			Cr√©ation des corps des montres
 //	========================================================================================
 	
 		
 		
-		if ( m2EstCrÈe == false ) {
+		if ( m2EstCr√©e == false ) {
 			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
 			monstres[1] = monstre2;
-			m2EstCrÈe = true;
+			m2EstCr√©e = true;
 		}
 		else {
 //			System.out.println(monstre2.getTexture());
-			monstre2.dÈplacementAlÈa();
-			monstre2.reprÈsentationBat();
+			monstre2.d√©placementAl√©a();
+			monstre2.repr√©sentationBat();
 			monstre2.updateBody();
 		}
 		
-		if ( m1EstCrÈe == false ) {
+		if ( m1EstCr√©e == false ) {
 			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 400 , "bas") ;
 			monstres[0] = monstre1;
-			m1EstCrÈe = true;
+			m1EstCr√©e = true;
 		}
 		else {
-			monstre1.dÈplacementAlÈa();
-			monstre1.reprÈsentationBat();
+			monstre1.d√©placementAl√©a();
+			monstre1.repr√©sentationBat();
 			monstre1.updateBody();
 		}
 		
@@ -292,10 +292,10 @@ public class SousMapB2 extends Sprite {
 		isBosquet2Created = false;
 		
 //		destruction monstres
-		if ( m1EstCrÈe )MainMenu.world.destroyBody(monstre1.getBody());
-		if ( m2EstCrÈe )MainMenu.world.destroyBody(monstre2.getBody());
-		m1EstCrÈe = false;
-		m2EstCrÈe = false;
+		if ( m1EstCr√©e )MainMenu.world.destroyBody(monstre1.getBody());
+		if ( m2EstCr√©e )MainMenu.world.destroyBody(monstre2.getBody());
+		m1EstCr√©e = false;
+		m2EstCr√©e = false;
 		
 	}
 

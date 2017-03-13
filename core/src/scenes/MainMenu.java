@@ -45,7 +45,7 @@ public class MainMenu implements Screen{
 	Texture header;
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
-//	= AcceptClass.acceptClass() ‡ utiliser en cas de nouvelle class sauvegarde
+//	= AcceptClass.acceptClass() √© utiliser en cas de nouvelle class sauvegarde
 	
 	private OrthographicCamera box2DCamera;
 	private Box2DDebugRenderer debugRenderer;
@@ -71,7 +71,7 @@ public class MainMenu implements Screen{
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
-//		‡ utiliser en cas de nouvelle class sauvegarde
+//		√© utiliser en cas de nouvelle class sauvegarde
 		
 //		PlacementMain.positionSousMap = "B1";
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
@@ -80,36 +80,36 @@ public class MainMenu implements Screen{
 		header = new Texture("Divers/barreHaute.png");
 		start = System.currentTimeMillis();
 		
-		Map.setTypeDeDÈcor();
-		Map.setDÈcoChangÈFaux();
+		Map.setTypeDeD√©cor();
+		Map.setD√©coChang√©Faux();
 		
 		
 	}
 	
 	void update(float dt){
 		if ( Link.getHealth()>0){
-			if (PlacementMain.dÈfilement == false){
+			if (PlacementMain.d√©filement == false){
 				if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 					Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
 					Link.setDirection("gauche");
-					Link.reprÈsentationLink(Link);
+					Link.repr√©sentationLink(Link);
 		
 					
 				} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
 					Link.getBody().applyLinearImpulse(new Vector2(+10000f,0), Link.getBody().getWorldCenter(), true);
 					Link.setDirection("droite");
-					Link.reprÈsentationLink(Link);
+					Link.repr√©sentationLink(Link);
 					
 				} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
 					Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
 					Link.setDirection("haut");
-					Link.reprÈsentationLink(Link);
+					Link.repr√©sentationLink(Link);
 		
 				} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
 					Link.getBody().applyLinearImpulse(new Vector2(0,-10000f), Link.getBody().getWorldCenter(), true);
 	
 					Link.setDirection("bas");
-					Link.reprÈsentationLink(Link);
+					Link.repr√©sentationLink(Link);
 		
 				} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
 					Epee.utilisationItem(Link);
@@ -132,16 +132,16 @@ public class MainMenu implements Screen{
 				if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
 					Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 				
-				if ( Map.typeDeDÈcor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
-				if ( Map.typeDeDÈcor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+				if ( Map.typeDeD√©cor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+				if ( Map.typeDeD√©cor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 				for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
-					if (CoeurDeVie.coeurDeVies[i].isEstPrÈsent()){
+					if (CoeurDeVie.coeurDeVies[i].isEstPr√©sent()){
 						for ( int j = 0 ; j < 40 ; j ++){
 							for ( int k = 0 ; k < 40 ; k ++){
 								if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
 										&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
 									if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
-									CoeurDeVie.coeurDeVies[i].setEstPrÈsent(false);
+									CoeurDeVie.coeurDeVies[i].setEstPr√©sent(false);
 								}
 							}
 						}
@@ -169,9 +169,9 @@ public class MainMenu implements Screen{
 			else if (PlacementMain.positionSousMap.equals("D4")) SousMapD4.destroyBody();
 			
 //			suppression des types
-			Map.setTypeDeDÈcor();
-			Map.setDÈcoChangÈFaux();
-			CoeurDeVie.rÈinitialisation();
+			Map.setTypeDeD√©cor();
+			Map.setD√©coChang√©Faux();
+			CoeurDeVie.r√©initialisation();
 			
 			Link.setDirection(sauvegarde.getDirection());
 			Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
@@ -194,7 +194,7 @@ public class MainMenu implements Screen{
 		Link.updatePlayer();
 		
 		
-		if (PlacementMain.dÈfilement == false ) PlacementMain.posiSousMap(Link);
+		if (PlacementMain.d√©filement == false ) PlacementMain.posiSousMap(Link);
 		
 		
 		Gdx.gl.glClearColor(1, 0, 0, 1);
@@ -203,7 +203,7 @@ public class MainMenu implements Screen{
 		
 		game.getBatch().begin();
 		
-		if ( PlacementMain.dÈfilement == true) {
+		if ( PlacementMain.d√©filement == true) {
 			Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.4f, Link.getBody().getLinearVelocity().y / 1.4f);
 //			=============================================================================================
 //			                                    changement de map
@@ -403,11 +403,11 @@ public class MainMenu implements Screen{
 			}
 			
 			if ( PlacementMain.x == 600) {
-				PlacementMain.dÈfilement = false;
+				PlacementMain.d√©filement = false;
 				PlacementMain.x = 0;
 			}
 			if ( PlacementMain.y == 480) {
-				PlacementMain.dÈfilement = false;
+				PlacementMain.d√©filement = false;
 				PlacementMain.y = 0;
 			}
 			
@@ -499,10 +499,10 @@ public class MainMenu implements Screen{
 //		                                 dessiner les coeurs de vie
 //		=============================================================================================
 		for ( int i = 0; i< CoeurDeVie.coeurDeVies.length ; i++){
-			if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPrÈsent(false);
-			if ( CoeurDeVie.coeurDeVies[i].isEstPrÈsent() 
+			if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPr√©sent(false);
+			if ( CoeurDeVie.coeurDeVies[i].isEstPr√©sent() 
 					&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
-			else if ( CoeurDeVie.coeurDeVies[i].isEstPrÈsent()
+			else if ( CoeurDeVie.coeurDeVies[i].isEstPr√©sent()
 					&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 5000){
 				CoeurDeVie.coeurDeVies[i].clignotementCoeur();
 				if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
@@ -520,28 +520,28 @@ public class MainMenu implements Screen{
 		
 		
 		int vie = 0 ;
-		int Ècart = 0;
-//		int Ècart2 =0;
+		int √©cart = 0;
+//		int √©cart2 =0;
 		while ( vie +4 <= Link.getHealth()  ){
 //			if ( vie < 40 ) {
-				game.getBatch().draw(MainCharacter.coeurPlein, 20 + Ècart, 440 );
-				Ècart+=15;
+				game.getBatch().draw(MainCharacter.coeurPlein, 20 + √©cart, 440 );
+				√©cart+=15;
 //			}
 //			else {
-//				game.getBatch().draw(MainCharacter.coeurPlein, 20 + Ècart2, 440 );
-//				Ècart2 += 15;
+//				game.getBatch().draw(MainCharacter.coeurPlein, 20 + √©cart2, 440 );
+//				√©cart2 += 15;
 //			}
 			vie += 4;
 		
 		}
 //		if (vie < 40){
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + Ècart, 440 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitiÈ, 40 + Ècart, 440 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + Ècart, 440 );
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + √©cart, 440 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoiti√©, 40 + √©cart, 440 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + √©cart, 440 );
 //		} else {
-//			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + Ècart2, 440 );
-//			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitiÈ, 20 + Ècart2, 440 );
-//			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + Ècart2, 440 );
+//			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + √©cart2, 440 );
+//			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoiti√©, 20 + √©cart2, 440 );
+//			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + √©cart2, 440 );
 //		}
 		
 		

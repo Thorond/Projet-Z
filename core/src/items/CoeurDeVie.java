@@ -6,7 +6,7 @@ public class CoeurDeVie {
 	
 	public static Texture coeurDeVie = new Texture("Divers/coeurDeVie.png");
 	public static Texture receptacleDeCoeur = new Texture("Divers/receptacleDeCoeur.png");
-	protected boolean estPrésent =false;
+	protected boolean estPrÃ©sent =false;
 	protected boolean clignotement = false;
 	protected long start;
 	protected long startClignotement;
@@ -21,7 +21,7 @@ public class CoeurDeVie {
 	public CoeurDeVie(){
 	}
 	
-	public void déposerCoeur(int X, int Y){
+	public void dÃ©poserCoeur(int X, int Y){
 		double tempo = Math.random();
 		if ( tempo < 0.25 ) {
 			x = X + (int) (30 * Math.random());
@@ -41,8 +41,8 @@ public class CoeurDeVie {
 		}
 	}
 	
-	public void setEstPrésent(boolean boo){
-		estPrésent = boo;
+	public void setEstPrÃ©sent(boolean boo){
+		estPrÃ©sent = boo;
 		if (boo == true) {
 			start = System.currentTimeMillis();
 			startClignotement = System.currentTimeMillis();
@@ -63,16 +63,16 @@ public class CoeurDeVie {
 	
 	public static void remplirCoeurDeVies(int X, int Y){
 		for ( int i = 0 ; i < coeurDeVies.length ; i++ ){
-			if ( coeurDeVies[i].estPrésent == false ) {
-				coeurDeVies[i].setEstPrésent(true);
-				coeurDeVies[i].déposerCoeur(X, Y);
+			if ( coeurDeVies[i].estPrÃ©sent == false ) {
+				coeurDeVies[i].setEstPrÃ©sent(true);
+				coeurDeVies[i].dÃ©poserCoeur(X, Y);
 				break;
 			}
 		}
 	}
 	
-	public static void réinitialisation(){
-		for ( int i = 0 ; i < coeurDeVies.length ; i++) coeurDeVies[i].setEstPrésent(false);
+	public static void rÃ©initialisation(){
+		for ( int i = 0 ; i < coeurDeVies.length ; i++) coeurDeVies[i].setEstPrÃ©sent(false);
 	}
 
 
@@ -116,8 +116,8 @@ public class CoeurDeVie {
 		this.y = y;
 	}
 
-	public boolean isEstPrésent() {
-		return estPrésent;
+	public boolean isEstPrÃ©sent() {
+		return estPrÃ©sent;
 	}
 
 }

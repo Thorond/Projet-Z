@@ -35,7 +35,7 @@ public class Bats extends Pnj{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void représentationBat(){
+	public void reprÃ©sentationBat(){
 		if (this.getDirection().equals("gauche")){
 			if ( System.currentTimeMillis() - this.start > 200) {
 				

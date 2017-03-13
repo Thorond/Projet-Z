@@ -40,122 +40,122 @@ public class SousMapA2 extends Sprite{
 	public static void sousMapA2(GameMain game, int x, int y){
 		
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,0+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,0+ x, 420+y);
 		
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,60+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,60+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,120+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,120+ x, 420+y);
 		
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,180+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,180+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,240+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,240+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,300+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,300+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,360+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,360+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,420+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,420+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,480+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,480+ x, 420+y);
 		
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 0+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 60+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 120+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 180+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 240+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 300+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 360+y);
-		ClimatMontagneux.eauProfondeGlacÈe(game,540+ x, 420+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 0+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 60+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 120+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 180+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 240+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 300+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 360+y);
+		ClimatMontagneux.eauProfondeGlac√©e(game,540+ x, 420+y);
 		
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈHautGauche,300+x,420+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,360+x,420+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,420+x,420+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,480+x,420+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,540+x,420+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©HautGauche,300+x,420+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,360+x,420+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,420+x,420+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,480+x,420+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,540+x,420+y);
 		
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈHautGauche,240+x,360+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,300+x,360+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,360+x,360+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,420+x,360+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,480+x,360+y);
-		game.getBatch().draw(ClimatMontagneux.glaceFragmentÈe,540+x,360+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©HautGauche,240+x,360+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,300+x,360+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,360+x,360+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,420+x,360+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,480+x,360+y);
+		game.getBatch().draw(ClimatMontagneux.glaceFragment√©e,540+x,360+y);
 		
 		game.getBatch().draw(ClimatMontagneux.petitMorceauGlaceGauche,180+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈSupGau,240+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈSup,300+x,300+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©SupGau,240+x,300+y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Sup,300+x,300+y);
 		game.getBatch().draw(ClimatMontagneux.crate,300+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.bordMerGlacÈSup,360+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈSup,420+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈSup,480+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈSup,540+x,300+y);
+		game.getBatch().draw(ClimatMontagneux.bordMerGlac√©Sup,360+x,300+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Sup,420+x,300+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Sup,480+x,300+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Sup,540+x,300+y);
 		
 		game.getBatch().draw(ClimatMontagneux.petitMorceauGlaceGauche,180+x,240+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈGau,240+x,240+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Gau,240+x,240+y);
 		game.getBatch().draw(ClimatMontagneux.glace1,300+x,240+y);
 		game.getBatch().draw(ClimatMontagneux.glace1,360+x,240+y);
 		game.getBatch().draw(ClimatMontagneux.glace1,420+x,240+y);
@@ -163,46 +163,46 @@ public class SousMapA2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1,540+x,240+y);
 		
 		game.getBatch().draw(ClimatMontagneux.petitMorceauGlaceGauche,180+x,180+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInfGau,240+x,180+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInf,300+x,180+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInf,360+x,180+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInf,420+x,180+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInf,480+x,180+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©InfGau,240+x,180+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Inf,300+x,180+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Inf,360+x,180+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Inf,420+x,180+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Inf,480+x,180+y);
 		game.getBatch().draw(ClimatMontagneux.glace1,540+x,180+y);
 		
 		game.getBatch().draw(ClimatMontagneux.morceauGlaceBasGauche,180+x,120+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentÈeBasGauche,240+x,120+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentÈe,300+x,120+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentÈe,360+x,120+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentÈe,420+x,120+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentÈe,480+x,120+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈInfGau,540+x,120+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlaceFragment√©eBasGauche,240+x,120+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlaceFragment√©e,300+x,120+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlaceFragment√©e,360+x,120+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlaceFragment√©e,420+x,120+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlaceFragment√©e,480+x,120+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©InfGau,540+x,120+y);
 		
-		game.getBatch().draw(ClimatMontagneux.morceauGlacÈInf,300+x,60+y);
-		game.getBatch().draw(ClimatMontagneux.morceauGlacÈInf,360+x,60+y);
-		game.getBatch().draw(ClimatMontagneux.morceauGlacÈInf,420+x,60+y);
-		game.getBatch().draw(ClimatMontagneux.morceauGlacÈInf,480+x,60+y);
-		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentÈeBasGauche,540+x,60+y);
+		game.getBatch().draw(ClimatMontagneux.morceauGlac√©Inf,300+x,60+y);
+		game.getBatch().draw(ClimatMontagneux.morceauGlac√©Inf,360+x,60+y);
+		game.getBatch().draw(ClimatMontagneux.morceauGlac√©Inf,420+x,60+y);
+		game.getBatch().draw(ClimatMontagneux.morceauGlac√©Inf,480+x,60+y);
+		game.getBatch().draw(ClimatMontagneux.bordGlaceFragment√©eBasGauche,540+x,60+y);
 	
 	}
 	
 	public static void createBodyAndType(World world){
 		
-		Map.setTypeDeDÈcor(180/60,120/60,"EauProfonde");
-		Map.setTypeDeDÈcor(180/60,180/60,"EauProfonde");
-		Map.setTypeDeDÈcor(180/60,240/60,"EauProfonde");
-		Map.setTypeDeDÈcor(180/60,300/60,"EauProfonde");
-		Map.setTypeDeDÈcor(180/60,360/60,"EauProfonde");
+		Map.setTypeDeD√©cor(180/60,120/60,"EauProfonde");
+		Map.setTypeDeD√©cor(180/60,180/60,"EauProfonde");
+		Map.setTypeDeD√©cor(180/60,240/60,"EauProfonde");
+		Map.setTypeDeD√©cor(180/60,300/60,"EauProfonde");
+		Map.setTypeDeD√©cor(180/60,360/60,"EauProfonde");
 		
-		Map.setTypeDeDÈcor(240/60,60/60,"EauProfonde");
-		Map.setTypeDeDÈcor(240/60,420/60,"EauProfonde");
+		Map.setTypeDeD√©cor(240/60,60/60,"EauProfonde");
+		Map.setTypeDeD√©cor(240/60,420/60,"EauProfonde");
 		
-		Map.setTypeDeDÈcor(300/60,60/60,"EauProfonde");
-		Map.setTypeDeDÈcor(360/60,60/60,"EauProfonde");
-		Map.setTypeDeDÈcor(420/60,60/60,"EauProfonde");
-		Map.setTypeDeDÈcor(480/60,60/60,"EauProfonde");
+		Map.setTypeDeD√©cor(300/60,60/60,"EauProfonde");
+		Map.setTypeDeD√©cor(360/60,60/60,"EauProfonde");
+		Map.setTypeDeD√©cor(420/60,60/60,"EauProfonde");
+		Map.setTypeDeD√©cor(480/60,60/60,"EauProfonde");
 		
-		Map.setTypeDeDÈcor(540/60,0/60,"EauProfonde");
+		Map.setTypeDeD√©cor(540/60,0/60,"EauProfonde");
 		
 //		murs gauches
 		
@@ -242,14 +242,14 @@ public class SousMapA2 extends Sprite{
 		
 		
 //		========================================================================================
-//									CrÈation des corps des montres
+//									Cr√©ation des corps des montres
 //		========================================================================================
 		
 		
 	}
 	
 	public static void destroyBody(){
-//		dÈstruction du corps des arbres et des monstres
+//		d√©struction du corps des arbres et des monstres
 		
 		
 //		murs gauches

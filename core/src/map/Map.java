@@ -2,31 +2,31 @@ package map;
 
 public class Map {
 	
-    public static String[][] typeDeDécor = new String[12][12];
-    public static boolean[][] décorChangé = new boolean[12][12] ;
+    public static String[][] typeDeDÃ©cor = new String[12][12];
+    public static boolean[][] dÃ©corChangÃ© = new boolean[12][12] ;
 	
-    public static void setTypeDeDécor(){
+    public static void setTypeDeDÃ©cor(){
 		for ( int i = 0 ; i < 12 ; i++){
 			for ( int j = 0 ; j <12; j++){
-				typeDeDécor[i][j] = "";
+				typeDeDÃ©cor[i][j] = "";
 			}
 		}
 	}
     
-	public static void setTypeDeDécor( int i , int j , String décor){
-		typeDeDécor[i][j] = décor;
+	public static void setTypeDeDÃ©cor( int i , int j , String dÃ©cor){
+		typeDeDÃ©cor[i][j] = dÃ©cor;
 	}
 	
-	public static void setDécoChangéFaux(){
+	public static void setDÃ©coChangÃ©Faux(){
 		for ( int i = 0 ; i < 12 ; i++){
 			for ( int j = 0 ; j <12; j++){
-				décorChangé[i][j] = false;
+				dÃ©corChangÃ©[i][j] = false;
 			}
 		}
 	}
 	
-	public static void setDécorChangé( int i , int j , boolean boo){
-		décorChangé[i][j] = boo;
+	public static void setDÃ©corChangÃ©( int i , int j , boolean boo){
+		dÃ©corChangÃ©[i][j] = boo;
 	}
 
 

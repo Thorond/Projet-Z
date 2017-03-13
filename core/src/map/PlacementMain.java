@@ -7,11 +7,11 @@ import scenes.MainMenu;
 public class PlacementMain {
 	
 	
-//	RepÈrage sur quelle sous map est Link
+//	Rep√©rage sur quelle sous map est Link
 	
 	
 	public static String positionSousMap ;
-	public static boolean dÈfilement = false;
+	public static boolean d√©filement = false;
 	public static long start;
 	public static int x; 
 	public static int y;
@@ -70,16 +70,16 @@ public class PlacementMain {
 				positionSousMap = "D5";
 			}
 			
-			dÈfilement = true;
+			d√©filement = true;
 			start = System.currentTimeMillis();
 			y = 60;
 			x=0;
 			direction = "bas";
 			
 //			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479/MainMenu.PPM , 0);
-			Map.setTypeDeDÈcor();
-			Map.setDÈcoChangÈFaux();
-			CoeurDeVie.rÈinitialisation();
+			Map.setTypeDeD√©cor();
+			Map.setD√©coChang√©Faux();
+			CoeurDeVie.r√©initialisation();
 		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 430/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
@@ -123,16 +123,16 @@ public class PlacementMain {
 				positionSousMap = "D3";
 			}
 			
-			dÈfilement = true;
+			d√©filement = true;
 			start = System.currentTimeMillis();
 			y = 60;
 			x=0;
 			direction = "haut";
 			
 //			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479/MainMenu.PPM , 0);
-			Map.setTypeDeDÈcor();
-			Map.setDÈcoChangÈFaux();
-			CoeurDeVie.rÈinitialisation();
+			Map.setTypeDeD√©cor();
+			Map.setD√©coChang√©Faux();
+			CoeurDeVie.r√©initialisation();
 		} else if (perso.getBody().getPosition().x < 0 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1")  ){
@@ -176,16 +176,16 @@ public class PlacementMain {
 				positionSousMap = "C4";
 			}
 			
-			dÈfilement = true;
+			d√©filement = true;
 			start = System.currentTimeMillis();
 			x = 60;
 			y = 0;
 			direction = "gauche";
 			
 //			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/MainMenu.PPM, perso.getBody().getPosition().y  , 0);
-			Map.setTypeDeDÈcor();
-			Map.setDÈcoChangÈFaux();
-			CoeurDeVie.rÈinitialisation();
+			Map.setTypeDeD√©cor();
+			Map.setD√©coChang√©Faux();
+			CoeurDeVie.r√©initialisation();
 		} else if (perso.getBody().getPosition().x > 560/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
@@ -237,7 +237,7 @@ public class PlacementMain {
 				positionSousMap = "E4";
 			}
 			
-			dÈfilement = true;
+			d√©filement = true;
 			start = System.currentTimeMillis();
 			x = 60;
 			y = 0;
@@ -245,11 +245,11 @@ public class PlacementMain {
 			
 //			perso.getBody().setTransform(perso.getBody().getPosition().x - 600/MainMenu.PPM, perso.getBody().getPosition().y  , 0);
 //			=============================================================================================================
-//									rÈinitialisation du type de dÈcor et de leur Ètat , et des coeurs de vies
+//									r√©initialisation du type de d√©cor et de leur √©tat , et des coeurs de vies
 //			=============================================================================================================
-			Map.setTypeDeDÈcor();
-			Map.setDÈcoChangÈFaux();
-			CoeurDeVie.rÈinitialisation();
+			Map.setTypeDeD√©cor();
+			Map.setD√©coChang√©Faux();
+			CoeurDeVie.r√©initialisation();
 		}
 		
 	}
