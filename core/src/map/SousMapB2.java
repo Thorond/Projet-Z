@@ -7,7 +7,7 @@ import com.mygdx.game.GameMain;
 
 import characters.Bats;
 import characters.Pnj;
-import décors.ClimatMontagneux;
+import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
 public class SousMapB2 extends Sprite {

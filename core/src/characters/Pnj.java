@@ -176,7 +176,7 @@ public class Pnj extends Characters{
 //	}
 	
 	
-//	dégât infligé 
+//	dégât infligé au monstre
 	
 	public static void infligeDegat(MainCharacter Link, Pnj pnj){
 		Link.setHealth(Link.getHealth()- pnj.getStrength());

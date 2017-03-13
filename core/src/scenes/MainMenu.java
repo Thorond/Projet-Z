@@ -12,7 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
-import décors.ClimatMontagneux;
+import decors.ClimatMontagneux;
 import items.CoeurDeVie;
 import items.Epee;
 import map.Map;

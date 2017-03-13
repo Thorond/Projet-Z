@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.Pnj;
-import décors.ClimatMontagneux;
+import decors.ClimatMontagneux;
 
 public class SousMapB1 extends Sprite {
 
