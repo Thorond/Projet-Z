@@ -185,8 +185,14 @@ public class SousMapB2 extends Sprite {
 //				Placement des dessins des monstres
 //		==================================================================
 
-		if ( m1EstCrée && monstre1.isAlive() ) game.getBatch().draw(monstre1, monstre1.getBody().getPosition().x + x, monstre1.getBody().getPosition().y + y);
-		if ( m2EstCrée && monstre2.isAlive() ) game.getBatch().draw(monstre2.getTexture(), monstre2.getBody().getPosition().x + x, monstre2.getBody().getPosition().y + y);
+		if ( m1EstCrée && monstre1.isAlive() ) { 
+			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
+		} else if ( m1EstCrée == false){
+			game.getBatch().draw(Bats.batBas1, 200 + x +30, 400 + y +100);
+		}
+		if ( m2EstCrée && monstre2.isAlive() ) {
+			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
+		}
 
 		
 		
@@ -245,6 +251,7 @@ public class SousMapB2 extends Sprite {
 //			System.out.println(monstre2.getTexture());
 			monstre2.déplacementAléa();
 			monstre2.représentationBat();
+			monstre2.updateBody();
 		}
 		
 		if ( m1EstCrée == false ) {
@@ -253,9 +260,9 @@ public class SousMapB2 extends Sprite {
 			m1EstCrée = true;
 		}
 		else {
-			System.out.println(monstre1.getTexture());
 			monstre1.déplacementAléa();
 			monstre1.représentationBat();
+			monstre1.updateBody();
 		}
 		
 	}
