@@ -18,7 +18,7 @@ public class Pnj extends Characters{
 //	private World world;
 //	private Body body;
 	public long start;
-	public boolean arrÍt = false;
+	public boolean arr√©t = false;
 	
 	
 	public Pnj(World world, Texture text ,int HM, int health, int strength, float x, float y, String direction){
@@ -30,9 +30,9 @@ public class Pnj extends Characters{
 
 	
 	
-//	dÈplacement alÈatoire
+//	d√©placement al√©atoire
 	
-	public void dÈplacementAlÈa(){
+	public void d√©placementAl√©a(){
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - start > 2000) {
 			if ( tempo < 0.25 && this.getBody().getPosition().x > 60/MainMenu.PPM ){
@@ -52,12 +52,12 @@ public class Pnj extends Characters{
 				this.setDirection("haut");
 			}
 			start = System.currentTimeMillis();
-			arrÍt = false;
+			arr√©t = false;
 		} 
-		if (System.currentTimeMillis() - start > 800 && arrÍt == false) {
+		if (System.currentTimeMillis() - start > 800 && arr√©t == false) {
 //			ralentissement des pnjs
 			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 1.8f, this.getBody().getLinearVelocity().y / 1.8f);
-			if ( System.currentTimeMillis() - start > 900 ) arrÍt = true;
+			if ( System.currentTimeMillis() - start > 900 ) arr√©t = true;
 		}
 		
 	}
@@ -103,9 +103,9 @@ public class Pnj extends Characters{
 		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getBody().getPosition().x , (int) this.getBody().getPosition().y );
 	}
 	
-//	subir dÈgats et mort
+//	subir d√©gats et mort
 	
-	public void subirDÈgats( MainCharacter cha, String direction){
+	public void subirD√©gats( MainCharacter cha, String direction){
 		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
 			this.drop();
 			this.getBody().setTransform(-100, -100, 0);
@@ -118,7 +118,7 @@ public class Pnj extends Characters{
 		this.setHealth(this.getHealth() - cha.getStrength());
 	}
 //
-////position relative par rapport ‡ Link
+////position relative par rapport √© Link
 //	
 //	public static String positionToLinkX(MainCharacter Link,CoordCart ennemie){
 //		if (Link.position.getX() < ennemie.getX())
@@ -126,7 +126,7 @@ public class Pnj extends Characters{
 //		else if (Link.position.getX() > ennemie.getX())
 //			return "gauche";
 //		else
-//			return "mÍme niveau";
+//			return "m√©me niveau";
 //	}
 //	
 //	public static String positionToLinkY(MainCharacter Link,CoordCart ennemie){
@@ -135,13 +135,13 @@ public class Pnj extends Characters{
 //		else if (Link.position.getY() > ennemie.getY())
 //			return "bas";
 //		else {
-//			return "mÍme niveau";
+//			return "m√©me niveau";
 //		}
 //	}
 //	
-//	//rÈduction de distance ‡ Link
+//	//r√©duction de distance √© Link
 //	
-//	public static void dÈplacementToLink(MainCharacter Link,CoordCart ennemie){
+//	public static void d√©placementToLink(MainCharacter Link,CoordCart ennemie){
 //		if ( positionToLinkX(Link, ennemie) == "droite"){
 //			ennemie.setX(ennemie.getX()-1);
 //		} else if (positionToLinkX(Link, ennemie) == "gauche"){
@@ -157,7 +157,7 @@ public class Pnj extends Characters{
 //	
 //	
 //	
-//	//distance relative par rapport ‡ Link entre 1 et 3
+//	//distance relative par rapport √© Link entre 1 et 3
 //	
 //	public static boolean distanceLinkInf1Sup3(MainCharacter Link, CoordCart ennemie){
 //		if ( Link.position.distanceTo(ennemie) >1 && Link.position.distanceTo(ennemie) < 3 )
@@ -166,7 +166,7 @@ public class Pnj extends Characters{
 //			return false;
 //	}
 //	
-//	//distance relative par rapport ‡ Link infÈrieur ‡ 1 
+//	//distance relative par rapport √© Link inf√©rieur √© 1 
 //	
 //	public static boolean distanceLinkSup1(MainCharacter Link, CoordCart ennemie){
 //		if ( Link.position.distanceTo(ennemie) <= 1 )
@@ -176,9 +176,9 @@ public class Pnj extends Characters{
 //	}
 	
 	
-//	dÈg‚t infligÈ au monstre
+//	d√©g√©t inflig√© au monstre
 	
-	public static void infligeDegat(MainCharacter Link, Pnj pnj){
+	public static void infligeD√©gat(MainCharacter Link, Pnj pnj){
 		Link.setHealth(Link.getHealth()- pnj.getStrength());
 	}
 	

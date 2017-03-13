@@ -56,7 +56,7 @@ public class SousMapC2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈSup, 0+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Sup, 0+ x, 420+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 60+ y);
@@ -170,10 +170,10 @@ public class SousMapC2 extends Sprite {
 		
 //		relief bas droite
 		
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈGau, 360+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈGau, 360+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈGau, 360+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacÈGau, 360+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Gau, 360+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Gau, 360+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Gau, 360+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlac√©Gau, 360+ x, 180+ y);
 		
 
 		
@@ -220,16 +220,16 @@ public class SousMapC2 extends Sprite {
 	
 	public static void createBodyAndType(World world){
 		
-		Map.setTypeDeDÈcor(1,1,"HerbesHautes");
-		Map.setTypeDeDÈcor(1,3,"HerbesHautes");
-		Map.setTypeDeDÈcor(2,3,"HerbesHautes");
-		Map.setTypeDeDÈcor(4,1,"HerbesHautes");
-		Map.setTypeDeDÈcor(5,2,"HerbesHautes");
-		if ( Map.dÈcorChangÈ[1][1] == true ) isBuisson1Cut = true;
-		if ( Map.dÈcorChangÈ[1][3] == true ) isBuisson2Cut = true;
-		if ( Map.dÈcorChangÈ[2][3] == true ) isBuisson3Cut = true;
-		if ( Map.dÈcorChangÈ[4][1] == true ) isBuisson4Cut = true;
-		if ( Map.dÈcorChangÈ[5][2] == true ) isBuisson5Cut = true;
+		Map.setTypeDeD√©cor(1,1,"HerbesHautes");
+		Map.setTypeDeD√©cor(1,3,"HerbesHautes");
+		Map.setTypeDeD√©cor(2,3,"HerbesHautes");
+		Map.setTypeDeD√©cor(4,1,"HerbesHautes");
+		Map.setTypeDeD√©cor(5,2,"HerbesHautes");
+		if ( Map.d√©corChang√©[1][1] == true ) isBuisson1Cut = true;
+		if ( Map.d√©corChang√©[1][3] == true ) isBuisson2Cut = true;
+		if ( Map.d√©corChang√©[2][3] == true ) isBuisson3Cut = true;
+		if ( Map.d√©corChang√©[4][1] == true ) isBuisson4Cut = true;
+		if ( Map.d√©corChang√©[5][2] == true ) isBuisson5Cut = true;
 		
 		if ( isBosquet1Created == false ) {
 			bosquet1 = ClimatMontagneux.createBody(450,180,220,200);

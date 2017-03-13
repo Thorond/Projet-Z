@@ -33,7 +33,7 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroite2 = new Texture("Personnage/link6.png");
 	
 	public static Texture coeurPlein = new Texture("Divers/coeurPlein.png");
-	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
+	public static Texture coeurMoitiÃ© = new Texture("Divers/coeur1-2.png");
 	public static Texture coeurUnQuart = new Texture("Divers/coeur1-4.png");
 	public static Texture coeurTroisQuart = new Texture("Divers/coeur3-4.png");
 	
@@ -69,7 +69,7 @@ public class MainCharacter extends Characters {
 		return this.body;
 	}
 	
-	public void représentationLink(MainCharacter cha){
+	public void reprÃ©sentationLink(MainCharacter cha){
 		if (cha.getDirection().equals("gauche")){
 			if ( System.currentTimeMillis() - MainMenu.start > 200) {
 				
