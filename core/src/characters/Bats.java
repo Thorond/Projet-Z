@@ -3,8 +3,6 @@ package characters;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.physics.box2d.World;
 
-import scenes.MainMenu;
-
 public class Bats extends Pnj{
 	
 	public long start = System.currentTimeMillis();

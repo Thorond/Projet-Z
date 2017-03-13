@@ -248,7 +248,6 @@ public class SousMapB2 extends Sprite {
 			m2EstCrée = true;
 		}
 		else {
-//			System.out.println(monstre2.getTexture());
 			monstre2.déplacementAléa();
 			monstre2.représentationBat();
 			monstre2.updateBody();

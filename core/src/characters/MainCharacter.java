@@ -43,6 +43,11 @@ public class MainCharacter extends Characters {
 		createBody();
 	}
 	
+//	==========================================================================
+//	cette fonction permet de créer le corp solide de notre personnage
+//	à l'aide d'une fonction de libGDX
+//	==========================================================================
+	
 	void createBody(){
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -61,6 +66,8 @@ public class MainCharacter extends Characters {
 		shape.dispose();
 	}
 	
+//	ici on donne la position du corp à la position des graphismes
+	
 	public void updatePlayer(){
 		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y *MainMenu.PPM);
 	}
@@ -68,6 +75,8 @@ public class MainCharacter extends Characters {
 	public Body getBody(){
 		return this.body;
 	}
+	
+//	cette fonction représente l'annimation des graphismes du personnage principale
 	
 	public void représentationLink(MainCharacter cha){
 		if (cha.getDirection().equals("gauche")){
