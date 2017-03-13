@@ -53,8 +53,8 @@ public class Characters extends Sprite{
 		shape.dispose();
 	}
 	
-	public void updatePlayer(){
-		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y*MainMenu.PPM);
+	public void updateBody(){
+		this.setPosition(this.getBody().getPosition().x *MainMenu.PPM , this.getBody().getPosition().y*MainMenu.PPM);
 	}
 	
 	public Body getBody(){

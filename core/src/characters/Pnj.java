@@ -35,19 +35,19 @@ public class Pnj extends Characters{
 	public void déplacementAléa(){
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - start > 2000) {
-			if ( tempo < 0.25 && this.getBody().getPosition().x > 60 ){
+			if ( tempo < 0.25 && this.getBody().getPosition().x > 60/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
-			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 540 ){
+			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 510/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(+100000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
-			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 60 ){
+			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 60/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(0,-100000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
-			else if (tempo > 0.75 && this.getBody().getPosition().y < 420){
+			else if (tempo > 0.75 && this.getBody().getPosition().y < 360/MainMenu.PPM){
 				this.getBody().applyLinearImpulse(new Vector2(0,+100000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
@@ -178,7 +178,7 @@ public class Pnj extends Characters{
 	
 //	dégât infligé 
 	
-	public static void infligeDégât(MainCharacter Link, Pnj pnj){
+	public static void infligeDegat(MainCharacter Link, Pnj pnj){
 		Link.setHealth(Link.getHealth()- pnj.getStrength());
 	}
 	
