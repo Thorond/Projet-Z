@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
-import décors.ClimatMontagneux;
+import decors.ClimatMontagneux;
 
 public class SousMapA3 extends Sprite{
 	

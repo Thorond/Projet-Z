@@ -1,4 +1,4 @@
-package décors;
+package decors;
 
 import com.badlogic.gdx.graphics.Texture;
 

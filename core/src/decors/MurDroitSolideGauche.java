@@ -1,4 +1,4 @@
-package décors;
+package decors;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -11,11 +11,11 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import scenes.MainMenu;
 
-public class MurDroitSolideDroite extends Sprite{
-	
+public class MurDroitSolideGauche extends Sprite{
+	 
 	public static World world = MainMenu.world;
 	private static Body body;
-	public static Texture murDroitSolideDroite = new Texture("Map6060.png");
+	public static Texture murDroitSolideGauche= new Texture("Map6060.png");
 	
 	public static Body createBody(float x, float y){
 		BodyDef bodyDef = new BodyDef();
