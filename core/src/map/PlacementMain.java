@@ -76,7 +76,6 @@ public class PlacementMain {
 			x=0;
 			direction = "bas";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y + 479/MainMenu.PPM , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
@@ -129,7 +128,6 @@ public class PlacementMain {
 			x=0;
 			direction = "haut";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x , perso.getBody().getPosition().y - 479/MainMenu.PPM , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
@@ -182,7 +180,6 @@ public class PlacementMain {
 			y = 0;
 			direction = "gauche";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x + 600/MainMenu.PPM, perso.getBody().getPosition().y  , 0);
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
@@ -243,7 +240,6 @@ public class PlacementMain {
 			y = 0;
 			direction = "droite";
 			
-//			perso.getBody().setTransform(perso.getBody().getPosition().x - 600/MainMenu.PPM, perso.getBody().getPosition().y  , 0);
 //			=============================================================================================================
 //									réinitialisation du type de décor et de leur état , et des coeurs de vies
 //			=============================================================================================================

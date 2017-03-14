@@ -34,6 +34,10 @@ public class SousMapB2 extends Sprite {
 	public static Bats monstre2;
 	public static boolean m1EstCrée = false ;
 	public static boolean m2EstCrée = false ;
+//	public static int coordXM1;
+//	public static int coordYM1;
+//	public static int coordXM2;
+//	public static int coordYM2;
 	
 	public static boolean monstresPrésent = true;
 	public static Pnj[] monstres = new Pnj[2];
@@ -192,6 +196,8 @@ public class SousMapB2 extends Sprite {
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
 			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
+		} else if ( m2EstCrée == false){
+			game.getBatch().draw(Bats.batDroite1, 340 + x , 200 + y );
 		}
 
 		
@@ -200,6 +206,7 @@ public class SousMapB2 extends Sprite {
 	
 	public static void createBodyAndType(World world){
 		Map.setTypeDeDécor(0,0,"EauProfonde");
+		Map.setTypeDeDécor(7,0,"EauProfonde");
 		
 		Map.setTypeDeDécor(6,0,"HerbesHautes");
 		Map.setTypeDeDécor(1,3,"HerbesHautes");
@@ -248,7 +255,6 @@ public class SousMapB2 extends Sprite {
 			m2EstCrée = true;
 		}
 		else {
-//			System.out.println(monstre2.getTexture());
 			monstre2.déplacementAléa();
 			monstre2.représentationBat();
 			monstre2.updateBody();

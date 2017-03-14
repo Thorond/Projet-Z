@@ -2,11 +2,6 @@ package characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 import items.CoeurDeVie;
@@ -14,21 +9,14 @@ import scenes.MainMenu;
 
 public class Pnj extends Characters{
 	
-//	public String direction;
-//	private World world;
-//	private Body body;
 	public long start;
 	public boolean arrét = false;
 	
 	
 	public Pnj(World world, Texture text ,int HM, int health, int strength, float x, float y, String direction){
 		super(world,text, HM, health, strength, x,  y, direction);
-//		this.world = world;
-//		createBody(x,y);
 		start = System.currentTimeMillis();
 	}
-
-	
 	
 //	déplacement aléatoire
 	
@@ -61,32 +49,6 @@ public class Pnj extends Characters{
 		}
 		
 	}
-	
-//	void createBody(float x, float y){
-//		BodyDef bodyDef = new BodyDef();
-//		bodyDef.type = BodyDef.BodyType.DynamicBody;
-//		bodyDef.position.set(x/MainMenu.PPM,y/MainMenu.PPM);
-//		body = world.createBody(bodyDef);
-//		
-//		PolygonShape shape = new PolygonShape();
-//		shape.setAsBox((getWidth() / 2)/MainMenu.PPM , (getHeight() / 2)/MainMenu.PPM);
-//		
-//		FixtureDef fixtureDef = new FixtureDef();
-//		fixtureDef.shape = shape;
-//		fixtureDef.density = 1;
-//		
-//		Fixture fixture = body.createFixture(fixtureDef);
-//		
-//		shape.dispose();
-//	}
-//	
-//	public void updatePlayer(){
-//		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y*MainMenu.PPM);
-//	}
-//	
-//	public Body getBody(){
-//		return this.body;
-//	}
 		
 	
 //	est en vie
@@ -100,7 +62,7 @@ public class Pnj extends Characters{
 	
 	public void drop(){
 		double tempo = Math.random();
-		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getBody().getPosition().x , (int) this.getBody().getPosition().y );
+		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
 	}
 	
 //	subir dégats et mort
@@ -176,7 +138,7 @@ public class Pnj extends Characters{
 //	}
 	
 	
-//	dégét infligé au monstre
+//	dégat infligé au monstre
 	
 	public static void infligeDégat(MainCharacter Link, Pnj pnj){
 		Link.setHealth(Link.getHealth()- pnj.getStrength());

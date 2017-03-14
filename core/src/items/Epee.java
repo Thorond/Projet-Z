@@ -4,6 +4,7 @@ import characters.MainCharacter;
 import map.Map;
 import map.PlacementMain;
 import map.SousMapB1;
+import map.SousMapB2;
 import scenes.MainMenu;
 
 public class Epee {
@@ -56,51 +57,51 @@ public class Epee {
 				Map.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60), (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
 			}
-			if ( PlacementMain.positionSousMap.equals("B1")){
+			if ( PlacementMain.positionSousMap.equals("B2")){
 //				vérification que des monstres sont sur cette map
-				if ( SousMapB1.monstresPrésent){
-					for ( int i = 0; i < SousMapB1.monstres.length ; i++){
+				if ( SousMapB2.monstresPrésent){
+					for ( int i = 0; i < SousMapB2.monstres.length ; i++){
 //						vérification qu'ils soient vivants
-						if ( SousMapB1.monstres[i].isAlive() ){
+						if ( SousMapB2.monstres[i].isAlive() ){
 							if (cha.getDirection().equals("droite")){
-								for ( int j = 0 ; j <= 120 ; j ++){
-									for ( int k = -60 ; k <= 120 ; k++){
-										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
-												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
+								for ( int j = 0 ; j <= 60 ; j ++){
+									for ( int k = -20 ; k <= 60 ; k++){
+										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB2.monstres[i].getBody().getPosition().x 
+												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB2.monstres[i].getBody().getPosition().y ){
+											SousMapB2.monstres[i].subirDégats(cha, cha.getDirection());
 											j=121;
 											k=121;
 										}
 									}
 								}
 							} else if (cha.getDirection().equals("gauche")){
-								for ( int j = 0 ; j >= -120 ; j --){
-									for ( int k = -60 ; k <= 120 ; k++){
-										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
-												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
+								for ( int j = 0 ; j >= -60 ; j --){
+									for ( int k = -20 ; k <= 60 ; k++){
+										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB2.monstres[i].getBody().getPosition().x 
+												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB2.monstres[i].getBody().getPosition().y ){
+											SousMapB2.monstres[i].subirDégats(cha, cha.getDirection());
 											j=-121;
 											k=121;
 										}
 									}
 								}
 							} else if (cha.getDirection().equals("haut")){
-								for ( int j = -60 ; j <= 120 ; j++){
-									for ( int k = 0 ; k <= 120 ; k++){
-										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
-												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
+								for ( int j = -20 ; j <= 60 ; j++){
+									for ( int k = 0 ; k <= 60 ; k++){
+										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB2.monstres[i].getBody().getPosition().x 
+												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB2.monstres[i].getBody().getPosition().y ){
+											SousMapB2.monstres[i].subirDégats(cha, cha.getDirection());
 											j=121;
 											k=121;
 										}
 									}
 								}
 							} else if (cha.getDirection().equals("bas")){
-								for ( int j = -60 ; j <= 120 ; j++){
-									for ( int k = 0 ; k >= -120 ; k--){
-										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB1.monstres[i].getBody().getPosition().x 
-												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB1.monstres[i].getBody().getPosition().y ){
-											SousMapB1.monstres[i].subirDégats(cha, cha.getDirection());
+								for ( int j = -20 ; j <= 60 ; j++){
+									for ( int k = 0 ; k >= -60 ; k--){
+										if ( (int) cha.getBody().getPosition().x +j == (int) SousMapB2.monstres[i].getBody().getPosition().x 
+												&& (int) cha.getBody().getPosition().y +k == (int) SousMapB2.monstres[i].getBody().getPosition().y ){
+											SousMapB2.monstres[i].subirDégats(cha, cha.getDirection());
 											j=121;
 											k=-121;
 										}

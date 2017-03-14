@@ -1,6 +1,11 @@
 package sauvegarde;
 
 public class Sauvegarde implements java.io.Serializable{
+	
+	
+//  ===========================================================================
+//				classe permettant de sauvegarder le jeu
+//  ===========================================================================
 	  
 //	private static final long serialVersionUID = 1L;
 	private float coordX;

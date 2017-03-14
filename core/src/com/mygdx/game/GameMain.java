@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import scenes.MainMenu;
 
+//classe libGDX
+
 public class GameMain extends Game {
 	private SpriteBatch batch;
 	

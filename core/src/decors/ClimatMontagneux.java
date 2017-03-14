@@ -10,7 +10,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
-import map.Map;
 import scenes.MainMenu;
 
 public class ClimatMontagneux {

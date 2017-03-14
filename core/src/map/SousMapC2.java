@@ -37,6 +37,9 @@ public class SousMapC2 extends Sprite {
 	public static Body cote;
 	public static boolean isCoteCreated;
 	
+	public static Body petitePierre1;
+	public static boolean isPetitePierre1Created;
+	
 	public static Body arbre1;
 	public static boolean isArbre1Created;
 	
@@ -287,6 +290,10 @@ public class SousMapC2 extends Sprite {
 			cote = ClimatMontagneux.createBody(350,30,1,60);
 			isCoteCreated = true;
 		}
+		if ( isPetitePierre1Created == false ) {
+			petitePierre1 = ClimatMontagneux.createBodyPerso("tronc", "static",190,0);
+			isPetitePierre1Created = true;
+		}
 		
 	}
 	
@@ -340,5 +347,8 @@ public class SousMapC2 extends Sprite {
 		
 		if ( isCoteCreated) MainMenu.world.destroyBody(cote);
 		isCoteCreated = false;
+		
+		if ( isPetitePierre1Created) MainMenu.world.destroyBody(petitePierre1);
+		isPetitePierre1Created = false;
 	}
 }

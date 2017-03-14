@@ -6,7 +6,7 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 
-public class SousMapB4 extends Sprite{
+public class SousMapE2 extends Sprite{
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -99,15 +99,6 @@ public class SousMapB4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
-		
-		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 180+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 240+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 300+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 360+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 420+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 480+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 540+ x, 420+ y);
-		
 	}
 
 	public static void destroyBody() {

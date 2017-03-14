@@ -57,6 +57,8 @@ public class MainMenu implements Screen{
 	
 	public MainMenu(GameMain game){
 		
+//		fonction libGDX
+		
 		this.game = game;
 		
 		this.box2DCamera = new OrthographicCamera();
@@ -67,17 +69,17 @@ public class MainMenu implements Screen{
 		
 		world = new World(new Vector2(0,0),true);
 		
+//		lorsqu'une sauvegarde existe, on l'appelle
+		
 		Link = new MainCharacter(world, 40, 30, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
-//		é utiliser en cas de nouvelle class sauvegarde
+//		à utiliser en cas de renouvelle de la sauvegarde
 		
 //		PlacementMain.positionSousMap = "B1";
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
-	
-		header = new Texture("Divers/barreHaute.png");
 		start = System.currentTimeMillis();
 		
 		Map.setTypeDeDécor();
@@ -89,6 +91,7 @@ public class MainMenu implements Screen{
 	void update(float dt){
 		if ( Link.getHealth()>0){
 			if (PlacementMain.défilement == false){
+//				choix clavier du joueur
 				if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 					Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
 					Link.setDirection("gauche");
@@ -132,12 +135,14 @@ public class MainMenu implements Screen{
 				if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
 					Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 				
+//				intéraction avec l'environnement 
 				if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 				if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+//				récupération de vie par les coeurs de vie
 				for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 					if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
-						for ( int j = 0 ; j < 40 ; j ++){
-							for ( int k = 0 ; k < 40 ; k ++){
+						for ( int j = -10 ; j < 40 ; j ++){
+							for ( int k = -10 ; k < 40 ; k ++){
 								if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
 										&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
 									if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
@@ -150,7 +155,7 @@ public class MainMenu implements Screen{
 				}
 			}
 		} else {
-//			suppresion des corps
+//			suppresion des corps de la map sur laquelle on était
 			if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("C1")) SousMapC1.destroyBody();
@@ -168,7 +173,7 @@ public class MainMenu implements Screen{
 			else if (PlacementMain.positionSousMap.equals("C4")) SousMapC4.destroyBody();
 			else if (PlacementMain.positionSousMap.equals("D4")) SousMapD4.destroyBody();
 			
-//			suppression des types
+//			suppression des types de décor 
 			Map.setTypeDeDécor();
 			Map.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
@@ -206,7 +211,7 @@ public class MainMenu implements Screen{
 		if ( PlacementMain.défilement == true) {
 			Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.4f, Link.getBody().getLinearVelocity().y / 1.4f);
 //			=============================================================================================
-//			                                    changement de map
+//			                                    changement de map/défilement
 //			=============================================================================================
 			if ( PlacementMain.direction.equals("gauche")){
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
@@ -512,42 +517,28 @@ public class MainMenu implements Screen{
 		
 		game.getBatch().draw(Link, Link.getX(), Link.getY());
 		
-//		game.getBatch().draw(header, 0,480);
 		
 //		=============================================================================================
 //											dessiner la vie
 //		=============================================================================================
 		
-		
 		int vie = 0 ;
 		int écart = 0;
-//		int écart2 =0;
 		while ( vie +4 <= Link.getHealth()  ){
-//			if ( vie < 40 ) {
-				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
-				écart+=15;
-//			}
-//			else {
-//				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart2, 440 );
-//				écart2 += 15;
-//			}
+			game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
+			écart+=15;
 			vie += 4;
-		
 		}
-//		if (vie < 40){
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
-//		} else {
-//			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart2, 440 );
-//			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart2, 440 );
-//			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart2, 440 );
-//		}
-		
+		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
+		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
+		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
 		
 		game.getBatch().end();
 		
+		
+//		afficher les corps pour visualiser ce avec quoi on travail
 		this.debugRenderer.render(world, this.box2DCamera.combined);
+		
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
 	}
