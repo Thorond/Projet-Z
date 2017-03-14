@@ -99,6 +99,17 @@ public class SousMapD3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
+		
+		
+		
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 60+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 120+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 180+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 240+ x, 420+ y);
+		
+		
+		
 	}
 
 	public static void createBodyAndType(World world) {
