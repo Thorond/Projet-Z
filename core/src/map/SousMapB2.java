@@ -206,6 +206,7 @@ public class SousMapB2 extends Sprite {
 	
 	public static void createBodyAndType(World world){
 		Map.setTypeDeDécor(0,0,"EauProfonde");
+		Map.setTypeDeDécor(7,0,"EauProfonde");
 		
 		Map.setTypeDeDécor(6,0,"HerbesHautes");
 		Map.setTypeDeDécor(1,3,"HerbesHautes");

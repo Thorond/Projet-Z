@@ -16,6 +16,8 @@ public class SousMapC3 extends Sprite{
 	public static boolean isBosquet2Created;
 	public static Body bosquet3 ;
 	public static boolean isBosquet3Created;
+	public static Body bosquet4 ;
+	public static boolean isBosquet4Created;
 	public static Body cote1 ;
 	public static boolean isCote1Created;
 	public static Body cote2 ;
@@ -175,8 +177,12 @@ public class SousMapC3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 240+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 240+ x, 240+ y);
 		
-		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 0+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 0+ x, 60+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 540+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 540+ x, 240+ y);
 		
 	}
 
@@ -190,6 +196,9 @@ public class SousMapC3 extends Sprite{
 		
 		if ( isBosquet3Created) MainMenu.world.destroyBody(bosquet3);
 		isBosquet3Created = false;
+		
+		if ( isBosquet4Created) MainMenu.world.destroyBody(bosquet4);
+		isBosquet4Created = false;
 		
 		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
 		isCote1Created = false;
@@ -226,6 +235,10 @@ public class SousMapC3 extends Sprite{
 		if ( isBosquet3Created == false ) {
 			bosquet3 = ClimatMontagneux.createBody(260,420,180,270);
 			isBosquet3Created = true;
+		}
+		if ( isBosquet4Created == false ) {
+			bosquet4 = ClimatMontagneux.createBody(570,200,60,150);
+			isBosquet4Created = true;
 		}
 		if ( isCote1Created == false ) {
 			cote1 = ClimatMontagneux.createBody(345,140,1,160);

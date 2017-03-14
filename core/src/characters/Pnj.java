@@ -62,7 +62,7 @@ public class Pnj extends Characters{
 	
 	public void drop(){
 		double tempo = Math.random();
-		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getBody().getPosition().x , (int) this.getBody().getPosition().y );
+		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
 	}
 	
 //	subir dégats et mort

@@ -141,8 +141,8 @@ public class MainMenu implements Screen{
 //				récupération de vie par les coeurs de vie
 				for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 					if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
-						for ( int j = 0 ; j < 40 ; j ++){
-							for ( int k = 0 ; k < 40 ; k ++){
+						for ( int j = -10 ; j < 40 ; j ++){
+							for ( int k = -10 ; k < 40 ; k ++){
 								if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
 										&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
 									if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
@@ -517,7 +517,6 @@ public class MainMenu implements Screen{
 		
 		game.getBatch().draw(Link, Link.getX(), Link.getY());
 		
-//		game.getBatch().draw(header, 0,480);
 		
 //		=============================================================================================
 //											dessiner la vie
@@ -538,7 +537,7 @@ public class MainMenu implements Screen{
 		
 		
 //		afficher les corps pour visualiser ce avec quoi on travail
-//		this.debugRenderer.render(world, this.box2DCamera.combined);
+		this.debugRenderer.render(world, this.box2DCamera.combined);
 		
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		

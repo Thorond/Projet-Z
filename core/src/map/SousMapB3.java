@@ -210,19 +210,19 @@ public class SousMapB3 extends Sprite{
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 60+ y);
 		
-		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 180+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 180+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 180+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 240+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 240+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 300+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 300+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 300+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 360+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 360+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 360+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 420+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 420+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 420+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 480+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 480+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 540+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 540+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 540+ x, 60+ y);
 		
 	}

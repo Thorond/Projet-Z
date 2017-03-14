@@ -55,7 +55,7 @@ public class MainCharacter extends Characters {
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(getWidth() / (2*MainMenu.PPM) , getHeight() / (2*MainMenu.PPM));
+		shape.setAsBox(getWidth() / (2*MainMenu.PPM) , getWidth() / (2*MainMenu.PPM));
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
