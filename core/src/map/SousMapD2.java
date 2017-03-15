@@ -20,6 +20,17 @@ public class SousMapD2 extends Sprite{
 	public static Body cote2 ;
 	public static boolean isCote2Created;
 	
+	public static Body grossePierre1;
+	public static boolean isGrossePierre1Created;
+	public static Body grossePierre2;
+	public static boolean isGrossePierre2Created;
+	
+	public static Body petitePierre1;
+	public static boolean isPetitePierre1Created;
+	
+	public static Body arbre1;
+	public static boolean isArbre1Created;
+	
 	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
@@ -187,6 +198,18 @@ public class SousMapD2 extends Sprite{
 		
 		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
 		isCote2Created = false;
+		
+		if ( isGrossePierre1Created) MainMenu.world.destroyBody(grossePierre1);
+		isGrossePierre1Created = false;
+		
+		if ( isGrossePierre2Created) MainMenu.world.destroyBody(grossePierre2);
+		isGrossePierre2Created = false;
+		
+		if ( isArbre1Created) MainMenu.world.destroyBody(arbre1);
+		isArbre1Created = false;
+		
+		if ( isPetitePierre1Created) MainMenu.world.destroyBody(petitePierre1);
+		isPetitePierre1Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -199,6 +222,7 @@ public class SousMapD2 extends Sprite{
 			bosquet2 = ClimatMontagneux.createBody(160,110,120,200);
 			isBosquet2Created = true;
 		}
+		
 		if ( isCote1Created == false ) {
 			cote1 = ClimatMontagneux.createBody(300,285,600,1);
 			isCote1Created = true;
@@ -206,6 +230,24 @@ public class SousMapD2 extends Sprite{
 		if ( isCote2Created == false ) {
 			cote2 = ClimatMontagneux.createBody(410,225,320,1);
 			isCote2Created = true;
+		}
+		
+		if ( isGrossePierre1Created == false ) {
+			grossePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static",00,300);
+			isGrossePierre1Created = true;
+		}
+		if ( isGrossePierre2Created == false ) {
+			grossePierre2 = ClimatMontagneux.createBodyPerso("grossePierre", "static",420,180);
+			isGrossePierre2Created = true;
+		}
+		
+		if ( isArbre1Created == false ) {
+			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",540,0);
+			isArbre1Created = true;
+		}
+		if ( isPetitePierre1Created == false ) {
+			petitePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static",480,0);
+			isPetitePierre1Created = true;
 		}
 	}
 

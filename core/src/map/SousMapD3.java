@@ -40,6 +40,8 @@ public class SousMapD3 extends Sprite{
 	public static boolean isCote10Created;
 	public static Body cote11 ;
 	public static boolean isCote11Created;
+	public static Body cote12 ;
+	public static boolean isCote12Created;
 	
 	public static Body petitePierre1;
 	public static boolean isPetitePierre1Created;
@@ -47,6 +49,17 @@ public class SousMapD3 extends Sprite{
 	public static boolean isPetitePierre2Created;
 	public static Body petitePierre3;
 	public static boolean isPetitePierre3Created;
+	
+	public static boolean isBuisson1Cut = false;
+	public static boolean isBuisson2Cut = false;
+	public static boolean isBuisson3Cut = false;
+	public static boolean isBuisson4Cut = false;
+	public static boolean isBuisson5Cut = false;
+	public static boolean isBuisson6Cut = false;
+	public static boolean isBuisson7Cut = false;
+	public static boolean isBuisson8Cut = false;
+	public static boolean isBuisson9Cut = false;
+	public static boolean isBuisson10Cut = false;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -186,9 +199,46 @@ public class SousMapD3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 0+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 0+ x, 240+ y);
 		
+		
+//		buissons 
+		
+
+		ClimatMontagneux.buisson(isBuisson1Cut,game, 60+x, 60+y);
+		ClimatMontagneux.buisson(isBuisson2Cut,game, 60+x, 180+y);
+		ClimatMontagneux.buisson(isBuisson3Cut,game, 60+x, 240+y);
+		ClimatMontagneux.buisson(isBuisson4Cut,game, 120+x, 60+y);
+		ClimatMontagneux.buisson(isBuisson5Cut,game, 120+x, 120+y);
+		ClimatMontagneux.buisson(isBuisson6Cut,game, 120+x, 180+y);
+		ClimatMontagneux.buisson(isBuisson7Cut,game, 180+x, 60+y);
+		ClimatMontagneux.buisson(isBuisson8Cut,game, 180+x, 120+y);
+		ClimatMontagneux.buisson(isBuisson9Cut,game, 180+x, 180+y);
+		ClimatMontagneux.buisson(isBuisson10Cut,game, 180+x, 240+y);
+		
 	}
 
 	public static void createBodyAndType(World world) {
+		
+		Map.setTypeDeDécor(1,1,"HerbesHautes");
+		Map.setTypeDeDécor(1,3,"HerbesHautes");
+		Map.setTypeDeDécor(1,4,"HerbesHautes");
+		Map.setTypeDeDécor(2,1,"HerbesHautes");
+		Map.setTypeDeDécor(2,2,"HerbesHautes");
+		Map.setTypeDeDécor(2,3,"HerbesHautes");
+		Map.setTypeDeDécor(3,1,"HerbesHautes");
+		Map.setTypeDeDécor(3,2,"HerbesHautes");
+		Map.setTypeDeDécor(3,3,"HerbesHautes");
+		Map.setTypeDeDécor(3,4,"HerbesHautes");
+		if ( Map.décorChangé[1][1] == true ) isBuisson1Cut = true;
+		if ( Map.décorChangé[1][3] == true ) isBuisson2Cut = true;
+		if ( Map.décorChangé[1][4] == true ) isBuisson3Cut = true;
+		if ( Map.décorChangé[2][1] == true ) isBuisson4Cut = true;
+		if ( Map.décorChangé[2][2] == true ) isBuisson5Cut = true;
+		if ( Map.décorChangé[2][3] == true ) isBuisson6Cut = true;
+		if ( Map.décorChangé[3][1] == true ) isBuisson7Cut = true;
+		if ( Map.décorChangé[3][2] == true ) isBuisson8Cut = true;
+		if ( Map.décorChangé[3][3] == true ) isBuisson9Cut = true;
+		if ( Map.décorChangé[3][4] == true ) isBuisson10Cut = true;
+		
 		// TODO Auto-generated method stub
 		if ( isBosquet1Created == false ) {
 			bosquet1 = ClimatMontagneux.createBody(10,200,60,150);
@@ -248,6 +298,10 @@ public class SousMapD3 extends Sprite{
 			cote11 = ClimatMontagneux.createBody(110,400,200,1);
 			isCote11Created = true;
 		}
+		if ( isCote12Created == false ) {
+			cote12 = ClimatMontagneux.createBody(540,60,60,1);
+			isCote12Created = true;
+		}
 		if ( isPetitePierre1Created == false ) {
 			petitePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static",480,420);
 			isPetitePierre1Created = true;
@@ -264,7 +318,16 @@ public class SousMapD3 extends Sprite{
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+		isBuisson1Cut = false;
+		isBuisson2Cut = false;
+		isBuisson3Cut = false;
+		isBuisson4Cut = false;
+		isBuisson5Cut = false;
+		isBuisson6Cut = false;
+		isBuisson7Cut = false;
+		isBuisson8Cut = false;
+		isBuisson9Cut = false;
+		isBuisson10Cut = false;
 	}
 
 	public static void destroyBody() {
@@ -309,6 +372,9 @@ public class SousMapD3 extends Sprite{
 		isCote10Created = false;
 		
 		if ( isCote11Created) MainMenu.world.destroyBody(cote11);
+		isCote11Created = false;
+		
+		if ( isCote11Created) MainMenu.world.destroyBody(cote12);
 		isCote11Created = false;
 		
 		if ( isPetitePierre1Created) MainMenu.world.destroyBody(petitePierre1);
