@@ -32,7 +32,7 @@ public class SousMapC1 extends Sprite {
 	public static Body tonneau4 ;
 	public static boolean isTonneau4Created;
 	
-	public static void sousMapC1(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 60+y);

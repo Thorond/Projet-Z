@@ -8,7 +8,7 @@ import decors.ClimatMontagneux;
 
 public class SousMapD1 extends Sprite{
 	
-	public static void sousMapD1(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);

@@ -48,7 +48,7 @@ public class SousMapD3 extends Sprite{
 	public static Body petitePierre3;
 	public static boolean isPetitePierre3Created;
 	
-	public static void sousMapD3(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);

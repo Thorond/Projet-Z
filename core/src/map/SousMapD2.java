@@ -20,7 +20,7 @@ public class SousMapD2 extends Sprite{
 	public static Body cote2 ;
 	public static boolean isCote2Created;
 	
-	public static void sousMapD2(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);

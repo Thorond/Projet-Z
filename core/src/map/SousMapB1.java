@@ -47,7 +47,7 @@ public class SousMapB1 extends Sprite {
 	public static boolean monstresPrésent = true;
 	public static Pnj[] monstres = new Pnj[3];
 	
-	public static void sousMapB1(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);

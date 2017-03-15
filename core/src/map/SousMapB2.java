@@ -45,7 +45,7 @@ public class SousMapB2 extends Sprite {
 	public static boolean monstresPrésent = true;
 	public static Pnj[] monstres = new Pnj[2];
 	
-	public static void sousMapB2(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);

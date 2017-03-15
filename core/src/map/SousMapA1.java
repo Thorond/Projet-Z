@@ -11,7 +11,7 @@ public class SousMapA1 extends Sprite {
 	
 
 	
-	public static void sousMapA1(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
