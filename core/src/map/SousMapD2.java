@@ -1,12 +1,24 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapD2 extends Sprite{
+	
+	public static Body bosquet1 ;
+	public static boolean isBosquet1Created;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
+	
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
 	
 	public static void sousMapD2(GameMain game, int x, int y){
 		
@@ -164,12 +176,37 @@ public class SousMapD2 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
+		if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
+		isBosquet1Created = false;
 		
+		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+		isBosquet2Created = false;
+		
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
+		
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+		if ( isBosquet1Created == false ) {
+			bosquet1 = ClimatMontagneux.createBody(20,180,30,200);
+			isBosquet1Created = true;
+		}
+		if ( isBosquet2Created == false ) {
+			bosquet2 = ClimatMontagneux.createBody(160,110,120,200);
+			isBosquet2Created = true;
+		}
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(300,285,600,1);
+			isCote1Created = true;
+		}
+		if ( isCote2Created == false ) {
+			cote2 = ClimatMontagneux.createBody(410,225,320,1);
+			isCote2Created = true;
+		}
 	}
 
 	public static void destroyType() {

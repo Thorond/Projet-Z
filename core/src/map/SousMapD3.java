@@ -12,6 +12,8 @@ public class SousMapD3 extends Sprite{
 	
 	public static Body bosquet1 ;
 	public static boolean isBosquet1Created;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
 	
 	public static Body igloo ;
 	public static boolean isIglooCreated;
@@ -192,6 +194,10 @@ public class SousMapD3 extends Sprite{
 			bosquet1 = ClimatMontagneux.createBody(10,200,60,150);
 			isBosquet1Created = true;
 		}
+		if ( isBosquet2Created == false ) {
+			bosquet2 = ClimatMontagneux.createBody(160,430,120,60);
+			isBosquet2Created = true;
+		}
 		
 		if ( isIglooCreated == false ) {
 			igloo = ClimatMontagneux.createBody(470,210,190,160);
@@ -265,6 +271,9 @@ public class SousMapD3 extends Sprite{
 		// TODO Auto-generated method stub
 		if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
 		isBosquet1Created = false;
+		
+		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+		isBosquet2Created = false;
 		
 		if ( isIglooCreated ) MainMenu.world.destroyBody(igloo);
 		isIglooCreated = false;

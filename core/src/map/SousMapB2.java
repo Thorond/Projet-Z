@@ -30,6 +30,9 @@ public class SousMapB2 extends Sprite {
 	public static boolean isBuisson9Cut = false;
 	public static boolean isBuisson10Cut = false;
 	
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	
 	public static Bats monstre1;
 	public static Bats monstre2;
 	public static boolean m1EstCrée = false ;
@@ -243,6 +246,11 @@ public class SousMapB2 extends Sprite {
 			isBosquet2Created = true;
 		}
 		
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(300,0,300,1);
+			isCote1Created = true;
+		}
+		
 //		========================================================================================
 //			Création des corps des montres
 //	========================================================================================
@@ -296,6 +304,9 @@ public class SousMapB2 extends Sprite {
 		
 		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
 		isBosquet2Created = false;
+		
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
 		
 //		destruction monstres
 		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
