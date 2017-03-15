@@ -11,7 +11,7 @@ public class SousMapA1 extends Sprite {
 	
 
 	
-	public static void sousMapA1(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
@@ -134,9 +134,14 @@ public class SousMapA1 extends Sprite {
 	
 	public static void createBodyAndType(World world){
 		
-		
-		
-		
+		Map.setTypeDeDécor(240/60, 0, "EauProfonde");
+		Map.setTypeDeDécor(240/60, 1, "EauProfonde");
+		Map.setTypeDeDécor(240/60, 2, "EauProfonde");
+		Map.setTypeDeDécor(300/60, 3, "EauProfonde");
+		Map.setTypeDeDécor(360/60, 4, "EauProfonde");
+		Map.setTypeDeDécor(420/60, 4, "EauProfonde");
+		Map.setTypeDeDécor(480/60, 4, "EauProfonde");
+		Map.setTypeDeDécor(540/60, 5, "EauProfonde");
 	}
 	
 	public static void destroyBody(){

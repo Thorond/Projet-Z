@@ -1,5 +1,7 @@
 package items;
 
+import com.badlogic.gdx.graphics.Texture;
+
 import characters.MainCharacter;
 import map.Map;
 import map.PlacementMain;
@@ -7,17 +9,19 @@ import map.SousMapB1;
 import map.SousMapB2;
 import scenes.MainMenu;
 
-public class Epee {
-//	extends Item
-
-//	public Epée(Texture text){
-//		super(text,1);
-//	}
+public class Epee extends Item{
 	
-	public static long startAtt = System.currentTimeMillis();
+	public static Texture épéeT = new Texture("items/épéeItem.png");
+
+	public Epee(){
+		super(épéeT,1);
+	}
+	
+	
+	public long startAtt = System.currentTimeMillis();
 	
 //	static a enlever
-	public static void utilisationItem( MainCharacter cha) {
+	public void utilisationItem( MainCharacter cha) {
 		if (  System.currentTimeMillis() - startAtt > 500 ) {
 			if ( cha.getDirection().equals("bas")){
 				if ( ((int) cha.getBody().getPosition().y *MainMenu.PPM/ 60 ) -1 >= 0 &&

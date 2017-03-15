@@ -17,7 +17,7 @@ public class SousMapA2 extends Sprite{
 	public static boolean isBodyMurGauche2Created;
 	
 	
-	public static void sousMapA2(GameMain game, int x, int y){
+	public static void sousMap(GameMain game, int x, int y){
 		
 		
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 0+y);
