@@ -15,6 +15,8 @@ import characters.MainCharacter;
 import decors.ClimatMontagneux;
 import items.CoeurDeVie;
 import items.Epee;
+import items.Item;
+import items.Plume;
 import map.Map;
 import map.PlacementMain;
 import map.SousMapA1;
@@ -45,8 +47,9 @@ public class MainMenu implements Screen{
 	
 	private GameMain game;
 	public static MainCharacter Link;
+	public static Epee épée = new Epee();
+	public static Plume plume = new Plume();
 	Texture carte;
-	Texture header;
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
 //	= AcceptClass.acceptClass() é utiliser en cas de nouvelle class sauvegarde
@@ -84,6 +87,9 @@ public class MainMenu implements Screen{
 //		PlacementMain.positionSousMap = "B1";
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
+		Item.itemsKL[0] = plume;
+		Item.itemsKL[1] = épée;
+		
 		start = System.currentTimeMillis();
 		
 		Map.setTypeDeDécor();
@@ -118,9 +124,7 @@ public class MainMenu implements Screen{
 					Link.setDirection("bas");
 					Link.représentationLink(Link);
 		
-				} else if (Gdx.input.isKeyPressed(Input.Keys.K)){
-					Epee.utilisationItem(Link);
-			    } else if (Gdx.input.isKeyPressed(Input.Keys.P)){
+				} else if (Gdx.input.isKeyPressed(Input.Keys.P)){
 					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
 					SendClass.sendClass(sauvegarde);
 				} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
@@ -134,12 +138,22 @@ public class MainMenu implements Screen{
 					else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
 					else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
 				} 
+				
+				
 				if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D))) 
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
 				if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
 					Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 				
 //				intéraction avec l'environnement 
+				
+				 if (Gdx.input.isKeyPressed(Input.Keys.K)){
+						Item.itemsKL[0].utilisationItem(Link);
+				 } else if (Gdx.input.isKeyPressed(Input.Keys.L)){
+					 	Item.itemsKL[1].utilisationItem(Link);
+				 }
+				
+				
 				if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 				if ( Map.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 //				récupération de vie par les coeurs de vie
@@ -563,8 +577,12 @@ public class MainMenu implements Screen{
 		}
 		
 		
+//		=============================================================================================
+//       						             dessiner les items
+//		=============================================================================================
 		
-		
+		Item.itemsKL[0].affichageItemK(game);
+		Item.itemsKL[1].affichageItemL(game);
 		
 //		=============================================================================================
 //		                                 dessiner les coeurs de vie

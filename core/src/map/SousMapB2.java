@@ -261,8 +261,8 @@ public class SousMapB2 extends Sprite {
 		}
 		
 //		========================================================================================
-//			Création des corps des montres
-//	========================================================================================
+//									Création des corps des montres
+//		========================================================================================
 	
 		
 		
@@ -278,7 +278,7 @@ public class SousMapB2 extends Sprite {
 		}
 		
 		if ( m1EstCrée == false ) {
-			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 400 , "bas") ;
+			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
 			monstres[0] = monstre1;
 			m1EstCrée = true;
 		}

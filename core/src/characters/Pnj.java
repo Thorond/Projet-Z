@@ -22,7 +22,7 @@ public class Pnj extends Characters{
 	
 	public void déplacementAléa(){
 		double tempo = Math.random();
-		if ( System.currentTimeMillis() - start > 2000) {
+		if ( System.currentTimeMillis() - start > 1000) {
 			if ( tempo < 0.25 && this.getBody().getPosition().x > 60/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
@@ -85,8 +85,6 @@ public class Pnj extends Characters{
 
 	
 	public void infligéDégatLink(){
-		System.out.println(MainMenu.Link.getX());
-		System.out.println(this.getX());
 		
 		if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -30 
 				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +25

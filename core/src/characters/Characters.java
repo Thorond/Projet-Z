@@ -46,7 +46,7 @@ public class Characters extends Sprite{
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
-		fixtureDef.density = 100;
+		fixtureDef.density = 1;
 		
 		Fixture fixture = body.createFixture(fixtureDef);
 		
