@@ -79,69 +79,32 @@ public class Pnj extends Characters{
 		}
 		this.setHealth(this.getHealth() - cha.getStrength());
 	}
-//
-////position relative par rapport é Link
-//	
-//	public static String positionToLinkX(MainCharacter Link,CoordCart ennemie){
-//		if (Link.position.getX() < ennemie.getX())
-//			return "droite";
-//		else if (Link.position.getX() > ennemie.getX())
-//			return "gauche";
-//		else
-//			return "méme niveau";
-//	}
-//	
-//	public static String positionToLinkY(MainCharacter Link,CoordCart ennemie){
-//		if (Link.position.getY() < ennemie.getY())
-//			return "haut";
-//		else if (Link.position.getY() > ennemie.getY())
-//			return "bas";
-//		else {
-//			return "méme niveau";
-//		}
-//	}
-//	
-//	//réduction de distance é Link
-//	
-//	public static void déplacementToLink(MainCharacter Link,CoordCart ennemie){
-//		if ( positionToLinkX(Link, ennemie) == "droite"){
-//			ennemie.setX(ennemie.getX()-1);
-//		} else if (positionToLinkX(Link, ennemie) == "gauche"){
-//			ennemie.setX(ennemie.getX()+1);
-//		}
-//			
-//		if ( positionToLinkY(Link, ennemie) == "haut"){
-//			ennemie.setY(ennemie.getY()-1);
-//		} else if ( positionToLinkY(Link, ennemie) == "bas"){
-//			ennemie.setY(ennemie.getY()+1);
-//		}
-//	}
-//	
-//	
-//	
-//	//distance relative par rapport é Link entre 1 et 3
-//	
-//	public static boolean distanceLinkInf1Sup3(MainCharacter Link, CoordCart ennemie){
-//		if ( Link.position.distanceTo(ennemie) >1 && Link.position.distanceTo(ennemie) < 3 )
-//			return true;
-//		else
-//			return false;
-//	}
-//	
-//	//distance relative par rapport é Link inférieur é 1 
-//	
-//	public static boolean distanceLinkSup1(MainCharacter Link, CoordCart ennemie){
-//		if ( Link.position.distanceTo(ennemie) <= 1 )
-//			return true;
-//		else
-//			return false;
-//	}
 	
 	
-//	dégat infligé au monstre
+// infligé des dégats 
+
 	
-	public static void infligeDégat(MainCharacter Link, Pnj pnj){
-		Link.setHealth(Link.getHealth()- pnj.getStrength());
+	public void infligéDégatLink(){
+		System.out.println(MainMenu.Link.getX());
+		System.out.println(this.getX());
+		
+		if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -30 
+				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +25
+				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -25
+				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +25) {
+			MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+			if (MainMenu.Link.getDirection().equals("haut")){
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
+			} else if (MainMenu.Link.getDirection().equals("bas")){
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
+			}  else if (MainMenu.Link.getDirection().equals("droite")){
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x - 30, MainMenu.Link.getBody().getPosition().y , 0);
+			}  else if (MainMenu.Link.getDirection().equals("gauche")){
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +30, MainMenu.Link.getBody().getPosition().y, 0);
+			}
+		}
 	}
+	
+
 	
 }

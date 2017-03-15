@@ -374,8 +374,8 @@ public class SousMapD3 extends Sprite{
 		if ( isCote11Created) MainMenu.world.destroyBody(cote11);
 		isCote11Created = false;
 		
-		if ( isCote11Created) MainMenu.world.destroyBody(cote12);
-		isCote11Created = false;
+		if ( isCote12Created) MainMenu.world.destroyBody(cote12);
+		isCote12Created = false;
 		
 		if ( isPetitePierre1Created) MainMenu.world.destroyBody(petitePierre1);
 		isPetitePierre1Created = false;

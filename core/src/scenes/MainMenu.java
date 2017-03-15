@@ -44,7 +44,7 @@ import sauvegarde.SendClass;
 public class MainMenu implements Screen{
 	
 	private GameMain game;
-	private MainCharacter Link;
+	public static MainCharacter Link;
 	Texture carte;
 	Texture header;
 	public static World world;

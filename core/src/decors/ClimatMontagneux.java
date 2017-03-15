@@ -81,6 +81,7 @@ public class ClimatMontagneux {
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
 	
 //	tile
+	
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
 	public static Texture  arbreBasGauche = new Texture("climatMontagneux/arbreBasGauche.png");
 	public static Texture  arbreBasMilieu = new Texture("climatMontagneux/arbreBasMilieu.png");
@@ -172,7 +173,7 @@ public class ClimatMontagneux {
 	public static Texture icebergWater = new Texture("climatMontagneux/iceBergWater.png");
 	
 	
-//	eau
+//	eau de mer 
 	public static Texture eauProfondeGlacée = new Texture("climatMontagneux/eauProfondeGlacée.png");
 	public static Texture eauProfondeGlacée2 = new Texture("climatMontagneux/eauProfondeGlacée2.png");
 	
@@ -194,6 +195,32 @@ public class ClimatMontagneux {
 			startEau = System.currentTimeMillis();
 			if ( etat1 == false ) etat1=true;
 			else etat1=false;
+		}
+		
+	}
+	
+//	eau derivière
+	public static Texture eauProfonde = new Texture("map/eauProfonde2.png");
+	public static Texture eauProfonde2 = new Texture("map/eauProfonde3.png");
+	
+	public static boolean etat2 = false;
+	public static long startEau2 = System.currentTimeMillis();
+
+	public static void setDamageEauRivière(MainCharacter cha) {
+		cha.setHealth(cha.getHealth() - 2 );
+		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
+		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
+		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
+		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
+	}
+	
+	public static void eauProfonde(GameMain game, int x, int y){
+		if ( etat2 == false ) game.getBatch().draw(eauProfonde, x, y);
+		else game.getBatch().draw(eauProfonde2, x, y);		
+		if ( System.currentTimeMillis() - startEau2 > 500){
+			startEau2 = System.currentTimeMillis();
+			if ( etat2 == false ) etat2=true;
+			else etat2=false;
 		}
 		
 	}

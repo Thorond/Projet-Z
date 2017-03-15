@@ -202,7 +202,16 @@ public class SousMapB2 extends Sprite {
 		} else if ( m2EstCrée == false){
 			game.getBatch().draw(Bats.batDroite1, 340 + x , 200 + y );
 		}
-
+//		==================================================================
+//				      			dégats des monstres
+//		==================================================================
+		
+		if ( m1EstCrée && monstre1.isAlive() ) { 
+			monstre1.infligéDégatLink();
+		}
+		if ( m2EstCrée && monstre2.isAlive() ) {
+			monstre2.infligéDégatLink();
+		}
 		
 		
 	}
