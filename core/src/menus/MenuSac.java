@@ -19,9 +19,6 @@ public class MenuSac {
 	public static Texture fondItem1 = new Texture("menus/buttonSquare_beige.png");
 	public static Texture fondItem2 = new Texture("menus/buttonSquare_beige_pressed.png");
 	
-	public static long start = System.currentTimeMillis();
-	public static long déplacementFlèche = System.currentTimeMillis();
-	
 	public static int itemSelect = 1;
 	
 	public static boolean isSacAffiché = false;

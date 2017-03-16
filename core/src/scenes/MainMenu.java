@@ -100,28 +100,24 @@ public class MainMenu implements Screen{
 	}
 	
 	void updateSac(float dt){
-		if ( System.currentTimeMillis() - MenuSac.déplacementFlèche > 200 ){
-			if (Gdx.input.isKeyPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
-				MenuSac.itemSelect--;		
-			} else if (Gdx.input.isKeyPressed(Input.Keys.D) && MenuSac.itemSelect < 15){
-				MenuSac.itemSelect++;	
-			} else if (Gdx.input.isKeyPressed(Input.Keys.Z) && MenuSac.itemSelect > 5){
-				MenuSac.itemSelect-=5;	
-			} else if (Gdx.input.isKeyPressed(Input.Keys.S) && MenuSac.itemSelect <11){
-				MenuSac.itemSelect+=5;
-			}
-			if (Gdx.input.isKeyPressed(Input.Keys.K) &&  MenuSac.itemSelect <= MenuSac.nbrItems){
-				MenuSac.acquisitionItemsK();
-			} else if (Gdx.input.isKeyPressed(Input.Keys.L) &&  MenuSac.itemSelect <= MenuSac.nbrItems){
-				MenuSac.acquisitionItemsL();
-			}
-			MenuSac.déplacementFlèche = System.currentTimeMillis();
+		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
+			MenuSac.itemSelect--;		
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D) && MenuSac.itemSelect < 15){
+			MenuSac.itemSelect++;	
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z) && MenuSac.itemSelect > 5){
+			MenuSac.itemSelect-=5;	
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.S) && MenuSac.itemSelect <11){
+			MenuSac.itemSelect+=5;
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.K) &&  MenuSac.itemSelect <= MenuSac.nbrItems){
+			MenuSac.acquisitionItemsK();
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.L) &&  MenuSac.itemSelect <= MenuSac.nbrItems){
+			MenuSac.acquisitionItemsL();
 		}
 		
-		if (Gdx.input.isKeyPressed(Input.Keys.M)
-				&& System.currentTimeMillis() - MenuSac.start > 200 ){
+		
+		if (Gdx.input.isKeyJustPressed(Input.Keys.M)){
 			MenuSac.isSacAffiché = false;
-			MenuSac.start = System.currentTimeMillis();
 		}
 	}
 	
@@ -175,13 +171,12 @@ public class MainMenu implements Screen{
 				
 //				intéraction avec l'environnement 
 				
-				 if (Gdx.input.isKeyPressed(Input.Keys.K)){
+				 if (Gdx.input.isKeyJustPressed(Input.Keys.K)){
 						MenuSac.itemsKL[0].utilisationItem(Link);
-				 } else if (Gdx.input.isKeyPressed(Input.Keys.L)){
+				 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L)){
 					 	MenuSac.itemsKL[1].utilisationItem(Link);
-				 } else if (Gdx.input.isKeyPressed(Input.Keys.M)&& System.currentTimeMillis() - MenuSac.start > 200 ){
+				 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 						MenuSac.isSacAffiché = true;
-						MenuSac.start = System.currentTimeMillis();
 				 }
 				
 				
