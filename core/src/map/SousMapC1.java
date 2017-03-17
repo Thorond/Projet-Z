@@ -177,9 +177,9 @@ public class SousMapC1 extends Sprite {
 	}
 	
 	public static void createBodyAndType(World world){
-		Map.setTypeDeDécor(0, 0, "EauProfonde");
-		Map.setTypeDeDécor(480/60, 5, "EauProfonde");
-		Map.setTypeDeDécor(9, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(480/60, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 5, "EauProfonde");
 		
 		if ( isMurAvantGaucheCreated == false ) {
 			murAvantGauche = ClimatMontagneux.createBody(60,100,180,100);

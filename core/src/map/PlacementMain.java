@@ -88,8 +88,8 @@ public class PlacementMain {
 			x=0;
 			direction = "bas";
 			
-			Map.setTypeDeDécor();
-			Map.setDécoChangéFaux();
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 430/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
@@ -150,8 +150,8 @@ public class PlacementMain {
 			x=0;
 			direction = "haut";
 			
-			Map.setTypeDeDécor();
-			Map.setDécoChangéFaux();
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x < 0 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
@@ -214,8 +214,8 @@ public class PlacementMain {
 			y = 0;
 			direction = "gauche";
 			
-			Map.setTypeDeDécor();
-			Map.setDécoChangéFaux();
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 560/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
@@ -289,8 +289,8 @@ public class PlacementMain {
 //			=============================================================================================================
 //									réinitialisation du type de décor et de leur état , et des coeurs de vies
 //			=============================================================================================================
-			Map.setTypeDeDécor();
-			Map.setDécoChangéFaux();
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
 		}
 		

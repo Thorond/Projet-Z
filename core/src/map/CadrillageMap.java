@@ -1,6 +1,6 @@
 package map;
 
-public class Map {
+public class CadrillageMap {
 	
     public static String[][] typeDeDécor = new String[12][12];
     public static boolean[][] décorChangé = new boolean[12][12] ;
