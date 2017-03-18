@@ -100,6 +100,7 @@ public class Pnj extends Characters{
 			}  else if (MainMenu.Link.getDirection().equals("gauche")){
 				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +30, MainMenu.Link.getBody().getPosition().y, 0);
 			}
+			
 		}
 	}
 	

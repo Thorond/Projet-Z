@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -19,6 +20,7 @@ import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.PlacementMain;
+import menus.MenuGameover;
 import menus.MenuSac;
 import sauvegarde.AcceptClass;
 import sauvegarde.Sauvegarde;
@@ -41,6 +43,8 @@ public class MainMenu implements Screen{
 	public static long start;
 	
 	public static float PPM = 1.5f;
+	
+
 	
 	
 	public MainMenu(GameMain game){
@@ -104,7 +108,7 @@ public class MainMenu implements Screen{
 	
 	
 	void updateInGame(float dt){
-		if ( Link.getHealth()>0){
+		if ( Link.isAlive){
 			if ( Epee.annimationEpée ){
 //				annimation de récupération de l'épée
 				Link.setTexture(MainCharacter.linkBasRepos);
@@ -194,20 +198,11 @@ public class MainMenu implements Screen{
 					}
 				}
 			}
-		} else {
-//			destruction des corps de la sous map sur laquelle on était quand on meurt 
-			GestionDesMaps.destructionDesCorps();
-			
-//			suppression des types de décor 
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			
-			Link.setDirection(sauvegarde.getDirection());
-			Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
-			PlacementMain.positionSousMap = sauvegarde.posiSousMap;
-			Link.setHealth(Link.getHealthMax());
-		}
+			if ( MainMenu.Link.getHealth() <= 0) {
+				MainMenu.Link.isAlive = false;
+				Link.getBody().setLinearVelocity(0, 0);
+			}
+		} 
 	}
 
 	@Override
@@ -229,6 +224,8 @@ public class MainMenu implements Screen{
 		
 		game.getBatch().begin();
 		
+		
+			
 		if ( MenuSac.isSacAffiché == true ) {
 			
 			updateSac(delta );
@@ -264,9 +261,10 @@ public class MainMenu implements Screen{
 					if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
 				}
 			}
-			game.getBatch().setColor(0, 0, 0, 0.2f);
+			
 //			dessin du joueur
 			game.getBatch().draw(Link, Link.getX(), Link.getY());
+			
 			
 			
 		}
@@ -294,6 +292,10 @@ public class MainMenu implements Screen{
 		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
 		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
 		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
+	
+		
+//		déssin du gameover
+		MenuGameover.GameOver(game);
 		
 		game.getBatch().end();
 		

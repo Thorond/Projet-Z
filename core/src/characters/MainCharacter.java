@@ -130,5 +130,10 @@ public class MainCharacter extends Characters {
 		}
 	}
 	
+//	
+	
+	public boolean isAlive = true;
+	
+	
 
 }
