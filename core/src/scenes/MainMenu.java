@@ -73,7 +73,7 @@ public class MainMenu implements Screen{
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		MenuSac.setItem(plume);
-//		MenuSac.itemsKL[1] = épée;
+		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		
 		start = System.currentTimeMillis();
@@ -132,7 +132,7 @@ public class MainMenu implements Screen{
 			} else {
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
-					if (Gdx.input.isKeyPressed(Input.Keys.Q)){
+					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
 						Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
 						Link.setDirection("gauche");
 						Link.représentationLink(Link);
@@ -143,7 +143,7 @@ public class MainMenu implements Screen{
 						Link.setDirection("droite");
 						Link.représentationLink(Link);
 						
-					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
+					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
 						Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
 						Link.setDirection("haut");
 						Link.représentationLink(Link);

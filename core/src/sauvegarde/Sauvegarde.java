@@ -14,6 +14,7 @@ public class Sauvegarde implements java.io.Serializable{
 	public String posiSousMap;
 //	public int HealthMax;
 //	public int Health;
+//	public boolean isEpéePrise;
 	 
 	  public Sauvegarde(float x, float y, String direction, String posiSousMap){
 	    this.coordX = x;
