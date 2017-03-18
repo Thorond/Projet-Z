@@ -17,8 +17,13 @@ public class Epee extends Item{
 		super(épéeT,1);
 	}
 	
+	public static Texture épéeAnvil = new Texture("climatMontagneux/épéeAnvil.png");
+	public static Texture pedestal = new Texture("climatMontagneux/pedestal.png");
+	public static boolean isEpéePrise = false; // a sauvegarder 
 	
-//	static a enlever
+	public static boolean annimationEpée = false;
+	
+
 	public void utilisationItem( MainCharacter cha) {
 		if ( cha.getDirection().equals("bas")){
 			if ( ((int) cha.getBody().getPosition().y *MainMenu.PPM/ 60 ) -1 >= 0 &&

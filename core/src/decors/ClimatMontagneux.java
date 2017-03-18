@@ -80,6 +80,7 @@ public class ClimatMontagneux {
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
 	
+	
 //	tile
 	
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");

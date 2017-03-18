@@ -146,8 +146,10 @@ public class MenuSac {
 	public static void setItem(Item ite){
 		if ( itemKOccupé == false ) {
 			itemsKL[0] = ite;
+			itemKOccupé = true;
 		} else if ( itemLOccupé == false ){
 			itemsKL[1] = ite;
+			itemLOccupé = true;
 		} else {
 			ensembleDesItems[nbrItems]=ite;
 			nbrItems++;

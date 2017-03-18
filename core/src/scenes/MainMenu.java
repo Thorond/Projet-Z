@@ -68,8 +68,9 @@ public class MainMenu implements Screen{
 //		PlacementMain.positionSousMap = "B1";
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
-		MenuSac.itemsKL[0] = plume;
-		MenuSac.itemsKL[1] = épée;
+		MenuSac.setItem(plume);
+//		MenuSac.itemsKL[1] = épée;
+		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		
 		start = System.currentTimeMillis();
 		
@@ -104,83 +105,98 @@ public class MainMenu implements Screen{
 	
 	void updateInGame(float dt){
 		if ( Link.getHealth()>0){
-			if (PlacementMain.défilement == false){
-//				choix clavier du joueur
-				if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-					Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
-					Link.setDirection("gauche");
-					Link.représentationLink(Link);
+			if ( Epee.annimationEpée ){
+//				annimation de récupération de l'épée
+				Link.setTexture(MainCharacter.linkBasRepos);
+				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
+				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+					Epee.annimationEpée = false;
+				}
+			} else {
+				if (PlacementMain.défilement == false){
+	//				choix clavier du joueur
+					if (Gdx.input.isKeyPressed(Input.Keys.Q)){
+						Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
+						Link.setDirection("gauche");
+						Link.représentationLink(Link);
+			
+						
+					} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
+						Link.getBody().applyLinearImpulse(new Vector2(+10000f,0), Link.getBody().getWorldCenter(), true);
+						Link.setDirection("droite");
+						Link.représentationLink(Link);
+						
+					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
+						Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
+						Link.setDirection("haut");
+						Link.représentationLink(Link);
+			
+					} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
+						Link.getBody().applyLinearImpulse(new Vector2(0,-10000f), Link.getBody().getWorldCenter(), true);
 		
+						Link.setDirection("bas");
+						Link.représentationLink(Link);
+			
+					} else if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
+						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+						SendClass.sendClass(sauvegarde);
+					} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
+						pause();
+					} else if (Gdx.input.isKeyPressed(Input.Keys.I)){
+						resume();
+					} else {
+						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
+						if (Link.getDirection().equals("bas")) Link.setTexture(MainCharacter.linkBasRepos);
+						else if (Link.getDirection().equals("haut")) Link.setTexture(MainCharacter.linkHautRepos);
+						else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
+						else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
+					} 
 					
-				} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-					Link.getBody().applyLinearImpulse(new Vector2(+10000f,0), Link.getBody().getWorldCenter(), true);
-					Link.setDirection("droite");
-					Link.représentationLink(Link);
 					
-				} else if (Gdx.input.isKeyPressed(Input.Keys.Z)){
-					Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
-					Link.setDirection("haut");
-					Link.représentationLink(Link);
-		
-				} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-					Link.getBody().applyLinearImpulse(new Vector2(0,-10000f), Link.getBody().getWorldCenter(), true);
-	
-					Link.setDirection("bas");
-					Link.représentationLink(Link);
-		
-				} else if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
-					SendClass.sendClass(sauvegarde);
-				} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
-					pause();
-				} else if (Gdx.input.isKeyPressed(Input.Keys.I)){
-					resume();
-				} else {
-					Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
-					if (Link.getDirection().equals("bas")) Link.setTexture(MainCharacter.linkBasRepos);
-					else if (Link.getDirection().equals("haut")) Link.setTexture(MainCharacter.linkHautRepos);
-					else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
-					else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
-				} 
-				
-				
-				if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D))) 
-						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
-				if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
-					Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
-				
-//				intéraction avec l'environnement 
-				
-				 if (Gdx.input.isKeyJustPressed(Input.Keys.K)){
-						MenuSac.itemsKL[0].utilisationItem(Link);
-				 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L)){
-					 	MenuSac.itemsKL[1].utilisationItem(Link);
-				 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
-						MenuSac.isSacAffiché = true;
-				 }
-				
-				
-				if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
-				if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
-//				récupération de vie par les coeurs de vie
-				for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
-					if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
-						for ( int j = -10 ; j < 40 ; j ++){
-							for ( int k = -10 ; k < 40 ; k ++){
-								if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
-										&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
-									if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
-									CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D))) 
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
+					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
+						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
+					
+	//				intéraction avec l'environnement 
+					
+					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé ){
+							MenuSac.itemsKL[0].utilisationItem(Link);
+					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé ){
+						 	MenuSac.itemsKL[1].utilisationItem(Link);
+					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
+							MenuSac.isSacAffiché = true;
+					 }
+					
+					 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("épée")
+							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] == false) {
+						 Epee.isEpéePrise = true;
+						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] = true;
+						 Epee.annimationEpée = true;				
+						 MenuSac.setItem(épée);
+					 };
+					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+	//				récupération de vie par les coeurs de vie
+					for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
+						if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
+							for ( int j = -10 ; j < 40 ; j ++){
+								for ( int k = -10 ; k < 40 ; k ++){
+									if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
+											&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
+										if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+										CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+									}
 								}
 							}
+							
 						}
-						
 					}
 				}
 			}
 		} else {
-//			destruction des corps de la sous map sur laquelle on était
-//			GestionDesMaps.destructionDesCorps();
+//			destruction des corps de la sous map sur laquelle on était quand on meurt 
+			GestionDesMaps.destructionDesCorps();
 			
 //			suppression des types de décor 
 			CadrillageMap.setTypeDeDécor();
@@ -248,9 +264,11 @@ public class MainMenu implements Screen{
 					if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
 				}
 			}
-			
+			game.getBatch().setColor(0, 0, 0, 0.2f);
 //			dessin du joueur
 			game.getBatch().draw(Link, Link.getX(), Link.getY());
+			
+			
 		}
 		
 	
@@ -259,8 +277,8 @@ public class MainMenu implements Screen{
 //     						  dessiner les items à la fois en jeu et dans menuSac
 //		=============================================================================================
 
-		MenuSac.affichageItemK(game);
-		MenuSac.affichageItemL(game);
+		if ( MenuSac.itemKOccupé ) MenuSac.affichageItemK(game);
+		if ( MenuSac.itemLOccupé ) MenuSac.affichageItemL(game);
 		
 //		=============================================================================================
 //								dessiner la vie à la fois en jeu et dans menuSac
