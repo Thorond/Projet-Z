@@ -192,15 +192,15 @@ public class SousMapB1 extends Sprite {
 	
 	public static void createBodyAndType(World world){
 		
-		Map.setTypeDeDécor(0, 5, "EauProfonde");
-		Map.setTypeDeDécor(1, 4, "EauProfonde");
-		Map.setTypeDeDécor(2, 3, "EauProfonde");
-		Map.setTypeDeDécor(3, 3, "EauProfonde");
-		Map.setTypeDeDécor(4, 2, "EauProfonde");
-		Map.setTypeDeDécor(5, 2, "EauProfonde");
-		Map.setTypeDeDécor(6, 2, "EauProfonde");
-		Map.setTypeDeDécor(7, 1, "EauProfonde");	
-		Map.setTypeDeDécor(8, 0, "EauProfonde");	
+		CadrillageMap.setTypeDeDécor(0, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 1, "EauProfonde");	
+		CadrillageMap.setTypeDeDécor(8, 0, "EauProfonde");	
 	}
 	
 	public static void destroyBody(){

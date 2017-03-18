@@ -238,41 +238,41 @@ public class SousMapB3 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		if ( pontCasse == false ){
-			Map.setTypeDeDécor(180/60,120/60,"Trou");
-			Map.setTypeDeDécor(180/60,180/60,"Trou");
-			Map.setTypeDeDécor(180/60,240/60,"Trou");
-			Map.setTypeDeDécor(240/60,60/60,"Trou");
-			Map.setTypeDeDécor(300/60,60/60,"Trou");
-			Map.setTypeDeDécor(360/60,60/60,"Trou");
-			Map.setTypeDeDécor(420/60,120/60,"Trou");
-			Map.setTypeDeDécor(420/60,180/60,"Trou");
-			Map.setTypeDeDécor(420/60,240/60,"Trou");
-			Map.setTypeDeDécor(240/60,240/60,"Trou");
-			Map.setTypeDeDécor(300/60,240/60,"Trou");
-			Map.setTypeDeDécor(360/60,240/60,"Trou");
+			CadrillageMap.setTypeDeDécor(180/60,120/60,"Trou");
+			CadrillageMap.setTypeDeDécor(180/60,180/60,"Trou");
+			CadrillageMap.setTypeDeDécor(180/60,240/60,"Trou");
+			CadrillageMap.setTypeDeDécor(240/60,60/60,"Trou");
+			CadrillageMap.setTypeDeDécor(300/60,60/60,"Trou");
+			CadrillageMap.setTypeDeDécor(360/60,60/60,"Trou");
+			CadrillageMap.setTypeDeDécor(420/60,120/60,"Trou");
+			CadrillageMap.setTypeDeDécor(420/60,180/60,"Trou");
+			CadrillageMap.setTypeDeDécor(420/60,240/60,"Trou");
+			CadrillageMap.setTypeDeDécor(240/60,240/60,"Trou");
+			CadrillageMap.setTypeDeDécor(300/60,240/60,"Trou");
+			CadrillageMap.setTypeDeDécor(360/60,240/60,"Trou");
 		} else {
-			Map.setTypeDeDécor(240/60,300/60,"EauProfonde");
-			Map.setTypeDeDécor(180/60,120/60,"EauProfonde");
-			Map.setTypeDeDécor(180/60,180/60,"EauProfonde");
-			Map.setTypeDeDécor(180/60,240/60,"EauProfonde");
-			Map.setTypeDeDécor(240/60,60/60,"EauProfonde");
-			Map.setTypeDeDécor(300/60,60/60,"EauProfonde");
-			Map.setTypeDeDécor(360/60,60/60,"EauProfonde");
-			Map.setTypeDeDécor(420/60,120/60,"EauProfonde");
-			Map.setTypeDeDécor(420/60,180/60,"EauProfonde");
-			Map.setTypeDeDécor(420/60,240/60,"EauProfonde");
-			Map.setTypeDeDécor(240/60,240/60,"EauProfonde");
-			Map.setTypeDeDécor(300/60,240/60,"EauProfonde");
-			Map.setTypeDeDécor(360/60,240/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(240/60,300/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(180/60,120/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(180/60,180/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(180/60,240/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(240/60,60/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(300/60,60/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(360/60,60/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(420/60,120/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(420/60,180/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(420/60,240/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(240/60,240/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(300/60,240/60,"EauProfonde");
+			CadrillageMap.setTypeDeDécor(360/60,240/60,"EauProfonde");
 		}
-		Map.setTypeDeDécor(0/60,360/60,"EauProfonde");
-		Map.setTypeDeDécor(60/60,360/60,"EauProfonde");
-		Map.setTypeDeDécor(120/60,360/60,"EauProfonde");
-		Map.setTypeDeDécor(180/60,360/60,"EauProfonde");
-		Map.setTypeDeDécor(240/60,360/60,"EauProfonde");
-		Map.setTypeDeDécor(300/60,420/60,"EauProfonde");
-		Map.setTypeDeDécor(360/60,420/60,"EauProfonde");
-		Map.setTypeDeDécor(420/60,420/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(0/60,360/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(60/60,360/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(120/60,360/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(180/60,360/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(240/60,360/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(300/60,420/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(360/60,420/60,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(420/60,420/60,"EauProfonde");
 		
 		if ( isBosquet1Created == false ) {
 			bosquet1 = ClimatMontagneux.createBody(110,220,110,400);

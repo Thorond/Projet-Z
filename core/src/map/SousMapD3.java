@@ -218,26 +218,26 @@ public class SousMapD3 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		
-		Map.setTypeDeDécor(1,1,"HerbesHautes");
-		Map.setTypeDeDécor(1,3,"HerbesHautes");
-		Map.setTypeDeDécor(1,4,"HerbesHautes");
-		Map.setTypeDeDécor(2,1,"HerbesHautes");
-		Map.setTypeDeDécor(2,2,"HerbesHautes");
-		Map.setTypeDeDécor(2,3,"HerbesHautes");
-		Map.setTypeDeDécor(3,1,"HerbesHautes");
-		Map.setTypeDeDécor(3,2,"HerbesHautes");
-		Map.setTypeDeDécor(3,3,"HerbesHautes");
-		Map.setTypeDeDécor(3,4,"HerbesHautes");
-		if ( Map.décorChangé[1][1] == true ) isBuisson1Cut = true;
-		if ( Map.décorChangé[1][3] == true ) isBuisson2Cut = true;
-		if ( Map.décorChangé[1][4] == true ) isBuisson3Cut = true;
-		if ( Map.décorChangé[2][1] == true ) isBuisson4Cut = true;
-		if ( Map.décorChangé[2][2] == true ) isBuisson5Cut = true;
-		if ( Map.décorChangé[2][3] == true ) isBuisson6Cut = true;
-		if ( Map.décorChangé[3][1] == true ) isBuisson7Cut = true;
-		if ( Map.décorChangé[3][2] == true ) isBuisson8Cut = true;
-		if ( Map.décorChangé[3][3] == true ) isBuisson9Cut = true;
-		if ( Map.décorChangé[3][4] == true ) isBuisson10Cut = true;
+		CadrillageMap.setTypeDeDécor(1,1,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(1,3,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(1,4,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(2,1,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(2,2,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(2,3,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(3,1,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(3,2,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(3,3,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(3,4,"HerbesHautes");
+		if ( CadrillageMap.décorChangé[1][1] == true ) isBuisson1Cut = true;
+		if ( CadrillageMap.décorChangé[1][3] == true ) isBuisson2Cut = true;
+		if ( CadrillageMap.décorChangé[1][4] == true ) isBuisson3Cut = true;
+		if ( CadrillageMap.décorChangé[2][1] == true ) isBuisson4Cut = true;
+		if ( CadrillageMap.décorChangé[2][2] == true ) isBuisson5Cut = true;
+		if ( CadrillageMap.décorChangé[2][3] == true ) isBuisson6Cut = true;
+		if ( CadrillageMap.décorChangé[3][1] == true ) isBuisson7Cut = true;
+		if ( CadrillageMap.décorChangé[3][2] == true ) isBuisson8Cut = true;
+		if ( CadrillageMap.décorChangé[3][3] == true ) isBuisson9Cut = true;
+		if ( CadrillageMap.décorChangé[3][4] == true ) isBuisson10Cut = true;
 		
 		// TODO Auto-generated method stub
 		if ( isBosquet1Created == false ) {

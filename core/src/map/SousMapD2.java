@@ -214,13 +214,13 @@ public class SousMapD2 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		
-		Map.setTypeDeDécor(240/60,60/60,"Trou");
-		Map.setTypeDeDécor(300/60,60/60,"Trou");
-		Map.setTypeDeDécor(360/60,60/60,"Trou");
-		Map.setTypeDeDécor(360/60,120/60,"Trou");
-		Map.setTypeDeDécor(420/60,120/60,"Trou");
+		CadrillageMap.setTypeDeDécor(240/60,60/60,"Trou");
+		CadrillageMap.setTypeDeDécor(300/60,60/60,"Trou");
+		CadrillageMap.setTypeDeDécor(360/60,60/60,"Trou");
+		CadrillageMap.setTypeDeDécor(360/60,120/60,"Trou");
+		CadrillageMap.setTypeDeDécor(420/60,120/60,"Trou");
 
-		Map.setTypeDeDécor(60/60,120/60,"Trou");
+		CadrillageMap.setTypeDeDécor(60/60,120/60,"Trou");
 		
 		
 		// TODO Auto-generated method stub

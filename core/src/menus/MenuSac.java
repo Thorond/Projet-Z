@@ -1,23 +1,13 @@
 package menus;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
-import items.Epee;
 import items.Item;
-import scenes.MainMenu;
 
-public class MenuSac {
+public class MenuSac extends Menu{
 	
-	public static World world = MainMenu.world;
-	
-	public static Texture fond = new Texture("menus/fondMaron.png");
-	public static Texture flècheGauche = new Texture("menus/arrowBlue_left.png");
-	public static Texture flècheDroite = new Texture("menus/arrowBlue_right.png");
-	public static Texture fondItem = new Texture("menus/panelInset_beige.png");
-	public static Texture fondItem1 = new Texture("menus/buttonSquare_beige.png");
-	public static Texture fondItem2 = new Texture("menus/buttonSquare_beige_pressed.png");
+	public static Texture nomSac = new Texture("menus/nomSac.png");
 	
 	public static int itemSelect = 1;
 	
@@ -25,6 +15,7 @@ public class MenuSac {
 	
 	public static void affichéSac(GameMain game){
 		game.getBatch().draw(fond,-5,-30);
+		game.getBatch().draw(nomSac, 100,330);
 		if (itemSelect == 1 ) {
 			game.getBatch().draw(fondItem2, 80 , 220);
 			game.getBatch().draw(flècheDroite, 60 , 240);
@@ -124,10 +115,18 @@ public class MenuSac {
 	}
 	
 	public static void affichageItemK(GameMain game){
-		game.getBatch().draw(itemsKL[0].getTexture(),460,420);
+		if ( MenuSac.isSacAffiché == false) game.getBatch().draw(itemsKL[0].getTexture(),460,420);
+		else {
+			game.getBatch().draw(fondItem,420,310);
+			game.getBatch().draw(itemsKL[0].getTexture(),420,320);
+		}
 	}
 	public static void affichageItemL(GameMain game ){
-		game.getBatch().draw(itemsKL[1].getTexture(),520,420);
+		if ( MenuSac.isSacAffiché == false) game.getBatch().draw(itemsKL[1].getTexture(),520,420);
+		else {
+			game.getBatch().draw(fondItem,490,260);
+			game.getBatch().draw(itemsKL[1].getTexture(),490,270);
+		}
 	}
 	
 //	création du sac et affichage
@@ -137,8 +136,10 @@ public class MenuSac {
 	public static void setItem(Item ite){
 		if ( itemKOccupé == false ) {
 			itemsKL[0] = ite;
+			itemKOccupé = true;
 		} else if ( itemLOccupé == false ){
 			itemsKL[1] = ite;
+			itemLOccupé = true;
 		} else {
 			ensembleDesItems[nbrItems]=ite;
 			nbrItems++;

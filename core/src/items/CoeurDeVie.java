@@ -62,11 +62,13 @@ public class CoeurDeVie {
 	}
 	
 	public static void remplirCoeurDeVies(int X, int Y){
-		for ( int i = 0 ; i < coeurDeVies.length ; i++ ){
-			if ( coeurDeVies[i].estPrésent == false ) {
-				coeurDeVies[i].setEstPrésent(true);
-				coeurDeVies[i].déposerCoeur(X, Y);
-				break;
+		if ( Math.random() < 0.4 ){
+			for ( int i = 0 ; i < coeurDeVies.length ; i++ ){
+				if ( coeurDeVies[i].estPrésent == false ) {
+					coeurDeVies[i].setEstPrésent(true);
+					coeurDeVies[i].déposerCoeur(X, Y);
+					break;
+				}
 			}
 		}
 	}

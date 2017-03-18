@@ -217,29 +217,29 @@ public class SousMapB2 extends Sprite {
 	}
 	
 	public static void createBodyAndType(World world){
-		Map.setTypeDeDécor(0,0,"EauProfonde");
-		Map.setTypeDeDécor(7,0,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(0,0,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(7,0,"EauProfonde");
 		
-		Map.setTypeDeDécor(6,0,"HerbesHautes");
-		Map.setTypeDeDécor(1,3,"HerbesHautes");
-		Map.setTypeDeDécor(2,3,"HerbesHautes");
-		Map.setTypeDeDécor(4,1,"HerbesHautes");
-		Map.setTypeDeDécor(5,2,"HerbesHautes");
-		if ( Map.décorChangé[6][0] == true ) isBuisson1Cut = true;
-		if ( Map.décorChangé[1][3] == true ) isBuisson2Cut = true;
-		if ( Map.décorChangé[2][3] == true ) isBuisson3Cut = true;
-		if ( Map.décorChangé[4][1] == true ) isBuisson4Cut = true;
-		if ( Map.décorChangé[5][2] == true ) isBuisson5Cut = true;
-		Map.setTypeDeDécor(480/60,120/60,"HerbesHautes");
-		Map.setTypeDeDécor(480/60,180/60,"HerbesHautes");
-		Map.setTypeDeDécor(540/60,180/60,"HerbesHautes");
-		Map.setTypeDeDécor(300/60,360/60,"HerbesHautes");
-		Map.setTypeDeDécor(300/60,300/60,"HerbesHautes");
-		if ( Map.décorChangé[8][2] == true ) isBuisson6Cut = true;
-		if ( Map.décorChangé[8][3] == true ) isBuisson7Cut = true;
-		if ( Map.décorChangé[9][3] == true ) isBuisson8Cut = true;
-		if ( Map.décorChangé[5][6] == true ) isBuisson9Cut = true;
-		if ( Map.décorChangé[5][5] == true ) isBuisson10Cut = true;
+		CadrillageMap.setTypeDeDécor(6,0,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(1,3,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(2,3,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(4,1,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(5,2,"HerbesHautes");
+		if ( CadrillageMap.décorChangé[6][0] == true ) isBuisson1Cut = true;
+		if ( CadrillageMap.décorChangé[1][3] == true ) isBuisson2Cut = true;
+		if ( CadrillageMap.décorChangé[2][3] == true ) isBuisson3Cut = true;
+		if ( CadrillageMap.décorChangé[4][1] == true ) isBuisson4Cut = true;
+		if ( CadrillageMap.décorChangé[5][2] == true ) isBuisson5Cut = true;
+		CadrillageMap.setTypeDeDécor(480/60,120/60,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(480/60,180/60,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(540/60,180/60,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(300/60,360/60,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(300/60,300/60,"HerbesHautes");
+		if ( CadrillageMap.décorChangé[8][2] == true ) isBuisson6Cut = true;
+		if ( CadrillageMap.décorChangé[8][3] == true ) isBuisson7Cut = true;
+		if ( CadrillageMap.décorChangé[9][3] == true ) isBuisson8Cut = true;
+		if ( CadrillageMap.décorChangé[5][6] == true ) isBuisson9Cut = true;
+		if ( CadrillageMap.décorChangé[5][5] == true ) isBuisson10Cut = true;
 		
 		if ( isArbre1Created == false ) {
 			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",20,380);

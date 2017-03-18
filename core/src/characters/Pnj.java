@@ -61,8 +61,7 @@ public class Pnj extends Characters{
 //	drop des monstres
 	
 	public void drop(){
-		double tempo = Math.random();
-		if ( tempo < 0.5 ) CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
+		CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
 	}
 	
 //	subir dégats et mort
@@ -100,6 +99,7 @@ public class Pnj extends Characters{
 			}  else if (MainMenu.Link.getDirection().equals("gauche")){
 				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +30, MainMenu.Link.getBody().getPosition().y, 0);
 			}
+			
 		}
 	}
 	
