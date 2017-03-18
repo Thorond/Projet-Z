@@ -84,6 +84,19 @@ public class MainMenu implements Screen{
 		
 	}
 	
+	void updateGO(float dt){
+		if (Gdx.input.isKeyJustPressed(Input.Keys.S) ){
+			if ( MenuGameover.choix == 1) MenuGameover.choix++;	
+			else MenuGameover.choix = 1;
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z)){
+			if ( MenuGameover.choix == 2) MenuGameover.choix--;	
+			else MenuGameover.choix =2;
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+			if (MenuGameover.choix == 1) MenuGameover.isGO = false;
+		}
+	}
+	
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
@@ -162,6 +175,7 @@ public class MainMenu implements Screen{
 					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 					
+					
 	//				intéraction avec l'environnement 
 					
 					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé ){
@@ -171,8 +185,10 @@ public class MainMenu implements Screen{
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 							MenuSac.isSacAffiché = true;
 					 }
+					 
 					
-					 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("épée")
+					 if (Link.getDirection().equals("haut") 
+							 && CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("épée")
 							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] == false) {
 						 Epee.isEpéePrise = true;
 						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] = true;
@@ -198,11 +214,18 @@ public class MainMenu implements Screen{
 					}
 				}
 			}
+//			Est ce que le joueur est mort?
 			if ( MainMenu.Link.getHealth() <= 0) {
 				MainMenu.Link.isAlive = false;
+				MenuGameover.isGO = true;
 				Link.getBody().setLinearVelocity(0, 0);
 			}
-		} 
+		} else {
+//			'accélérer' le GameOver
+			if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+				MenuGameover.opacitéGO = 0.99f;
+			}
+		}
 	}
 
 	@Override
@@ -224,78 +247,83 @@ public class MainMenu implements Screen{
 		
 		game.getBatch().begin();
 		
-		
-			
-		if ( MenuSac.isSacAffiché == true ) {
-			
-			updateSac(delta );
-//			=============================================================================================
-//											  dessiner le sac
-//			=============================================================================================
-
-			MenuSac.affichéSac(game);
+		if ( Link.isAlive && MenuGameover.isGO ) {
+		//			  dessiner le menu de game over
+			 MenuGameover.affichageMenuGO(game);
+			 updateGO(delta);
 		} else {
 			
-			updateInGame(delta * 1000);
-			
-			Link.updatePlayer();
-			
-			if (PlacementMain.défilement == false ) PlacementMain.posiSousMap(Link);
-			
-			if ( PlacementMain.défilement == true) {
-				GestionDesMaps.défilementDeMap(game);
-			}else {
-				GestionDesMaps.affichageDeSousCarte(game);
-			}
-			
-			//			=============================================================================================
-			//     		       dessiner les coeurs de vie
-			//			=============================================================================================
-			for ( int i = 0; i< CoeurDeVie.coeurDeVies.length ; i++){
-				if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
-				if ( CoeurDeVie.coeurDeVies[i].isEstPrésent() 
-						&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
-				else if ( CoeurDeVie.coeurDeVies[i].isEstPrésent()
-						&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 5000){
-					CoeurDeVie.coeurDeVies[i].clignotementCoeur();
-					if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
+			if ( MenuSac.isSacAffiché == true ) {
+				
+				updateSac(delta );
+	//			=============================================================================================
+	//											  dessiner le sac
+	//			=============================================================================================
+	
+				MenuSac.affichéSac(game);
+			} else {
+				
+				updateInGame(delta * 1000);
+				
+				Link.updatePlayer();
+				
+				if (PlacementMain.défilement == false ) PlacementMain.posiSousMap(Link);
+				
+				if ( PlacementMain.défilement == true) {
+					GestionDesMaps.défilementDeMap(game);
+				}else {
+					GestionDesMaps.affichageDeSousCarte(game);
 				}
+				
+				//			=============================================================================================
+				//     		       dessiner les coeurs de vie
+				//			=============================================================================================
+				for ( int i = 0; i< CoeurDeVie.coeurDeVies.length ; i++){
+					if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
+					if ( CoeurDeVie.coeurDeVies[i].isEstPrésent() 
+							&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
+					else if ( CoeurDeVie.coeurDeVies[i].isEstPrésent()
+							&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 5000){
+						CoeurDeVie.coeurDeVies[i].clignotementCoeur();
+						if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
+					}
+				}
+				
+	//			dessin du joueur
+				game.getBatch().draw(Link, Link.getX(), Link.getY());
+				
+				
+				
 			}
 			
-//			dessin du joueur
-			game.getBatch().draw(Link, Link.getX(), Link.getY());
-			
-			
-			
-		}
 		
+			
+	//		=============================================================================================
+	//     						  dessiner les items à la fois en jeu et dans menuSac
+	//		=============================================================================================
 	
+			if ( MenuSac.itemKOccupé ) MenuSac.affichageItemK(game);
+			if ( MenuSac.itemLOccupé ) MenuSac.affichageItemL(game);
+			
+	//		=============================================================================================
+	//								dessiner la vie à la fois en jeu et dans menuSac
+	//		=============================================================================================
+			
+			int vie = 0 ;
+			int écart = 0;
+			while ( vie +4 <= Link.getHealth()  ){
+				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
+				écart+=15;
+				vie += 4;
+			}
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
 		
-//		=============================================================================================
-//     						  dessiner les items à la fois en jeu et dans menuSac
-//		=============================================================================================
-
-		if ( MenuSac.itemKOccupé ) MenuSac.affichageItemK(game);
-		if ( MenuSac.itemLOccupé ) MenuSac.affichageItemL(game);
-		
-//		=============================================================================================
-//								dessiner la vie à la fois en jeu et dans menuSac
-//		=============================================================================================
-		
-		int vie = 0 ;
-		int écart = 0;
-		while ( vie +4 <= Link.getHealth()  ){
-			game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
-			écart+=15;
-			vie += 4;
+			
+	//		déssin du gameover
+			MenuGameover.GameOver(game);
 		}
-		if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
-		else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
-		else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
-	
-		
-//		déssin du gameover
-		MenuGameover.GameOver(game);
 		
 		game.getBatch().end();
 		
