@@ -1,12 +1,31 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapF2 extends Sprite{
+	
+	public static Body mur1 ;
+	public static boolean ismur1Created;
+	public static Body mur2 ;
+	public static boolean ismur2Created;
+	public static Body mur3 ;
+	public static boolean ismur3Created;
+	public static Body mur4 ;
+	public static boolean ismur4Created;
+	public static Body mur5;
+	public static boolean ismur5Created;
+	public static Body mur6;
+	public static boolean ismur6Created;
+	public static Body mur7;
+	public static boolean ismur7Created;
+	public static Body mur8;
+	public static boolean ismur8Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -191,12 +210,58 @@ public class SousMapF2 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
+		ismur1Created = false;
+		if ( ismur2Created) MainMenu.world.destroyBody(mur2);
+		ismur2Created = false;
+		if ( ismur3Created) MainMenu.world.destroyBody(mur3);
+		ismur3Created = false;
+		if ( ismur4Created) MainMenu.world.destroyBody(mur4);
+		ismur4Created = false;
+		if ( ismur5Created) MainMenu.world.destroyBody(mur5);
+		ismur5Created = false;
+		if ( ismur6Created) MainMenu.world.destroyBody(mur6);
+		ismur6Created = false;
+		if ( ismur7Created) MainMenu.world.destroyBody(mur7);
+		ismur7Created = false;
+		if ( ismur8Created) MainMenu.world.destroyBody(mur8);
+		ismur8Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+		if ( ismur1Created == false ) {
+			mur1 = ClimatMontagneux.createBody(140,30,290,60);
+			ismur1Created = true;
+		}
+		if ( ismur2Created == false ) {
+			mur2 = ClimatMontagneux.createBody(460,30,240,60);
+			ismur2Created = true;
+		}
+		if ( ismur3Created == false ) {
+			mur3 = ClimatMontagneux.createBody(140,180,290,120);
+			ismur3Created = true;
+		}
+		if ( ismur4Created == false ) {
+			mur4 = ClimatMontagneux.createBody(460,180,240,120);
+			ismur4Created = true;
+		}
+		if ( ismur5Created == false ) {
+			mur5 = ClimatMontagneux.createBody(140,330,290,60);
+			ismur5Created = true;
+		}
+		if ( ismur6Created == false ) {
+			mur6 = ClimatMontagneux.createBody(460,330,240,60);
+			ismur6Created = true;
+		}
+		if ( ismur7Created == false ) {
+			mur7 = ClimatMontagneux.createBody(135,450,290,60);
+			ismur7Created = true;
+		}
+		if ( ismur8Created == false ) {
+			mur8 = ClimatMontagneux.createBody(460,450,240,60);
+			ismur8Created = true;
+		}
 	}
 
 	public static void destroyType() {
