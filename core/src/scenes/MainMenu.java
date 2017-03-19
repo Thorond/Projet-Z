@@ -20,6 +20,7 @@ import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.PlacementMain;
+import map.SousMapF1;
 import menus.MenuGameover;
 import menus.MenuSac;
 import sauvegarde.AcceptClass;
@@ -192,7 +193,8 @@ public class MainMenu implements Screen{
 							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] == false) {
 						 Epee.isEpéePrise = true;
 						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] = true;
-						 Epee.annimationEpée = true;				
+						 Epee.annimationEpée = true;	
+						 SousMapF1.destroyBody();
 						 MenuSac.setItem(épée);
 					 };
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);

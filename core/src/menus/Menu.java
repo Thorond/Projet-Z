@@ -15,6 +15,7 @@ public static World world = MainMenu.world;
 	public static Texture fondItem = new Texture("menus/panelInset_beige.png");
 	public static Texture fondItem1 = new Texture("menus/buttonSquare_beige.png");
 	public static Texture fondItem2 = new Texture("menus/buttonSquare_beige_pressed.png");
+	public static Texture fondBeige = new Texture("menus/panelInset_beigeLight.png");
 	
 	public static Texture boutonRetour = new Texture("menus/boutonRetour.png");
 	public static Texture boutonPresséRetour = new Texture("menus/boutonPresséRetour.png");

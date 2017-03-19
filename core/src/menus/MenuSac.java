@@ -15,6 +15,7 @@ public class MenuSac extends Menu{
 	
 	public static void affichéSac(GameMain game){
 		game.getBatch().draw(fond,-5,-30);
+		game.getBatch().draw(fondBeige,60,40);
 		game.getBatch().draw(nomSac, 100,330);
 		if (itemSelect == 1 ) {
 			game.getBatch().draw(fondItem2, 80 , 220);
