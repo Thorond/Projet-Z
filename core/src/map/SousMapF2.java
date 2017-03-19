@@ -26,6 +26,24 @@ public class SousMapF2 extends Sprite{
 	public static boolean ismur7Created;
 	public static Body mur8;
 	public static boolean ismur8Created;
+	public static Body mur9;
+	public static boolean ismur9Created;
+	public static Body murCoffre;
+	public static boolean ismurCoffreCreated;
+	
+	public static Body grossePierre1;
+	public static boolean isGrossePierre1Created;
+	public static Body grossePierre2;
+	public static boolean isGrossePierre2Created;
+	public static Body grossePierre3;
+	public static boolean isGrossePierre3Created;
+	
+	public static Body petitePierre;
+	public static boolean isPetitePierreCreated;
+	
+	
+	
+	public static boolean ouvertureCoffre = false; // à sauvegarder
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -206,6 +224,20 @@ public class SousMapF2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 540+ x, 0+ y);
 		
+		
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 420+ x, 70+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 60+ x, 250+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 535+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.signTête, 120+ x, 410+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 410+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 470+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 535+ x, 420+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.petitePierre, 0+ x, 240+ y);
+		
+		if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 20+ x, 360+ y);
+		else game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 20+ x, 360+ y);
+		
 	}
 
 	public static void destroyBody() {
@@ -226,6 +258,21 @@ public class SousMapF2 extends Sprite{
 		ismur7Created = false;
 		if ( ismur8Created) MainMenu.world.destroyBody(mur8);
 		ismur8Created = false;
+		if ( ismur9Created) MainMenu.world.destroyBody(mur9);
+		ismur9Created = false;
+		if ( ismurCoffreCreated) MainMenu.world.destroyBody(murCoffre);
+		ismurCoffreCreated = false;
+		
+		if ( isGrossePierre1Created) MainMenu.world.destroyBody(grossePierre1);
+		isGrossePierre1Created = false;
+		if ( isGrossePierre2Created) MainMenu.world.destroyBody(grossePierre2);
+		isGrossePierre2Created = false;
+		if ( isGrossePierre3Created) MainMenu.world.destroyBody(grossePierre3);
+		isGrossePierre3Created = false;
+		
+		if ( isPetitePierreCreated) MainMenu.world.destroyBody(petitePierre);
+		isPetitePierreCreated = false;
+		
 	}
 
 	public static void createBodyAndType(World world) {
@@ -239,7 +286,7 @@ public class SousMapF2 extends Sprite{
 			ismur2Created = true;
 		}
 		if ( ismur3Created == false ) {
-			mur3 = ClimatMontagneux.createBody(140,180,290,120);
+			mur3 = ClimatMontagneux.createBody(170,180,230,120);
 			ismur3Created = true;
 		}
 		if ( ismur4Created == false ) {
@@ -247,7 +294,7 @@ public class SousMapF2 extends Sprite{
 			ismur4Created = true;
 		}
 		if ( ismur5Created == false ) {
-			mur5 = ClimatMontagneux.createBody(140,330,290,60);
+			mur5 = ClimatMontagneux.createBody(170,330,230,60);
 			ismur5Created = true;
 		}
 		if ( ismur6Created == false ) {
@@ -262,6 +309,36 @@ public class SousMapF2 extends Sprite{
 			mur8 = ClimatMontagneux.createBody(460,450,240,60);
 			ismur8Created = true;
 		}
+		if ( ismur9Created == false ) {
+			mur9 = ClimatMontagneux.createBody(0,240,1,420);
+			ismur9Created = true;
+		}
+		CadrillageMap.setTypeDeDécor(0,360/60, "coffre");
+		if ( ismurCoffreCreated == false ) {
+			murCoffre = ClimatMontagneux.createBody(50,390,120,60);
+			ismurCoffreCreated = true;
+		}
+		
+		if ( isGrossePierre1Created == false ) {
+			grossePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 60,250);
+			isGrossePierre1Created = true;
+		}
+		if ( isGrossePierre2Created == false ) {
+			grossePierre2 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 420,70);
+			isGrossePierre2Created = true;
+		}
+		if ( isGrossePierre3Created == false ) {
+			grossePierre3 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 410,360);
+			isGrossePierre3Created = true;
+		}
+		
+		CadrillageMap.setTypeDeDécor(0, 240/60, "petitePierre");
+		
+		if ( isPetitePierreCreated == false ) {
+			petitePierre = ClimatMontagneux.createBodyPerso("grossePierre", "static", 20,240);
+			isPetitePierreCreated = true;
+		}
+		
 	}
 
 	public static void destroyType() {
