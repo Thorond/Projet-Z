@@ -76,10 +76,22 @@ public class ClimatMontagneux {
 		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.buisson, x, y);
 	}
 	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
+	public static void petitePierre(boolean isCut,GameMain game, int x, int y ){
+		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.petitePierre, x, y);
+	}
 	public static Texture grossePierre = new Texture("climatMontagneux/stone2.png");
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
+	public static Texture signTête = new Texture("climatMontagneux/signTête.png");
 	
+	public static Texture coffreBleuFermé = new Texture("climatMontagneux/coffreBleuFermé.png");
+	public static Texture coffreBleuOuvert1 = new Texture("climatMontagneux/coffreBleuOuvert1.png");
+	public static Texture coffreBleuOuvert2 = new Texture("climatMontagneux/coffreBleuOuvert2.png");
+	public static Texture coffreBleuOuvert3 = new Texture("climatMontagneux/coffreBleuOuvert3.png");
+	
+	public static void annimationCoffre( GameMain game){
+		
+	}
 	
 //	tile
 	
@@ -183,10 +195,13 @@ public class ClimatMontagneux {
 
 	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
-		if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
-		else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
-		else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
-		else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
+		if (cha.getHealth() > 0){
+			if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
+			else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
+			else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
+			else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
+		}
+		
 	}
 	
 	public static void eauProfondeGlacée(GameMain game, int x, int y){

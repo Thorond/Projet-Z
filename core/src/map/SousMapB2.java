@@ -194,13 +194,9 @@ public class SousMapB2 extends Sprite {
 
 		if ( m1EstCrée && monstre1.isAlive() ) { 
 			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
-		} else if ( m1EstCrée == false){
-			game.getBatch().draw(Bats.batBas1, 200 + x +30, 400 + y +100);
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
 			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
-		} else if ( m2EstCrée == false){
-			game.getBatch().draw(Bats.batDroite1, 340 + x , 200 + y );
 		}
 //		==================================================================
 //				      			dégats des monstres
@@ -270,8 +266,7 @@ public class SousMapB2 extends Sprite {
 			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
 			monstres[1] = monstre2;
 			m2EstCrée = true;
-		}
-		else {
+		} else {
 			monstre2.déplacementAléa();
 			monstre2.représentationBat();
 			monstre2.updateBody();
@@ -281,8 +276,7 @@ public class SousMapB2 extends Sprite {
 			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
 			monstres[0] = monstre1;
 			m1EstCrée = true;
-		}
-		else {
+		} else {
 			monstre1.déplacementAléa();
 			monstre1.représentationBat();
 			monstre1.updateBody();

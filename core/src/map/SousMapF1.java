@@ -1,6 +1,7 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
@@ -9,6 +10,20 @@ import items.Epee;
 import scenes.MainMenu;
 
 public class SousMapF1 extends Sprite{
+	
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
+	public static Body cote3 ;
+	public static boolean isCote3Created;
+	public static Body cote4 ;
+	public static boolean isCote4Created;
+	public static Body cote5 ;
+	public static boolean isCote5Created;
+	
+	public static Body pedestal ;
+	public static boolean isPedestalCreated;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -154,12 +169,56 @@ public class SousMapF1 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
+
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
 		
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
+		
+		if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+		isCote3Created = false;
+		
+		if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+		isCote4Created = false;
+
+		if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+		isCote5Created = false;
+		
+		if ( isPedestalCreated) MainMenu.world.destroyBody(pedestal);
+		isPedestalCreated = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
 		if ( Epee.isEpéePrise == false ) CadrillageMap.setTypeDeDécor(300/60, 180/60, "épée");
+		
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(160,180,1,200);
+			isCote1Created = true;
+		}
+		if ( isCote2Created == false ) {
+			cote2 = ClimatMontagneux.createBody(460,180,1,200);
+			isCote2Created = true;
+		}
+		if ( isCote3Created == false ) {
+			cote3 = ClimatMontagneux.createBody(310,310,300,1);
+			isCote3Created = true;
+		}
+		if ( isCote4Created == false ) {
+			cote4 = ClimatMontagneux.createBody(220,60,120,120);
+			isCote4Created = true;
+		}
+		if ( isCote5Created == false ) {
+			cote5 = ClimatMontagneux.createBody(400,60,120,120);
+			isCote5Created = true;
+		}
+		
+		if ( isPedestalCreated == false ) {
+			if ( Epee.isEpéePrise == false ) pedestal = ClimatMontagneux.createBody(300,270,30,120);
+			else pedestal = ClimatMontagneux.createBody(300,220,30,20);
+			isPedestalCreated = true;
+		}
 	}
 
 	public static void destroyType() {

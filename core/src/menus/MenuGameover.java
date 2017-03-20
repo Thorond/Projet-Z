@@ -50,6 +50,7 @@ public class MenuGameover extends Menu {
 	public static void affichageMenuGO(GameMain game){
 		if ( isGO ) {
 			game.getBatch().draw(fond,-5,-30);
+			game.getBatch().draw(fondBeige,60,40);
 			game.getBatch().draw(nomGO, 100,330);
 			if (choix == 1){
 				game.getBatch().draw(boutonPresséReprendre,180,230);
