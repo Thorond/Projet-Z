@@ -189,6 +189,7 @@ public class MainMenu implements Screen{
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé ){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
+						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuSac.isSacAffiché = true;
 					 }
 					 
@@ -280,7 +281,6 @@ public class MainMenu implements Screen{
 				Link.updatePlayer();
 				
 				if (PlacementMain.défilement == false ) {
-					GestionDesMaps.destructionDesCorps();
 					PlacementMain.posiSousMap(Link);
 				}
 				
