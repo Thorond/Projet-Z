@@ -6,7 +6,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -15,12 +14,15 @@ import com.mygdx.game.GameMain;
 import characters.MainCharacter;
 import decors.ClimatMontagneux;
 import items.CoeurDeVie;
+import items.Coffre;
 import items.Epee;
+import items.GantDeForce;
 import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.PlacementMain;
 import map.SousMapF1;
+import map.SousMapF2;
 import menus.MenuGameover;
 import menus.MenuSac;
 import sauvegarde.AcceptClass;
@@ -33,6 +35,7 @@ public class MainMenu implements Screen{
 	public static MainCharacter Link;
 	public static Epee épée = new Epee();
 	public static Plume plume = new Plume();
+	public static GantDeForce gantDeForce = new GantDeForce();
 	Texture carte;
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
@@ -74,6 +77,7 @@ public class MainMenu implements Screen{
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		MenuSac.setItem(plume);
+		MenuSac.setItem(gantDeForce);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		
@@ -123,12 +127,13 @@ public class MainMenu implements Screen{
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
-			if ( Epee.annimationEpée ){
+			if ( Epee.annimationEpée || Coffre.annimationCoffre ){
 //				annimation de récupération de l'épée
 				Link.setTexture(MainCharacter.linkBasRepos);
 				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
 					Epee.annimationEpée = false;
+					Coffre.annimationCoffre = false;
 				}
 			} else {
 				if (PlacementMain.défilement == false){
@@ -197,6 +202,11 @@ public class MainMenu implements Screen{
 						 SousMapF1.destroyBody();
 						 MenuSac.setItem(épée);
 					 };
+					 if ( PlacementMain.positionSousMap.equals("F2")){
+						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 ) +1].equals("coffreBleu") ){
+							 SousMapF2.ouvertureCoffre = true;
+						 }
+					 }
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 	//				récupération de vie par les coeurs de vie
@@ -269,7 +279,10 @@ public class MainMenu implements Screen{
 				
 				Link.updatePlayer();
 				
-				if (PlacementMain.défilement == false ) PlacementMain.posiSousMap(Link);
+				if (PlacementMain.défilement == false ) {
+					GestionDesMaps.destructionDesCorps();
+					PlacementMain.posiSousMap(Link);
+				}
 				
 				if ( PlacementMain.défilement == true) {
 					GestionDesMaps.défilementDeMap(game);

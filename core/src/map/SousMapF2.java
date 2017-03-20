@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Coffre;
 import scenes.MainMenu;
 
 public class SousMapF2 extends Sprite{
@@ -40,10 +41,12 @@ public class SousMapF2 extends Sprite{
 	
 	public static Body petitePierre;
 	public static boolean isPetitePierreCreated;
+	public static boolean isPetitePierreDéplacé = false;
 	
 	
 	
 	public static boolean ouvertureCoffre = false; // à sauvegarder
+	public static boolean coffreOuvert = false; // à sauvegarder
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -233,10 +236,21 @@ public class SousMapF2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 470+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 535+ x, 420+ y);
 		
-		game.getBatch().draw(ClimatMontagneux.petitePierre, 0+ x, 240+ y);
+		ClimatMontagneux.petitePierre(isPetitePierreDéplacé,game, 0+x, 240+y);
 		
-		if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 20+ x, 360+ y);
-		else game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 20+ x, 360+ y);
+		if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 20+ x, 370+ y);
+		else {
+			if ( coffreOuvert == false ) {
+				if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
+					coffreOuvert = true;
+				}
+				Coffre.annimationCoffreBleu(game, 20, 370);
+				
+			} else {
+				game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 20+ x, 370+ y);
+			}
+			
+		}
 		
 	}
 
@@ -272,6 +286,7 @@ public class SousMapF2 extends Sprite{
 		
 		if ( isPetitePierreCreated) MainMenu.world.destroyBody(petitePierre);
 		isPetitePierreCreated = false;
+		
 		
 	}
 
@@ -313,7 +328,7 @@ public class SousMapF2 extends Sprite{
 			mur9 = ClimatMontagneux.createBody(0,240,1,420);
 			ismur9Created = true;
 		}
-		CadrillageMap.setTypeDeDécor(0,360/60, "coffre");
+		CadrillageMap.setTypeDeDécor(0,360/60, "coffreBleu");
 		if ( ismurCoffreCreated == false ) {
 			murCoffre = ClimatMontagneux.createBody(50,390,120,60);
 			ismurCoffreCreated = true;
@@ -333,16 +348,17 @@ public class SousMapF2 extends Sprite{
 		}
 		
 		CadrillageMap.setTypeDeDécor(0, 240/60, "petitePierre");
-		
-		if ( isPetitePierreCreated == false ) {
+		if ( CadrillageMap.décorChangé[0][240/60] == true ) isPetitePierreDéplacé = true;
+		if ( isPetitePierreCreated == false && isPetitePierreDéplacé == false) {
 			petitePierre = ClimatMontagneux.createBodyPerso("grossePierre", "static", 20,240);
 			isPetitePierreCreated = true;
 		}
+		
 		
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+		isPetitePierreDéplacé = false;
 	}
 }

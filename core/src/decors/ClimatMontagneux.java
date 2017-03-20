@@ -76,6 +76,9 @@ public class ClimatMontagneux {
 		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.buisson, x, y);
 	}
 	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
+	public static void petitePierre(boolean isCut,GameMain game, int x, int y ){
+		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.petitePierre, x, y);
+	}
 	public static Texture grossePierre = new Texture("climatMontagneux/stone2.png");
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
