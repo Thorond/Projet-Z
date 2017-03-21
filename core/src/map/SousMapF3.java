@@ -27,6 +27,18 @@ public class SousMapF3 extends Sprite{
 	public static Body mur8;
 	public static boolean ismur8Created;
 	
+	public static Body grossePierre1;
+	public static boolean isGrossePierre1Created;
+	public static Body grossePierre2;
+	public static boolean isGrossePierre2Created;
+	public static Body grossePierre3;
+	public static boolean isGrossePierre3Created;
+	public static Body grossePierre4;
+	public static boolean isGrossePierre4Created;
+	
+	public static Body arbre1;
+	public static boolean isArbre1Created;
+	
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -120,6 +132,7 @@ public class SousMapF3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
 		
+		
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 60+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 120+ x, 420+ y);
@@ -207,6 +220,16 @@ public class SousMapF3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 540+ x, 0+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 60+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre2, 00+ x, 60+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 420+ x, 70+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 60+ x, 310+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 535+ x, 310+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 80+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 100+ x, 190+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 535+ x, 200+ y);
 	}
 
 	public static void destroyBody() {
@@ -227,10 +250,25 @@ public class SousMapF3 extends Sprite{
 		ismur7Created = false;
 		if ( ismur8Created) MainMenu.world.destroyBody(mur8);
 		ismur8Created = false;
+		
+		if ( isGrossePierre1Created) MainMenu.world.destroyBody(grossePierre1);
+		isGrossePierre1Created = false;
+		if ( isGrossePierre2Created) MainMenu.world.destroyBody(grossePierre2);
+		isGrossePierre2Created = false;
+		if ( isGrossePierre3Created) MainMenu.world.destroyBody(grossePierre3);
+		isGrossePierre3Created = false;
+		if ( isGrossePierre4Created) MainMenu.world.destroyBody(grossePierre4);
+		isGrossePierre4Created = false;
+
+		if ( isArbre1Created) MainMenu.world.destroyBody(arbre1);
+		isArbre1Created = false;
+	
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+		CadrillageMap.setTypeDeDécor(1, 1, "Trou");
+		
 		if ( ismur1Created == false ) {
 			mur1 = ClimatMontagneux.createBody(140,30,290,60);
 			ismur1Created = true;
@@ -262,6 +300,29 @@ public class SousMapF3 extends Sprite{
 		if ( ismur8Created == false ) {
 			mur8 = ClimatMontagneux.createBody(460,420,240,120);
 			ismur8Created = true;
+		}
+		
+		
+		if ( isGrossePierre1Created == false ) {
+			grossePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 420,70);
+			isGrossePierre1Created = true;
+		}
+		if ( isGrossePierre2Created == false ) {
+			grossePierre2 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 60,310);
+			isGrossePierre2Created = true;
+		}
+		if ( isGrossePierre3Created == false ) {
+			grossePierre3 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 535,310);
+			isGrossePierre3Created = true;
+		}
+		if ( isGrossePierre4Created == false ) {
+			grossePierre4 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 100,190);
+			isGrossePierre4Created = true;
+		}
+		
+		if ( isArbre1Created == false ) {
+			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",535,200);
+			isArbre1Created = true;
 		}
 		
 	}
