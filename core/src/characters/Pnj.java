@@ -69,6 +69,7 @@ public class Pnj extends Characters{
 	public void subirDégats( MainCharacter cha, String direction){
 		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
 			this.drop();
+//			est ce la meilleure solution?
 			this.getBody().setTransform(-100, -100, 0);
 		} else {
 			if ( direction.equals("droite")) this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);

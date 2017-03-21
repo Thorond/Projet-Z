@@ -21,6 +21,7 @@ import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.PlacementMain;
+import map.SousMapE3;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
@@ -189,6 +190,12 @@ public class MainMenu implements Screen{
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé ){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
+//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
+//						 classe gestionDesMaps
+						 if (PlacementMain.positionSousMap.equals("E3")) {
+							 for ( int l = 0; l < SousMapE3.monstres.length ; l ++) 
+								 SousMapE3.monstres[l].getBody().setLinearVelocity(0, 0);
+						 }
 						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuSac.isSacAffiché = true;
 					 }

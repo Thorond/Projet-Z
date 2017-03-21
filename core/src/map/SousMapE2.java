@@ -113,7 +113,6 @@ public class SousMapE2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.morceauGlaceHautDroite, 480+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.morceauGlaceHautDroite, 540+ x, 360+ y);
 		
-		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 00+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 60+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1,120+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 180+ x, 360+ y);
@@ -124,8 +123,9 @@ public class SousMapE2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 480+ x, 300+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 00+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 60+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 180+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 60+ x, 240+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,120+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 180+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 240+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 300+ x, 240+ y);
@@ -161,6 +161,15 @@ public class SousMapE2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 300+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 0+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 00+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree,120+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, -60+ y);
 		
 
 		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 540+ x, 120+ y);
