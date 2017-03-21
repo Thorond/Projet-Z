@@ -4,9 +4,24 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Bats;
+import characters.Pnj;
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapE3 extends Sprite{
+	
+	public static Bats monstre1;
+	public static Bats monstre2;
+	public static boolean m1EstCrée = false ;
+	public static boolean m2EstCrée = false ;
+	public static Bats monstre3;
+	public static Bats monstre4;
+	public static boolean m3EstCrée = false ;
+	public static boolean m4EstCrée = false ;
+	
+	public static boolean monstresPrésent = true;
+	public static Pnj[] monstres = new Pnj[4];
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -99,16 +114,126 @@ public class SousMapE3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
+		
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 00+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree,120+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 420+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 540+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 540+ x, 420+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 540+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 540+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 540+ x, 360+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 480+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 480+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 480+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 540+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 540+ x, 240+ y);
+		
+//		==================================================================
+		//		Placement des dessins des monstres
+		//==================================================================
+		
+		if ( m1EstCrée && monstre1.isAlive() ) { 
+			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
+		}
+		if ( m2EstCrée && monstre2.isAlive() ) {
+			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
+		}
+		if ( m1EstCrée && monstre3.isAlive() ) { 
+			game.getBatch().draw(monstre3,monstre3.getX(), monstre3.getY());
+		}
+		if ( m2EstCrée && monstre4.isAlive() ) {
+			game.getBatch().draw(monstre4.getTexture(), monstre4.getX(), monstre4.getY());
+		}
+		//==================================================================
+		//		      			dégats des monstres
+		//==================================================================
+		
+		if ( m1EstCrée && monstre1.isAlive() ) { 
+			monstre1.infligéDégatLink();
+		}
+		if ( m2EstCrée && monstre2.isAlive() ) {
+			monstre2.infligéDégatLink();
+		}
+		if ( m3EstCrée && monstre3.isAlive() ) { 
+			monstre3.infligéDégatLink();
+		}
+		if ( m4EstCrée && monstre4.isAlive() ) {
+			monstre4.infligéDégatLink();
+		}
 	}
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
 		
+//		destruction monstres
+		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
+		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
+		m1EstCrée = false;
+		m2EstCrée = false;
+		if ( m3EstCrée )MainMenu.world.destroyBody(monstre3.getBody());
+		if ( m4EstCrée )MainMenu.world.destroyBody(monstre4.getBody());
+		m3EstCrée = false;
+		m4EstCrée = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+//		========================================================================================
+		//		Création des corps des montres
+		//========================================================================================
 		
+		
+		
+		if ( m2EstCrée == false ) {
+			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
+			monstres[1] = monstre2;
+			m2EstCrée = true;
+		} else {
+			monstre2.déplacementAléa();
+			monstre2.représentationBat();
+			monstre2.updateBody();
+		}
+		
+		if ( m1EstCrée == false ) {
+			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
+			monstres[0] = monstre1;
+			m1EstCrée = true;
+		} else {
+			monstre1.déplacementAléa();
+			monstre1.représentationBat();
+			monstre1.updateBody();
+		}
+		
+		if ( m3EstCrée == false ) {
+			monstre3 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 0 , 360 , "bas") ;
+			monstres[2] = monstre3;
+			m3EstCrée = true;
+		} else {
+			monstre3.déplacementAléa();
+			monstre3.représentationBat();
+			monstre3.updateBody();
+		}
+		
+		if ( m4EstCrée == false ) {
+			monstre4 = new Bats(world ,Bats.batGauche1, 20 , 10 , 4 , 200 , 0 , "gauche") ;
+			monstres[3] = monstre4;
+			m4EstCrée = true;
+		} else {
+			monstre4.déplacementAléa();
+			monstre4.représentationBat();
+			monstre4.updateBody();
+		}
 	}
 
 	public static void destroyType() {
