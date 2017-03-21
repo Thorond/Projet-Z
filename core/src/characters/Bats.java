@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class Bats extends Pnj{
-	
+	// geugah
 	public long start = System.currentTimeMillis();
 	
 	public boolean textBas1 = true;
