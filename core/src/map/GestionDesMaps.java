@@ -29,6 +29,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("E1") ) {
 					SousMapE1.sousMap(game,-600 + PlacementMain.x,0);
 					SousMapF1.sousMap(game, PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("F1") ) {
+					SousMapF1.sousMap(game,-600 + PlacementMain.x,0);
+					SousMapG1.sousMap(game, PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapB2.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapA2.sousMap(game, -600 + PlacementMain.x,0);
@@ -44,6 +47,9 @@ public class GestionDesMaps {
 				} else if (PlacementMain.positionSousMap.equals("E2")){
 					SousMapF2.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapE2.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("F2")){
+					SousMapG2.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapF2.sousMap(game, -600 + PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					SousMapB3.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapA3.sousMap(game, -600 + PlacementMain.x,0);
@@ -59,6 +65,9 @@ public class GestionDesMaps {
 				} else if (PlacementMain.positionSousMap.equals("E3")){
 					SousMapF3.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapE3.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("F3")){
+					SousMapG3.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapF3.sousMap(game, -600 + PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("A4") ) {
 					SousMapB4.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapA4.sousMap(game, -600 + PlacementMain.x,0);
@@ -74,6 +83,27 @@ public class GestionDesMaps {
 				} else if (PlacementMain.positionSousMap.equals("E4")){
 					SousMapF4.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapE4.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("F4")){
+					SousMapG4.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapF4.sousMap(game, -600 + PlacementMain.x,0);
+				} else if ( PlacementMain.positionSousMap.equals("A5") ) {
+					SousMapB5.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapA5.sousMap(game, -600 + PlacementMain.x,0);
+				} else if ( PlacementMain.positionSousMap.equals("B5") ) {
+					SousMapC5.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapB5.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("C5")){
+					SousMapD5.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapC5.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("D5")){
+					SousMapE5.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapD5.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("E5")){
+					SousMapF5.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapE5.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("F5")){
+					SousMapG5.sousMap(game, 0 + PlacementMain.x, 0);
+					SousMapF5.sousMap(game, -600 + PlacementMain.x,0);
 				}
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.x+=15;
@@ -98,6 +128,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F1") ) {
 					SousMapE1.sousMap(game,0- PlacementMain.x,0);
 					SousMapF1.sousMap(game,600 - PlacementMain.x,0);
+				} else if ( PlacementMain.positionSousMap.equals("G1") ) {
+					SousMapF1.sousMap(game,0- PlacementMain.x,0);
+					SousMapG1.sousMap(game,600 - PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B2") ) {
 					SousMapA2.sousMap(game, 0- PlacementMain.x,0);
@@ -114,6 +147,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F2") ) {
 					SousMapE2.sousMap(game, 0- PlacementMain.x,0);
 					SousMapF2.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("G2") ) {
+					SousMapF2.sousMap(game, 0- PlacementMain.x,0);
+					SousMapG2.sousMap(game, 600- PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B3") ) {
 					SousMapA3.sousMap(game, 0- PlacementMain.x,0);
@@ -130,6 +166,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F3") ) {
 					SousMapE3.sousMap(game, 0- PlacementMain.x,0);
 					SousMapF3.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("G3") ) {
+					SousMapF3.sousMap(game, 0- PlacementMain.x,0);
+					SousMapG3.sousMap(game, 600- PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("A4") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B4") ) {
 					SousMapA4.sousMap(game, 0- PlacementMain.x,0);
@@ -146,6 +185,28 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F4") ) {
 					SousMapE4.sousMap(game, 0- PlacementMain.x,0);
 					SousMapF4.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("G4") ) {
+					SousMapF4.sousMap(game, 0- PlacementMain.x,0);
+					SousMapG4.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("A5") ) {
+				} else if ( PlacementMain.positionSousMap.equals("B5") ) {
+					SousMapA5.sousMap(game, 0- PlacementMain.x,0);
+					SousMapB5.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("C5") ) {
+					SousMapB5.sousMap(game, 0- PlacementMain.x,0);
+					SousMapC5.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("D5") ) {
+					SousMapC5.sousMap(game, 0- PlacementMain.x,0);
+					SousMapD5.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("E5") ) {
+					SousMapD5.sousMap(game, 0- PlacementMain.x,0);
+					SousMapE5.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("F5") ) {
+					SousMapE5.sousMap(game, 0- PlacementMain.x,0);
+					SousMapF5.sousMap(game, 600- PlacementMain.x, 0);
+				} else if ( PlacementMain.positionSousMap.equals("G5") ) {
+					SousMapF5.sousMap(game, 0- PlacementMain.x,0);
+					SousMapG5.sousMap(game, 600- PlacementMain.x, 0);
 				}
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.x+=15;
@@ -160,6 +221,7 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("D1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("E1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("F1") ) {
+				} else if ( PlacementMain.positionSousMap.equals("G1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapA1.sousMap(game,0,0+ PlacementMain.y);
 					SousMapA2.sousMap(game, 0,-480 + PlacementMain.y );
@@ -178,6 +240,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F2") ) {
 					SousMapF2.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapF1.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G2") ) {
+					SousMapG2.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapG1.sousMap(game, 0, PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					SousMapA2.sousMap(game,0, PlacementMain.y);
 					SousMapA3.sousMap(game, 0,-480 + PlacementMain.y );
@@ -196,6 +261,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F3") ) {
 					SousMapF3.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapF2.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G3") ) {
+					SousMapG3.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapG2.sousMap(game, 0, PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("A4") ) {
 					SousMapA3.sousMap(game,0,0+ PlacementMain.y);
 					SousMapA4.sousMap(game, 0,-480 + PlacementMain.y );
@@ -214,6 +282,30 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F4") ) {
 					SousMapF4.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapF3.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G4") ) {
+					SousMapG4.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapG3.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("A5") ) {
+					SousMapA4.sousMap(game,0,0+ PlacementMain.y);
+					SousMapA5.sousMap(game, 0,-480 + PlacementMain.y );
+				} else if ( PlacementMain.positionSousMap.equals("B5") ) {
+					SousMapB5.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapB4.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("C5") ) {
+					SousMapC5.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapC4.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("D5") ) {
+					SousMapD5.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapD4.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("E5") ) {
+					SousMapE4.sousMap(game, 0, PlacementMain.y);
+					SousMapE5.sousMap(game, 0, -480 + PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("F5") ) {
+					SousMapF5.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapF4.sousMap(game, 0, PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G5") ) {
+					SousMapG5.sousMap(game, 0, -480 + PlacementMain.y);
+					SousMapG4.sousMap(game, 0, PlacementMain.y);
 				}
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.y+=15;
@@ -241,6 +333,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F1") ) {
 					SousMapF2.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapF1.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G1") ) {
+					SousMapG2.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapG1.sousMap(game, 0, 480-PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapA2.sousMap(game,0,480- PlacementMain.y);
 					SousMapA3.sousMap(game, 0,0- PlacementMain.y );
@@ -259,6 +354,9 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F2") ) {
 					SousMapF3.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapF2.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G2") ) {
+					SousMapG3.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapG2.sousMap(game, 0, 480-PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					SousMapA3.sousMap(game,0,480- PlacementMain.y);
 					SousMapA4.sousMap(game, 0,0- PlacementMain.y );
@@ -277,6 +375,30 @@ public class GestionDesMaps {
 				} else if ( PlacementMain.positionSousMap.equals("F3") ) {
 					SousMapF4.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapF3.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G3") ) {
+					SousMapG4.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapG3.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("A4") ) {
+					SousMapA4.sousMap(game,0,480- PlacementMain.y);
+					SousMapA5.sousMap(game, 0,0- PlacementMain.y );
+				} else if ( PlacementMain.positionSousMap.equals("B4") ) {
+					SousMapB5.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapB4.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("C4") ) {
+					SousMapC5.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapC4.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("D4") ) {
+					SousMapD5.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapD4.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("E4") ) {
+					SousMapE4.sousMap(game, 0, 480-PlacementMain.y);
+					SousMapE5.sousMap(game, 0, 0-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("F4") ) {
+					SousMapF5.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapF4.sousMap(game, 0, 480-PlacementMain.y);
+				} else if ( PlacementMain.positionSousMap.equals("G4") ) {
+					SousMapG5.sousMap(game, 0, 0-PlacementMain.y);
+					SousMapG4.sousMap(game, 0, 480-PlacementMain.y);
 				}
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.y+=15;
@@ -329,6 +451,10 @@ public class GestionDesMaps {
 				SousMapF1.createBodyAndType(MainMenu.world);
 				SousMapF1.sousMap(game, 0, 0);
 			}
+			else if ( PlacementMain.positionSousMap.equals("G1")) {
+				SousMapG1.createBodyAndType(MainMenu.world);
+				SousMapG1.sousMap(game, 0, 0);
+			}
 			else if ( PlacementMain.positionSousMap.equals("A2")){
 				SousMapA2.createBodyAndType(MainMenu.world);
 				SousMapA2.sousMap(game, 0,0 );
@@ -357,6 +483,11 @@ public class GestionDesMaps {
 				SousMapF2.destroyType();
 				SousMapF2.createBodyAndType(MainMenu.world);
 				SousMapF2.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("G2")) {
+				SousMapG2.destroyType();
+				SousMapG2.createBodyAndType(MainMenu.world);
+				SousMapG2.sousMap(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("A3")){
 				SousMapA3.createBodyAndType(MainMenu.world);
@@ -387,6 +518,11 @@ public class GestionDesMaps {
 				SousMapF3.createBodyAndType(MainMenu.world);
 				SousMapF3.sousMap(game, 0, 0);
 			}
+			else if ( PlacementMain.positionSousMap.equals("G3")) {
+				SousMapG3.destroyType();
+				SousMapG3.createBodyAndType(MainMenu.world);
+				SousMapG3.sousMap(game, 0, 0);
+			}
 			else if ( PlacementMain.positionSousMap.equals("A4")){
 				SousMapA4.createBodyAndType(MainMenu.world);
 				SousMapA4.sousMap(game, 0,0 );
@@ -416,6 +552,45 @@ public class GestionDesMaps {
 				SousMapF4.createBodyAndType(MainMenu.world);
 				SousMapF4.sousMap(game, 0, 0);
 			}
+			else if ( PlacementMain.positionSousMap.equals("G4")) {
+				SousMapG4.destroyType();
+				SousMapG4.createBodyAndType(MainMenu.world);
+				SousMapG4.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("A5")){
+				SousMapA5.createBodyAndType(MainMenu.world);
+				SousMapA5.sousMap(game, 0,0 );
+			}
+			else if ( PlacementMain.positionSousMap.equals("B5")) {
+				SousMapB5.destroyType();
+				SousMapB5.createBodyAndType(MainMenu.world);
+				SousMapB5.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("C5")) {
+				SousMapC5.destroyType();
+				SousMapC5.createBodyAndType(MainMenu.world);
+				SousMapC5.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("D5")) {
+				SousMapD5.destroyType();
+				SousMapD5.createBodyAndType(MainMenu.world);
+				SousMapD5.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("E5")) {
+				SousMapE5.destroyType();
+				SousMapE5.createBodyAndType(MainMenu.world);
+				SousMapE5.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("F5")) {
+				SousMapF5.destroyType();
+				SousMapF5.createBodyAndType(MainMenu.world);
+				SousMapF5.sousMap(game, 0, 0);
+			}
+			else if ( PlacementMain.positionSousMap.equals("G5")) {
+				SousMapG5.destroyType();
+				SousMapG5.createBodyAndType(MainMenu.world);
+				SousMapG5.sousMap(game, 0, 0);
+			}
 	}
 	
 //	 ===========================================================================================================
@@ -432,24 +607,35 @@ public class GestionDesMaps {
 		else if (PlacementMain.positionSousMap.equals("D1")) SousMapD1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E1")) SousMapE1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F1")) SousMapF1.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("G1")) SousMapG1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("A2")) SousMapA2.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("B2")) SousMapB2.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C2")) SousMapC2.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("D2")) SousMapD2.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E2")) SousMapE2.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F2")) SousMapF2.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("G2")) SousMapG2.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("A3")) SousMapA3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("B3")) SousMapB3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C3")) SousMapC3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("D3")) SousMapD3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E3")) SousMapE3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F3")) SousMapF3.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("G3")) SousMapG3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("A4")) SousMapA4.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("B4")) SousMapB4.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C4")) SousMapC4.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("D4")) SousMapD4.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E4")) SousMapE4.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F4")) SousMapF4.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("G4")) SousMapG4.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("A5")) SousMapA5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("B5")) SousMapB5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("C5")) SousMapC5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("D5")) SousMapD5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("E5")) SousMapE5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("F5")) SousMapF5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("G5")) SousMapG5.destroyBody();
 	}
 	
 }
