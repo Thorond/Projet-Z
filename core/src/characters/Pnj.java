@@ -18,6 +18,12 @@ public class Pnj extends Characters{
 		start = System.currentTimeMillis();
 	}
 	
+//	monstres présent sur la map sur laquelle est le joueur 
+	
+	
+	public static int nbrDeMonstres = 0;
+	public static Pnj[] monstres = new Pnj[10];
+	
 //	déplacement aléatoire
 	
 	public void déplacementAléa(){
@@ -70,7 +76,7 @@ public class Pnj extends Characters{
 		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
 			this.drop();
 //			est ce la meilleure solution?
-			this.getBody().setTransform(-100, -100, 0);
+			this.getBody().setTransform(-500, -500, 0);
 		} else {
 			if ( direction.equals("droite")) this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
 			else if ( direction.equals("gauche")) this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);

@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import characters.Pnj;
 import decors.ClimatMontagneux;
 import items.CoeurDeVie;
 import items.Coffre;
@@ -191,11 +192,9 @@ public class MainMenu implements Screen{
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
-//						 classe gestionDesMaps
-						 if (PlacementMain.positionSousMap.equals("E3")) {
-							 for ( int l = 0; l < SousMapE3.monstres.length ; l ++) 
-								 SousMapE3.monstres[l].getBody().setLinearVelocity(0, 0);
-						 }
+//						 classe gestionDesMaps ?
+						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
+							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
 						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuSac.isSacAffiché = true;
 					 }

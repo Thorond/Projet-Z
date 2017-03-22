@@ -20,8 +20,8 @@ public class SousMapE3 extends Sprite{
 	public static boolean m3EstCrée = false ;
 	public static boolean m4EstCrée = false ;
 	
-	public static boolean monstresPrésent = true;
-	public static Pnj[] monstres = new Pnj[4];
+//	public static boolean monstresPrésent = true;
+//	public static Pnj[] monstres = new Pnj[4];
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -185,6 +185,8 @@ public class SousMapE3 extends Sprite{
 		if ( m4EstCrée )MainMenu.world.destroyBody(monstre4.getBody());
 		m3EstCrée = false;
 		m4EstCrée = false;
+		
+		Pnj.nbrDeMonstres = 0 ;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -197,7 +199,7 @@ public class SousMapE3 extends Sprite{
 		
 		if ( m2EstCrée == false ) {
 			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
-			monstres[1] = monstre2;
+			Pnj.monstres[1] = monstre2;
 			m2EstCrée = true;
 		} else {
 			monstre2.déplacementAléa();
@@ -207,7 +209,7 @@ public class SousMapE3 extends Sprite{
 		
 		if ( m1EstCrée == false ) {
 			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
-			monstres[0] = monstre1;
+			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {
 			monstre1.déplacementAléa();
@@ -217,7 +219,7 @@ public class SousMapE3 extends Sprite{
 		
 		if ( m3EstCrée == false ) {
 			monstre3 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 0 , 360 , "bas") ;
-			monstres[2] = monstre3;
+			Pnj.monstres[2] = monstre3;
 			m3EstCrée = true;
 		} else {
 			monstre3.déplacementAléa();
@@ -227,7 +229,8 @@ public class SousMapE3 extends Sprite{
 		
 		if ( m4EstCrée == false ) {
 			monstre4 = new Bats(world ,Bats.batGauche1, 20 , 10 , 4 , 200 , 0 , "gauche") ;
-			monstres[3] = monstre4;
+			Pnj.monstres[3] = monstre4;
+			Pnj.nbrDeMonstres = 4 ;
 			m4EstCrée = true;
 		} else {
 			monstre4.déplacementAléa();
