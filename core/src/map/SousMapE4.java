@@ -100,6 +100,16 @@ public class SousMapE4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
 		
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 0+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 60+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 60+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 120+ x, 0+ y);
+		
+
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 140+ y);
+		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 240+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 180+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 120+ x, 120+ y);

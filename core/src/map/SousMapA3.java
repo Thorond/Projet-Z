@@ -100,15 +100,7 @@ public class SousMapA3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
 		
-		
-		game.getBatch().draw(ClimatMontagneux.tree, 00+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.tree,120+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.grossePierre, 300+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 420+ y);
+	
 	}
 
 	public static void destroyBody() {
