@@ -42,8 +42,7 @@ public class SousMapB2 extends Sprite {
 //	public static int coordXM2;
 //	public static int coordYM2;
 	
-	public static boolean monstresPrésent = true;
-	public static Pnj[] monstres = new Pnj[2];
+
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -264,20 +263,21 @@ public class SousMapB2 extends Sprite {
 		
 		if ( m2EstCrée == false ) {
 			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
-			monstres[1] = monstre2;
+			Pnj.monstres[1] = monstre2;
+			Pnj.nbrDeMonstres = 2;
 			m2EstCrée = true;
 		} else {
-			monstre2.déplacementAléa();
+			monstre2.déplacement();
 			monstre2.représentationBat();
 			monstre2.updateBody();
 		}
 		
 		if ( m1EstCrée == false ) {
 			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
-			monstres[0] = monstre1;
+			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {
-			monstre1.déplacementAléa();
+			monstre1.déplacement();
 			monstre1.représentationBat();
 			monstre1.updateBody();
 		}
@@ -316,6 +316,7 @@ public class SousMapB2 extends Sprite {
 		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
 		m1EstCrée = false;
 		m2EstCrée = false;
+		Pnj.nbrDeMonstres = 0;
 		
 	}
 

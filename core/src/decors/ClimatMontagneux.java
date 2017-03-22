@@ -221,26 +221,68 @@ public class ClimatMontagneux {
 	
 	public static boolean etat2 = false;
 	public static long startEau2 = System.currentTimeMillis();
-
-	public static void setDamageEauRivière(MainCharacter cha) {
-		cha.setHealth(cha.getHealth() - 2 );
-		if (cha.getHealth() > 0){
-			if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
-			else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
-			else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
-			else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
-		}
-	}
 	
+	public static boolean etat3 = false;
+	public static long startEau3 = System.currentTimeMillis();
+	
+	public static boolean etat4 = false;
+	public static long startEau4 = System.currentTimeMillis();
+
 	public static void eauProfonde(GameMain game, int x, int y){
 		if ( etat2 == false ) game.getBatch().draw(eauProfonde, x, y);
 		else game.getBatch().draw(eauProfonde2, x, y);		
-		if ( System.currentTimeMillis() - startEau2 > 500){
+		if ( System.currentTimeMillis() - startEau2 > 1000){
 			startEau2 = System.currentTimeMillis();
 			if ( etat2 == false ) etat2=true;
 			else etat2=false;
 		}
 		
+	}
+	
+	public static void eauProfonde150(GameMain game, int x, int y){
+		if ( etat3 == false ) game.getBatch().draw(eauProfonde, x, y);
+		else game.getBatch().draw(eauProfonde2, x, y);		
+		if ( System.currentTimeMillis() - startEau3 > 150){
+			startEau3 = System.currentTimeMillis();
+			if ( etat3 == false ) etat3=true;
+			else etat3=false;
+		}
+		
+	}
+	
+	public static void eauProfonde300(GameMain game, int x, int y){
+		if ( etat4 == false ) game.getBatch().draw(eauProfonde, x, y);
+		else game.getBatch().draw(eauProfonde2, x, y);		
+		if ( System.currentTimeMillis() - startEau4 > 300){
+			startEau4 = System.currentTimeMillis();
+			if ( etat4 == false ) etat4=true;
+			else etat4=false;
+		}
+		
+	}
+	
+//	cascade 
+	
+	public static Texture cascade1 = new Texture("map/cascade1.png");
+	public static Texture cascade2 = new Texture("map/cascade2.png");
+	public static Texture cascade3 = new Texture("map/cascade3.png");
+	public static Texture cascade4 = new Texture("map/cascade4.png");
+	
+	public static int etatCascade = 1;
+	public static long variationCascade = System.currentTimeMillis();
+	
+	public static void annimationCascade(GameMain game, int x, int y){
+		if (etatCascade == 1) game.getBatch().draw(cascade1, x+2, y);
+		else if (etatCascade == 2) game.getBatch().draw(cascade2, x, y);
+		else if (etatCascade == 3) game.getBatch().draw(cascade3, x, y);
+		else if (etatCascade == 4) game.getBatch().draw(cascade4, x, y);
+		if ( System.currentTimeMillis() - variationCascade > 150){
+			variationCascade = System.currentTimeMillis();
+			if (etatCascade == 1) etatCascade = 2;
+			else if (etatCascade == 2) etatCascade = 3;
+			else if (etatCascade == 3) etatCascade = 4;
+			else if (etatCascade == 4) etatCascade = 1;
+		}
 	}
 	
 //	trou

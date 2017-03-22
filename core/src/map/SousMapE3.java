@@ -20,8 +20,6 @@ public class SousMapE3 extends Sprite{
 	public static boolean m3EstCrée = false ;
 	public static boolean m4EstCrée = false ;
 	
-	public static boolean monstresPrésent = true;
-	public static Pnj[] monstres = new Pnj[4];
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -139,6 +137,33 @@ public class SousMapE3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 540+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 540+ x, 240+ y);
 		
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 540+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 540+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 540+ x, 120+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, -60+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, 120+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 180+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 0+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, -40+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, -40+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, -40+ y);
+		
 //		==================================================================
 		//		Placement des dessins des monstres
 		//==================================================================
@@ -185,6 +210,8 @@ public class SousMapE3 extends Sprite{
 		if ( m4EstCrée )MainMenu.world.destroyBody(monstre4.getBody());
 		m3EstCrée = false;
 		m4EstCrée = false;
+		
+		Pnj.nbrDeMonstres = 0 ;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -196,41 +223,42 @@ public class SousMapE3 extends Sprite{
 		
 		
 		if ( m2EstCrée == false ) {
-			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
-			monstres[1] = monstre2;
+			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 400 , 200 , "droite") ;
+			Pnj.monstres[1] = monstre2;
 			m2EstCrée = true;
 		} else {
-			monstre2.déplacementAléa();
+			monstre2.déplacement();
 			monstre2.représentationBat();
 			monstre2.updateBody();
 		}
 		
 		if ( m1EstCrée == false ) {
 			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
-			monstres[0] = monstre1;
+			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {
-			monstre1.déplacementAléa();
+			monstre1.déplacement();
 			monstre1.représentationBat();
 			monstre1.updateBody();
 		}
 		
 		if ( m3EstCrée == false ) {
-			monstre3 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 0 , 360 , "bas") ;
-			monstres[2] = monstre3;
+			monstre3 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 90 , 360 , "bas") ;
+			Pnj.monstres[2] = monstre3;
 			m3EstCrée = true;
 		} else {
-			monstre3.déplacementAléa();
+			monstre3.déplacement();
 			monstre3.représentationBat();
 			monstre3.updateBody();
 		}
 		
 		if ( m4EstCrée == false ) {
-			monstre4 = new Bats(world ,Bats.batGauche1, 20 , 10 , 4 , 200 , 0 , "gauche") ;
-			monstres[3] = monstre4;
+			monstre4 = new Bats(world ,Bats.batGauche1, 20 , 10 , 4 , 200 , 120 , "gauche") ;
+			Pnj.monstres[3] = monstre4;
+			Pnj.nbrDeMonstres = 4 ;
 			m4EstCrée = true;
 		} else {
-			monstre4.déplacementAléa();
+			monstre4.déplacement();
 			monstre4.représentationBat();
 			monstre4.updateBody();
 		}

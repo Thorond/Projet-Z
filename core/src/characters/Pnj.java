@@ -11,12 +11,19 @@ public class Pnj extends Characters{
 	
 	public long start;
 	public boolean arrét = false;
+	public boolean isAttacked = false;
 	
 	
 	public Pnj(World world, Texture text ,int HM, int health, int strength, float x, float y, String direction){
 		super(world,text, HM, health, strength, x,  y, direction);
 		start = System.currentTimeMillis();
 	}
+	
+//	monstres présent sur la map sur laquelle est le joueur 
+	
+	
+	public static int nbrDeMonstres = 0;
+	public static Pnj[] monstres = new Pnj[10];
 	
 //	déplacement aléatoire
 	
@@ -49,6 +56,40 @@ public class Pnj extends Characters{
 		}
 		
 	}
+	
+	
+//	déplacement vers le joueur 
+	
+	public void déplacementVersJoueur(){
+		if ( System.currentTimeMillis() - start > 400) {
+			if ( this.getX() - MainMenu.Link.getX() > 0 ){
+				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
+				this.setDirection("gauche");
+			}
+			else if (this.getX() - MainMenu.Link.getX() < 0 ){
+				this.getBody().applyLinearImpulse(new Vector2(+100000f,0), this.getBody().getWorldCenter(), true);
+				this.setDirection("droite");
+			}
+			if (this.getY() - MainMenu.Link.getY() > 0){
+				this.getBody().applyLinearImpulse(new Vector2(0,-100000f), this.getBody().getWorldCenter(), true);
+				this.setDirection("bas");
+			}
+			else if (this.getY() - MainMenu.Link.getY() < 0){
+				this.getBody().applyLinearImpulse(new Vector2(0,+100000f), this.getBody().getWorldCenter(), true);
+				this.setDirection("haut");
+			}
+			start = System.currentTimeMillis();
+			arrét = false;
+		} 
+		
+	}
+	
+//	déplacement global 
+	
+	public void déplacement(){
+		if (this.isAttacked) this.déplacementVersJoueur();
+		else if ( this.isAlive())  this.déplacementAléa();
+	}
 		
 	
 //	est en vie
@@ -70,12 +111,14 @@ public class Pnj extends Characters{
 		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
 			this.drop();
 //			est ce la meilleure solution?
-			this.getBody().setTransform(-100, -100, 0);
+			this.isAttacked = false;
+			this.getBody().setTransform(-500, -500, 0);
 		} else {
 			if ( direction.equals("droite")) this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
 			else if ( direction.equals("gauche")) this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);
 			else if ( direction.equals("haut")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y +30, 0);
 			else if ( direction.equals("bas")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y -30, 0);
+			this.isAttacked = true;
 		}
 		this.setHealth(this.getHealth() - cha.getStrength());
 	}
