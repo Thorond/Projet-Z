@@ -267,7 +267,7 @@ public class SousMapB2 extends Sprite {
 			Pnj.nbrDeMonstres = 2;
 			m2EstCrée = true;
 		} else {
-			monstre2.déplacementAléa();
+			monstre2.déplacement();
 			monstre2.représentationBat();
 			monstre2.updateBody();
 		}
@@ -277,7 +277,7 @@ public class SousMapB2 extends Sprite {
 			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {
-			monstre1.déplacementAléa();
+			monstre1.déplacement();
 			monstre1.représentationBat();
 			monstre1.updateBody();
 		}

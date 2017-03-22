@@ -42,7 +42,7 @@ public class Characters extends Sprite{
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox((getWidth() / 2)/MainMenu.PPM , (getHeight() / 2)/MainMenu.PPM);
+		shape.setAsBox((getWidth() / 2.2f)/MainMenu.PPM , (getHeight() / 2.2f)/MainMenu.PPM);
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;

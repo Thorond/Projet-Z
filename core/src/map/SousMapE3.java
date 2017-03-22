@@ -227,7 +227,7 @@ public class SousMapE3 extends Sprite{
 			Pnj.monstres[1] = monstre2;
 			m2EstCrée = true;
 		} else {
-			monstre2.déplacementAléa();
+			monstre2.déplacement();
 			monstre2.représentationBat();
 			monstre2.updateBody();
 		}
@@ -237,7 +237,7 @@ public class SousMapE3 extends Sprite{
 			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {
-			monstre1.déplacementAléa();
+			monstre1.déplacement();
 			monstre1.représentationBat();
 			monstre1.updateBody();
 		}
@@ -247,7 +247,7 @@ public class SousMapE3 extends Sprite{
 			Pnj.monstres[2] = monstre3;
 			m3EstCrée = true;
 		} else {
-			monstre3.déplacementAléa();
+			monstre3.déplacement();
 			monstre3.représentationBat();
 			monstre3.updateBody();
 		}
@@ -258,7 +258,7 @@ public class SousMapE3 extends Sprite{
 			Pnj.nbrDeMonstres = 4 ;
 			m4EstCrée = true;
 		} else {
-			monstre4.déplacementAléa();
+			monstre4.déplacement();
 			monstre4.représentationBat();
 			monstre4.updateBody();
 		}
