@@ -168,8 +168,8 @@ public class SousMapD3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.petitePierre, 530+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.petitePierre, 480+ x, 360+ y);
 		
-		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 300+ x, 0+ y);
-		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 300+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 360+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 300+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 240+ x, 60+ y);
@@ -185,7 +185,7 @@ public class SousMapD3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.igloo, 380+ x, 120+ y);
 
 		
-		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 520+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 540+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 580+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 580+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 580+ x, 180+ y);
@@ -198,6 +198,9 @@ public class SousMapD3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 0+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 0+ x, 240+ y);
+		
+
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, -60+ y);
 		
 		
 //		buissons 
@@ -259,7 +262,7 @@ public class SousMapD3 extends Sprite{
 			isCote1Created = true;
 		}
 		if ( isCote2Created == false ) {
-			cote2 = ClimatMontagneux.createBody(510,20,1,60);
+			cote2 = ClimatMontagneux.createBody(520,20,1,60);
 			isCote2Created = true;
 		}
 		if ( isCote3Created == false ) {
@@ -299,7 +302,7 @@ public class SousMapD3 extends Sprite{
 			isCote11Created = true;
 		}
 		if ( isCote12Created == false ) {
-			cote12 = ClimatMontagneux.createBody(540,60,60,1);
+			cote12 = ClimatMontagneux.createBody(550,60,60,1);
 			isCote12Created = true;
 		}
 		if ( isPetitePierre1Created == false ) {

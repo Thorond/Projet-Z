@@ -12,9 +12,8 @@ public class GestionDesMaps {
 //			                                    changement de map/défilement
 //			=============================================================================================
 			if ( PlacementMain.direction.equals("gauche")){
-				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +10, MainMenu.Link.getBody().getPosition().y  , 0);
-				}
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +10.05f, MainMenu.Link.getBody().getPosition().y  , 0);
+				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 					SousMapA1.sousMap(game,-600 + PlacementMain.x,0);
 					SousMapB1.sousMap(game, PlacementMain.x, 0);
@@ -81,9 +80,8 @@ public class GestionDesMaps {
 					PlacementMain.start = System.currentTimeMillis();
 				}
 			} else if ( PlacementMain.direction.equals("droite")){
-				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -10, MainMenu.Link.getBody().getPosition().y  , 0);
-				}
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -10.1f, MainMenu.Link.getBody().getPosition().y  , 0);
+				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 					SousMapA1.sousMap(game,0- PlacementMain.x,0);
@@ -154,9 +152,8 @@ public class GestionDesMaps {
 					PlacementMain.start = System.currentTimeMillis();
 				}
 			} else if ( PlacementMain.direction.equals("bas")){
-				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y +10 , 0);
-				}
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y +9.9f , 0);
+				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("C1") ) {
@@ -212,8 +209,8 @@ public class GestionDesMaps {
 					SousMapD4.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapD3.sousMap(game, 0, PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("E4") ) {
-					SousMapE4.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapE3.sousMap(game, 0, PlacementMain.y);
+					SousMapE4.sousMap(game, 0, -480 + PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("F4") ) {
 					SousMapF4.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapF3.sousMap(game, 0, PlacementMain.y);
@@ -275,8 +272,8 @@ public class GestionDesMaps {
 					SousMapD4.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapD3.sousMap(game, 0, 480-PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("E3") ) {
-					SousMapE4.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapE3.sousMap(game, 0, 480-PlacementMain.y);
+					SousMapE4.sousMap(game, 0, 0-PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("F3") ) {
 					SousMapF4.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapF3.sousMap(game, 0, 480-PlacementMain.y);

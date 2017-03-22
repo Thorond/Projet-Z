@@ -222,20 +222,11 @@ public class ClimatMontagneux {
 	public static boolean etat2 = false;
 	public static long startEau2 = System.currentTimeMillis();
 
-	public static void setDamageEauRivière(MainCharacter cha) {
-		cha.setHealth(cha.getHealth() - 2 );
-		if (cha.getHealth() > 0){
-			if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
-			else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
-			else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
-			else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
-		}
-	}
 	
 	public static void eauProfonde(GameMain game, int x, int y){
 		if ( etat2 == false ) game.getBatch().draw(eauProfonde, x, y);
 		else game.getBatch().draw(eauProfonde2, x, y);		
-		if ( System.currentTimeMillis() - startEau2 > 500){
+		if ( System.currentTimeMillis() - startEau2 > 1000){
 			startEau2 = System.currentTimeMillis();
 			if ( etat2 == false ) etat2=true;
 			else etat2=false;
