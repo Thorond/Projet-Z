@@ -350,7 +350,7 @@ public class MainMenu implements Screen{
 		
 		
 //		afficher les corps pour visualiser ce avec quoi on travail
-		this.debugRenderer.render(world, this.box2DCamera.combined);
+//		this.debugRenderer.render(world, this.box2DCamera.combined);
 		
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		

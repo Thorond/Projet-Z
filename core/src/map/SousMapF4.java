@@ -1,12 +1,19 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapF4 extends Sprite{
+	
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -143,12 +150,30 @@ public class SousMapF4 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
 		
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+		CadrillageMap.setTypeDeDécor(0, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 2, "EauProfonde");
 		
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(140,420,290,120);
+			isCote1Created = true;
+		}
+		if ( isCote2Created == false ) {
+			cote2 = ClimatMontagneux.createBody(460,420,240,120);
+			isCote2Created = true;
+		}
 	}
 
 	public static void destroyType() {

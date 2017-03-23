@@ -136,7 +136,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 430/MainMenu.PPM ){
+		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 460/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("C1" ) ){
@@ -239,7 +239,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x < 0 && perso.getBody().getPosition().y > 0 ){
+		} else if (perso.getBody().getPosition().x < -10 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1")  ){
 				positionSousMap = "A1";
@@ -346,7 +346,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 560/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
+		} else if (perso.getBody().getPosition().x > 580/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
 				positionSousMap = "B1";

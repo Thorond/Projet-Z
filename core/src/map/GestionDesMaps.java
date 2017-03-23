@@ -12,7 +12,7 @@ public class GestionDesMaps {
 //			                                    changement de map/défilement
 //			=============================================================================================
 			if ( PlacementMain.direction.equals("gauche")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +10.05f, MainMenu.Link.getBody().getPosition().y  , 0);
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +10.3f, MainMenu.Link.getBody().getPosition().y  , 0);
 				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 					SousMapA1.sousMap(game,-600 + PlacementMain.x,0);
@@ -110,7 +110,7 @@ public class GestionDesMaps {
 					PlacementMain.start = System.currentTimeMillis();
 				}
 			} else if ( PlacementMain.direction.equals("droite")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -10.1f, MainMenu.Link.getBody().getPosition().y  , 0);
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -10.3f, MainMenu.Link.getBody().getPosition().y  , 0);
 				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
@@ -213,7 +213,7 @@ public class GestionDesMaps {
 					PlacementMain.start = System.currentTimeMillis();
 				}
 			} else if ( PlacementMain.direction.equals("bas")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y +9.9f , 0);
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y +10.2f , 0);
 				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
@@ -313,7 +313,7 @@ public class GestionDesMaps {
 				}
 			} else if ( PlacementMain.direction.equals("haut")){
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y -10 , 0);
+					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y -10.8f , 0);
 				}
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 					SousMapA1.sousMap(game,0,480- PlacementMain.y);
