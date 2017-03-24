@@ -14,6 +14,7 @@ import com.mygdx.game.GameMain;
 import characters.MainCharacter;
 import characters.Pnj;
 import decors.ClimatMontagneux;
+import items.Bouclier;
 import items.CoeurDeVie;
 import items.Coffre;
 import items.Epee;
@@ -21,6 +22,7 @@ import items.GantDeForce;
 import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
+import map.IglooC1;
 import map.PlacementMain;
 import map.SousMapE3;
 import map.SousMapF1;
@@ -35,9 +37,12 @@ public class MainMenu implements Screen{
 	
 	private GameMain game;
 	public static MainCharacter Link;
+	
 	public static Epee épée = new Epee();
 	public static Plume plume = new Plume();
 	public static GantDeForce gantDeForce = new GantDeForce();
+	public static Bouclier bouclier = new Bouclier();
+	
 	Texture carte;
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
@@ -80,8 +85,10 @@ public class MainMenu implements Screen{
 		
 		MenuSac.setItem(plume);
 		MenuSac.setItem(gantDeForce);
+		MenuSac.setItem(bouclier);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
+		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		
 		start = System.currentTimeMillis();
 		
@@ -129,13 +136,14 @@ public class MainMenu implements Screen{
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
-			if ( Epee.annimationEpée || Coffre.annimationCoffre ){
+			if ( Epee.annimationEpée || Coffre.annimationCoffre || Bouclier.annimationBouclier ){
 //				annimation de récupération de l'épée
 				Link.setTexture(MainCharacter.linkBasRepos);
 				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
 					Epee.annimationEpée = false;
 					Coffre.annimationCoffre = false;
+					Bouclier.annimationBouclier = false;
 				}
 			} else {
 				if (PlacementMain.défilement == false){
@@ -208,6 +216,14 @@ public class MainMenu implements Screen{
 						 Epee.annimationEpée = true;	
 						 SousMapF1.destroyBody();
 						 MenuSac.setItem(épée);
+					 };
+					 if (PlacementMain.positionSousMap.equals("IglooC1") && Link.getDirection().equals("haut") && !(Bouclier.isBouclierPris) 
+							 && Link.getX() >420
+							 && Link.getY()>270 ) {
+						 Bouclier.isBouclierPris = true;
+						 Bouclier.annimationBouclier = true;	
+						 IglooC1.destroyBody();
+						 MenuSac.setItem(bouclier);
 					 };
 					 if ( PlacementMain.positionSousMap.equals("F2")){
 						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 ) +1].equals("coffreBleu") ){

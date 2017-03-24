@@ -5,7 +5,9 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Bouclier;
 import menus.MenuGameover;
+import scenes.MainMenu;
 
 public class IglooC1 extends Sprite{
 	
@@ -88,6 +90,33 @@ public class IglooC1 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
+		
+		
+		game.getBatch().draw(ClimatMontagneux.fourure1, 180+ x, 210+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.caisseIgloo, 50+ x, 280+ y);
+		game.getBatch().draw(ClimatMontagneux.caisseIgloo, 50+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.caisseIgloo, 92+ x, 280+ y);
+		game.getBatch().draw(ClimatMontagneux.caisseIgloo, 92+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.fourure2, 80+ x, 260+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 180+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 240+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 300+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.caisseIgloo, 200+ x, 380+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 260+ x, 380+ y);
+		game.getBatch().draw(ClimatMontagneux.caisseIgloo, 320+ x, 380+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 410+ x, 340+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 470+ x, 280+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 470+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 410+ x, 300+ y);
+		
+		ClimatMontagneux.annimationTorcheIgloo(game, 180, 180);
+		ClimatMontagneux.annimationTorcheIgloo(game, 360, 180);
+		
+		if ( !(Bouclier.isBouclierPris) ) game.getBatch().draw(Bouclier.bouclier, 430+ x, 290+ y);
+		else if ( Bouclier.annimationBouclier ) game.getBatch().draw(Bouclier.bouclier, MainMenu.Link.getX() + x, MainMenu.Link.getY() + 60 + y);
 	}
 
 	public static void destroyBody() {

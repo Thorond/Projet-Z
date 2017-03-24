@@ -202,7 +202,7 @@ public class SousMapC1 extends Sprite {
 			isMurDroiteCreated = true;
 		}
 		if ( isIglooCreated == false ) {
-			igloo = ClimatMontagneux.createBody(260,310,190,140);
+			igloo = ClimatMontagneux.createBody(260,320,190,160);
 			isIglooCreated = true;
 		}
 		if ( isTonneau1Created == false ) {

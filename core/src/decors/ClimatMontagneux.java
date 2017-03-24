@@ -67,7 +67,8 @@ public class ClimatMontagneux {
 
 	
 //	objets
-	
+
+	public static Texture emplacementBombe = new Texture("climatMontagneux/emplacementBombe.png");
 	public static Texture crate = new Texture("climatMontagneux/Crate.png");
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
 	public static Texture tree = new Texture("climatMontagneux/Tree.png");
@@ -91,6 +92,69 @@ public class ClimatMontagneux {
 	
 	public static void annimationCoffre( GameMain game){
 		
+	}
+	
+	public static Texture fourure1 = new Texture("climatMontagneux/fourure1.png");
+	public static Texture fourure2 = new Texture("climatMontagneux/fourure2.png");
+	
+	public static Texture torche1 = new Texture("Divers/torche1.png");
+	public static Texture torche2 = new Texture("Divers/torche2.png");
+	public static Texture torche3 = new Texture("Divers/torche3.png");
+	
+	public static void annimationTorche(GameMain game, int x, int y){
+//		j'ai laissé les même etat et le même boolean que pour l'igloo car il est très peu probable que l'on mette les grosses en même temps
+//		que les petites
+		if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) game.getBatch().draw(torche2,x,y);
+		else if ( etatTorche1 && !(etatTorche2)) game.getBatch().draw(torche1,x,y);
+		else if ( !(etatTorche1) && etatTorche2) game.getBatch().draw(torche3,x,y);
+		else game.getBatch().draw(torche1,x,y);
+		if ( System.currentTimeMillis() - annimationTorche > 200){
+			if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) etatTorche1 = true;
+			else if ( etatTorche1 && !(etatTorche2)) {
+				etatTorche2 = true;
+				etatTorche1 = false;
+			}
+			else if ( !(etatTorche1) && etatTorche2) etatTorche1 = true;
+			else {
+				etatTorche1 = false;
+				etatTorche2 = false;
+			}
+			annimationTorche = System.currentTimeMillis();
+		}
+	}
+
+	
+//	objets igloo 
+	
+	public static Texture tonneauIgloo = new Texture("climatMontagneux/BarrelIgloo.png");
+	public static Texture caisseIgloo = new Texture("climatMontagneux/CrateIgloo.png");
+	
+	public static Texture torche1Igloo = new Texture("Divers/torche1Igloo.png");
+	public static Texture torche2Igloo = new Texture("Divers/torche2Igloo.png");
+	public static Texture torche3Igloo = new Texture("Divers/torche3Igloo.png");
+	
+	public static boolean etatTorche1 = false;
+	public static boolean etatTorche2 = false;
+	public static long annimationTorche = System.currentTimeMillis();
+	
+	public static void annimationTorcheIgloo(GameMain game, int x, int y){
+		if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) game.getBatch().draw(torche2Igloo,x,y);
+		else if ( etatTorche1 && !(etatTorche2)) game.getBatch().draw(torche1Igloo,x,y);
+		else if ( !(etatTorche1) && etatTorche2) game.getBatch().draw(torche3Igloo,x,y);
+		else game.getBatch().draw(torche1Igloo,x,y);
+		if ( System.currentTimeMillis() - annimationTorche > 200){
+			if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) etatTorche1 = true;
+			else if ( etatTorche1 && !(etatTorche2)) {
+				etatTorche2 = true;
+				etatTorche1 = false;
+			}
+			else if ( !(etatTorche1) && etatTorche2) etatTorche1 = true;
+			else {
+				etatTorche1 = false;
+				etatTorche2 = false;
+			}
+			annimationTorche = System.currentTimeMillis();
+		}
 	}
 	
 //	tile
