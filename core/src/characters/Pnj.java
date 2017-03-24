@@ -134,14 +134,17 @@ public class Pnj extends Characters{
 				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -25
 				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +25) {
 			MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
-			if (MainMenu.Link.getDirection().equals("haut")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
-			} else if (MainMenu.Link.getDirection().equals("bas")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
-			}  else if (MainMenu.Link.getDirection().equals("droite")){
+			if ( this.getX() - MainMenu.Link.getX() > 0 ){
 				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x - 30, MainMenu.Link.getBody().getPosition().y , 0);
-			}  else if (MainMenu.Link.getDirection().equals("gauche")){
+			}
+			else if (this.getX() - MainMenu.Link.getX() < 0 ){
 				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +30, MainMenu.Link.getBody().getPosition().y, 0);
+			}
+			if (this.getY() - MainMenu.Link.getY() > 0){
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
+			}
+			else if (this.getY() - MainMenu.Link.getY() < 0){
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
 			}
 			
 		}

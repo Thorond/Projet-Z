@@ -468,6 +468,15 @@ public class PlacementMain {
 			CoeurDeVie.réinitialisation();
 		}
 		
+		
+		else if (positionSousMap.equals("C1") 
+				&& perso.getDirection().equals("haut")
+				&& perso.getBody().getPosition().x > 150 &&  perso.getBody().getPosition().x < 185
+				&& perso.getBody().getPosition().y > 140 && perso.getBody().getPosition().y < 150 ){
+			SousMapC1.destroyBody();
+			System.out.println("yop");
+			positionSousMap = "IglooC1";
+		}
 	}
 	
 	

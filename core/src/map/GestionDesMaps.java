@@ -546,6 +546,7 @@ public class GestionDesMaps {
 				SousMapE4.destroyType();
 				SousMapE4.createBodyAndType(MainMenu.world);
 				SousMapE4.sousMap(game, 0, 0);
+//				SousMapF4.sousMap(game, 600, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("F4")) {
 				SousMapF4.destroyType();
@@ -591,6 +592,12 @@ public class GestionDesMaps {
 				SousMapG5.createBodyAndType(MainMenu.world);
 				SousMapG5.sousMap(game, 0, 0);
 			}
+			
+			else if ( PlacementMain.positionSousMap.equals("IglooC1")) {
+				IglooC1.destroyType();
+				IglooC1.createBodyAndType(MainMenu.world);
+				IglooC1.représentation(game, 0, 0);
+			}
 	}
 	
 //	 ===========================================================================================================
@@ -600,7 +607,7 @@ public class GestionDesMaps {
 //	 ===========================================================================================================
 	
 	public static void destructionDesCorps(){
-//		suppresion des corps de la map sur laquelle on était
+//		suppresion des corps de la map sur laquelle on était ( lorsque l'on meurt)
 		if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C1")) SousMapC1.destroyBody();
