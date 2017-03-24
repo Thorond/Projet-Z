@@ -45,14 +45,14 @@ public class ClimatMontagneux {
 		
 		if ( décor.equals("tronc") || décor.equals("grossePierre") 
 				|| décor.equals("tonneau")) bodyDef.position.set((x+10)/MainMenu.PPM,(y+20)/MainMenu.PPM);
-		else if (décor.equals("arbre")) bodyDef.position.set((x+10)/MainMenu.PPM,(y+30)/MainMenu.PPM);
+		else if (décor.equals("arbre")) bodyDef.position.set((x+10)/MainMenu.PPM +2,(y+35)/MainMenu.PPM);
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
 		if (décor.equals("tronc") ) shape.setAsBox((2 / 2)/MainMenu.PPM  +2, (2 / 2)/MainMenu.PPM+2);
 		else if ( décor.equals("tonneau")) shape.setAsBox((10 / 2)/MainMenu.PPM +2 , (10 / 2)/MainMenu.PPM +2);
 		else if (décor.equals("grossePierre")) shape.setAsBox((20 / 2)/MainMenu.PPM  +5, (20 / 2)/MainMenu.PPM + 5);
-		else if (décor.equals("arbre")) shape.setAsBox((30 / 2)/MainMenu.PPM  , (60 / 2)/MainMenu.PPM);
+		else if (décor.equals("arbre")) shape.setAsBox((30 / 2)/MainMenu.PPM +5 , (60 / 2)/MainMenu.PPM);
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;
