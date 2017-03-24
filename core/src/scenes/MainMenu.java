@@ -45,7 +45,7 @@ public class MainMenu implements Screen{
 	Texture carte;
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
-//	= AcceptClass.acceptClass() é utiliser en cas de nouvelle class sauvegarde
+//	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
 	
 	public static OrthographicCamera box2DCamera;
 	private Box2DDebugRenderer debugRenderer;
@@ -53,9 +53,6 @@ public class MainMenu implements Screen{
 	public static long start;
 	
 	public static float PPM = 1.5f;
-	
-
-	
 	
 	public MainMenu(GameMain game){
 		
@@ -148,26 +145,26 @@ public class MainMenu implements Screen{
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
 					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
-						Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
+						Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
 						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("droite")) Link.setDirection("droite"); // que le joueur garde sa défense
 						else Link.setDirection("gauche");
 						Link.représentationLink(Link);
 			
 						
 					} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-						Link.getBody().applyLinearImpulse(new Vector2(+10000f,0), Link.getBody().getWorldCenter(), true);
+						Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
 						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("gauche")) Link.setDirection("gauche"); // que le joueur garde sa défense
 						else Link.setDirection("droite");
 						Link.représentationLink(Link);
 						
 					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
-						Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
+						Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
 						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("bas")) Link.setDirection("bas"); // que le joueur garde sa défense
 						else Link.setDirection("haut");
 						Link.représentationLink(Link);
 			
 					} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-						Link.getBody().applyLinearImpulse(new Vector2(0,-10000f), Link.getBody().getWorldCenter(), true);
+						Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
 						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("haut")) Link.setDirection("haut"); // que le joueur garde sa défense
 						else Link.setDirection("bas");
 						Link.représentationLink(Link);
@@ -215,6 +212,7 @@ public class MainMenu implements Screen{
 						 MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Bouclier.isBouclierUtilisé && ( !(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)) )){
 						 Bouclier.isBouclierUtilisé = false;
+						 MainCharacter.changementDeVitesse = true;
 					 }
 					 
 					

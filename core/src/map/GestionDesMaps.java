@@ -613,6 +613,7 @@ public class GestionDesMaps {
 		if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C1")) SousMapC1.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("IglooC1")) IglooC1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("D1")) SousMapD1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E1")) SousMapE1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F1")) SousMapF1.destroyBody();

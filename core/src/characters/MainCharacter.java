@@ -82,24 +82,39 @@ public class MainCharacter extends Characters {
 //	cette fonction représente l'annimation des graphismes du personnage principale
 	public static boolean changementDeVitesse = false;
 	public void représentationLink(MainCharacter cha){
-		int vitesseMouvements;
+		int vitesseMouvements ;
+		if ( changementDeVitesse == true){
+			if (Bouclier.isBouclierUtilisé == true) {
+				vitesseMouvements = 400;
+				
+					MainMenu.PPM = 0.8f;
+//					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x*1.25f , MainMenu.Link.getBody().getPosition().y*1.25f,0 );
+					MainMenu.world.destroyBody(MainMenu.Link.getBody());
+					MainMenu.Link.createBody();
+					MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
+					MainMenu.box2DCamera.update();
+					GestionDesMaps.destructionDesCorps();
+					
+				
+			}
+			else {
+				vitesseMouvements = 200;
+				MainMenu.PPM = 1.5f;
+//				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x / 1.25f, MainMenu.Link.getBody().getPosition().y/1.25f,0 );
+				MainMenu.world.destroyBody(MainMenu.Link.getBody());
+				MainMenu.Link.createBody();
+				MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
+				MainMenu.box2DCamera.update();
+				GestionDesMaps.destructionDesCorps();
+			}
+			System.out.println(MainMenu.Link.getX());
+			changementDeVitesse = false;
+		}
+		
 		if (Bouclier.isBouclierUtilisé == true) {
 			vitesseMouvements = 400;
-//			if ( changementDeVitesse == true){
-//				MainMenu.PPM = 1.2f;
-//				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x * MainMenu.PPM, MainMenu.Link.getBody().getPosition().y * MainMenu.PPM, 0);
-//	//			GestionDesMaps.destructionDesCorps();
-//				System.out.println(MainMenu.Link.getX());
-//				changementDeVitesse = false;
-//			}
-		}
-		else {
-			vitesseMouvements = 200;
-//			MainMenu.PPM = 1.5f;
-//			MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
-////			GestionDesMaps.destructionDesCorps();
-//			System.out.println(MainMenu.Link.getX());
-		}
+		} else vitesseMouvements = 200;
+		
 		if (cha.getDirection().equals("gauche") ){
 			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				

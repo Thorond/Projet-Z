@@ -18,7 +18,7 @@ public class Bouclier extends Item{
 	public static boolean isBouclierUtilisé = false;
 	
 	public void utilisationItem( MainCharacter cha) {
-//		if (isBouclierUtilisé == false ) MainCharacter.changementDeVitesse = true;
+		if (isBouclierUtilisé == false ) MainCharacter.changementDeVitesse = true;
 		isBouclierUtilisé = true;
 		
 	}
