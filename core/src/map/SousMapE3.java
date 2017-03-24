@@ -1,6 +1,7 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
@@ -10,6 +11,23 @@ import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
 public class SousMapE3 extends Sprite{
+	
+	public static Body bosquet1 ;
+	public static boolean isBosquet1Created;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
+	public static Body bosquet3 ;
+	public static boolean isBosquet3Created;
+	public static Body bosquet4 ;
+	public static boolean isBosquet4Created;
+	public static Body bosquet5 ;
+	public static boolean isBosquet5Created;
+	public static Body bosquet6 ;
+	public static boolean isBosquet6Created;
+	public static Body bosquet6b ;
+	public static boolean isBosquet6bCreated;
+	public static Body bosquet7;
+	public static boolean isBosquet7Created;
 	
 	public static Bats monstre1;
 	public static Bats monstre2;
@@ -159,6 +177,7 @@ public class SousMapE3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, -60+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, -40+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, -40+ y);
@@ -201,6 +220,30 @@ public class SousMapE3 extends Sprite{
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
 		
+		if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
+		isBosquet1Created = false;
+		
+		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+		isBosquet2Created = false;
+		
+		if ( isBosquet3Created) MainMenu.world.destroyBody(bosquet3);
+		isBosquet3Created = false;
+		
+		if ( isBosquet4Created) MainMenu.world.destroyBody(bosquet4);
+		isBosquet4Created = false;
+		
+		if ( isBosquet5Created) MainMenu.world.destroyBody(bosquet5);
+		isBosquet5Created = false;
+		
+		if ( isBosquet6Created) MainMenu.world.destroyBody(bosquet6);
+		isBosquet6Created = false;
+		
+		if ( isBosquet6bCreated) MainMenu.world.destroyBody(bosquet6b);
+		isBosquet6bCreated = false;
+		
+		if ( isBosquet7Created) MainMenu.world.destroyBody(bosquet7);
+		isBosquet7Created = false;
+		
 //		destruction monstres
 		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
 		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
@@ -216,6 +259,41 @@ public class SousMapE3 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+		
+		if ( isBosquet1Created == false ) {
+			bosquet1 = ClimatMontagneux.createBody(230,455,460,60);
+			isBosquet1Created = true;
+		}
+		if ( isBosquet2Created == false ) {
+			bosquet2 = ClimatMontagneux.createBody(20,240,50,480);
+			isBosquet2Created = true;
+		}
+		if ( isBosquet3Created == false ) {
+			bosquet3 = ClimatMontagneux.createBody(560,240,50,480);
+			isBosquet3Created = true;
+		}
+		if ( isBosquet4Created == false ) {
+			bosquet4 = ClimatMontagneux.createBody(80,240,50,130);
+			isBosquet4Created = true;
+		}
+		if ( isBosquet5Created == false ) {
+			bosquet5 = ClimatMontagneux.createBody(490,210,50,150);
+			isBosquet5Created = true;
+		}
+		if ( isBosquet6Created == false ) {
+			bosquet6 = ClimatMontagneux.createBody(260,240,60,130);
+			isBosquet6Created = true;
+		}
+		if ( isBosquet6bCreated == false ) {
+			bosquet6b = ClimatMontagneux.createBody(315,180,50,130);
+			isBosquet6bCreated = true;
+		}
+		if ( isBosquet7Created == false ) {
+			bosquet7 = ClimatMontagneux.createBody(255,15,170,30);
+			isBosquet7Created = true;
+		}
+		
+		
 //		========================================================================================
 		//		Création des corps des montres
 		//========================================================================================

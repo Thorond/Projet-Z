@@ -8,7 +8,10 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import items.Bouclier;
+import map.GestionDesMaps;
 import scenes.MainMenu;
+import sun.awt.image.ImageWatched.Link;
 
 public class MainCharacter extends Characters {
 
@@ -77,10 +80,28 @@ public class MainCharacter extends Characters {
 	}
 	
 //	cette fonction représente l'annimation des graphismes du personnage principale
-	
+	public static boolean changementDeVitesse = false;
 	public void représentationLink(MainCharacter cha){
-		if (cha.getDirection().equals("gauche")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+		int vitesseMouvements;
+		if (Bouclier.isBouclierUtilisé == true) {
+			vitesseMouvements = 400;
+//			if ( changementDeVitesse == true){
+//				MainMenu.PPM = 1.2f;
+//				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x * MainMenu.PPM, MainMenu.Link.getBody().getPosition().y * MainMenu.PPM, 0);
+//	//			GestionDesMaps.destructionDesCorps();
+//				System.out.println(MainMenu.Link.getX());
+//				changementDeVitesse = false;
+//			}
+		}
+		else {
+			vitesseMouvements = 200;
+//			MainMenu.PPM = 1.5f;
+//			MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
+////			GestionDesMaps.destructionDesCorps();
+//			System.out.println(MainMenu.Link.getX());
+		}
+		if (cha.getDirection().equals("gauche") ){
+			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				
 				if (MainCharacter.textGauche1 == true){
 					cha.setTexture(MainCharacter.linkGauche1);
@@ -93,7 +114,7 @@ public class MainCharacter extends Characters {
 			} 
 		}
 		else if (cha.getDirection().equals("droite")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				if (MainCharacter.textDroite1 == true){
 					cha.setTexture(MainCharacter.linkDroite1);
 					MainCharacter.textDroite1 = false;
@@ -105,7 +126,7 @@ public class MainCharacter extends Characters {
 			}
 		}
 		else if (cha.getDirection().equals("haut")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				if (MainCharacter.textHaut1 == true){
 					cha.setTexture(MainCharacter.linkHaut1);
 					MainCharacter.textHaut1 = false;
@@ -117,7 +138,7 @@ public class MainCharacter extends Characters {
 			}
 		}
 		else if (cha.getDirection().equals("bas")){
-			if ( System.currentTimeMillis() - MainMenu.start > 200) {
+			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				if (MainCharacter.textBas1 == true){
 					cha.setTexture(MainCharacter.linkBas1);
 					MainCharacter.textBas1 = false;

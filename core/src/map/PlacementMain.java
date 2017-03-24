@@ -136,7 +136,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 430/MainMenu.PPM ){
+		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 460/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("C1" ) ){
@@ -239,7 +239,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x < 0 && perso.getBody().getPosition().y > 0 ){
+		} else if (perso.getBody().getPosition().x < -10 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1")  ){
 				positionSousMap = "A1";
@@ -346,7 +346,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
-		} else if (perso.getBody().getPosition().x > 560/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
+		} else if (perso.getBody().getPosition().x > 580/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
 				positionSousMap = "B1";
@@ -468,6 +468,30 @@ public class PlacementMain {
 			CoeurDeVie.réinitialisation();
 		}
 		
+		
+		else if (positionSousMap.equals("C1") 
+				&& perso.getDirection().equals("haut")
+				&& perso.getBody().getPosition().x > 160 &&  perso.getBody().getPosition().x < 185
+				&& perso.getBody().getPosition().y > 140 && perso.getBody().getPosition().y < 150 ){
+			MainMenu.Link.getBody().setTransform(280/MainMenu.PPM, 10, 0);
+			SousMapC1.destroyBody();
+			positionSousMap = "IglooC1";
+			
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
+			CoeurDeVie.réinitialisation();
+		} else if (positionSousMap.equals("IglooC1") 
+				&& perso.getDirection().equals("bas")
+				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+			MainMenu.Link.getBody().setTransform(175, 155, 0);
+			IglooC1.destroyBody();
+			positionSousMap = "C1";
+			
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
+			CoeurDeVie.réinitialisation();
+		}
 	}
 	
 	

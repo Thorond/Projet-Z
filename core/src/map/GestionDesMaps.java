@@ -12,7 +12,7 @@ public class GestionDesMaps {
 //			                                    changement de map/défilement
 //			=============================================================================================
 			if ( PlacementMain.direction.equals("gauche")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +10.05f, MainMenu.Link.getBody().getPosition().y  , 0);
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +10.3f, MainMenu.Link.getBody().getPosition().y  , 0);
 				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 					SousMapA1.sousMap(game,-600 + PlacementMain.x,0);
@@ -110,7 +110,7 @@ public class GestionDesMaps {
 					PlacementMain.start = System.currentTimeMillis();
 				}
 			} else if ( PlacementMain.direction.equals("droite")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -10.1f, MainMenu.Link.getBody().getPosition().y  , 0);
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -10.3f, MainMenu.Link.getBody().getPosition().y  , 0);
 				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
@@ -213,7 +213,7 @@ public class GestionDesMaps {
 					PlacementMain.start = System.currentTimeMillis();
 				}
 			} else if ( PlacementMain.direction.equals("bas")){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y +9.9f , 0);
+				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y +10.2f , 0);
 				
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 				} else if ( PlacementMain.positionSousMap.equals("B1") ) {
@@ -313,7 +313,7 @@ public class GestionDesMaps {
 				}
 			} else if ( PlacementMain.direction.equals("haut")){
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
-					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y -10 , 0);
+					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x , MainMenu.Link.getBody().getPosition().y -10.8f , 0);
 				}
 				if ( PlacementMain.positionSousMap.equals("A1") ) {
 					SousMapA1.sousMap(game,0,480- PlacementMain.y);
@@ -437,6 +437,7 @@ public class GestionDesMaps {
 			}
 			else if ( PlacementMain.positionSousMap.equals("C1")) {
 				SousMapC1.createBodyAndType(MainMenu.world);
+				MainMenu.Link.setSize(36, 44); // taille réduite lorsque link sort de l'igloo
 				SousMapC1.sousMap(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("D1")) {
@@ -546,6 +547,7 @@ public class GestionDesMaps {
 				SousMapE4.destroyType();
 				SousMapE4.createBodyAndType(MainMenu.world);
 				SousMapE4.sousMap(game, 0, 0);
+//				SousMapF4.sousMap(game, 600, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("F4")) {
 				SousMapF4.destroyType();
@@ -591,6 +593,13 @@ public class GestionDesMaps {
 				SousMapG5.createBodyAndType(MainMenu.world);
 				SousMapG5.sousMap(game, 0, 0);
 			}
+			
+			else if ( PlacementMain.positionSousMap.equals("IglooC1")) {
+				IglooC1.destroyType();
+				IglooC1.createBodyAndType(MainMenu.world); 
+				MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
+				IglooC1.représentation(game, 0, 0);
+			}
 	}
 	
 //	 ===========================================================================================================
@@ -600,7 +609,7 @@ public class GestionDesMaps {
 //	 ===========================================================================================================
 	
 	public static void destructionDesCorps(){
-//		suppresion des corps de la map sur laquelle on était
+//		suppresion des corps de la map sur laquelle on était ( lorsque l'on meurt)
 		if (PlacementMain.positionSousMap.equals("A1")) SousMapA1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("B1")) SousMapB1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C1")) SousMapC1.destroyBody();

@@ -157,7 +157,86 @@ public class SousMapE1 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+		CadrillageMap.setTypeDeDécor(0, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 0, "EauProfonde");
 		
+		CadrillageMap.setTypeDeDécor(0, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 1, "EauProfonde");
+		
+		CadrillageMap.setTypeDeDécor(0, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 2, "EauProfonde");
+		
+		CadrillageMap.setTypeDeDécor(0, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 3, "EauProfonde");
+		
+		CadrillageMap.setTypeDeDécor(0, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 4, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 4, "EauProfonde");
+		
+		CadrillageMap.setTypeDeDécor(0, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 5, "EauProfonde");
+		
+		CadrillageMap.setTypeDeDécor(0, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 6, "EauProfonde");
+		
+		CadrillageMap.setTypeDeDécor(0, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 7, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 7, "EauProfonde");
 	}
 
 	public static void destroyType() {
