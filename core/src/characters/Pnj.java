@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 
+import items.Bouclier;
 import items.CoeurDeVie;
 import scenes.MainMenu;
 
@@ -129,25 +130,46 @@ public class Pnj extends Characters{
 	
 	public void infligéDégatLink(){
 		
-		if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -30 
-				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +25
-				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -25
-				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +25) {
-			MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
-			if ( this.getX() - MainMenu.Link.getX() > 0 ){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x - 30, MainMenu.Link.getBody().getPosition().y , 0);
-			}
-			else if (this.getX() - MainMenu.Link.getX() < 0 ){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +30, MainMenu.Link.getBody().getPosition().y, 0);
-			}
-			if (this.getY() - MainMenu.Link.getY() > 0){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
-			}
-			else if (this.getY() - MainMenu.Link.getY() < 0){
-				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
-			}
-			
+		
+		if ( MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -35 
+				&& MainMenu.Link.getX() <= this.getX() 
+				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
+				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){
+			MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x - 30, MainMenu.Link.getBody().getPosition().y , 0);
+			if ( MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+				
+			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
 		}
+		else if (this.getX() - MainMenu.Link.getX() < 0 
+				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +25
+				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
+				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){
+			MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x +30, MainMenu.Link.getBody().getPosition().y, 0);
+			if ( MainMenu.Link.getDirection().equals("gauche") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+				
+			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+		} 
+	
+		if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()  
+				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 
+				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -30
+				&& this.getY() - MainMenu.Link.getY() > 0 ){
+			MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
+			if ( MainMenu.Link.getDirection().equals("haut") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+
+			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+		}
+		else if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()  
+				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 
+				&& this.getY() - MainMenu.Link.getY() < 0
+				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +25){
+			MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
+			if ( MainMenu.Link.getDirection().equals("bas") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+
+			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+		}
+			
+		
 	}
 	
 

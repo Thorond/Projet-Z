@@ -24,7 +24,6 @@ import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
 import map.PlacementMain;
-import map.SousMapE3;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
@@ -48,7 +47,7 @@ public class MainMenu implements Screen{
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
 //	= AcceptClass.acceptClass() é utiliser en cas de nouvelle class sauvegarde
 	
-	private OrthographicCamera box2DCamera;
+	public static OrthographicCamera box2DCamera;
 	private Box2DDebugRenderer debugRenderer;
 	
 	public static long start;
@@ -64,9 +63,9 @@ public class MainMenu implements Screen{
 		
 		this.game = game;
 		
-		this.box2DCamera = new OrthographicCamera();
-		this.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
-		this.box2DCamera.position.set(300,240,0);
+		box2DCamera = new OrthographicCamera();
+		box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
+		box2DCamera.position.set(300,240,0);
 		
 		this.debugRenderer = new Box2DDebugRenderer();
 		
@@ -78,14 +77,14 @@ public class MainMenu implements Screen{
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
-//		à utiliser en cas de renouvelle de la sauvegarde
+//		à utiliser en cas de renouvellement de la sauvegarde
 		
 //		PlacementMain.positionSousMap = "B1";
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		MenuSac.setItem(plume);
+		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
-		MenuSac.setItem(bouclier);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
@@ -150,24 +149,27 @@ public class MainMenu implements Screen{
 	//				choix clavier du joueur
 					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
 						Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
-						Link.setDirection("gauche");
+						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("droite")) Link.setDirection("droite"); // que le joueur garde sa défense
+						else Link.setDirection("gauche");
 						Link.représentationLink(Link);
 			
 						
 					} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
 						Link.getBody().applyLinearImpulse(new Vector2(+10000f,0), Link.getBody().getWorldCenter(), true);
-						Link.setDirection("droite");
+						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("gauche")) Link.setDirection("gauche"); // que le joueur garde sa défense
+						else Link.setDirection("droite");
 						Link.représentationLink(Link);
 						
 					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
 						Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
-						Link.setDirection("haut");
+						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("bas")) Link.setDirection("bas"); // que le joueur garde sa défense
+						else Link.setDirection("haut");
 						Link.représentationLink(Link);
 			
 					} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
 						Link.getBody().applyLinearImpulse(new Vector2(0,-10000f), Link.getBody().getWorldCenter(), true);
-		
-						Link.setDirection("bas");
+						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("haut")) Link.setDirection("haut"); // que le joueur garde sa défense
+						else Link.setDirection("bas");
 						Link.représentationLink(Link);
 			
 					} else if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
@@ -206,13 +208,21 @@ public class MainMenu implements Screen{
 						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuSac.isSacAffiché = true;
 					 }
+//					 cas particulier du bouclier, en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
+					 if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K) ){
+						 MenuSac.itemsKL[0].utilisationItem(Link);
+					 } else if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.L) ){
+						 MenuSac.itemsKL[1].utilisationItem(Link);
+					 } else if (Bouclier.isBouclierUtilisé && ( !(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)) )){
+						 Bouclier.isBouclierUtilisé = false;
+					 }
 					 
 					
 					 if (Link.getDirection().equals("haut") 
-							 && CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("épée")
-							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] == false) {
+							 && CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("épée")
+							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] == false) {
 						 Epee.isEpéePrise = true;
-						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )] = true;
+						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] = true;
 						 Epee.annimationEpée = true;	
 						 SousMapF1.destroyBody();
 						 MenuSac.setItem(épée);
@@ -226,12 +236,12 @@ public class MainMenu implements Screen{
 						 MenuSac.setItem(bouclier);
 					 };
 					 if ( PlacementMain.positionSousMap.equals("F2")){
-						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 ) +1].equals("coffreBleu") ){
+						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
 							 SousMapF2.ouvertureCoffre = true;
 						 }
 					 }
-					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
-					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *1.5/60 )][(int) (Link.getBody().getPosition().y *1.5/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 	//				récupération de vie par les coeurs de vie
 					for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 						if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
@@ -362,7 +372,7 @@ public class MainMenu implements Screen{
 		
 		
 //		afficher les corps pour visualiser ce avec quoi on travail
-		this.debugRenderer.render(world, this.box2DCamera.combined);
+		this.debugRenderer.render(world, box2DCamera.combined);
 		
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
