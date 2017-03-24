@@ -311,14 +311,10 @@ public class MainMenu implements Screen{
 				}
 				
 	//			dessin du joueur
-				game.getBatch().draw(Link, Link.getX(), Link.getY());
-				
-				
-				
+//				game.getBatch().draw(Link, Link.getX(), Link.getY());
+				Link.draw(game.getBatch());
 			}
-			
-		
-			
+				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac
 	//		=============================================================================================

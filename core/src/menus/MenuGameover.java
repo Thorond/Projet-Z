@@ -23,7 +23,7 @@ public class MenuGameover extends Menu {
 	public static void GameOver(GameMain game){
 		if (!(MainMenu.Link.isAlive)){
 			if ( opacitéGO <1 ){
-				gameOver.setAlpha(opacitéGO);
+				gameOver.setAlpha(opacitéGO); 
 				gameOver.draw(game.getBatch());
 				opacitéGO+=0.005f;
 			} else {

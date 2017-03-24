@@ -471,11 +471,26 @@ public class PlacementMain {
 		
 		else if (positionSousMap.equals("C1") 
 				&& perso.getDirection().equals("haut")
-				&& perso.getBody().getPosition().x > 150 &&  perso.getBody().getPosition().x < 185
+				&& perso.getBody().getPosition().x > 160 &&  perso.getBody().getPosition().x < 185
 				&& perso.getBody().getPosition().y > 140 && perso.getBody().getPosition().y < 150 ){
+			MainMenu.Link.getBody().setTransform(280/MainMenu.PPM, 10, 0);
 			SousMapC1.destroyBody();
-			System.out.println("yop");
 			positionSousMap = "IglooC1";
+			
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
+			CoeurDeVie.réinitialisation();
+		} else if (positionSousMap.equals("IglooC1") 
+				&& perso.getDirection().equals("bas")
+				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+			MainMenu.Link.getBody().setTransform(175, 155, 0);
+			IglooC1.destroyBody();
+			positionSousMap = "C1";
+			
+			CadrillageMap.setTypeDeDécor();
+			CadrillageMap.setDécoChangéFaux();
+			CoeurDeVie.réinitialisation();
 		}
 	}
 	
