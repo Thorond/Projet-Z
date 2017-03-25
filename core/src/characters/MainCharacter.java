@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 import items.Bouclier;
+import items.Epee;
 import map.GestionDesMaps;
 import scenes.MainMenu;
 
@@ -46,6 +47,9 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroiteReposBouclier = new Texture("Personnage/link7Bouclier.png");
 	public static Texture linkDroite1Bouclier = new Texture("Personnage/link8Bouclier.png");
 	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
+
+	public static Texture linkAward = new Texture("Personnage/linkAward.png");
+	
 	
 	public static Texture coeurPlein = new Texture("Divers/coeurPlein.png");
 	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
@@ -63,7 +67,7 @@ public class MainCharacter extends Characters {
 //	à l'aide d'une fonction de libGDX
 //	==========================================================================
 	
-	void createBody(){
+	public void createBody(){
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.DynamicBody;
 		bodyDef.position.set(getX()/MainMenu.PPM,getY()/MainMenu.PPM);
@@ -181,6 +185,7 @@ public class MainCharacter extends Characters {
 				MainMenu.start = System.currentTimeMillis();
 			}
 		}
+		
 	}
 	
 //	

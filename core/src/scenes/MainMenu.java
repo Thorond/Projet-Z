@@ -81,8 +81,8 @@ public class MainMenu implements Screen{
 		
 		MenuSac.setItem(plume);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
-		MenuSac.setItem(gantDeForce);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
+		MenuSac.setItem(gantDeForce);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		
@@ -134,13 +134,17 @@ public class MainMenu implements Screen{
 		if ( Link.isAlive){
 			if ( Epee.annimationEpée || Coffre.annimationCoffre || Bouclier.annimationBouclier ){
 //				annimation de récupération de l'épée
-				Link.setTexture(MainCharacter.linkBasRepos);
+				Link.setTexture(MainCharacter.linkAward);
 				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
 					Epee.annimationEpée = false;
 					Coffre.annimationCoffre = false;
 					Bouclier.annimationBouclier = false;
 				}
+			} else if (Epee.isEpéeUtilisé){
+				épée.annimationEpée(Link);
+				world.destroyBody(Link.getBody());
+				Link.createBody();
 			} else {
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
@@ -329,6 +333,7 @@ public class MainMenu implements Screen{
 				if ( PlacementMain.défilement == true) {
 					GestionDesMaps.défilementDeMap(game);
 				}else {
+					Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
 					GestionDesMaps.affichageDeSousCarte(game);
 				}
 				
