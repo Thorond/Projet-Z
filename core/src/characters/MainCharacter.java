@@ -11,7 +11,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import items.Bouclier;
 import map.GestionDesMaps;
 import scenes.MainMenu;
-import sun.awt.image.ImageWatched.Link;
 
 public class MainCharacter extends Characters {
 
@@ -34,6 +33,19 @@ public class MainCharacter extends Characters {
 	public static boolean textDroite1 = true;
 	public static Texture linkDroite1 = new Texture("Personnage/link8.png");
 	public static Texture linkDroite2 = new Texture("Personnage/link6.png");
+	
+	public static Texture linkBasReposBouclier = new Texture("Personnage/link1Bouclier.png");
+	public static Texture linkBas1Bouclier = new Texture("Personnage/linkBouclier.png");
+	public static Texture linkBas2Bouclier = new Texture("Personnage/link2Bouclier.png");
+	public static Texture linkGaucheReposBouclier = new Texture("Personnage/link4Bouclier.png");
+	public static Texture linkGauche1Bouclier = new Texture("Personnage/link3Bouclier.png");
+	public static Texture linkGauche2Bouclier = new Texture("Personnage/link5Bouclier.png");
+	public static Texture linkHautReposBouclier = new Texture("Personnage/link10Bouclier.png");
+	public static Texture linkHaut1Bouclier = new Texture("Personnage/link11Bouclier.png");
+	public static Texture linkHaut2Bouclier = new Texture("Personnage/link9Bouclier.png");
+	public static Texture linkDroiteReposBouclier = new Texture("Personnage/link7Bouclier.png");
+	public static Texture linkDroite1Bouclier = new Texture("Personnage/link8Bouclier.png");
+	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
 	
 	public static Texture coeurPlein = new Texture("Divers/coeurPlein.png");
 	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
@@ -87,27 +99,24 @@ public class MainCharacter extends Characters {
 			if (Bouclier.isBouclierUtilisé == true) {
 				vitesseMouvements = 400;
 				
-					MainMenu.PPM = 0.8f;
-//					MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x*1.25f , MainMenu.Link.getBody().getPosition().y*1.25f,0 );
-					MainMenu.world.destroyBody(MainMenu.Link.getBody());
-					MainMenu.Link.createBody();
-					MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
-					MainMenu.box2DCamera.update();
-					GestionDesMaps.destructionDesCorps();
+//					MainMenu.PPM = 0.8f;
+//					MainMenu.world.destroyBody(MainMenu.Link.getBody());
+//					MainMenu.Link.createBody();
+//					MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
+//					MainMenu.box2DCamera.update();
+//					GestionDesMaps.destructionDesCorps();
 					
 				
 			}
 			else {
 				vitesseMouvements = 200;
-				MainMenu.PPM = 1.5f;
-//				MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x / 1.25f, MainMenu.Link.getBody().getPosition().y/1.25f,0 );
-				MainMenu.world.destroyBody(MainMenu.Link.getBody());
-				MainMenu.Link.createBody();
-				MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
-				MainMenu.box2DCamera.update();
-				GestionDesMaps.destructionDesCorps();
+//				MainMenu.PPM = 1.5f;
+//				MainMenu.world.destroyBody(MainMenu.Link.getBody());
+//				MainMenu.Link.createBody();
+//				MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
+//				MainMenu.box2DCamera.update();
+//				GestionDesMaps.destructionDesCorps();
 			}
-			System.out.println(MainMenu.Link.getX());
 			changementDeVitesse = false;
 		}
 		
@@ -119,10 +128,12 @@ public class MainCharacter extends Characters {
 			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				
 				if (MainCharacter.textGauche1 == true){
-					cha.setTexture(MainCharacter.linkGauche1);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkGauche1Bouclier);
+					else cha.setTexture(MainCharacter.linkGauche1);
 					MainCharacter.textGauche1 = false;
 				} else {
-					cha.setTexture(MainCharacter.linkGauche2);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkGauche2Bouclier);
+					else cha.setTexture(MainCharacter.linkGauche2);
 					MainCharacter.textGauche1 = true;
 				}
 				MainMenu.start = System.currentTimeMillis();
@@ -131,10 +142,12 @@ public class MainCharacter extends Characters {
 		else if (cha.getDirection().equals("droite")){
 			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				if (MainCharacter.textDroite1 == true){
-					cha.setTexture(MainCharacter.linkDroite1);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkDroite1Bouclier);
+					else cha.setTexture(MainCharacter.linkDroite1);
 					MainCharacter.textDroite1 = false;
 				} else {
-					cha.setTexture(MainCharacter.linkDroite2);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkDroite2Bouclier);
+					else cha.setTexture(MainCharacter.linkDroite2);
 					MainCharacter.textDroite1 = true;
 				}
 				MainMenu.start = System.currentTimeMillis();
@@ -143,10 +156,12 @@ public class MainCharacter extends Characters {
 		else if (cha.getDirection().equals("haut")){
 			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				if (MainCharacter.textHaut1 == true){
-					cha.setTexture(MainCharacter.linkHaut1);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkHaut1Bouclier);
+					else cha.setTexture(MainCharacter.linkHaut1);
 					MainCharacter.textHaut1 = false;
 				} else {
-					cha.setTexture(MainCharacter.linkHaut2);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkHaut2Bouclier);
+					else cha.setTexture(MainCharacter.linkHaut2);
 					MainCharacter.textHaut1 = true;
 				}
 				MainMenu.start = System.currentTimeMillis();
@@ -155,10 +170,12 @@ public class MainCharacter extends Characters {
 		else if (cha.getDirection().equals("bas")){
 			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
 				if (MainCharacter.textBas1 == true){
-					cha.setTexture(MainCharacter.linkBas1);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkBas1Bouclier);
+					else cha.setTexture(MainCharacter.linkBas1);
 					MainCharacter.textBas1 = false;
 				} else {
-					cha.setTexture(MainCharacter.linkBas2);
+					if (Bouclier.isBouclierUtilisé == true) cha.setTexture(MainCharacter.linkBas2Bouclier);
+					else cha.setTexture(MainCharacter.linkBas2);
 					MainCharacter.textBas1 = true;
 				}
 				MainMenu.start = System.currentTimeMillis();
