@@ -45,7 +45,7 @@ public class MainMenu implements Screen{
 	Texture carte;
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
-//	= AcceptClass.acceptClass() é utiliser en cas de nouvelle class sauvegarde
+//	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
 	
 	public static OrthographicCamera box2DCamera;
 	private Box2DDebugRenderer debugRenderer;
@@ -53,9 +53,6 @@ public class MainMenu implements Screen{
 	public static long start;
 	
 	public static float PPM = 1.5f;
-	
-
-	
 	
 	public MainMenu(GameMain game){
 		
@@ -84,8 +81,8 @@ public class MainMenu implements Screen{
 		
 		MenuSac.setItem(plume);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
-		MenuSac.setItem(gantDeForce);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
+		MenuSac.setItem(gantDeForce);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		
@@ -137,38 +134,40 @@ public class MainMenu implements Screen{
 		if ( Link.isAlive){
 			if ( Epee.annimationEpée || Coffre.annimationCoffre || Bouclier.annimationBouclier ){
 //				annimation de récupération de l'épée
-				Link.setTexture(MainCharacter.linkBasRepos);
+				Link.setTexture(MainCharacter.linkAward);
 				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
 					Epee.annimationEpée = false;
 					Coffre.annimationCoffre = false;
 					Bouclier.annimationBouclier = false;
 				}
+			} else if (Epee.isEpéeUtilisé){
+				épée.annimationEpée(Link);
 			} else {
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
 					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
-						Link.getBody().applyLinearImpulse(new Vector2(-10000f,0), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("droite")) Link.setDirection("droite"); // que le joueur garde sa défense
+						Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
+						if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
 						else Link.setDirection("gauche");
 						Link.représentationLink(Link);
 			
 						
 					} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-						Link.getBody().applyLinearImpulse(new Vector2(+10000f,0), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("gauche")) Link.setDirection("gauche"); // que le joueur garde sa défense
+						Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
+						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
 						else Link.setDirection("droite");
 						Link.représentationLink(Link);
 						
 					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
-						Link.getBody().applyLinearImpulse(new Vector2(0,+10000f), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("bas")) Link.setDirection("bas"); // que le joueur garde sa défense
+						Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
+						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
 						else Link.setDirection("haut");
 						Link.représentationLink(Link);
 			
 					} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-						Link.getBody().applyLinearImpulse(new Vector2(0,-10000f), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé && Link.getDirection().equals("haut")) Link.setDirection("haut"); // que le joueur garde sa défense
+						Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
+						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
 						else Link.setDirection("bas");
 						Link.représentationLink(Link);
 			
@@ -181,10 +180,22 @@ public class MainMenu implements Screen{
 						resume();
 					} else {
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
-						if (Link.getDirection().equals("bas")) Link.setTexture(MainCharacter.linkBasRepos);
-						else if (Link.getDirection().equals("haut")) Link.setTexture(MainCharacter.linkHautRepos);
-						else if (Link.getDirection().equals("gauche")) Link.setTexture(MainCharacter.linkGaucheRepos);
-						else if (Link.getDirection().equals("droite")) Link.setTexture(MainCharacter.linkDroiteRepos);
+						if (Link.getDirection().equals("bas")) {
+							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkBasReposBouclier);
+							else Link.setTexture(MainCharacter.linkBasRepos);
+						}
+						else if (Link.getDirection().equals("haut")) {
+							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkHautReposBouclier);
+							else Link.setTexture(MainCharacter.linkHautRepos);
+						}
+						else if (Link.getDirection().equals("gauche")) {
+							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkGaucheReposBouclier);
+							else Link.setTexture(MainCharacter.linkGaucheRepos);
+						}
+						else if (Link.getDirection().equals("droite")) {
+							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkDroiteReposBouclier);
+							else Link.setTexture(MainCharacter.linkDroiteRepos);
+						}
 					} 
 					
 					
@@ -194,11 +205,11 @@ public class MainMenu implements Screen{
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 					
 					
-	//				intéraction avec l'environnement 
+	//				intéraction avec l'environnement; lorsqu'il n'est pas dans un batiment il n'a pas le droit d'utiliser un item
 					
-					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé ){
+					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  && ! PlacementMain.positionSousMap.equals("IglooC1")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
-					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé ){
+					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé && ! PlacementMain.positionSousMap.equals("IglooC1")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -215,6 +226,7 @@ public class MainMenu implements Screen{
 						 MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Bouclier.isBouclierUtilisé && ( !(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)) )){
 						 Bouclier.isBouclierUtilisé = false;
+						 MainCharacter.changementDeVitesse = true;
 					 }
 					 
 					
@@ -308,7 +320,7 @@ public class MainMenu implements Screen{
 				MenuSac.affichéSac(game);
 			} else {
 				
-				updateInGame(delta * 1000);
+				updateInGame(delta );
 				
 				Link.updatePlayer();
 				
@@ -319,6 +331,7 @@ public class MainMenu implements Screen{
 				if ( PlacementMain.défilement == true) {
 					GestionDesMaps.défilementDeMap(game);
 				}else {
+					Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
 					GestionDesMaps.affichageDeSousCarte(game);
 				}
 				
