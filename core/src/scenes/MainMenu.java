@@ -143,8 +143,6 @@ public class MainMenu implements Screen{
 				}
 			} else if (Epee.isEpéeUtilisé){
 				épée.annimationEpée(Link);
-				world.destroyBody(Link.getBody());
-				Link.createBody();
 			} else {
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
@@ -207,11 +205,11 @@ public class MainMenu implements Screen{
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 					
 					
-	//				intéraction avec l'environnement 
+	//				intéraction avec l'environnement; lorsqu'il n'est pas dans un batiment il n'a pas le droit d'utiliser un item
 					
-					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé ){
+					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  && ! PlacementMain.positionSousMap.equals("IglooC1")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
-					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé ){
+					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé && ! PlacementMain.positionSousMap.equals("IglooC1")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 

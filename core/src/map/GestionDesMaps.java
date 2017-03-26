@@ -437,7 +437,6 @@ public class GestionDesMaps {
 			}
 			else if ( PlacementMain.positionSousMap.equals("C1")) {
 				SousMapC1.createBodyAndType(MainMenu.world);
-				MainMenu.Link.setSize(36, 44); // taille réduite lorsque link sort de l'igloo
 				SousMapC1.sousMap(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("D1")) {

@@ -139,7 +139,7 @@ public class Epee extends Item{
 	public static Texture linkEpéeDroiteBasse = new Texture("Personnage/linkEpéeDroiteBasse.png");
 	public static Texture linkEpéeHautDroite = new Texture("Personnage/linkEpéeHautDroite.png");
 	public static Texture linkEpéeHautGauche = new Texture("Personnage/linkEpéeHautGauche.png");
-	public static int etatEpée = 1;
+	public static int etatEpée = 0;
 	
 	public static long annimation = System.currentTimeMillis();
 	
@@ -171,11 +171,13 @@ public class Epee extends Item{
 			}
 		} 
 		
-		if (System.currentTimeMillis() - annimation > 200 ){
-			if (etatEpée == 1) {
+		if (System.currentTimeMillis() - annimation > 80 ){
+			if (etatEpée == 0) {
+				etatEpée = 1;
+			} else if (etatEpée == 1) {
 				etatEpée = 2;
 			}else {
-				etatEpée = 1;
+				etatEpée = 0;
 				isEpéeUtilisé = false;
 			}
 			annimation = System.currentTimeMillis();
