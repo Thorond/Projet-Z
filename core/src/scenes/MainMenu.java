@@ -320,7 +320,7 @@ public class MainMenu implements Screen{
 				MenuSac.affichéSac(game);
 			} else {
 				
-				updateInGame(delta * 1000);
+				updateInGame(delta );
 				
 				Link.updatePlayer();
 				

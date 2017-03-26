@@ -124,7 +124,6 @@ public class Epee extends Item{
 					}
 				}
 			}	
-			
 		}
 		
 	}
@@ -144,33 +143,6 @@ public class Epee extends Item{
 	public static long annimation = System.currentTimeMillis();
 	
 	public void annimationEpée(MainCharacter cha){
-		if ( cha.getDirection().equals("gauche")){
-			if ( etatEpée == 1 ) {
-				cha.setTexture(linkEpéeGaucheHaut);
-			} else {
-				cha.setTexture(linkEpéeGaucheBas);
-			}
-		} else if ( cha.getDirection().equals("droite")){
-			if ( etatEpée == 1 ) {
-				cha.setTexture(linkEpéeDroiteHaute);
-			} else {
-				cha.setTexture(linkEpéeDroiteBasse);
-			}
-		} else if ( cha.getDirection().equals("haut")){
-			if ( etatEpée == 1 ) {
-				cha.setTexture(linkEpéeHautDroite);
-			} else {
-				cha.setTexture(linkEpéeHautGauche);
-			}
-		}  else if ( cha.getDirection().equals("bas")){
-			if ( etatEpée == 1) {
-				cha.setTexture(linkEpéeBasGauche);
-			} else {
-				cha.setTexture(linkEpéeBasDroite);
-				
-			}
-		} 
-		
 		if (System.currentTimeMillis() - annimation > 80 ){
 			if (etatEpée == 0) {
 				etatEpée = 1;
@@ -182,6 +154,35 @@ public class Epee extends Item{
 			}
 			annimation = System.currentTimeMillis();
 		}
+		
+		if ( cha.getDirection().equals("gauche")){
+			if ( etatEpée == 1 ) {
+				cha.setTexture(linkEpéeGaucheHaut);
+			} else if (etatEpée == 2) {
+				cha.setTexture(linkEpéeGaucheBas);
+			} else cha.setTexture(MainCharacter.linkGaucheRepos);
+		} else if ( cha.getDirection().equals("droite")){
+			if ( etatEpée == 1 ) {
+				cha.setTexture(linkEpéeDroiteHaute);
+			} else if (etatEpée == 2) {
+				cha.setTexture(linkEpéeDroiteBasse);
+			}
+		} else if ( cha.getDirection().equals("haut")){
+			if ( etatEpée == 1 ) {
+				cha.setTexture(linkEpéeHautDroite);
+			} else if (etatEpée == 2) {
+				cha.setTexture(linkEpéeHautGauche);
+			}
+		}  else if ( cha.getDirection().equals("bas")){
+			if ( etatEpée == 1) {
+				cha.setTexture(linkEpéeBasGauche);
+			} else if (etatEpée == 2) {
+				cha.setTexture(linkEpéeBasDroite);
+			}  else cha.setTexture(MainCharacter.linkBasRepos);
+		} 
+		
+		
+		
 		
 	}
 	

@@ -88,7 +88,12 @@ public class MainCharacter extends Characters {
 //	ici on donne la position du corp à la position des graphismes
 	
 	public void updatePlayer(){
-		this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y *MainMenu.PPM);
+		if (Epee.isEpéeUtilisé && this.getDirection().equals("bas") 
+				&& Epee.etatEpée == 1) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM -20, (this.getBody().getPosition().y)*MainMenu.PPM -30);
+		else if (Epee.isEpéeUtilisé && this.getDirection().equals("bas") 
+				&& Epee.etatEpée == 2) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM, (this.getBody().getPosition().y)*MainMenu.PPM -30);
+		else if (Epee.isEpéeUtilisé && this.getDirection().equals("gauche") &&  Epee.etatEpée != 0) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM -30, (this.getBody().getPosition().y)*MainMenu.PPM );
+		else this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y *MainMenu.PPM );
 	}
 	
 	public Body getBody(){
