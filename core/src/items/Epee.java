@@ -27,6 +27,7 @@ public class Epee extends Item{
 
 	public void utilisationItem( MainCharacter cha) {
 		isEpéeUtilisé = true;
+		MainMenu.Link.getBody().setLinearVelocity(MainMenu.Link.getBody().getLinearVelocity().x / 100f, MainMenu.Link.getBody().getLinearVelocity().y / 100f);
 		if ( cha.getDirection().equals("bas")){
 			if ( ((int) cha.getBody().getPosition().y *MainMenu.PPM/ 60 ) -1 >= 0 &&
 					CadrillageMap.typeDeDécor[( int) (cha.getBody().getPosition().x *MainMenu.PPM / 60) ][((int) (cha.getBody().getPosition().y*MainMenu.PPM / 60 )) -1 ].equals("HerbesHautes")

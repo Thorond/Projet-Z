@@ -11,7 +11,7 @@ import scenes.MainMenu;
 public class Pnj extends Characters{
 	
 	public long start;
-	public boolean arrét = false;
+	public boolean arrét = true;
 	public boolean isAttacked = false;
 	
 	
@@ -30,30 +30,30 @@ public class Pnj extends Characters{
 	
 	public void déplacementAléa(){
 		double tempo = Math.random();
-		if ( System.currentTimeMillis() - start > 1000) {
+		if ( System.currentTimeMillis() - start > 2000) {
 			if ( tempo < 0.25 && this.getBody().getPosition().x > 60/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(-40000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
 			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 510/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(+100000f,0), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(+40000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
 			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 60/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(0,-100000f), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(0,-40000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
 			else if (tempo > 0.75 && this.getBody().getPosition().y < 360/MainMenu.PPM){
-				this.getBody().applyLinearImpulse(new Vector2(0,+100000f), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(0,+40000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
 			start = System.currentTimeMillis();
 			arrét = false;
 		} 
-		if (System.currentTimeMillis() - start > 800 && arrét == false) {
+		if (System.currentTimeMillis() - start > 1500 ) {
 //			ralentissement des pnjs
-			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 1.8f, this.getBody().getLinearVelocity().y / 1.8f);
-			if ( System.currentTimeMillis() - start > 900 ) arrét = true;
+			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 100f, this.getBody().getLinearVelocity().y / 100f);
+			arrét = true;
 		}
 		
 	}
@@ -64,19 +64,19 @@ public class Pnj extends Characters{
 	public void déplacementVersJoueur(){
 		if ( System.currentTimeMillis() - start > 400) {
 			if ( this.getX() - MainMenu.Link.getX() > 0 ){
-				this.getBody().applyLinearImpulse(new Vector2(-100000f,0), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(-60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
 			else if (this.getX() - MainMenu.Link.getX() < 0 ){
-				this.getBody().applyLinearImpulse(new Vector2(+100000f,0), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(+60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
 			if (this.getY() - MainMenu.Link.getY() > 0){
-				this.getBody().applyLinearImpulse(new Vector2(0,-100000f), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(0,-60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
 			else if (this.getY() - MainMenu.Link.getY() < 0){
-				this.getBody().applyLinearImpulse(new Vector2(0,+100000f), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(0,+60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
 			start = System.currentTimeMillis();

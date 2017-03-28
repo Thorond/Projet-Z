@@ -37,12 +37,6 @@ public class SousMapB2 extends Sprite {
 	public static Bats monstre2;
 	public static boolean m1EstCrée = false ;
 	public static boolean m2EstCrée = false ;
-//	public static int coordXM1;
-//	public static int coordYM1;
-//	public static int coordXM2;
-//	public static int coordYM2;
-	
-
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
