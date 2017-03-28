@@ -128,11 +128,13 @@ public class Epee extends Item{
 	}
 	
 	
-
+	public static Texture linkEpéeGaucheHauteDroite = new Texture("Personnage/linkEpéeGaucheHauteDroite.png");
 	public static Texture linkEpéeGaucheHaut = new Texture("Personnage/linkEpéeGaucheHaute.png");
 	public static Texture linkEpéeGaucheBas = new Texture("Personnage/linkEpéeGaucheBasse.png");
+	public static Texture linkEpéeBasGaucheHaut = new Texture("Personnage/linkEpéeBasGaucheHaut.png");
 	public static Texture linkEpéeBasGauche = new Texture("Personnage/linkEpéeBasGauche.png");
 	public static Texture linkEpéeBasDroite = new Texture("Personnage/linkEpéeBasDroite.png");
+	public static Texture linkEpéeDroiteHauteGauche = new Texture("Personnage/linkEpéeDroiteHauteGauche.png");
 	public static Texture linkEpéeDroiteHaute = new Texture("Personnage/linkEpéeDroiteHaute.png");
 	public static Texture linkEpéeDroiteBasse = new Texture("Personnage/linkEpéeDroiteBasse.png");
 	public static Texture linkEpéeHautDroiteBas = new Texture("Personnage/linkEpéeHautDroiteBas.png");
@@ -159,7 +161,7 @@ public class Epee extends Item{
 		
 		if ( cha.getDirection().equals("gauche")){
 			if ( etatEpée == 1 ) {
-				cha.setTexture(linkEpéeHautGauche);
+				cha.setTexture(linkEpéeGaucheHauteDroite);
 			} else if ( etatEpée == 2 ) {
 				cha.setTexture(linkEpéeGaucheHaut);
 			} else if (etatEpée == 3) {
@@ -167,7 +169,7 @@ public class Epee extends Item{
 			} else cha.setTexture(MainCharacter.linkGaucheRepos);
 		} else if ( cha.getDirection().equals("droite")){
 			if ( etatEpée == 1 ) {
-				cha.setTexture(linkEpéeHautGauche);
+				cha.setTexture(linkEpéeDroiteHauteGauche);
 			} else if ( etatEpée == 2 ) {
 				cha.setTexture(linkEpéeDroiteHaute);
 			} else if (etatEpée == 3) {
@@ -183,7 +185,7 @@ public class Epee extends Item{
 			}
 		}  else if ( cha.getDirection().equals("bas")){
 			if ( etatEpée == 1) {
-				cha.setTexture(linkEpéeGaucheBas);
+				cha.setTexture(linkEpéeBasGaucheHaut);
 			} else if ( etatEpée == 2) {
 				cha.setTexture(linkEpéeBasGauche);
 			} else if (etatEpée == 3) {
