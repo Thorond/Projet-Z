@@ -384,7 +384,6 @@ public class MainMenu implements Screen{
 				}
 				
 	//			dessin du joueur
-//				game.getBatch().draw(Link, Link.getX(), Link.getY());
 				Link.draw(game.getBatch());
 			}
 				

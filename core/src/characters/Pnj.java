@@ -131,7 +131,7 @@ public class Pnj extends Characters{
 	public void infligéDégatLink(){
 		
 		
-		if ( MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -35 
+		if ( MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -25 
 				&& MainMenu.Link.getX() <= this.getX() 
 				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
 				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){

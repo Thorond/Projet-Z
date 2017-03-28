@@ -7,7 +7,7 @@ import characters.MainCharacter;
 public class Bouclier extends Item{
 	
 	public static Texture bouclier = new Texture("items/shield.png");
-	
+	public static Texture textBouclier = new Texture("texte/textBouclier.png");
 
 	public Bouclier(){
 		super(bouclier,1);

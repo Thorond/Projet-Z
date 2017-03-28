@@ -135,6 +135,7 @@ public class Epee extends Item{
 	public static Texture linkEpéeBasDroite = new Texture("Personnage/linkEpéeBasDroite.png");
 	public static Texture linkEpéeDroiteHaute = new Texture("Personnage/linkEpéeDroiteHaute.png");
 	public static Texture linkEpéeDroiteBasse = new Texture("Personnage/linkEpéeDroiteBasse.png");
+	public static Texture linkEpéeHautDroiteBas = new Texture("Personnage/linkEpéeHautDroiteBas.png");
 	public static Texture linkEpéeHautDroite = new Texture("Personnage/linkEpéeHautDroite.png");
 	public static Texture linkEpéeHautGauche = new Texture("Personnage/linkEpéeHautGauche.png");
 	public static int etatEpée = 0;
@@ -142,12 +143,14 @@ public class Epee extends Item{
 	public static long annimation = System.currentTimeMillis();
 	
 	public void annimationEpée(MainCharacter cha){
-		if (System.currentTimeMillis() - annimation > 80 ){
+		if (System.currentTimeMillis() - annimation > 70 ){
 			if (etatEpée == 0) {
 				etatEpée = 1;
 			} else if (etatEpée == 1) {
 				etatEpée = 2;
-			}else {
+			} else if (etatEpée == 2) {
+				etatEpée = 3;
+			} else {
 				etatEpée = 0;
 				isEpéeUtilisé = false;
 			}
@@ -156,26 +159,34 @@ public class Epee extends Item{
 		
 		if ( cha.getDirection().equals("gauche")){
 			if ( etatEpée == 1 ) {
+				cha.setTexture(linkEpéeHautGauche);
+			} else if ( etatEpée == 2 ) {
 				cha.setTexture(linkEpéeGaucheHaut);
-			} else if (etatEpée == 2) {
+			} else if (etatEpée == 3) {
 				cha.setTexture(linkEpéeGaucheBas);
 			} else cha.setTexture(MainCharacter.linkGaucheRepos);
 		} else if ( cha.getDirection().equals("droite")){
 			if ( etatEpée == 1 ) {
+				cha.setTexture(linkEpéeHautGauche);
+			} else if ( etatEpée == 2 ) {
 				cha.setTexture(linkEpéeDroiteHaute);
-			} else if (etatEpée == 2) {
+			} else if (etatEpée == 3) {
 				cha.setTexture(linkEpéeDroiteBasse);
 			}
 		} else if ( cha.getDirection().equals("haut")){
 			if ( etatEpée == 1 ) {
+				cha.setTexture(linkEpéeHautDroiteBas);
+			} else if ( etatEpée == 2 ) {
 				cha.setTexture(linkEpéeHautDroite);
-			} else if (etatEpée == 2) {
+			} else if (etatEpée == 3) {
 				cha.setTexture(linkEpéeHautGauche);
 			}
 		}  else if ( cha.getDirection().equals("bas")){
 			if ( etatEpée == 1) {
+				cha.setTexture(linkEpéeGaucheBas);
+			} else if ( etatEpée == 2) {
 				cha.setTexture(linkEpéeBasGauche);
-			} else if (etatEpée == 2) {
+			} else if (etatEpée == 3) {
 				cha.setTexture(linkEpéeBasDroite);
 			}  else cha.setTexture(MainCharacter.linkBasRepos);
 		} 
