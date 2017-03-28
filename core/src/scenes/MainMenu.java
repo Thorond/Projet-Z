@@ -28,6 +28,7 @@ import map.SousMapB3;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
+import menus.MenuPause;
 import menus.MenuSac;
 import sauvegarde.AcceptClass;
 import sauvegarde.Sauvegarde;
@@ -108,6 +109,26 @@ public class MainMenu implements Screen{
 		}
 	}
 	
+	void updatePause(float dt){
+		if (Gdx.input.isKeyJustPressed(Input.Keys.S) ){
+			if ( MenuPause.choix == 1) MenuPause.choix = 2;
+			else if ( MenuPause.choix == 2) MenuPause.choix =3;	
+			else if ( MenuPause.choix == 3) MenuPause.choix =1;
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z)){
+			if ( MenuPause.choix == 1) MenuPause.choix = 3;
+			else if ( MenuPause.choix == 2) MenuPause.choix =1;	
+			else if ( MenuPause.choix == 3) MenuPause.choix =2;
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+			if (MenuPause.choix == 1) MenuPause.isPause = false;
+			else if (MenuPause.choix == 3){
+				sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+				SendClass.sendClass(sauvegarde);
+//				affichage de quelques choses pour montrer que c'est sauvegarder
+			}
+		}
+	}
+	
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
@@ -170,13 +191,6 @@ public class MainMenu implements Screen{
 						else Link.setDirection("bas");
 						Link.représentationLink(Link);
 			
-					} else if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
-						SendClass.sendClass(sauvegarde);
-					} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
-						pause();
-					} else if (Gdx.input.isKeyPressed(Input.Keys.I)){
-						resume();
 					} else {
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
 						if (Link.getDirection().equals("bas")) {
@@ -203,8 +217,22 @@ public class MainMenu implements Screen{
 					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 					
+//					mettre le jeu en pause et sauvegarder
+					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
+						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+						SendClass.sendClass(sauvegarde);
+					}
+					if (Gdx.input.isKeyPressed(Input.Keys.O)){
+//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
+//						 classe gestionDesMaps ?
+						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
+							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
+						 MenuPause.isPause = true;
+					}
 					
-	//				intéraction avec l'environnement; lorsqu'il n'est pas dans un batiment il n'a pas le droit d'utiliser un item
+					
+	//				intéraction avec l'environnement; lorsqu'il est dans un batiment il n'a pas le droit d'utiliser un item
 					
 					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  && ! PlacementMain.positionSousMap.equals("IglooC1")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
@@ -216,7 +244,7 @@ public class MainMenu implements Screen{
 						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
 							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
 						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
-							MenuSac.isSacAffiché = true;
+						 MenuSac.isSacAffiché = true;
 					 }
 //					 cas particulier du bouclier, en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
 					 if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K) ){
@@ -299,10 +327,6 @@ public class MainMenu implements Screen{
 
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
-		
-	
-		
 		
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -314,6 +338,10 @@ public class MainMenu implements Screen{
 		//			  dessiner le menu de game over
 			 MenuGameover.affichageMenuGO(game);
 			 updateGO(delta);
+		} else if ( MenuPause.isPause == true ) {
+			
+			updatePause(delta );
+			MenuPause.affichageMenuPause(game);
 		} else {
 			
 			if ( MenuSac.isSacAffiché == true ) {
@@ -379,12 +407,12 @@ public class MainMenu implements Screen{
 				vie += 4;
 			}
 			if (Link.getHealth() != Link.getHealthMax()){
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
-			écart+=30;
-			vie+=4;
+				if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
+				else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
+				else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
+				else if ( Link.getHealth() % 4 == 0 || Link.getHealth() <= 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
+				écart+=30;
+				vie+=4;
 			}
 			while ( vie + 4 <= Link.getHealthMax()){
 				game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
