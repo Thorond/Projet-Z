@@ -101,6 +101,8 @@ public class ClimatMontagneux {
 	public static Texture torche2 = new Texture("Divers/torche2.png");
 	public static Texture torche3 = new Texture("Divers/torche3.png");
 	
+	public static int déplacementOmbreTorche = 0;
+	
 	public static void annimationTorche(GameMain game, int x, int y){
 //		j'ai laissé les même etat et le même boolean que pour l'igloo car il est très peu probable que l'on mette les grosses en même temps
 //		que les petites
@@ -109,15 +111,23 @@ public class ClimatMontagneux {
 		else if ( !(etatTorche1) && etatTorche2) game.getBatch().draw(torche3,x,y);
 		else game.getBatch().draw(torche1,x,y);
 		if ( System.currentTimeMillis() - annimationTorche > 200){
-			if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) etatTorche1 = true;
+			if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) {
+				etatTorche1 = true;
+				déplacementOmbreTorche = 0;
+			}
 			else if ( etatTorche1 && !(etatTorche2)) {
 				etatTorche2 = true;
 				etatTorche1 = false;
+				déplacementOmbreTorche = 0;
 			}
-			else if ( !(etatTorche1) && etatTorche2) etatTorche1 = true;
+			else if ( !(etatTorche1) && etatTorche2) {
+				etatTorche1 = true;
+				déplacementOmbreTorche = 0;
+			}
 			else {
 				etatTorche1 = false;
 				etatTorche2 = false;
+				déplacementOmbreTorche = -0;
 			}
 			annimationTorche = System.currentTimeMillis();
 		}
@@ -132,6 +142,8 @@ public class ClimatMontagneux {
 	public static Texture torche1Igloo = new Texture("Divers/torche1Igloo.png");
 	public static Texture torche2Igloo = new Texture("Divers/torche2Igloo.png");
 	public static Texture torche3Igloo = new Texture("Divers/torche3Igloo.png");
+
+	public static Texture ombreTorche = new Texture("Divers/ombreTorche.png");
 	
 	public static boolean etatTorche1 = false;
 	public static boolean etatTorche2 = false;
@@ -143,15 +155,23 @@ public class ClimatMontagneux {
 		else if ( !(etatTorche1) && etatTorche2) game.getBatch().draw(torche3Igloo,x,y);
 		else game.getBatch().draw(torche1Igloo,x,y);
 		if ( System.currentTimeMillis() - annimationTorche > 200){
-			if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) etatTorche1 = true;
+			if ( ! ( etatTorche1 ) && ! ( etatTorche2 ) ) {
+				etatTorche1 = true;
+				déplacementOmbreTorche = 0;
+			}
 			else if ( etatTorche1 && !(etatTorche2)) {
 				etatTorche2 = true;
 				etatTorche1 = false;
+				déplacementOmbreTorche = 4;
 			}
-			else if ( !(etatTorche1) && etatTorche2) etatTorche1 = true;
+			else if ( !(etatTorche1) && etatTorche2) {
+				etatTorche1 = true;
+				déplacementOmbreTorche = 0;
+			}
 			else {
 				etatTorche1 = false;
 				etatTorche2 = false;
+				déplacementOmbreTorche = -4;
 			}
 			annimationTorche = System.currentTimeMillis();
 		}
@@ -192,6 +212,8 @@ public class ClimatMontagneux {
 	public static Texture  escalierHaut= new Texture("climatMontagneux/escalierHaut.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
+
+	public static Texture  glaceSombre= new Texture("climatMontagneux/glaceSombre.png");
 	
 	public static Texture  merGlacéCassé1Sup= new Texture("climatMontagneux/merGlacéCassé1Sup.png");
 	public static Texture  merGlacéCassé2Sup= new Texture("climatMontagneux/merGlacéCassé2Sup.png");

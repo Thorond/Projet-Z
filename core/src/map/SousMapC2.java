@@ -9,7 +9,7 @@ import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
 public class SousMapC2 extends Sprite {
-	
+
 	public static Body bosquet1 ;
 	public static boolean isBosquet1Created;
 	public static Body bosquet2 ;

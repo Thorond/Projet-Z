@@ -599,6 +599,13 @@ public class GestionDesMaps {
 				MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
 				IglooC1.représentation(game, 0, 0);
 			}
+			
+			else if ( PlacementMain.positionSousMap.equals("IglooD3")) {
+				IglooD3.destroyType();
+				IglooD3.createBodyAndType(MainMenu.world); 
+				MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
+				IglooD3.représentation(game, 0, 0);
+			}
 	}
 	
 //	 ===========================================================================================================
@@ -628,6 +635,7 @@ public class GestionDesMaps {
 		else if (PlacementMain.positionSousMap.equals("B3")) SousMapB3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("C3")) SousMapC3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("D3")) SousMapD3.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("IglooD3")) IglooD3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E3")) SousMapE3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F3")) SousMapF3.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("G3")) SousMapG3.destroyBody();
