@@ -23,7 +23,6 @@ public class Epee extends Item{
 	public static boolean isEpéePrise = false; // a sauvegarder 
 	public static boolean isEpéeUtilisé = false;
 	
-	public static boolean annimationEpée = false;
 	
 
 	public void utilisationItem( MainCharacter cha) {

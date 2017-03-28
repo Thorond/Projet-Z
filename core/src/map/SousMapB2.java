@@ -262,7 +262,7 @@ public class SousMapB2 extends Sprite {
 		
 		
 		if ( m2EstCrée == false ) {
-			monstre2 = new Bats(world ,Bats.batDroite1, 20 , 10 , 4 , 340 , 200 , "droite") ;
+			monstre2 = new Bats(world ,Bats.batDroite1, 8 , 8 , 1 , 340 , 200 , "droite") ;
 			Pnj.monstres[1] = monstre2;
 			Pnj.nbrDeMonstres = 2;
 			m2EstCrée = true;
@@ -273,7 +273,7 @@ public class SousMapB2 extends Sprite {
 		}
 		
 		if ( m1EstCrée == false ) {
-			monstre1 = new Bats(world ,Bats.batBas1, 20 , 10 , 4 , 200 , 360 , "bas") ;
+			monstre1 = new Bats(world ,Bats.batBas1, 8 , 8 , 1 , 200 , 360 , "bas") ;
 			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {

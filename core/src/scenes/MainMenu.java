@@ -24,6 +24,7 @@ import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
 import map.PlacementMain;
+import map.SousMapB3;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
@@ -70,7 +71,7 @@ public class MainMenu implements Screen{
 		
 //		lorsqu'une sauvegarde existe, on l'appelle
 		
-		Link = new MainCharacter(world, 40, 30, 4, 0 , 0 , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 12, 8, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -132,14 +133,12 @@ public class MainMenu implements Screen{
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
-			if ( Epee.annimationEpée || Coffre.annimationCoffre || Bouclier.annimationBouclier ){
+			if ( Link.annimationAward){
 //				annimation de récupération de l'épée
 				Link.setTexture(MainCharacter.linkAward);
 				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
-					Epee.annimationEpée = false;
-					Coffre.annimationCoffre = false;
-					Bouclier.annimationBouclier = false;
+					Link.annimationAward = false;
 				}
 			} else if (Epee.isEpéeUtilisé){
 				épée.annimationEpée(Link);
@@ -235,7 +234,7 @@ public class MainMenu implements Screen{
 							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] == false) {
 						 Epee.isEpéePrise = true;
 						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] = true;
-						 Epee.annimationEpée = true;	
+						 MainMenu.Link.annimationAward = true;
 						 SousMapF1.destroyBody();
 						 MenuSac.setItem(épée);
 					 };
@@ -243,7 +242,7 @@ public class MainMenu implements Screen{
 							 && Link.getX() >420
 							 && Link.getY()>270 ) {
 						 Bouclier.isBouclierPris = true;
-						 Bouclier.annimationBouclier = true;	
+						 MainMenu.Link.annimationAward = true;
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
@@ -254,7 +253,14 @@ public class MainMenu implements Screen{
 					 }
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
-	//				récupération de vie par les coeurs de vie
+//									Récuparation du réceptacle 
+					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("receptacleDeCoeur")) {
+						CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *PPM/60 ), (int) (Link.getBody().getPosition().y *PPM/ 60 ), "");
+						CoeurDeVie.receptacleDeCoeur();
+						Link.annimationAward = true;
+					}
+					
+					//				récupération de vie par les coeurs de vie
 					for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 						if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
 							for ( int j = -10 ; j < 40 ; j ++){
@@ -369,13 +375,22 @@ public class MainMenu implements Screen{
 			int écart = 0;
 			while ( vie +4 <= Link.getHealth()  ){
 				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
-				écart+=15;
+				écart+=30;
 				vie += 4;
 			}
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
-		
+			if (Link.getHealth() != Link.getHealthMax()){
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
+			else if ( Link.getHealth() % 4 == 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
+			écart+=30;
+			vie+=4;
+			}
+			while ( vie + 4 <= Link.getHealthMax()){
+				game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
+				écart+=30;
+				vie+=4;
+			}
 			
 	//		déssin du gameover
 			MenuGameover.GameOver(game);

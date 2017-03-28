@@ -11,12 +11,15 @@ import scenes.MainMenu;
 
 public class SousMapB3 extends Sprite{
 	
-	public static boolean pontCasse = false;
+	public static boolean pontCasse = false; // à sauvegarder 
+	public static boolean isReceptaclePris = false; // à sauvegarder
 	
 	public static Body bosquet1 ;
 	public static boolean isBosquet1Created;
 	public static Body bosquet2 ;
 	public static boolean isBosquet2Created;
+	
+	
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -205,7 +208,9 @@ public class SousMapB3 extends Sprite{
 			ClimatMontagneux.eauProfondeGlacée(game,360+ x, 240+y);
 			ClimatMontagneux.eauProfondeGlacée(game,420+ x, 240+y);
 			
-			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 480+ x, 120+ y);
+			
+			if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 480+ x, 120+ y);
+			else if ( isReceptaclePris && MainMenu.Link.annimationAward ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
 		}
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 60+ y);
@@ -264,6 +269,8 @@ public class SousMapB3 extends Sprite{
 			CadrillageMap.setTypeDeDécor(240/60,240/60,"EauProfonde");
 			CadrillageMap.setTypeDeDécor(300/60,240/60,"EauProfonde");
 			CadrillageMap.setTypeDeDécor(360/60,240/60,"EauProfonde");
+			
+			if ( !(isReceptaclePris)) CadrillageMap.setTypeDeDécor(480/60, 120/60, "receptacleDeCoeur");
 		}
 		CadrillageMap.setTypeDeDécor(0/60,360/60,"EauProfonde");
 		CadrillageMap.setTypeDeDécor(60/60,360/60,"EauProfonde");

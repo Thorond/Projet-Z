@@ -2,6 +2,10 @@ package items;
 
 import com.badlogic.gdx.graphics.Texture;
 
+import map.PlacementMain;
+import map.SousMapB3;
+import scenes.MainMenu;
+
 public class CoeurDeVie {
 	
 	public static Texture coeurDeVie = new Texture("Divers/coeurDeVie.png");
@@ -121,5 +125,18 @@ public class CoeurDeVie {
 	public boolean isEstPrésent() {
 		return estPrésent;
 	}
-
+	
+//	gérer les réceptacles de coeurs qui rajoute un point de vie à link
+	public static int nbrDeReceptacle = 0; // à sauvegarder 
+	
+	public static void receptacleDeCoeur(){
+		if (PlacementMain.positionSousMap.equals("B3")) SousMapB3.isReceptaclePris = true;
+		nbrDeReceptacle += 1 ;
+		if (nbrDeReceptacle == 4) {
+			MainMenu.Link.setHealthMax(MainMenu.Link.getHealthMax() + 4);
+			MainMenu.Link.setHealth(MainMenu.Link.getHealthMax());
+			nbrDeReceptacle = 0 ;
+		}
+	}
+	
 }

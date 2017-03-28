@@ -8,7 +8,6 @@ public class Bouclier extends Item{
 	
 	public static Texture bouclier = new Texture("items/shield.png");
 	
-	public static boolean annimationBouclier = false;
 
 	public Bouclier(){
 		super(bouclier,1);

@@ -48,6 +48,8 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroite1Bouclier = new Texture("Personnage/link8Bouclier.png");
 	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
 
+	
+	public boolean annimationAward = false;
 	public static Texture linkAward = new Texture("Personnage/linkAward.png");
 	
 	
@@ -55,6 +57,7 @@ public class MainCharacter extends Characters {
 	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
 	public static Texture coeurUnQuart = new Texture("Divers/coeur1-4.png");
 	public static Texture coeurTroisQuart = new Texture("Divers/coeur3-4.png");
+	public static Texture coeurVide = new Texture("Divers/coeurVide.png");
 	
 	public MainCharacter(World world, int HM, int health, int strength, float x, float y, String direction){
 		super( world,linkBasRepos, HM, health, strength, x,  y, direction);

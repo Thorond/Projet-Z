@@ -149,7 +149,7 @@ public class IglooC1 extends Sprite{
 		ClimatMontagneux.annimationTorcheIgloo(game, 360, 180);
 		
 		if ( !(Bouclier.isBouclierPris) ) game.getBatch().draw(Bouclier.bouclier, 430+ x, 290+ y);
-		else if ( Bouclier.annimationBouclier ) game.getBatch().draw(Bouclier.bouclier, MainMenu.Link.getX() + x, MainMenu.Link.getY() + 60 + y);
+		else if (  MainMenu.Link.annimationAward ) game.getBatch().draw(Bouclier.bouclier, MainMenu.Link.getX() + x, MainMenu.Link.getY() + 60 + y);
 	}
 
 	public static void destroyBody() {
