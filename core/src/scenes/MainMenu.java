@@ -24,9 +24,11 @@ import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
 import map.PlacementMain;
+import map.SousMapB3;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
+import menus.MenuPause;
 import menus.MenuSac;
 import sauvegarde.AcceptClass;
 import sauvegarde.Sauvegarde;
@@ -70,7 +72,7 @@ public class MainMenu implements Screen{
 		
 //		lorsqu'une sauvegarde existe, on l'appelle
 		
-		Link = new MainCharacter(world, 40, 30, 4, 0 , 0 , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 12, 8, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -107,6 +109,26 @@ public class MainMenu implements Screen{
 		}
 	}
 	
+	void updatePause(float dt){
+		if (Gdx.input.isKeyJustPressed(Input.Keys.S) ){
+			if ( MenuPause.choix == 1) MenuPause.choix = 2;
+			else if ( MenuPause.choix == 2) MenuPause.choix =3;	
+			else if ( MenuPause.choix == 3) MenuPause.choix =1;
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z)){
+			if ( MenuPause.choix == 1) MenuPause.choix = 3;
+			else if ( MenuPause.choix == 2) MenuPause.choix =1;	
+			else if ( MenuPause.choix == 3) MenuPause.choix =2;
+		}
+		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+			if (MenuPause.choix == 1) MenuPause.isPause = false;
+			else if (MenuPause.choix == 3){
+				sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+				SendClass.sendClass(sauvegarde);
+//				affichage de quelques choses pour montrer que c'est sauvegarder
+			}
+		}
+	}
+	
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
@@ -132,14 +154,12 @@ public class MainMenu implements Screen{
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
-			if ( Epee.annimationEpée || Coffre.annimationCoffre || Bouclier.annimationBouclier ){
+			if ( Link.annimationAward){
 //				annimation de récupération de l'épée
 				Link.setTexture(MainCharacter.linkAward);
 				Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 2f, Link.getBody().getLinearVelocity().y / 2f);
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
-					Epee.annimationEpée = false;
-					Coffre.annimationCoffre = false;
-					Bouclier.annimationBouclier = false;
+					Link.annimationAward = false;
 				}
 			} else if (Epee.isEpéeUtilisé){
 				épée.annimationEpée(Link);
@@ -171,13 +191,6 @@ public class MainMenu implements Screen{
 						else Link.setDirection("bas");
 						Link.représentationLink(Link);
 			
-					} else if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
-						SendClass.sendClass(sauvegarde);
-					} else if (Gdx.input.isKeyPressed(Input.Keys.O)){
-						pause();
-					} else if (Gdx.input.isKeyPressed(Input.Keys.I)){
-						resume();
 					} else {
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
 						if (Link.getDirection().equals("bas")) {
@@ -204,12 +217,30 @@ public class MainMenu implements Screen{
 					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
 						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
 					
+//					mettre le jeu en pause et sauvegarder
+					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
+						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+						SendClass.sendClass(sauvegarde);
+					}
+					if (Gdx.input.isKeyPressed(Input.Keys.O)){
+//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
+//						 classe gestionDesMaps ?
+						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
+							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
+						 MenuPause.isPause = true;
+					}
 					
-	//				intéraction avec l'environnement; lorsqu'il n'est pas dans un batiment il n'a pas le droit d'utiliser un item
 					
-					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  && ! PlacementMain.positionSousMap.equals("IglooC1")){
+	//				intéraction avec l'environnement; lorsqu'il est dans un batiment il n'a pas le droit d'utiliser un item
+					
+					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
+							 && ! PlacementMain.positionSousMap.equals("IglooC1")
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
-					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé && ! PlacementMain.positionSousMap.equals("IglooC1")){
+					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé 
+							 && ! PlacementMain.positionSousMap.equals("IglooC1")
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -217,7 +248,7 @@ public class MainMenu implements Screen{
 						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
 							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
 						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
-							MenuSac.isSacAffiché = true;
+						 MenuSac.isSacAffiché = true;
 					 }
 //					 cas particulier du bouclier, en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
 					 if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K) ){
@@ -235,7 +266,7 @@ public class MainMenu implements Screen{
 							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] == false) {
 						 Epee.isEpéePrise = true;
 						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] = true;
-						 Epee.annimationEpée = true;	
+						 MainMenu.Link.annimationAward = true;
 						 SousMapF1.destroyBody();
 						 MenuSac.setItem(épée);
 					 };
@@ -243,7 +274,7 @@ public class MainMenu implements Screen{
 							 && Link.getX() >420
 							 && Link.getY()>270 ) {
 						 Bouclier.isBouclierPris = true;
-						 Bouclier.annimationBouclier = true;	
+						 MainMenu.Link.annimationAward = true;
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
@@ -254,7 +285,14 @@ public class MainMenu implements Screen{
 					 }
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
-	//				récupération de vie par les coeurs de vie
+//									Récuparation du réceptacle 
+					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("receptacleDeCoeur")) {
+						CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *PPM/60 ), (int) (Link.getBody().getPosition().y *PPM/ 60 ), "");
+						CoeurDeVie.receptacleDeCoeur();
+						Link.annimationAward = true;
+					}
+					
+					//				récupération de vie par les coeurs de vie
 					for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
 						if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
 							for ( int j = -10 ; j < 40 ; j ++){
@@ -293,10 +331,6 @@ public class MainMenu implements Screen{
 
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
-		
-	
-		
 		
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -308,6 +342,10 @@ public class MainMenu implements Screen{
 		//			  dessiner le menu de game over
 			 MenuGameover.affichageMenuGO(game);
 			 updateGO(delta);
+		} else if ( MenuPause.isPause == true ) {
+			
+			updatePause(delta );
+			MenuPause.affichageMenuPause(game);
 		} else {
 			
 			if ( MenuSac.isSacAffiché == true ) {
@@ -350,7 +388,6 @@ public class MainMenu implements Screen{
 				}
 				
 	//			dessin du joueur
-//				game.getBatch().draw(Link, Link.getX(), Link.getY());
 				Link.draw(game.getBatch());
 			}
 				
@@ -369,13 +406,22 @@ public class MainMenu implements Screen{
 			int écart = 0;
 			while ( vie +4 <= Link.getHealth()  ){
 				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
-				écart+=15;
+				écart+=30;
 				vie += 4;
 			}
-			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 40 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 40 + écart, 440 );
-			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 40 + écart, 440 );
-		
+			if (Link.getHealth() != Link.getHealthMax()){
+				if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
+				else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
+				else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
+				else if ( Link.getHealth() % 4 == 0 || Link.getHealth() <= 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
+				écart+=30;
+				vie+=4;
+			}
+			while ( vie + 4 <= Link.getHealthMax()){
+				game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
+				écart+=30;
+				vie+=4;
+			}
 			
 	//		déssin du gameover
 			MenuGameover.GameOver(game);

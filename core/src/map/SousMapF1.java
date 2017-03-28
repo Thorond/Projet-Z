@@ -164,7 +164,7 @@ public class SousMapF1 extends Sprite{
 
 		game.getBatch().draw(Epee.pedestal, 305+ x, 210+ y);
 		if ( Epee.isEpéePrise == false ) game.getBatch().draw(Epee.épéeAnvil, 312+ x, 250+ y);
-		if ( Epee.annimationEpée ) game.getBatch().draw(Epee.épéeT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
+		if ( MainMenu.Link.annimationAward ) game.getBatch().draw(Epee.épéeT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
 	}
 
 	public static void destroyBody() {

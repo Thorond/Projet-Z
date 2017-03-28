@@ -48,6 +48,8 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroite1Bouclier = new Texture("Personnage/link8Bouclier.png");
 	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
 
+	
+	public boolean annimationAward = false;
 	public static Texture linkAward = new Texture("Personnage/linkAward.png");
 	
 	
@@ -55,6 +57,7 @@ public class MainCharacter extends Characters {
 	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
 	public static Texture coeurUnQuart = new Texture("Divers/coeur1-4.png");
 	public static Texture coeurTroisQuart = new Texture("Divers/coeur3-4.png");
+	public static Texture coeurVide = new Texture("Divers/coeurVide.png");
 	
 	public MainCharacter(World world, int HM, int health, int strength, float x, float y, String direction){
 		super( world,linkBasRepos, HM, health, strength, x,  y, direction);
@@ -89,10 +92,11 @@ public class MainCharacter extends Characters {
 	
 	public void updatePlayer(){
 		if (Epee.isEpéeUtilisé && this.getDirection().equals("bas") 
-				&& Epee.etatEpée == 1) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM -20, (this.getBody().getPosition().y)*MainMenu.PPM -30);
+				&& Epee.etatEpée == 2) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM -20, (this.getBody().getPosition().y)*MainMenu.PPM -30);
 		else if (Epee.isEpéeUtilisé && this.getDirection().equals("bas") 
-				&& Epee.etatEpée == 2) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM, (this.getBody().getPosition().y)*MainMenu.PPM -30);
-		else if (Epee.isEpéeUtilisé && this.getDirection().equals("gauche") &&  Epee.etatEpée != 0) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM -30, (this.getBody().getPosition().y)*MainMenu.PPM );
+				&& Epee.etatEpée == 3) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM, (this.getBody().getPosition().y)*MainMenu.PPM -30);
+		else if (Epee.isEpéeUtilisé && ( ( this.getDirection().equals("gauche") &&  Epee.etatEpée != 0 && Epee.etatEpée != 1 )
+				 || (this.getDirection().equals("bas") && Epee.etatEpée == 1 ) )) this.setPosition(this.getBody().getPosition().x*MainMenu.PPM -30, (this.getBody().getPosition().y)*MainMenu.PPM );
 		else this.setPosition(body.getPosition().x *MainMenu.PPM, body.getPosition().y *MainMenu.PPM );
 	}
 	
