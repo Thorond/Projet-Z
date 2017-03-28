@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Ghost;
 import decors.ClimatMontagneux;
 import menus.MenuGameover;
 import scenes.MainMenu;
@@ -124,6 +125,8 @@ public class IglooD3 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.ombreTorche, 370 + ClimatMontagneux.déplacementOmbreTorche + x, 250 + y);
 		ClimatMontagneux.annimationTorcheIgloo(game, 140, 280);
 		ClimatMontagneux.annimationTorcheIgloo(game, 380, 280);
+		
+		Ghost.annimationAttente1(game, 270, 360);
 
 	}
 

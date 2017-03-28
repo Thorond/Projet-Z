@@ -234,9 +234,13 @@ public class MainMenu implements Screen{
 					
 	//				intéraction avec l'environnement; lorsqu'il est dans un batiment il n'a pas le droit d'utiliser un item
 					
-					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  && ! PlacementMain.positionSousMap.equals("IglooC1")){
+					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
+							 && ! PlacementMain.positionSousMap.equals("IglooC1")
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
-					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé && ! PlacementMain.positionSousMap.equals("IglooC1")){
+					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé 
+							 && ! PlacementMain.positionSousMap.equals("IglooC1")
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
