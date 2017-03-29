@@ -156,6 +156,28 @@ public class MainMenu implements Screen{
 	
 //	premier scenario avec le fantôme 
 	void updateSc1Ghost(float dt){
+//		déplacement du joueur vers ghost
+		if ( Link.getBody().getPosition().x > 275/PPM ) {
+			Link.getBody().applyLinearImpulse(new Vector2(-100f,0), Link.getBody().getWorldCenter(), true);
+			Link.setDirection("gauche");
+			Link.représentationLink(Link);
+		}
+		else if ( Link.getBody().getPosition().x < 265/PPM ) {
+			Link.getBody().applyLinearImpulse(new Vector2(100f,0), Link.getBody().getWorldCenter(), true);
+			Link.setDirection("droite");
+			Link.représentationLink(Link);
+		} else {
+			Link.getBody().setLinearVelocity(0,Link.getBody().getLinearVelocity().y);
+			if ( Link.getBody().getPosition().y < 270/PPM ) {
+				Link.getBody().applyLinearImpulse(new Vector2(0,+100f), Link.getBody().getWorldCenter(), true);
+				Link.setDirection("haut");
+				Link.représentationLink(Link);
+			} else {
+				Link.setTexture(MainCharacter.linkHautRepos);
+				Link.getBody().setLinearVelocity(0,0);
+			}
+		}
+		
 		if ( Ghost.etatScenario != 7 && Ghost.etatScenario < 9  && Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
 			Ghost.etatScenario ++;
 		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.K) ){

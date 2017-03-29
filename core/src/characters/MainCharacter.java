@@ -109,7 +109,7 @@ public class MainCharacter extends Characters {
 	public void représentationLink(MainCharacter cha){
 		int vitesseMouvements ;
 		if ( changementDeVitesse == true){
-			if (Bouclier.isBouclierUtilisé == true) {
+			if (Bouclier.isBouclierUtilisé == true ) {
 				vitesseMouvements = 400;
 				
 //					MainMenu.PPM = 0.8f;
@@ -120,7 +120,7 @@ public class MainCharacter extends Characters {
 //					GestionDesMaps.destructionDesCorps();
 					
 				
-			}
+			} else if ( Ghost.etatScenario !=0 && Ghost.etatScenario < 16 ) vitesseMouvements = 600;
 			else {
 				vitesseMouvements = 200;
 //				MainMenu.PPM = 1.5f;
@@ -135,7 +135,8 @@ public class MainCharacter extends Characters {
 		
 		if (Bouclier.isBouclierUtilisé == true) {
 			vitesseMouvements = 400;
-		} else vitesseMouvements = 200;
+		}else if ( Ghost.etatScenario !=0 && Ghost.etatScenario < 16 ) vitesseMouvements = 600; 
+		else vitesseMouvements = 200;
 		
 		if (cha.getDirection().equals("gauche") ){
 			if ( System.currentTimeMillis() - MainMenu.start > vitesseMouvements) {
