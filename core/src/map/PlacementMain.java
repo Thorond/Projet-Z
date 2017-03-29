@@ -1,5 +1,6 @@
 package map;
 
+import characters.Ghost;
 import characters.MainCharacter;
 import items.CoeurDeVie;
 import scenes.MainMenu;
@@ -500,6 +501,7 @@ public class PlacementMain {
 			MainMenu.Link.getBody().setTransform(280/MainMenu.PPM, 10, 0);
 			SousMapD3.destroyBody();
 			positionSousMap = "IglooD3";
+			if (Ghost.etatScenario == 16 ) Ghost.etatScenario = 0;
 			
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();

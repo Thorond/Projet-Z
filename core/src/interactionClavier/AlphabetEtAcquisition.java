@@ -5,6 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import characters.Ghost;
+
 public class AlphabetEtAcquisition {
 
 	public static boolean isAlphabetUtilisé = false;
@@ -169,8 +171,12 @@ public class AlphabetEtAcquisition {
 			for ( int i = 0 ; i <= placeDernièreLettre ; i++ ){
 				motTapé += motDécomposé[i];
 			}
-			System.out.println(motTapé);
 			isAlphabetUtilisé = false;
+//			lorsque l'on fait appel a cette fonction pour le scenario 1 du fantôme 
+			if ( Ghost.etatScenario == 9 ){
+				if ( motTapé.equals("OMBRE") || motTapé.equals("CHIEN") ) Ghost.etatScenario = 11;
+				else Ghost.etatScenario = 10;
+			}
 		}
 	}
 	

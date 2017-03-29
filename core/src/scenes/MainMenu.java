@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
 import decors.ClimatMontagneux;
@@ -24,6 +25,7 @@ import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
+import map.IglooD3;
 import map.PlacementMain;
 import map.SousMapB3;
 import map.SousMapF1;
@@ -152,6 +154,22 @@ public class MainMenu implements Screen{
 		}
 	}
 	
+//	premier scenario avec le fantôme 
+	void updateSc1Ghost(float dt){
+		if ( Ghost.etatScenario != 7 && Ghost.etatScenario < 9  && Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+			Ghost.etatScenario ++;
+		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.K) ){
+			Ghost.etatScenario = 8;
+		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.L) ){
+			Ghost.etatScenario = 16;
+		} else if ( Ghost.etatScenario == 11 && Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+			Ghost.etatScenario = 20;
+			IglooD3.destroyBody();
+		}
+		if (Ghost.etatScenario == 9 ) AlphabetEtAcquisition.isAlphabetUtilisé = true;
+	}
+	
+//	lorsque le joueur tape au clavier
 	void updateAlEtAc(float dt){
 		AlphabetEtAcquisition.acquisitionTouche();
 	}
@@ -224,9 +242,8 @@ public class MainMenu implements Screen{
 					
 //					mettre le jeu en pause et sauvegarder
 					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-//						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
-//						SendClass.sendClass(sauvegarde);
-						AlphabetEtAcquisition.isAlphabetUtilisé = true;
+						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+						SendClass.sendClass(sauvegarde);
 					}
 					if (Gdx.input.isKeyPressed(Input.Keys.O)){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -284,6 +301,14 @@ public class MainMenu implements Screen{
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
+//					 démarage scenario 1
+					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
+							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
+							 && Link.getBody().getPosition().y > 200 / PPM  ){
+						 Ghost.etatScenario = 1;
+						 Link.getBody().setLinearVelocity(0, 0);
+						 
+					 }
 					 if ( PlacementMain.positionSousMap.equals("F2")){
 						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
 							 SousMapF2.ouvertureCoffre = true;
@@ -365,7 +390,8 @@ public class MainMenu implements Screen{
 			} else {
 				
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
-				if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
+				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 16) updateSc1Ghost(delta);
+				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
@@ -399,7 +425,9 @@ public class MainMenu implements Screen{
 				Link.draw(game.getBatch());
 			}
 			
+			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 16 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
+			
 				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac
