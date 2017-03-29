@@ -3,6 +3,9 @@ package characters;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import items.Plume;
+import map.IglooD3;
+
 public class Ghost {
 	
 	public static int etatScenario = 0; // à sauvegarder
@@ -13,6 +16,27 @@ public class Ghost {
 	public static Texture  fantFace1 = new Texture("monstres/ghost/FantFace1.png");
 	public static Texture  fantFace2 = new Texture("monstres/ghost/FantFace2.png");
 	public static Texture  fantFace3 = new Texture("monstres/ghost/FantFace3.png");
+	public static int etatAttente2 = 0;
+	public static Texture  fantFace4 = new Texture("monstres/ghost/FantFace4.png");
+	public static Texture  fantFace5 = new Texture("monstres/ghost/FantFace5.png");
+	
+	public static Texture  FantFaceDeçu = new Texture("monstres/ghost/FantFaceDeçu.png");
+	public static Texture  FantFaceAward = new Texture("monstres/ghost/FantFaceAward.png");
+
+	public static Texture  FantFaceTordu1 = new Texture("monstres/ghost/FantFaceTordu1.png");
+	public static Texture  FantFaceTordu2 = new Texture("monstres/ghost/FantFaceTordu2.png");
+	
+	public static Texture  FantDos2 = new Texture("monstres/ghost/FantDos2.png");
+	public static Texture  FantDos3 = new Texture("monstres/ghost/FantDos3.png");
+	
+	
+	public static long timerSmoke = System.currentTimeMillis();
+	public static int etatSmoke = 0;
+	public static Texture  smoke1 = new Texture("effets/smoke1.png");
+	public static Texture  smoke2 = new Texture("effets/smoke2.png");
+	public static Texture  smoke3 = new Texture("effets/smoke3.png");
+	public static Texture  smoke4 = new Texture("effets/smoke4.png");
+	public static Texture  smoke5 = new Texture("effets/smoke5.png");
 	
 	public static Texture  fantEvap = new Texture("monstres/ghost/FantEvap.png");
 	
@@ -29,6 +53,62 @@ public class Ghost {
 			startAttente1 = System.currentTimeMillis();
 		}
 	}
+	public static void annimationPrésentationEnigme1(GameMain game, int x , int y){
+		if (etatAttente2 == 0) game.getBatch().draw(fantFace4,x -5,y);
+		else if ( etatAttente2 == 1) game.getBatch().draw(fantFace5,x,y);
+		if ( System.currentTimeMillis() - startAttente1 > 1000 ){
+			if (etatAttente2 == 0) etatAttente2 = 1;
+			else  etatAttente2 = 0;
+			startAttente1 = System.currentTimeMillis();
+		}
+	}
+	
+	public static long timerDisparition = System.currentTimeMillis() ;
+	public static long timerChangementDeVitesse = System.currentTimeMillis() ;
+	public static int vitesseDisparition = 300;
+	public static int etatDisparition = 0;
+	public static void animationDisparition(GameMain game, int x, int y){
+		if (vitesseDisparition >= 21 ){
+			if (etatDisparition == 0) game.getBatch().draw(FantFaceTordu1,x,y);
+			else if ( etatDisparition == 1) game.getBatch().draw(FantFaceTordu2,x,y);
+			else if ( etatDisparition == 2) game.getBatch().draw(FantDos2,x,y);
+			else if ( etatDisparition == 3) game.getBatch().draw(FantDos3,x,y);
+			if ( System.currentTimeMillis() - timerDisparition > vitesseDisparition ){
+				if (etatDisparition == 0) etatDisparition = 1;
+				else if ( etatDisparition == 1) etatDisparition = 2;
+				else if ( etatDisparition == 2) etatDisparition = 3;
+				else if ( etatDisparition == 3) etatDisparition = 0;
+				timerDisparition = System.currentTimeMillis();
+			}
+			if (System.currentTimeMillis() - timerChangementDeVitesse > 170 && vitesseDisparition > 1 ) {
+				vitesseDisparition -= 10 ;
+				timerChangementDeVitesse = System.currentTimeMillis() ;
+			}
+		} else {
+			if (Plume.isPlumePrise == false ) game.getBatch().draw(Plume.plume, x, y );
+			game.getBatch().draw(Ghost.fantEvap, 270, 360 );
+			if (etatSmoke == 0) game.getBatch().draw(smoke1,x-20,y);
+			else if ( etatSmoke == 1) game.getBatch().draw(smoke2,x-20,y);
+			else if ( etatSmoke == 2) game.getBatch().draw(smoke3,x-20,y);
+			else if ( etatSmoke == 3) game.getBatch().draw(smoke4,x-20,y);
+			else if ( etatSmoke == 4) game.getBatch().draw(smoke5,x-20,y);
+			if ( System.currentTimeMillis() - timerSmoke > 300 ){
+				if (etatSmoke == 0) etatSmoke = 1;
+				else if ( etatSmoke == 1) etatSmoke = 2;
+				else if ( etatSmoke == 2) etatSmoke = 3;
+				else if ( etatSmoke == 3) etatSmoke = 4;
+				else if ( etatSmoke == 4) {
+					etatSmoke = 0;
+					etatScenario = 20;
+					IglooD3.destroyBody();
+				}
+				timerSmoke = System.currentTimeMillis();
+			}
+			
+		}
+	}
+	
+//	====================================================================================
 
 	public static Texture flècheBas = new Texture("texte/flècheBas.png");
 	public static long timerClignoFlèche = System.currentTimeMillis();

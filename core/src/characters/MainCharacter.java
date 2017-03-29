@@ -135,7 +135,7 @@ public class MainCharacter extends Characters {
 		
 		if (Bouclier.isBouclierUtilisé == true) {
 			vitesseMouvements = 400;
-		}else if ( Ghost.etatScenario !=0 && Ghost.etatScenario < 16 ) vitesseMouvements = 600; 
+		}else if ( Ghost.etatScenario !=0 && Ghost.etatScenario < 14 ) vitesseMouvements = 600; 
 		else vitesseMouvements = 200;
 		
 		if (cha.getDirection().equals("gauche") ){

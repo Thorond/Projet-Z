@@ -178,15 +178,15 @@ public class MainMenu implements Screen{
 			}
 		}
 		
+//		choix du joueurs
 		if ( Ghost.etatScenario != 7 && Ghost.etatScenario < 9  && Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
 			Ghost.etatScenario ++;
 		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.K) ){
 			Ghost.etatScenario = 8;
 		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.L) ){
-			Ghost.etatScenario = 16;
+			Ghost.etatScenario = 14;
 		} else if ( Ghost.etatScenario == 11 && Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
-			Ghost.etatScenario = 20;
-			IglooD3.destroyBody();
+			Ghost.etatScenario = 18;
 		}
 		if (Ghost.etatScenario == 9 ) AlphabetEtAcquisition.isAlphabetUtilisé = true;
 	}
@@ -323,6 +323,7 @@ public class MainMenu implements Screen{
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
+					 Plume.récupérationPlume();
 //					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
 							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
@@ -412,7 +413,7 @@ public class MainMenu implements Screen{
 			} else {
 				
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
-				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 16) updateSc1Ghost(delta);
+				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
 				else updateInGame(delta );
 				
@@ -447,7 +448,9 @@ public class MainMenu implements Screen{
 				Link.draw(game.getBatch());
 			}
 			
-			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 16 ) Ghost.scenario1(game);
+//			 dessin de l'intéraction avec le fantome, codé ici car doit être au dessus du dessin du personnage
+			
+			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
 			
 				

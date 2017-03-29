@@ -3,13 +3,30 @@ package items;
 import com.badlogic.gdx.graphics.Texture;
 
 import characters.MainCharacter;
+import map.IglooC1;
+import map.PlacementMain;
+import menus.MenuSac;
+import scenes.MainMenu;
 
 public class Plume extends Item {
 	
 	public static Texture plume = new Texture("items/feather.png");
+	public static Texture textPlume = new Texture("texte/textPlume.png");
 	
 	public Plume(){
 		super(plume);
+	}
+	
+	public static boolean isPlumePrise = false; // a sauvegarder 
+	
+	public static void récupérationPlume(){
+		if (PlacementMain.positionSousMap.equals("IglooD3") && MainMenu.Link.getDirection().equals("haut") && !(Plume.isPlumePrise) 
+				 && MainMenu.Link.getX() >260 && MainMenu.Link.getX() < 280 
+				 && MainMenu.Link.getY()>360 ) {
+			 Plume.isPlumePrise = true;
+			 MainMenu.Link.annimationAward = true;
+			 MenuSac.setItem(MainMenu.plume);
+		 };
 	}
 	
 	public void utilisationItem( MainCharacter cha) {

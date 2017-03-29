@@ -7,6 +7,8 @@ import com.mygdx.game.GameMain;
 
 import characters.Ghost;
 import decors.ClimatMontagneux;
+import items.Bouclier;
+import items.Plume;
 import menus.MenuGameover;
 import scenes.MainMenu;
 
@@ -129,9 +131,24 @@ public class IglooD3 extends Sprite {
 		ClimatMontagneux.annimationTorcheIgloo(game, 140, 280);
 		ClimatMontagneux.annimationTorcheIgloo(game, 380, 280);
 		
-		if (Ghost.etatScenario < 20 ) Ghost.annimationAttente1(game, 270, 360);
-		else game.getBatch().draw(Ghost.fantEvap, 270, 360 );
-
+		if ( Ghost.etatScenario == 10 ) game.getBatch().draw(Ghost.FantFaceDeçu, 270 + x, 360 + y);
+		else if (Ghost.etatScenario == 9 ) Ghost.annimationPrésentationEnigme1(game, 270, 360);
+		else if (Ghost.etatScenario == 11 ) game.getBatch().draw(Ghost.FantFaceAward, 270 + x, 360 + y);
+		else if (Ghost.etatScenario < 17 ) Ghost.annimationAttente1(game, 270, 360);
+		else if (Ghost.etatScenario == 18 ) {
+			Ghost.animationDisparition(game, 270, 360);
+		}
+		else {
+			if (Plume.isPlumePrise == false ) game.getBatch().draw(Plume.plume, 270, 360 );
+			game.getBatch().draw(Ghost.fantEvap, 270, 360 );
+		}
+		
+		if ( !(Plume.isPlumePrise) ) ;
+		else if (  MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(Plume.plume, MainMenu.Link.getX() + x, MainMenu.Link.getY() + 60 + y);
+			game.getBatch().draw(Plume.textPlume, 100 + x, 60+y);
+		}
+		
 	}
 
 	public static void destroyBody() {
