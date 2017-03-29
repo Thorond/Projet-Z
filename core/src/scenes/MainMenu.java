@@ -14,6 +14,7 @@ import com.mygdx.game.GameMain;
 import characters.MainCharacter;
 import characters.Pnj;
 import decors.ClimatMontagneux;
+import interactionClavier.AlphabetEtAcquisition;
 import items.Bouclier;
 import items.CoeurDeVie;
 import items.Coffre;
@@ -151,6 +152,10 @@ public class MainMenu implements Screen{
 		}
 	}
 	
+	void updateAlEtAc(float dt){
+		AlphabetEtAcquisition.acquisitionTouche();
+	}
+	
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
@@ -219,8 +224,9 @@ public class MainMenu implements Screen{
 					
 //					mettre le jeu en pause et sauvegarder
 					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
-						SendClass.sendClass(sauvegarde);
+//						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+//						SendClass.sendClass(sauvegarde);
+						AlphabetEtAcquisition.isAlphabetUtilisé = true;
 					}
 					if (Gdx.input.isKeyPressed(Input.Keys.O)){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -358,7 +364,9 @@ public class MainMenu implements Screen{
 				MenuSac.affichéSac(game);
 			} else {
 				
-				updateInGame(delta );
+//				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
+				if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
+				else updateInGame(delta );
 				
 				Link.updatePlayer();
 				
@@ -390,6 +398,8 @@ public class MainMenu implements Screen{
 	//			dessin du joueur
 				Link.draw(game.getBatch());
 			}
+			
+			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
 				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac
