@@ -40,6 +40,9 @@ public class IglooD3 extends Sprite {
 	public static Body torche2;
 	public static boolean isTorche2Created;
 
+	public static Body ghost;
+	public static boolean isGhostCreated;
+
 	public static void représentation(GameMain game, int x, int y) {
 
 		game.getBatch().draw(MenuGameover.gameOverT, 0, 0);
@@ -126,7 +129,8 @@ public class IglooD3 extends Sprite {
 		ClimatMontagneux.annimationTorcheIgloo(game, 140, 280);
 		ClimatMontagneux.annimationTorcheIgloo(game, 380, 280);
 		
-		Ghost.annimationAttente1(game, 270, 360);
+		if (Ghost.etatScenario < 20 ) Ghost.annimationAttente1(game, 270, 360);
+		else game.getBatch().draw(Ghost.fantEvap, 270, 360 );
 
 	}
 
@@ -183,6 +187,10 @@ public class IglooD3 extends Sprite {
 		if (isTorche2Created)
 			MainMenu.world.destroyBody(torche2);
 		isTorche2Created = false;
+		
+		if (isGhostCreated)
+			MainMenu.world.destroyBody(ghost);
+		isGhostCreated = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -239,6 +247,11 @@ public class IglooD3 extends Sprite {
 		if (isTorche2Created == false) {
 			torche2 = ClimatMontagneux.createBodyPerso("arbre", "static", 380, 280);
 			isTorche2Created = true;
+		}
+		
+		if (isGhostCreated == false && Ghost.etatScenario < 20) {
+			ghost = ClimatMontagneux.createBody(270,360,60,60);
+			isGhostCreated = true;
 		}
 	}
 
