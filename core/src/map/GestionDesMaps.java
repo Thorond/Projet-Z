@@ -440,7 +440,6 @@ public class GestionDesMaps {
 				SousMapC1.sousMap(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("D1")) {
-				SousMapD1.destroyBody();  // à changer de place avec la map
 				SousMapD1.createBodyAndType(MainMenu.world);
 				SousMapD1.sousMap(game, 0, 0);
 			}
@@ -453,6 +452,7 @@ public class GestionDesMaps {
 				SousMapF1.sousMap(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("G1")) {
+				SousMapG1.destroyBody();  
 				SousMapG1.createBodyAndType(MainMenu.world);
 				SousMapG1.sousMap(game, 0, 0);
 			}
