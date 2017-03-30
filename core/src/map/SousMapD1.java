@@ -37,6 +37,11 @@ public class SousMapD1 extends Sprite{
 	public static Body gate2;
 	public static boolean isGate2Created;
 	
+	public static Body torche1;
+	public static boolean istorche1Created;
+	public static Body torche2;
+	public static boolean istorche2Created;
+	
 	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
@@ -269,6 +274,8 @@ public class SousMapD1 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 5*60 + x, 2*60+ y);
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 7*60 + x, 6*60+ y);
 		
+		
+//		totems
 		Totem.représentationTotems(game, x , y);
 		if (!(Totem.jeuRésolu)  && mapChargé) {
 			Totem.positionInitialLink();
@@ -279,6 +286,10 @@ public class SousMapD1 extends Sprite{
 		} else {
 			game.getBatch().draw(DonjonGlace.gate2Ouvert2, 527+ x, 147+ y);
 		}
+		
+//		
+		ClimatMontagneux.annimationTorche(game, 3*60+x, 10+y);
+		ClimatMontagneux.annimationTorche(game, 6*60+x, 10+y);
 	}
 
 	public static void destroyBody() {
@@ -318,6 +329,11 @@ public class SousMapD1 extends Sprite{
 		isGate1Created = false;
 		if ( isGate2Created) MainMenu.world.destroyBody(gate2);
 		isGate2Created = false;
+		
+		if ( istorche1Created) MainMenu.world.destroyBody(torche1);
+		istorche1Created = false;
+		if ( istorche2Created) MainMenu.world.destroyBody(torche2);
+		istorche2Created = false;
 		
 	}
 	
@@ -423,6 +439,15 @@ public class SousMapD1 extends Sprite{
 				gate2 = ClimatMontagneux.createBody( 570 ,300 ,30,60);
 				isGate2Created = true;
 			}
+		}
+		
+		if ( istorche1Created == false ) {
+			torche1 = ClimatMontagneux.createBody( 3*60 +15 ,0*60 +15 ,60,60);
+			istorche1Created = true;
+		}
+		if ( istorche2Created == false ) {
+			torche2 = ClimatMontagneux.createBody( 6*60 +15 ,0*60 +15 ,60,60);
+			istorche2Created = true;
 		}
 	}
 

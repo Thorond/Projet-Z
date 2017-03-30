@@ -43,23 +43,31 @@ public class Totem {
 	public static void déplacementTotems(){
 		if (isLinkDamier){
 			if ( xLink -(int) (MainMenu.Link.getX() / 60 ) > 0 ) {
-				if ( CadrillageMap.typeDeDécor[xTotem1][yTotem1+1].equals("") && yTotem1 < 7) yTotem1 ++;
-				if ( CadrillageMap.typeDeDécor[xTotem2][yTotem2-1].equals("")) yTotem2 --;
+				if ( CadrillageMap.typeDeDécor[xTotem1][yTotem1+1].equals("") && yTotem1 < 7 
+						&& !( yTotem1+1 == yTotem2 && xTotem1 == xTotem2 )) yTotem1 ++;
+				if ( CadrillageMap.typeDeDécor[xTotem2][yTotem2-1].equals("")
+						&& !( yTotem1 == yTotem2 && xTotem1 == xTotem2-1 )) yTotem2 --;
 				xLink = (int) (MainMenu.Link.getX() / 60 );
 			}
 			else if ( xLink -(int) (MainMenu.Link.getX() / 60 ) < 0 ) {
-				if ( CadrillageMap.typeDeDécor[xTotem1][yTotem1-1].equals("")) yTotem1 --;
-				if ( CadrillageMap.typeDeDécor[xTotem2][yTotem2+1].equals("") && yTotem2 < 7) yTotem2 ++;
+				if ( CadrillageMap.typeDeDécor[xTotem1][yTotem1-1].equals("")
+						&& !( yTotem1-1 == yTotem2 && xTotem1 == xTotem2 )) yTotem1 --;
+				if ( CadrillageMap.typeDeDécor[xTotem2][yTotem2+1].equals("") && yTotem2 < 7
+						&& !( yTotem1 == yTotem2 && xTotem1 == xTotem2+1 )) yTotem2 ++;
 				xLink = (int) (MainMenu.Link.getX() / 60 );
 			}
 			else if ( yLink -(int) (MainMenu.Link.getY() / 60 ) > 0 ) {
-				if ( CadrillageMap.typeDeDécor[xTotem1-1][yTotem1].equals("")) xTotem1 --;
-				if ( CadrillageMap.typeDeDécor[xTotem2+1][yTotem2].equals("")) xTotem2 ++;
+				if ( CadrillageMap.typeDeDécor[xTotem1-1][yTotem1].equals("")
+						&& !( yTotem1 == yTotem2 && xTotem1-1 == xTotem2 )) xTotem1 --;
+				if ( CadrillageMap.typeDeDécor[xTotem2+1][yTotem2].equals("")
+						&& !( yTotem1 == yTotem2 && xTotem1 == xTotem2+1 )) xTotem2 ++;
 				yLink = (int) (MainMenu.Link.getY() / 60 );
 			}
 			else if ( yLink -(int) (MainMenu.Link.getY() / 60 ) < 0 ) {
-				if ( CadrillageMap.typeDeDécor[xTotem1+1][yTotem1].equals("")) xTotem1 ++;
-				if ( CadrillageMap.typeDeDécor[xTotem2-1][yTotem2].equals("")) xTotem2 --;
+				if ( CadrillageMap.typeDeDécor[xTotem1+1][yTotem1].equals("")
+						&& !( yTotem1 == yTotem2 && xTotem1+1 == xTotem2 )) xTotem1 ++;
+				if ( CadrillageMap.typeDeDécor[xTotem2-1][yTotem2].equals("")
+						&& !( yTotem1 == yTotem2 && xTotem1 == xTotem2-1 )) xTotem2 --;
 				yLink = (int) (MainMenu.Link.getY() / 60 );
 			}
 		}
