@@ -179,6 +179,8 @@ public class ClimatMontagneux {
 	
 //	tile
 	
+	public static Texture  socle1 = new Texture("climatMontagneux/socle1.png");
+	
 	public static Texture  arbreBasDroite = new Texture("climatMontagneux/arbreBasDroite.png");
 	public static Texture  arbreBasGauche = new Texture("climatMontagneux/arbreBasGauche.png");
 	public static Texture  arbreBasMilieu = new Texture("climatMontagneux/arbreBasMilieu.png");
@@ -188,6 +190,8 @@ public class ClimatMontagneux {
 	public static Texture  arbreSommetDroite = new Texture("climatMontagneux/arbreSommetDroite.png");
 	public static Texture  arbreSommetGauche = new Texture("climatMontagneux/arbreSommetGau.png");
 	public static Texture  arbreSommetMilieu = new Texture("climatMontagneux/arbreSommetMilieu.png");
+	
+	public static Texture  bordUni = new Texture("climatMontagneux/bordUni.png");
 	
 	public static Texture  bordGlacéDroi = new Texture("climatMontagneux/bordGlacéDroi.png");
 	public static Texture  bordGlacéGau  = new Texture("climatMontagneux/bordGlacéGau.png");
