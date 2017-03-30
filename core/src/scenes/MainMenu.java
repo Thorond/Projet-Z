@@ -75,7 +75,7 @@ public class MainMenu implements Screen{
 		
 //		lorsqu'une sauvegarde existe, on l'appelle
 		
-		Link = new MainCharacter(world, 12, 8, 4, 0 , 0 , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 16, 15, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -156,15 +156,37 @@ public class MainMenu implements Screen{
 	
 //	premier scenario avec le fantôme 
 	void updateSc1Ghost(float dt){
+//		déplacement du joueur vers ghost
+		if ( Link.getBody().getPosition().x > 275/PPM ) {
+			Link.getBody().applyLinearImpulse(new Vector2(-100f,0), Link.getBody().getWorldCenter(), true);
+			Link.setDirection("gauche");
+			Link.représentationLink(Link);
+		}
+		else if ( Link.getBody().getPosition().x < 265/PPM ) {
+			Link.getBody().applyLinearImpulse(new Vector2(100f,0), Link.getBody().getWorldCenter(), true);
+			Link.setDirection("droite");
+			Link.représentationLink(Link);
+		} else {
+			Link.getBody().setLinearVelocity(0,Link.getBody().getLinearVelocity().y);
+			if ( Link.getBody().getPosition().y < 270/PPM ) {
+				Link.getBody().applyLinearImpulse(new Vector2(0,+100f), Link.getBody().getWorldCenter(), true);
+				Link.setDirection("haut");
+				Link.représentationLink(Link);
+			} else {
+				Link.setTexture(MainCharacter.linkHautRepos);
+				Link.getBody().setLinearVelocity(0,0);
+			}
+		}
+		
+//		choix du joueurs
 		if ( Ghost.etatScenario != 7 && Ghost.etatScenario < 9  && Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
 			Ghost.etatScenario ++;
 		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.K) ){
 			Ghost.etatScenario = 8;
 		} else if ( ( Ghost.etatScenario == 7 || Ghost.etatScenario == 10 ) && Gdx.input.isKeyJustPressed(Input.Keys.L) ){
-			Ghost.etatScenario = 16;
+			Ghost.etatScenario = 14;
 		} else if ( Ghost.etatScenario == 11 && Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
-			Ghost.etatScenario = 20;
-			IglooD3.destroyBody();
+			Ghost.etatScenario = 18;
 		}
 		if (Ghost.etatScenario == 9 ) AlphabetEtAcquisition.isAlphabetUtilisé = true;
 	}
@@ -301,6 +323,7 @@ public class MainMenu implements Screen{
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
+					 Plume.récupérationPlume();
 //					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
 							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
@@ -390,7 +413,7 @@ public class MainMenu implements Screen{
 			} else {
 				
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
-				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 16) updateSc1Ghost(delta);
+				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
 				else updateInGame(delta );
 				
@@ -425,7 +448,9 @@ public class MainMenu implements Screen{
 				Link.draw(game.getBatch());
 			}
 			
-			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 16 ) Ghost.scenario1(game);
+//			 dessin de l'intéraction avec le fantome, codé ici car doit être au dessus du dessin du personnage
+			
+			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
 			
 				

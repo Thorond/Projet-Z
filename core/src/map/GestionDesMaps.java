@@ -452,6 +452,7 @@ public class GestionDesMaps {
 				SousMapF1.sousMap(game, 0, 0);
 			}
 			else if ( PlacementMain.positionSousMap.equals("G1")) {
+				SousMapG1.destroyBody();  
 				SousMapG1.createBodyAndType(MainMenu.world);
 				SousMapG1.sousMap(game, 0, 0);
 			}

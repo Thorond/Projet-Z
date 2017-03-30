@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.Totem;
 
 public class SousMapC5 extends Sprite{
 	

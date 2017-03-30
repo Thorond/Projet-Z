@@ -181,10 +181,30 @@ public class SousMapD3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 420+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 480+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 540+ x, 240+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 340+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 400+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 460+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 310+ x, 270+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 370+ x, 270+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 430+ x, 270+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 250+ x, 70+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 250+ x, 130+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 250+ x, 190+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 250+ x, 250+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 310+ x, 70+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 310+ x, 130+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 310+ x, 190+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 310+ x, 250+ y);
 
 		game.getBatch().draw(ClimatMontagneux.igloo, 380+ x, 120+ y);
 
-		
+		game.getBatch().draw(ClimatMontagneux.tree, 370+ x, 110+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 60+ y);
+
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 540+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 580+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 580+ x, 120+ y);
