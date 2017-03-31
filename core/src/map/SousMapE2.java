@@ -39,7 +39,8 @@ public class SousMapE2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 180+ y);		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0 + x,240 + y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 300+ y);
-		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.eauProfonde, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 0+ x, 360+ y);
 		ClimatMontagneux.eauProfondeGlacée(game,0+ x, 420+y);
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 60+ x, 0+ y);
@@ -123,6 +124,7 @@ public class SousMapE2 extends Sprite{
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 360+y);
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 420+y);
 		
+		
 		game.getBatch().draw(ClimatMontagneux.glaceFragmentéHautGauche, 60+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.cheminGlace, 120+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.glaceFragmentéHautDroite, 180+ x, 420+ y);
@@ -175,6 +177,9 @@ public class SousMapE2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 300+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 360+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 420+ x, 0+ y);
+		
+
+		game.getBatch().draw(ClimatMontagneux.herbeGlace, 120+ x, 180+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 00+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 0+ y);

@@ -160,6 +160,24 @@ public class SousMapC1 extends Sprite {
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 360+y);
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 420+y);
 		
+//		arbre
+
+		game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 540+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tronc, 480+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tronc, 540+ x, 120+ y);
+		
+
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 90+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tronc, 120+ x, 260+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, 410+ x, 180+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 50+ x, 0+ y);
+		
 		
 //		tonneau 
 		
@@ -182,11 +200,11 @@ public class SousMapC1 extends Sprite {
 		CadrillageMap.setTypeDeDécor(9, 5, "EauProfonde");
 		
 		if ( isMurAvantGaucheCreated == false ) {
-			murAvantGauche = ClimatMontagneux.createBody(60,100,180,100);
+			murAvantGauche = ClimatMontagneux.createBody(70,115,180,110);
 			isMurAvantGaucheCreated = true;
 		}
 		if ( isMurAvantDroiteCreated == false ) {
-			murAvantDroite = ClimatMontagneux.createBody(340,100,240,100);
+			murAvantDroite = ClimatMontagneux.createBody(340,115,240,110);
 			isMurAvantDroiteCreated = true;
 		}
 		if ( isMurArriereCreated == false ) {

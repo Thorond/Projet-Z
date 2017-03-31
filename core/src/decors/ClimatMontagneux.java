@@ -217,7 +217,10 @@ public class ClimatMontagneux {
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
 
+	public static Texture  herbeGlace= new Texture("climatMontagneux/herbeGlace.png");
+
 	public static Texture  glaceSombre= new Texture("climatMontagneux/glaceSombre.png");
+	public static Texture  glaceSombre2= new Texture("climatMontagneux/glaceSombre2.png");
 	
 	public static Texture  merGlacéCassé1Sup= new Texture("climatMontagneux/merGlacéCassé1Sup.png");
 	public static Texture  merGlacéCassé2Sup= new Texture("climatMontagneux/merGlacéCassé2Sup.png");
