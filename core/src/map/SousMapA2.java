@@ -163,6 +163,8 @@ public class SousMapA2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.morceauGlacéInf,420+x,60+y);
 		game.getBatch().draw(ClimatMontagneux.morceauGlacéInf,480+x,60+y);
 		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentéeBasGauche,540+x,60+y);
+		
+		
 	
 	}
 	

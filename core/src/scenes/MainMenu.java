@@ -75,7 +75,7 @@ public class MainMenu implements Screen{
 		
 //		lorsqu'une sauvegarde existe, on l'appelle
 		
-		Link = new MainCharacter(world, 16, 15, 4, 0 , 0 , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 16, 35, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -337,8 +337,9 @@ public class MainMenu implements Screen{
 							 SousMapF2.ouvertureCoffre = true;
 						 }
 					 }
-					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
-					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+					PlacementMain.setDéplacement(Link);
+					PlacementMain.détectionTrou(Link);
+					PlacementMain.détectionEauP(Link);
 //									Récuparation du réceptacle 
 					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("receptacleDeCoeur")) {
 						CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *PPM/60 ), (int) (Link.getBody().getPosition().y *PPM/ 60 ), "");

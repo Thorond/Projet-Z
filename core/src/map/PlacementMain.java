@@ -2,6 +2,7 @@ package map;
 
 import characters.Ghost;
 import characters.MainCharacter;
+import decors.ClimatMontagneux;
 import items.CoeurDeVie;
 import scenes.MainMenu;
 
@@ -578,7 +579,85 @@ public class PlacementMain {
 		}
 		
 	}
+//	déplacement de link , vers le haut le bas la droite ou la gauche entre deux tiles
+	public static String typeDéplacementVertical = "" ;
+	public static String typeDéplacementHorizontal = "" ;
+	public static boolean déplacementVertical = false;
+	public static boolean déplacementHorizontal = false;
+	public static void setDéplacement(MainCharacter Link){
+//		 changement de direction?
+		if ( déplacementHorizontal ){
+			if ( typeDéplacementHorizontal.equals("gauche") || typeDéplacementHorizontal.equals("droite")) {
+				if ( Link.getX() % 60 > 25 && Link.getX() % 60 < 35) déplacementHorizontal =false;
+			} 
+		} //		initialisation 
+		else {
+			if ( Link.getDirection().equals("gauche") || Link.getDirection().equals("droite")) {
+				if (Link.getX() % 60 < 10 ) {
+					typeDéplacementHorizontal = "gauche";
+					déplacementHorizontal = true;
+				}
+				else if (Link.getX() % 60 > 50 ) {
+					typeDéplacementHorizontal = "droite";
+					déplacementHorizontal = true;
+				}
+			} 
+		} 
+		if ( déplacementVertical ){
+			if ( typeDéplacementVertical.equals("haut") || typeDéplacementVertical.equals("bas")){
+				if ( Link.getY() % 60 > 25 && Link.getY() % 60 < 35 ) déplacementVertical =false;
+			}
+		} //		initialisation 
+		else {
+			if ( Link.getDirection().equals("haut") || Link.getDirection().equals("bas")) {
+				if (Link.getY() % 60 < 10 ) {
+					typeDéplacementVertical = "bas";
+					déplacementVertical = true;
+				}
+				else if (Link.getY() % 60 >50 ) {
+					typeDéplacementVertical = "haut";
+					déplacementVertical = true;
+				}
+			}
+		} 	
+		System.out.println(typeDéplacementVertical);
+		System.out.println(typeDéplacementHorizontal);
+	}
 	
+	
+//	 détection si trou , eau 
+	
+	public static void détectionTrou(MainCharacter Link) {
+		if ( typeDéplacementHorizontal.equals("gauche") )  {
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y+5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			}
+		} else if ( typeDéplacementHorizontal.equals("droite") ){
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y+5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			}
+		}
+	}
+	
+	public static void détectionEauP(MainCharacter Link) {
+		if ( typeDéplacementHorizontal.equals("gauche") )  {
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12 )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y +5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12 )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			}
+		} else if ( typeDéplacementHorizontal.equals("droite") ){
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y +5 )*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			}
+		}
+	}
 	
 
 }
