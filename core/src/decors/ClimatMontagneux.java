@@ -84,6 +84,9 @@ public class ClimatMontagneux {
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
 	public static Texture signTête = new Texture("climatMontagneux/signTête.png");
+
+	public static Texture grandPontVertical = new Texture("climatMontagneux/grandPontVertical.png");
+	public static Texture grandPontVertical2 = new Texture("climatMontagneux/grandPontVertical2.png");
 	
 	public static Texture coffreBleuFermé = new Texture("climatMontagneux/coffreBleuFermé.png");
 	public static Texture coffreBleuOuvert1 = new Texture("climatMontagneux/coffreBleuOuvert1.png");

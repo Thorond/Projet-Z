@@ -241,8 +241,8 @@ public class GestionDesMaps {
 					SousMapF2.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapF1.sousMap(game, 0, PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("G2") ) {
-					SousMapG2.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapG1.sousMap(game, 0, PlacementMain.y);
+					SousMapG2.sousMap(game, 0, -480 + PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("A3") ) {
 					SousMapA2.sousMap(game,0, PlacementMain.y);
 					SousMapA3.sousMap(game, 0,-480 + PlacementMain.y );
@@ -334,8 +334,8 @@ public class GestionDesMaps {
 					SousMapF2.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapF1.sousMap(game, 0, 480-PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("G1") ) {
-					SousMapG2.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapG1.sousMap(game, 0, 480-PlacementMain.y);
+					SousMapG2.sousMap(game, 0, 0-PlacementMain.y);
 				} else if ( PlacementMain.positionSousMap.equals("A2") ) {
 					SousMapA2.sousMap(game,0,480- PlacementMain.y);
 					SousMapA3.sousMap(game, 0,0- PlacementMain.y );

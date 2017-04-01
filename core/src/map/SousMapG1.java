@@ -257,6 +257,7 @@ public class SousMapG1 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 10+ x, 10+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, -30+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 30+ x, -60+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 10+ x, 430+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 430+ y);
@@ -265,6 +266,7 @@ public class SousMapG1 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 530+ x, 10+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 530+ x, -30+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 500+ x, -60+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 530+ x, 430+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 430+ y);
@@ -279,19 +281,20 @@ public class SousMapG1 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 7*60 + x, 6*60+ y);
 		
 		
-//		totems
+//		totems et gate
 		Totem.représentationTotems(game, x , y);
 		if (!(Totem.jeuRésolu)  && mapChargé) {
 			Totem.positionInitialLink();
 			Totem.déplacementTotems();
-			game.getBatch().draw(DonjonGlace.gate2Fermé, 540+ x, 185+ y);
 		} else if (DonjonGlace.transitionGate ){
 			DonjonGlace.annimationOuvertureGate(game, x, y);
 		} else {
-			game.getBatch().draw(DonjonGlace.gate2Ouvert2, 527+ x, 147+ y);
 		}
 		
-//		
+		if ( !(Totem.jeuRésolu) ) game.getBatch().draw(DonjonGlace.gate2Fermé, 540+ x, 185+ y);
+		else if ( Totem.jeuRésolu && !(DonjonGlace.transitionGate )) game.getBatch().draw(DonjonGlace.gate2Ouvert2, 527+ x, 147+ y);
+		
+//		torches
 		ClimatMontagneux.annimationTorche(game, 3*60+x, 10+y);
 		ClimatMontagneux.annimationTorche(game, 6*60+x, 10+y);
 	}
