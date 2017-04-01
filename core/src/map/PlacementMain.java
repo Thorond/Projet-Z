@@ -579,9 +579,14 @@ public class PlacementMain {
 		}
 		
 	}
+	
+	
+	
+//	================================================================================
 //	déplacement de link , vers le haut le bas la droite ou la gauche entre deux tiles
-	public static String typeDéplacementVertical = "" ;
-	public static String typeDéplacementHorizontal = "" ;
+//	================================================================================
+	public static String typeDéplacementVertical = "bas" ;
+	public static String typeDéplacementHorizontal = "gauche" ;
 	public static boolean déplacementVertical = false;
 	public static boolean déplacementHorizontal = false;
 	public static void setDéplacement(MainCharacter Link){
@@ -620,12 +625,11 @@ public class PlacementMain {
 				}
 			}
 		} 	
-		System.out.println(typeDéplacementVertical);
-		System.out.println(typeDéplacementHorizontal);
 	}
 	
 	
 //	 détection si trou , eau 
+//	========================================
 	
 	public static void détectionTrou(MainCharacter Link) {
 		if ( typeDéplacementHorizontal.equals("gauche") )  {

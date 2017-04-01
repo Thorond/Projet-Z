@@ -75,7 +75,7 @@ public class MainMenu implements Screen{
 		
 //		lorsqu'une sauvegarde existe, on l'appelle
 		
-		Link = new MainCharacter(world, 16, 35, 4, 0 , 0 , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 16, 15, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		

@@ -287,6 +287,8 @@ public class ClimatMontagneux {
 //	public static Texture = new Texture("climatMontagneux/.png");
 	
 	public static Texture icebergWater = new Texture("climatMontagneux/iceBergWater.png");
+	public static Texture iceberg1 = new Texture("climatMontagneux/iceBerg1.png");
+	public static Texture iceberg2 = new Texture("climatMontagneux/iceBerg2.png");
 	
 	
 //	eau de mer 
