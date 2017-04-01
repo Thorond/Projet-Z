@@ -42,6 +42,9 @@ public class PlacementMain {
 			}  else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "G2";
 				SousMapG1.destroyBody();
+			}  else if ( positionSousMap.equals("H1")  ){
+				positionSousMap = "H2";
+				SousMapH1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 				SousMapA2.destroyBody();
 				positionSousMap = "A3";
@@ -63,6 +66,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2")  ){
 				SousMapG2.destroyBody();
 				positionSousMap = "G3";
+			} else if ( positionSousMap.equals("H2")  ){
+				SousMapH2.destroyBody();
+				positionSousMap = "H3";
 			} else if ( positionSousMap.equals("A3") ){
 				SousMapA3.destroyBody();
 				positionSousMap = "A4";
@@ -84,6 +90,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G3")  ){
 				SousMapG3.destroyBody();
 				positionSousMap = "G4";
+			} else if ( positionSousMap.equals("H3")  ){
+				SousMapH3.destroyBody();
+				positionSousMap = "H4";
 			} else if ( positionSousMap.equals("A4") ){
 				SousMapA4.destroyBody();
 				positionSousMap = "A5";
@@ -105,6 +114,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4")  ){
 				SousMapG4.destroyBody();
 				positionSousMap = "G5";
+			} else if ( positionSousMap.equals("H4")  ){
+				SousMapH4.destroyBody();
+				positionSousMap = "H5";
 			} else if ( positionSousMap.equals("A5") ){
 				SousMapA5.destroyBody();
 				positionSousMap = "A6";
@@ -126,6 +138,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5")  ){
 				SousMapG5.destroyBody();
 				positionSousMap = "G6";
+			} else if ( positionSousMap.equals("H5")  ){
+				SousMapH5.destroyBody();
+				positionSousMap = "H6";
 			}
 			
 			défilement = true;
@@ -145,6 +160,7 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("E1" ) ){
 			} else if ( positionSousMap.equals("F1" ) ){
 			} else if ( positionSousMap.equals("G1" ) ){
+			} else if ( positionSousMap.equals("H1" ) ){
 			} else if ( positionSousMap.equals("A2") ){
 				SousMapA2.destroyBody();
 				positionSousMap = "A1";
@@ -166,6 +182,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2") ){
 				SousMapG2.destroyBody();
 				positionSousMap = "G1";
+			} else if ( positionSousMap.equals("H2") ){
+				SousMapH2.destroyBody();
+				positionSousMap = "H1";
 			} else if ( positionSousMap.equals("A3") ){
 				SousMapA3.destroyBody();
 				positionSousMap = "A2";
@@ -187,6 +206,9 @@ public class PlacementMain {
 			}  else if ( positionSousMap.equals("G3") ){
 				SousMapG3.destroyBody();
 				positionSousMap = "G2";
+			}  else if ( positionSousMap.equals("H3") ){
+				SousMapH3.destroyBody();
+				positionSousMap = "H2";
 			} else if ( positionSousMap.equals("A4") ){
 				SousMapA4.destroyBody();
 				positionSousMap = "A3";
@@ -208,6 +230,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4") ){
 				SousMapG4.destroyBody();
 				positionSousMap = "G3";
+			} else if ( positionSousMap.equals("H4") ){
+				SousMapH4.destroyBody();
+				positionSousMap = "H3";
 			} else if ( positionSousMap.equals("A5") ){
 				SousMapA5.destroyBody();
 				positionSousMap = "A4";
@@ -229,6 +254,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5") ){
 				SousMapG5.destroyBody();
 				positionSousMap = "G4";
+			} else if ( positionSousMap.equals("H5") ){
+				SousMapH5.destroyBody();
+				positionSousMap = "H4";
 			}
 			
 			défilement = true;
@@ -260,6 +288,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "F1";
 				SousMapG1.destroyBody();
+			} else if ( positionSousMap.equals("H1")  ){
+				positionSousMap = "G1";
+				SousMapH1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 			} else if ( positionSousMap.equals("B2")  ){
 				SousMapB2.destroyBody();
@@ -279,6 +310,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2")  ){
 				SousMapG2.destroyBody();
 				positionSousMap = "F2";
+			} else if ( positionSousMap.equals("H2")  ){
+				SousMapH2.destroyBody();
+				positionSousMap = "G2";
 			} else if ( positionSousMap.equals("A3") ){
 			} else if ( positionSousMap.equals("B3")  ){
 				SousMapB3.destroyBody();
@@ -298,6 +332,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G3")  ){
 				SousMapG3.destroyBody();
 				positionSousMap = "F3";
+			} else if ( positionSousMap.equals("H3")  ){
+				SousMapH3.destroyBody();
+				positionSousMap = "G3";
 			} else if ( positionSousMap.equals("A4") ){
 			} else if ( positionSousMap.equals("B4")  ){
 				SousMapB4.destroyBody();
@@ -317,6 +354,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4")  ){
 				SousMapG4.destroyBody();
 				positionSousMap = "F4";
+			} else if ( positionSousMap.equals("H4")  ){
+				SousMapH4.destroyBody();
+				positionSousMap = "G4";
 			} else if ( positionSousMap.equals("A5") ){
 			} else if ( positionSousMap.equals("B5")  ){
 				SousMapB5.destroyBody();
@@ -336,6 +376,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5")  ){
 				SousMapG5.destroyBody();
 				positionSousMap = "F5";
+			} else if ( positionSousMap.equals("H5")  ){
+				SousMapH5.destroyBody();
+				positionSousMap = "G5";
 			}
 			
 			défilement = true;
@@ -369,6 +412,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "H1";
 				SousMapG1.destroyBody();
+			} else if ( positionSousMap.equals("H1")  ){
+				positionSousMap = "I1";
+				SousMapH1.destroyBody();
 			} else if ( positionSousMap.equals("A2" ) ){
 				SousMapA2.destroyBody();
 				positionSousMap = "B2";
@@ -390,6 +436,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2") ){
 				SousMapG2.destroyBody();
 				positionSousMap = "H2";
+			} else if ( positionSousMap.equals("H2") ){
+				SousMapH2.destroyBody();
+				positionSousMap = "I2";
 			} else if ( positionSousMap.equals("A3" ) ){
 				SousMapA3.destroyBody();
 				positionSousMap = "B3";
@@ -411,6 +460,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G3") ){
 				SousMapG3.destroyBody();
 				positionSousMap = "H3";
+			} else if ( positionSousMap.equals("H3") ){
+				SousMapH3.destroyBody();
+				positionSousMap = "I3";
 			} else if ( positionSousMap.equals("A4" ) ){
 				SousMapA4.destroyBody();
 				positionSousMap = "B4";
@@ -432,6 +484,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4") ){
 				SousMapG4.destroyBody();
 				positionSousMap = "H4";
+			} else if ( positionSousMap.equals("H4") ){
+				SousMapH4.destroyBody();
+				positionSousMap = "I4";
 			} else if ( positionSousMap.equals("A5" ) ){
 				SousMapA5.destroyBody();
 				positionSousMap = "B5";
@@ -453,6 +508,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5") ){
 				SousMapG5.destroyBody();
 				positionSousMap = "H5";
+			} else if ( positionSousMap.equals("H5") ){
+				SousMapH5.destroyBody();
+				positionSousMap = "I5";
 			}
 			
 			défilement = true;
