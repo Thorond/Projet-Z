@@ -237,7 +237,7 @@ public class SousMapG3 extends Sprite{
 		
 		
 		if ( m2EstCrée == false ) {
-			monstre2 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaDroite2, 10 , 10 , 2 , 150 , 380 , "droite") ;
+			monstre2 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaDroite2, 150 , 380 , "droite") ;
 			Pnj.monstres[1] = monstre2;
 			Pnj.nbrDeMonstres = 2;
 			m2EstCrée = true;
@@ -248,7 +248,7 @@ public class SousMapG3 extends Sprite{
 		}
 		
 		if ( m1EstCrée == false ) {
-			monstre1 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaFace2, 10 , 10 , 2 , 460 , 300 , "bas") ;
+			monstre1 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaFace2, 460 , 300 , "bas") ;
 			Pnj.monstres[0] = monstre1;
 			m1EstCrée = true;
 		} else {

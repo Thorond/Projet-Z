@@ -209,6 +209,10 @@ public class SousMapH3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 90+ x, -30+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, -30+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 270+ x, -30+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 40+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 130+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 220+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 310+ x, -60+ y);
 		
 		
 		

@@ -75,6 +75,10 @@ public class ClimatMontagneux {
 	public static Texture planteGelé = new Texture("climatMontagneux/planteGelé.png");
 	public static Texture planteGelé2 = new Texture("climatMontagneux/planteGelé2.png");
 	public static Texture planteGelé2Cut = new Texture("climatMontagneux/planteGelé2Cut.png");
+	public static void arbuste(boolean isCut,GameMain game, int x, int y ){
+		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.planteGelé2, x, y);
+		else game.getBatch().draw(ClimatMontagneux.planteGelé2Cut, x, y);
+	}
 	public static Texture planteGelé3 = new Texture("climatMontagneux/planteGelé3.png");
 	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
 	public static Texture bushCut = new Texture("climatMontagneux/BushCut.png");
@@ -222,7 +226,9 @@ public class ClimatMontagneux {
 	
 	public static Texture  ciel= new Texture("climatMontagneux/ciel.png");
 	public static Texture  escalierGlacé= new Texture("climatMontagneux/escalieGlacé.png");
+	public static Texture  escalierGlacé2= new Texture("climatMontagneux/escalieGlacé2.png");
 	public static Texture  escalierHaut= new Texture("climatMontagneux/escalierHaut.png");
+	public static Texture  escalierHaut2= new Texture("climatMontagneux/escalierHaut2.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
 
