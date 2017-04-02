@@ -18,6 +18,8 @@ public class PlacementMain {
 	public static int x; 
 	public static int y;
 	public static String direction;
+	public static float positionRelativeX = MainMenu.Link.getBody().getPosition().x;
+	public static float positionRelativeY = MainMenu.Link.getBody().getPosition().y;
 	
 	
 	public static void posiSousMap(MainCharacter perso){

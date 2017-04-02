@@ -622,10 +622,14 @@ public class GestionDesMaps {
 			if ( PlacementMain.x == 600) {
 				PlacementMain.défilement = false;
 				PlacementMain.x = 0;
+				PlacementMain.positionRelativeX = MainMenu.Link.getBody().getPosition().x;
+				PlacementMain.positionRelativeY = MainMenu.Link.getBody().getPosition().y;
 			}
 			if ( PlacementMain.y == 480) {
 				PlacementMain.défilement = false;
 				PlacementMain.y = 0;
+				PlacementMain.positionRelativeX = MainMenu.Link.getBody().getPosition().x;
+				PlacementMain.positionRelativeY = MainMenu.Link.getBody().getPosition().y;
 			}
 	}
 	
