@@ -50,6 +50,11 @@ public class SousMapD3 extends Sprite{
 	public static Body petitePierre3;
 	public static boolean isPetitePierre3Created;
 	
+	public static Body arbre1;
+	public static boolean isarbre1Created;
+	public static Body arbre2;
+	public static boolean isarbre2Created;
+	
 	public static boolean isBuisson1Cut = false;
 	public static boolean isBuisson2Cut = false;
 	public static boolean isBuisson3Cut = false;
@@ -337,6 +342,15 @@ public class SousMapD3 extends Sprite{
 			petitePierre3 = ClimatMontagneux.createBodyPerso("grossePierre", "static",480,360);
 			isPetitePierre3Created = true;
 		}
+		
+		if ( isarbre1Created == false ) {
+			arbre1 = ClimatMontagneux.createBody(370, 80,60,60);
+			isarbre1Created = true;
+		}
+		if ( isarbre2Created == false ) {
+			arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",510,60);
+			isarbre2Created = true;
+		}
 	}
 
 	public static void destroyType() {
@@ -408,5 +422,11 @@ public class SousMapD3 extends Sprite{
 		
 		if ( isPetitePierre3Created) MainMenu.world.destroyBody(petitePierre3);
 		isPetitePierre3Created = false;
+		
+		if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+		isarbre1Created = false;
+		
+		if ( isarbre2Created) MainMenu.world.destroyBody(arbre2);
+		isarbre2Created = false;
 	}
 }

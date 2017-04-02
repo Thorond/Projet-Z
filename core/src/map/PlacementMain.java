@@ -2,6 +2,7 @@ package map;
 
 import characters.Ghost;
 import characters.MainCharacter;
+import decors.ClimatMontagneux;
 import items.CoeurDeVie;
 import scenes.MainMenu;
 
@@ -17,6 +18,8 @@ public class PlacementMain {
 	public static int x; 
 	public static int y;
 	public static String direction;
+	public static float positionRelativeX = MainMenu.Link.getBody().getPosition().x;
+	public static float positionRelativeY = MainMenu.Link.getBody().getPosition().y;
 	
 	
 	public static void posiSousMap(MainCharacter perso){
@@ -42,6 +45,12 @@ public class PlacementMain {
 			}  else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "G2";
 				SousMapG1.destroyBody();
+			}  else if ( positionSousMap.equals("H1")  ){
+				positionSousMap = "H2";
+				SousMapH1.destroyBody();
+			}  else if ( positionSousMap.equals("I1")  ){
+				positionSousMap = "I2";
+				SousMapI1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 				SousMapA2.destroyBody();
 				positionSousMap = "A3";
@@ -63,6 +72,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2")  ){
 				SousMapG2.destroyBody();
 				positionSousMap = "G3";
+			} else if ( positionSousMap.equals("H2")  ){
+				SousMapH2.destroyBody();
+				positionSousMap = "H3";
+			} else if ( positionSousMap.equals("I2")  ){
+				SousMapI2.destroyBody();
+				positionSousMap = "I3";
 			} else if ( positionSousMap.equals("A3") ){
 				SousMapA3.destroyBody();
 				positionSousMap = "A4";
@@ -84,6 +99,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G3")  ){
 				SousMapG3.destroyBody();
 				positionSousMap = "G4";
+			} else if ( positionSousMap.equals("H3")  ){
+				SousMapH3.destroyBody();
+				positionSousMap = "H4";
+			} else if ( positionSousMap.equals("I3")  ){
+				SousMapI3.destroyBody();
+				positionSousMap = "I4";
 			} else if ( positionSousMap.equals("A4") ){
 				SousMapA4.destroyBody();
 				positionSousMap = "A5";
@@ -105,6 +126,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4")  ){
 				SousMapG4.destroyBody();
 				positionSousMap = "G5";
+			} else if ( positionSousMap.equals("H4")  ){
+				SousMapH4.destroyBody();
+				positionSousMap = "H5";
+			} else if ( positionSousMap.equals("I4")  ){
+				SousMapI4.destroyBody();
+				positionSousMap = "I5";
 			} else if ( positionSousMap.equals("A5") ){
 				SousMapA5.destroyBody();
 				positionSousMap = "A6";
@@ -126,6 +153,39 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5")  ){
 				SousMapG5.destroyBody();
 				positionSousMap = "G6";
+			} else if ( positionSousMap.equals("H5")  ){
+				SousMapH5.destroyBody();
+				positionSousMap = "H6";
+			} else if ( positionSousMap.equals("I5")  ){
+				SousMapI5.destroyBody();
+				positionSousMap = "I6";
+			} else if ( positionSousMap.equals("A6") ){
+				SousMapA6.destroyBody();
+				positionSousMap = "A7";
+			} else if ( positionSousMap.equals("B6")  ){
+				SousMapB6.destroyBody();
+				positionSousMap = "B7";
+			} else if ( positionSousMap.equals("C6")  ){
+				SousMapC6.destroyBody();
+				positionSousMap = "C7";
+			} else if ( positionSousMap.equals("D6")  ){
+				SousMapD6.destroyBody();
+				positionSousMap = "D7";
+			} else if ( positionSousMap.equals("E6")  ){
+				SousMapE6.destroyBody();
+				positionSousMap = "E7";
+			} else if ( positionSousMap.equals("F6")  ){
+				SousMapF6.destroyBody();
+				positionSousMap = "F7";
+			} else if ( positionSousMap.equals("G6")  ){
+				SousMapG6.destroyBody();
+				positionSousMap = "G7";
+			} else if ( positionSousMap.equals("H6")  ){
+				SousMapH6.destroyBody();
+				positionSousMap = "H7";
+			} else if ( positionSousMap.equals("I6")  ){
+				SousMapI6.destroyBody();
+				positionSousMap = "I7";
 			}
 			
 			défilement = true;
@@ -145,6 +205,8 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("E1" ) ){
 			} else if ( positionSousMap.equals("F1" ) ){
 			} else if ( positionSousMap.equals("G1" ) ){
+			} else if ( positionSousMap.equals("H1" ) ){
+			} else if ( positionSousMap.equals("I1" ) ){
 			} else if ( positionSousMap.equals("A2") ){
 				SousMapA2.destroyBody();
 				positionSousMap = "A1";
@@ -166,6 +228,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2") ){
 				SousMapG2.destroyBody();
 				positionSousMap = "G1";
+			} else if ( positionSousMap.equals("H2") ){
+				SousMapH2.destroyBody();
+				positionSousMap = "H1";
+			} else if ( positionSousMap.equals("I2") ){
+				SousMapI2.destroyBody();
+				positionSousMap = "I1";
 			} else if ( positionSousMap.equals("A3") ){
 				SousMapA3.destroyBody();
 				positionSousMap = "A2";
@@ -187,6 +255,12 @@ public class PlacementMain {
 			}  else if ( positionSousMap.equals("G3") ){
 				SousMapG3.destroyBody();
 				positionSousMap = "G2";
+			}  else if ( positionSousMap.equals("H3") ){
+				SousMapH3.destroyBody();
+				positionSousMap = "H2";
+			}  else if ( positionSousMap.equals("I3") ){
+				SousMapI3.destroyBody();
+				positionSousMap = "I2";
 			} else if ( positionSousMap.equals("A4") ){
 				SousMapA4.destroyBody();
 				positionSousMap = "A3";
@@ -208,6 +282,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4") ){
 				SousMapG4.destroyBody();
 				positionSousMap = "G3";
+			} else if ( positionSousMap.equals("H4") ){
+				SousMapH4.destroyBody();
+				positionSousMap = "H3";
+			} else if ( positionSousMap.equals("I4") ){
+				SousMapI4.destroyBody();
+				positionSousMap = "I3";
 			} else if ( positionSousMap.equals("A5") ){
 				SousMapA5.destroyBody();
 				positionSousMap = "A4";
@@ -229,6 +309,39 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5") ){
 				SousMapG5.destroyBody();
 				positionSousMap = "G4";
+			} else if ( positionSousMap.equals("H5") ){
+				SousMapH5.destroyBody();
+				positionSousMap = "H4";
+			} else if ( positionSousMap.equals("I5") ){
+				SousMapI5.destroyBody();
+				positionSousMap = "I4";
+			} else if ( positionSousMap.equals("A6") ){
+				SousMapA6.destroyBody();
+				positionSousMap = "A5";
+			} else if ( positionSousMap.equals("B6") ){
+				SousMapB6.destroyBody();
+				positionSousMap = "B5";
+			} else if ( positionSousMap.equals("C6") ){
+				SousMapC6.destroyBody();
+				positionSousMap = "C5";
+			} else if ( positionSousMap.equals("D6") ){
+				SousMapD6.destroyBody();
+				positionSousMap = "D5";
+			} else if ( positionSousMap.equals("E6") ){
+				SousMapE6.destroyBody();
+				positionSousMap = "E5";
+			} else if ( positionSousMap.equals("F6") ){
+				SousMapF6.destroyBody();
+				positionSousMap = "F5";
+			} else if ( positionSousMap.equals("G6") ){
+				SousMapG6.destroyBody();
+				positionSousMap = "G5";
+			} else if ( positionSousMap.equals("H6") ){
+				SousMapH6.destroyBody();
+				positionSousMap = "H5";
+			} else if ( positionSousMap.equals("I6") ){
+				SousMapI6.destroyBody();
+				positionSousMap = "I5";
 			}
 			
 			défilement = true;
@@ -260,6 +373,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "F1";
 				SousMapG1.destroyBody();
+			} else if ( positionSousMap.equals("H1")  ){
+				positionSousMap = "G1";
+				SousMapH1.destroyBody();
+			} else if ( positionSousMap.equals("I1")  ){
+				positionSousMap = "H1";
+				SousMapI1.destroyBody();
 			} else if ( positionSousMap.equals("A2") ){
 			} else if ( positionSousMap.equals("B2")  ){
 				SousMapB2.destroyBody();
@@ -279,6 +398,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2")  ){
 				SousMapG2.destroyBody();
 				positionSousMap = "F2";
+			} else if ( positionSousMap.equals("H2")  ){
+				SousMapH2.destroyBody();
+				positionSousMap = "G2";
+			} else if ( positionSousMap.equals("I2")  ){
+				SousMapI2.destroyBody();
+				positionSousMap = "H2";
 			} else if ( positionSousMap.equals("A3") ){
 			} else if ( positionSousMap.equals("B3")  ){
 				SousMapB3.destroyBody();
@@ -298,6 +423,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G3")  ){
 				SousMapG3.destroyBody();
 				positionSousMap = "F3";
+			} else if ( positionSousMap.equals("H3")  ){
+				SousMapH3.destroyBody();
+				positionSousMap = "G3";
+			} else if ( positionSousMap.equals("I3")  ){
+				SousMapI3.destroyBody();
+				positionSousMap = "H3";
 			} else if ( positionSousMap.equals("A4") ){
 			} else if ( positionSousMap.equals("B4")  ){
 				SousMapB4.destroyBody();
@@ -317,6 +448,12 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4")  ){
 				SousMapG4.destroyBody();
 				positionSousMap = "F4";
+			} else if ( positionSousMap.equals("H4")  ){
+				SousMapH4.destroyBody();
+				positionSousMap = "G4";
+			} else if ( positionSousMap.equals("I4")  ){
+				SousMapI4.destroyBody();
+				positionSousMap = "H4";
 			} else if ( positionSousMap.equals("A5") ){
 			} else if ( positionSousMap.equals("B5")  ){
 				SousMapB5.destroyBody();
@@ -336,6 +473,37 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5")  ){
 				SousMapG5.destroyBody();
 				positionSousMap = "F5";
+			} else if ( positionSousMap.equals("H5")  ){
+				SousMapH5.destroyBody();
+				positionSousMap = "G5";
+			} else if ( positionSousMap.equals("I5")  ){
+				SousMapI5.destroyBody();
+				positionSousMap = "H5";
+			} else if ( positionSousMap.equals("A6") ){
+			} else if ( positionSousMap.equals("B6")  ){
+				SousMapB6.destroyBody();
+				positionSousMap = "A6";
+			} else if ( positionSousMap.equals("C6")  ){
+				SousMapC6.destroyBody();
+				positionSousMap = "B6";
+			} else if ( positionSousMap.equals("D6")  ){
+				SousMapD6.destroyBody();
+				positionSousMap = "C6";
+			} else if ( positionSousMap.equals("E6")  ){
+				SousMapE6.destroyBody();
+				positionSousMap = "D6";
+			} else if ( positionSousMap.equals("F6")  ){
+				SousMapF6.destroyBody();
+				positionSousMap = "E6";
+			} else if ( positionSousMap.equals("G6")  ){
+				SousMapG6.destroyBody();
+				positionSousMap = "F6";
+			} else if ( positionSousMap.equals("H6")  ){
+				SousMapH6.destroyBody();
+				positionSousMap = "G6";
+			} else if ( positionSousMap.equals("I6")  ){
+				SousMapI6.destroyBody();
+				positionSousMap = "H6";
 			}
 			
 			défilement = true;
@@ -369,6 +537,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "H1";
 				SousMapG1.destroyBody();
+			} else if ( positionSousMap.equals("H1")  ){
+				positionSousMap = "I1";
+				SousMapH1.destroyBody();
 			} else if ( positionSousMap.equals("A2" ) ){
 				SousMapA2.destroyBody();
 				positionSousMap = "B2";
@@ -390,6 +561,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G2") ){
 				SousMapG2.destroyBody();
 				positionSousMap = "H2";
+			} else if ( positionSousMap.equals("H2") ){
+				SousMapH2.destroyBody();
+				positionSousMap = "I2";
 			} else if ( positionSousMap.equals("A3" ) ){
 				SousMapA3.destroyBody();
 				positionSousMap = "B3";
@@ -411,6 +585,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G3") ){
 				SousMapG3.destroyBody();
 				positionSousMap = "H3";
+			} else if ( positionSousMap.equals("H3") ){
+				SousMapH3.destroyBody();
+				positionSousMap = "I3";
 			} else if ( positionSousMap.equals("A4" ) ){
 				SousMapA4.destroyBody();
 				positionSousMap = "B4";
@@ -432,6 +609,9 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G4") ){
 				SousMapG4.destroyBody();
 				positionSousMap = "H4";
+			} else if ( positionSousMap.equals("H4") ){
+				SousMapH4.destroyBody();
+				positionSousMap = "I4";
 			} else if ( positionSousMap.equals("A5" ) ){
 				SousMapA5.destroyBody();
 				positionSousMap = "B5";
@@ -453,6 +633,33 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("G5") ){
 				SousMapG5.destroyBody();
 				positionSousMap = "H5";
+			} else if ( positionSousMap.equals("H5") ){
+				SousMapH5.destroyBody();
+				positionSousMap = "I5";
+			} else if ( positionSousMap.equals("A6" ) ){
+				SousMapA6.destroyBody();
+				positionSousMap = "B6";
+			} else if ( positionSousMap.equals("B6") ){
+				SousMapB6.destroyBody();
+				positionSousMap = "C6";
+			} else if ( positionSousMap.equals("C6") ){
+				SousMapC6.destroyBody();
+				positionSousMap = "D6";
+			} else if ( positionSousMap.equals("D6") ){
+				SousMapD6.destroyBody();
+				positionSousMap = "E6";
+			} else if ( positionSousMap.equals("E6") ){
+				SousMapE6.destroyBody();
+				positionSousMap = "F6";
+			} else if ( positionSousMap.equals("F6") ){
+				SousMapF6.destroyBody();
+				positionSousMap = "G6";
+			} else if ( positionSousMap.equals("G6") ){
+				SousMapG6.destroyBody();
+				positionSousMap = "H6";
+			} else if ( positionSousMap.equals("H6") ){
+				SousMapH6.destroyBody();
+				positionSousMap = "I6";
 			}
 			
 			défilement = true;
@@ -521,6 +728,88 @@ public class PlacementMain {
 		
 	}
 	
+	
+	
+//	================================================================================
+//	déplacement de link , vers le haut le bas la droite ou la gauche entre deux tiles
+//	================================================================================
+	public static String typeDéplacementVertical = "bas" ;
+	public static String typeDéplacementHorizontal = "gauche" ;
+	public static boolean déplacementVertical = false;
+	public static boolean déplacementHorizontal = false;
+	public static void setDéplacement(MainCharacter Link){
+//		 changement de direction?
+		if ( déplacementHorizontal ){
+			if ( typeDéplacementHorizontal.equals("gauche") || typeDéplacementHorizontal.equals("droite")) {
+				if ( Link.getX() % 60 > 25 && Link.getX() % 60 < 35) déplacementHorizontal =false;
+			} 
+		} //		initialisation 
+		else {
+			if ( Link.getDirection().equals("gauche") || Link.getDirection().equals("droite")) {
+				if (Link.getX() % 60 < 10 ) {
+					typeDéplacementHorizontal = "gauche";
+					déplacementHorizontal = true;
+				}
+				else if (Link.getX() % 60 > 50 ) {
+					typeDéplacementHorizontal = "droite";
+					déplacementHorizontal = true;
+				}
+			} 
+		} 
+		if ( déplacementVertical ){
+			if ( typeDéplacementVertical.equals("haut") || typeDéplacementVertical.equals("bas")){
+				if ( Link.getY() % 60 > 25 && Link.getY() % 60 < 35 ) déplacementVertical =false;
+			}
+		} //		initialisation 
+		else {
+			if ( Link.getDirection().equals("haut") || Link.getDirection().equals("bas")) {
+				if (Link.getY() % 60 < 10 ) {
+					typeDéplacementVertical = "bas";
+					déplacementVertical = true;
+				}
+				else if (Link.getY() % 60 >50 ) {
+					typeDéplacementVertical = "haut";
+					déplacementVertical = true;
+				}
+			}
+		} 	
+	}
+	
+	
+//	 détection si trou , eau 
+//	========================================
+	
+	public static void détectionTrou(MainCharacter Link) {
+		if ( typeDéplacementHorizontal.equals("gauche") )  {
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y+5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			}
+		} else if ( typeDéplacementHorizontal.equals("droite") ){
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y+5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+			}
+		}
+	}
+	
+	public static void détectionEauP(MainCharacter Link) {
+		if ( typeDéplacementHorizontal.equals("gauche") )  {
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12 )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y +5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +12 )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			}
+		} else if ( typeDéplacementHorizontal.equals("droite") ){
+			if ( typeDéplacementVertical.equals("bas")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y +5 )*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			} else if ( typeDéplacementVertical.equals("haut")){
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+			}
+		}
+	}
 	
 
 }

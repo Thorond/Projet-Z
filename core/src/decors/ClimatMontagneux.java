@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import map.PlacementMain;
 import scenes.MainMenu;
 
 public class ClimatMontagneux {
@@ -72,9 +73,19 @@ public class ClimatMontagneux {
 	public static Texture crate = new Texture("climatMontagneux/Crate.png");
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
 	public static Texture tree = new Texture("climatMontagneux/Tree.png");
+	public static Texture planteGelé = new Texture("climatMontagneux/planteGelé.png");
+	public static Texture planteGelé2 = new Texture("climatMontagneux/planteGelé2.png");
+	public static Texture planteGelé2Cut = new Texture("climatMontagneux/planteGelé2Cut.png");
+	public static void arbuste(boolean isCut,GameMain game, int x, int y ){
+		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.planteGelé2, x, y);
+		else game.getBatch().draw(ClimatMontagneux.planteGelé2Cut, x, y);
+	}
+	public static Texture planteGelé3 = new Texture("climatMontagneux/planteGelé3.png");
 	public static Texture buisson = new Texture("climatMontagneux/Bush.png");
+	public static Texture bushCut = new Texture("climatMontagneux/BushCut.png");
 	public static void buisson(boolean isCut,GameMain game, int x, int y ){
 		if ( isCut == false) game.getBatch().draw(ClimatMontagneux.buisson, x, y);
+		else game.getBatch().draw(ClimatMontagneux.bushCut, x, y);
 	}
 	public static Texture petitePierre = new Texture("climatMontagneux/stone1.png");
 	public static void petitePierre(boolean isCut,GameMain game, int x, int y ){
@@ -84,6 +95,9 @@ public class ClimatMontagneux {
 	public static Texture tronc = new Texture("climatMontagneux/ChoppedTree.png");
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
 	public static Texture signTête = new Texture("climatMontagneux/signTête.png");
+
+	public static Texture grandPontVertical = new Texture("climatMontagneux/grandPontVertical.png");
+	public static Texture grandPontVertical2 = new Texture("climatMontagneux/grandPontVertical2.png");
 	
 	public static Texture coffreBleuFermé = new Texture("climatMontagneux/coffreBleuFermé.png");
 	public static Texture coffreBleuOuvert1 = new Texture("climatMontagneux/coffreBleuOuvert1.png");
@@ -213,11 +227,17 @@ public class ClimatMontagneux {
 	
 	public static Texture  ciel= new Texture("climatMontagneux/ciel.png");
 	public static Texture  escalierGlacé= new Texture("climatMontagneux/escalieGlacé.png");
+	public static Texture  escalierGlacé2= new Texture("climatMontagneux/escalieGlacé2.png");
 	public static Texture  escalierHaut= new Texture("climatMontagneux/escalierHaut.png");
+	public static Texture  escalierHaut2= new Texture("climatMontagneux/escalierHaut2.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
 
+	public static Texture  herbeGlace= new Texture("climatMontagneux/herbeGlace.png");
+	public static Texture  herbeGlace120= new Texture("climatMontagneux/herbeGlace120.png");
+
 	public static Texture  glaceSombre= new Texture("climatMontagneux/glaceSombre.png");
+	public static Texture  glaceSombre2= new Texture("climatMontagneux/glaceSombre2.png");
 	
 	public static Texture  merGlacéCassé1Sup= new Texture("climatMontagneux/merGlacéCassé1Sup.png");
 	public static Texture  merGlacéCassé2Sup= new Texture("climatMontagneux/merGlacéCassé2Sup.png");
@@ -274,6 +294,8 @@ public class ClimatMontagneux {
 //	public static Texture = new Texture("climatMontagneux/.png");
 	
 	public static Texture icebergWater = new Texture("climatMontagneux/iceBergWater.png");
+	public static Texture iceberg1 = new Texture("climatMontagneux/iceBerg1.png");
+	public static Texture iceberg2 = new Texture("climatMontagneux/iceBerg2.png");
 	
 	
 //	eau de mer 
@@ -286,10 +308,7 @@ public class ClimatMontagneux {
 	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
 		if (cha.getHealth() > 0){
-			if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
-			else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
-			else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
-			else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
+			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX, PlacementMain.positionRelativeY, 0);
 		}
 		
 	}
@@ -381,11 +400,7 @@ public class ClimatMontagneux {
 		// TODO Auto-generated method stub
 		cha.setHealth(cha.getHealth() - 5 );
 		if (cha.getHealth() > 0){
-			if ( cha.getDirection().equals("bas")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y + 30, 0);
-			else if ( cha.getDirection().equals("haut")) cha.getBody().setTransform(cha.getBody().getPosition().x, cha.getBody().getPosition().y - 30, 0);
-			else if ( cha.getDirection().equals("droite")) cha.getBody().setTransform(cha.getBody().getPosition().x -30, cha.getBody().getPosition().y , 0);
-			else if ( cha.getDirection().equals("gauche")) cha.getBody().setTransform(cha.getBody().getPosition().x +30, cha.getBody().getPosition().y , 0);
-		}
+			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX / MainMenu.PPM, PlacementMain.positionRelativeY/ MainMenu.PPM, 0);}
 	}
 
 }

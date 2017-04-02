@@ -24,8 +24,8 @@ public class MonstreAquatique extends Pnj{
 	public static Texture monstreAquaDroite2 = new Texture("monstres/monstreAqua/monstreAquaDroite2.png");
 	public static Texture monstreAquaDroite3 = new Texture("monstres/monstreAqua/monstreAquaDroite3.png");
 
-	public MonstreAquatique(World world,Texture text, int HM, int health, int strength, float x, float y, String direction) {
-		super(world,text, HM, health, strength, x, y, direction);
+	public MonstreAquatique(World world,Texture text, float x, float y, String direction) {
+		super(world,text, 10, 10, 2, x, y, direction);
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -31,15 +31,15 @@ public class Pnj extends Characters{
 	public void déplacementAléa(){
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - start > 2000) {
-			if ( tempo < 0.25 && this.getBody().getPosition().x > 60/MainMenu.PPM ){
+			if ( tempo < 0.25 && this.getBody().getPosition().x > 90/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(-40000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
-			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 510/MainMenu.PPM ){
+			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 480/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(+40000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
-			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 60/MainMenu.PPM ){
+			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 90/MainMenu.PPM ){
 				this.getBody().applyLinearImpulse(new Vector2(0,-40000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}

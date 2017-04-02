@@ -181,6 +181,13 @@ public class SousMapB2 extends Sprite {
 		ClimatMontagneux.buisson(isBuisson10Cut,game, 300+x, 300+y);
 		
 		
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 120+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 180+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 120+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 300+ y);
+		
+		
 //		==================================================================
 //				Placement des dessins des monstres
 //		==================================================================

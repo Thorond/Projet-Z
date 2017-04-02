@@ -83,5 +83,9 @@ public class DonjonGlace {
 			changementVariation = System.currentTimeMillis();
 		}
 	}
+	
+
+	public static Texture  murVertical = new Texture("donjon/donjonGlace/murVertical.png");
+	public static Texture  murHorizontal = new Texture("donjon/donjonGlace/murHorizontal.png");
 
 }
