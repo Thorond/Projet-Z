@@ -220,6 +220,14 @@ public class SousMapG2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 430+ x, -30+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 510+ x, -20+ y);
 		
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, -60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 480+ x, -60+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 240+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 300+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 360+ x, 0+ y);
+		
 		
 
 //	pont

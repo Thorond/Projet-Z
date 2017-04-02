@@ -99,6 +99,19 @@ public class SousMapG4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
+		
+//		
+		
+		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 0+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.piedCassé1Sup, 60+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 60+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 60+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 120+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 120+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 180+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 180+ x, 420+ y);
 	}
 
 	public static void destroyBody() {

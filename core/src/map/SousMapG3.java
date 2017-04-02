@@ -188,6 +188,13 @@ public class SousMapG3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé2Cut, 180+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 240+ x, 300+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 390+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 360+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, 590+ x, 50+ y);
 		
 //		==================================================================
 		//		Placement des dessins des monstres
