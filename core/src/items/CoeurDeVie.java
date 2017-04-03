@@ -2,6 +2,8 @@ package items;
 
 import com.badlogic.gdx.graphics.Texture;
 
+import characters.MainCharacter;
+import map.CadrillageMap;
 import map.PlacementMain;
 import map.SousMapB3;
 import scenes.MainMenu;
@@ -77,6 +79,23 @@ public class CoeurDeVie {
 		}
 	}
 	
+	public static void détectionCoeur(MainCharacter Link){
+		for ( int i = 0 ; i < coeurDeVies.length ; i ++){
+			if (coeurDeVies[i].isEstPrésent()){
+				for ( int j = -10 ; j < 40 ; j ++){
+					for ( int k = -10 ; k < 40 ; k ++){
+						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == coeurDeVies[i].getX() 
+								&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == coeurDeVies[i].getY() ){
+							if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+							coeurDeVies[i].setEstPrésent(false);
+						}
+					}
+				}
+				
+			}
+		}
+	}
+	
 	public static void réinitialisation(){
 		for ( int i = 0 ; i < coeurDeVies.length ; i++) coeurDeVies[i].setEstPrésent(false);
 	}
@@ -136,6 +155,14 @@ public class CoeurDeVie {
 			MainMenu.Link.setHealthMax(MainMenu.Link.getHealthMax() + 4);
 			MainMenu.Link.setHealth(MainMenu.Link.getHealthMax());
 			nbrDeReceptacle = 0 ;
+		}
+	}
+	
+	public static void détectionReceptable(MainCharacter Link){
+		if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *MainMenu.PPM/60 )][(int) (Link.getBody().getPosition().y *MainMenu.PPM/ 60 )].equals("receptacleDeCoeur")) {
+			CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *MainMenu.PPM/60 ), (int) (Link.getBody().getPosition().y *MainMenu.PPM/ 60 ), "");
+			receptacleDeCoeur();
+			Link.annimationAward = true;
 		}
 	}
 	

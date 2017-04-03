@@ -112,6 +112,57 @@ public class SousMapC4 extends Sprite{
 		
 		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 0+ x, 420+ y);
 		
+//		
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 240+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 240+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 180+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 120+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 60+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 0+ x, 300+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 300+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 300+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 300+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 180+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 120+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 60+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 0+ x, 240+ y);
+		
+
+		ClimatMontagneux.eauProfonde(game,00+x,0+y);
+		ClimatMontagneux.eauProfonde(game,00+x,60+y);
+		ClimatMontagneux.eauProfonde(game,00+x,120+y);
+		ClimatMontagneux.eauProfonde(game,60+x,0+y);
+		ClimatMontagneux.eauProfonde(game,60+x,60+y);
+		ClimatMontagneux.eauProfonde(game,60+x,120+y);
+		ClimatMontagneux.eauProfonde(game,120+x,0+y);
+		ClimatMontagneux.eauProfonde(game,120+x,60+y);
+		ClimatMontagneux.eauProfonde(game,120+x,120+y);
+		ClimatMontagneux.eauProfonde(game,180+x,0+y);
+		ClimatMontagneux.eauProfonde(game,180+x,60+y);
+		ClimatMontagneux.eauProfonde(game,180+x,120+y);
+		ClimatMontagneux.eauProfonde(game,240+x,0+y);
+		ClimatMontagneux.eauProfonde(game,240+x,60+y);
+		ClimatMontagneux.eauProfonde(game,240+x,120+y);
+		ClimatMontagneux.eauProfonde(game,300+x,0+y);
+		ClimatMontagneux.eauProfonde(game,300+x,60+y);
+		ClimatMontagneux.eauProfonde(game,300+x,120+y);
+		ClimatMontagneux.eauProfonde(game,360+x,0+y);
+		ClimatMontagneux.eauProfonde(game,360+x,60+y);
+		ClimatMontagneux.eauProfonde(game,360+x,120+y);
+		ClimatMontagneux.eauProfonde(game,420+x,0+y);
+		ClimatMontagneux.eauProfonde(game,420+x,60+y);
+		ClimatMontagneux.eauProfonde(game,420+x,120+y);
+		ClimatMontagneux.eauProfonde(game,480+x,0+y);
+		ClimatMontagneux.eauProfonde(game,480+x,60+y);
+		ClimatMontagneux.eauProfonde(game,480+x,120+y);
+		ClimatMontagneux.eauProfonde(game,480+x,180+y);
+		ClimatMontagneux.eauProfonde(game,540+x,0+y);
+		ClimatMontagneux.eauProfonde(game,540+x,60+y);
+		ClimatMontagneux.eauProfonde(game,540+x,120+y);
+		ClimatMontagneux.eauProfonde(game,540+x,180+y);
+		ClimatMontagneux.eauProfonde(game,540+x,240+y);
+		
 		
 //		==================================================================
 		//		Placement des dessins des monstres

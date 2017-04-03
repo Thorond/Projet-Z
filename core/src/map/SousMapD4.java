@@ -148,6 +148,38 @@ public class SousMapD4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 540+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 540+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 540+ x, 0+ y);
+		
+
+		ClimatMontagneux.eauProfonde(game,00+x,0+y);
+		ClimatMontagneux.eauProfonde(game,60+x,0+y);
+		ClimatMontagneux.eauProfonde(game,120+x,0+y);
+		ClimatMontagneux.eauProfonde(game,180+x,0+y);
+		ClimatMontagneux.eauProfonde(game,240+x,0+y); 
+		
+		ClimatMontagneux.eauProfonde(game,00+x,60+y);
+		ClimatMontagneux.eauProfonde(game,60+x,60+y);
+		ClimatMontagneux.eauProfonde(game,120+x,60+y);
+		ClimatMontagneux.eauProfonde(game,180+x,60+y);
+
+		ClimatMontagneux.eauProfonde(game,00+x,120+y);
+		ClimatMontagneux.eauProfonde(game,60+x,120+y);
+		ClimatMontagneux.eauProfonde(game,120+x,120+y);
+		ClimatMontagneux.eauProfonde(game,180+x,120+y);
+		ClimatMontagneux.eauProfonde(game,240+x,120+y);
+
+		ClimatMontagneux.eauProfonde(game,00+x,180+y);
+		ClimatMontagneux.eauProfonde(game,60+x,180+y);
+		ClimatMontagneux.eauProfonde(game,120+x,180+y);
+		ClimatMontagneux.eauProfonde(game,180+x,180+y);
+		ClimatMontagneux.eauProfonde(game,240+x,180+y);
+
+		ClimatMontagneux.eauProfonde(game,00+x,240+y);
+		ClimatMontagneux.eauProfonde(game,60+x,240+y);
+		ClimatMontagneux.eauProfonde(game,120+x,240+y);
+		ClimatMontagneux.eauProfonde(game,180+x,240+y);
+
+		ClimatMontagneux.eauProfonde(game,60+x,300+y);
+		ClimatMontagneux.eauProfonde(game,120+x,300+y);
 	}
 
 	public static void destroyBody() {

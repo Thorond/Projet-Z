@@ -4,9 +4,6 @@ import com.badlogic.gdx.graphics.Texture;
 
 import characters.MainCharacter;
 import map.CadrillageMap;
-import map.PlacementMain;
-import map.SousMapB1;
-import map.SousMapB2;
 import characters.Pnj;
 import scenes.MainMenu;
 

@@ -284,6 +284,7 @@ public class ClimatMontagneux {
 	public static Texture murSombreGlacéGauche= new Texture("climatMontagneux/murSombreGlacéGauche.png");
 	public static Texture murSombreGlacéGauche2= new Texture("climatMontagneux/murSombreGlacéGauche2.png");
 	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
+	public static Texture murBasMer= new Texture("climatMontagneux/murBas.png");
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
 	public static Texture cheminGlaceHori = new Texture("climatMontagneux/cheminGlaceHori.png");
@@ -370,7 +371,7 @@ public class ClimatMontagneux {
 		
 	}
 	
-//	cascade 
+//	cascade grande
 	
 	public static Texture cascade1 = new Texture("map/cascade1.png");
 	public static Texture cascade2 = new Texture("map/cascade2.png");
@@ -391,6 +392,30 @@ public class ClimatMontagneux {
 			else if (etatCascade == 2) etatCascade = 3;
 			else if (etatCascade == 3) etatCascade = 4;
 			else if (etatCascade == 4) etatCascade = 1;
+		}
+	}
+	
+//	cascade petite
+	
+	public static Texture cascadePetite1 = new Texture("map/cascadePetite1.png");
+	public static Texture cascadePetite2 = new Texture("map/cascadePetite2.png");
+	public static Texture cascadePetite3 = new Texture("map/cascadePetite3.png");
+	public static Texture cascadePetite4 = new Texture("map/cascadePetite4.png");
+	
+	public static int etatCascadePetite = 1;
+	public static long variationCascadePetite = System.currentTimeMillis();
+	
+	public static void annimationCascadePetite(GameMain game, int x, int y){
+		if (etatCascadePetite == 1) game.getBatch().draw(cascadePetite1, x+2, y);
+		else if (etatCascadePetite == 2) game.getBatch().draw(cascadePetite2, x, y);
+		else if (etatCascadePetite == 3) game.getBatch().draw(cascadePetite3, x, y);
+		else if (etatCascadePetite == 4) game.getBatch().draw(cascadePetite4, x, y);
+		if ( System.currentTimeMillis() - variationCascadePetite > 150){
+			variationCascadePetite = System.currentTimeMillis();
+			if (etatCascadePetite == 1) etatCascadePetite = 2;
+			else if (etatCascadePetite == 2) etatCascadePetite = 3;
+			else if (etatCascadePetite == 3) etatCascadePetite = 4;
+			else if (etatCascadePetite == 4) etatCascadePetite = 1;
 		}
 	}
 	

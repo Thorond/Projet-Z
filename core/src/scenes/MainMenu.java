@@ -341,27 +341,10 @@ public class MainMenu implements Screen{
 					PlacementMain.détectionTrou(Link);
 					PlacementMain.détectionEauP(Link);
 //									Récuparation du réceptacle 
-					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("receptacleDeCoeur")) {
-						CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *PPM/60 ), (int) (Link.getBody().getPosition().y *PPM/ 60 ), "");
-						CoeurDeVie.receptacleDeCoeur();
-						Link.annimationAward = true;
-					}
+					CoeurDeVie.détectionReceptable(Link);
 					
 					//				récupération de vie par les coeurs de vie
-					for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
-						if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
-							for ( int j = -10 ; j < 40 ; j ++){
-								for ( int k = -10 ; k < 40 ; k ++){
-									if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
-											&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
-										if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
-										CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
-									}
-								}
-							}
-							
-						}
-					}
+					CoeurDeVie.détectionCoeur(Link);
 				}
 			}
 //			Est ce que le joueur est mort?
