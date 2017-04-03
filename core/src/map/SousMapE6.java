@@ -163,6 +163,13 @@ public class SousMapE6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 540+ x, 420+ y);
 	
+		
+//		 hommes des neiges 
+		
+		ClimatMontagneux.IceMain(game, 160 + x, 200 + y);
+		ClimatMontagneux.IceMain(game, 360 + x, 180 + y);
+		ClimatMontagneux.IceMain(game, 370 + x, 70 + y);
+		ClimatMontagneux.IceMain(game, 470 + x, 150 + y);
 	}
 
 	public static void destroyBody() {

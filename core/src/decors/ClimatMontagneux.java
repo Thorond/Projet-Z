@@ -69,6 +69,14 @@ public class ClimatMontagneux {
 	
 //	objets
 
+	public static Texture IceMan = new Texture("climatMontagneux/IceMan.png");
+	public static Texture IceManNoNose = new Texture("climatMontagneux/IceManNoNose.png");
+	public static boolean noseFound = false; // à sauvegarder
+	public static void IceMain(GameMain game, int x, int y ){
+		if ( ! noseFound ) game.getBatch().draw(IceManNoNose,x,y);
+		else game.getBatch().draw(IceMan,x,y);
+	}
+	
 	public static Texture emplacementBombe = new Texture("climatMontagneux/emplacementBombe.png");
 	public static Texture crate = new Texture("climatMontagneux/Crate.png");
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
