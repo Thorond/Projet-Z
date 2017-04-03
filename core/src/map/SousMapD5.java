@@ -129,6 +129,17 @@ public class SousMapD5 extends Sprite{
 		ClimatMontagneux.eauProfonde(game,540+x,240+y);
 		ClimatMontagneux.eauProfonde(game,540+x,300+y);
 		
+		
+
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 60+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 60+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.piedCassé2Sup, 0+ x,300+ y);
 	}
 
 	public static void destroyBody() {

@@ -142,6 +142,11 @@ public class SousMapB6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murBasMer, 420+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murBasMer, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murBasMer, 540+ x, 0+ y);
+		
+		ClimatMontagneux.eauProfonde(game,300+x,420+y);
+		ClimatMontagneux.eauProfonde(game,360+x,420+y);
+		ClimatMontagneux.eauProfonde(game,420+x,420+y);
+		ClimatMontagneux.eauProfonde(game,480+x,420+y);
 	}
 
 	public static void destroyBody() {

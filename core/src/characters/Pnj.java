@@ -63,25 +63,30 @@ public class Pnj extends Characters{
 	
 	public void déplacementVersJoueur(){
 		if ( System.currentTimeMillis() - start > 400) {
-			if ( this.getX() - MainMenu.Link.getX() > 0 ){
+			if ( this.getX() - MainMenu.Link.getX() > 90 ){
 				this.getBody().applyLinearImpulse(new Vector2(-60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
-			else if (this.getX() - MainMenu.Link.getX() < 0 ){
+			else if (this.getX() - MainMenu.Link.getX() < 90 ){
 				this.getBody().applyLinearImpulse(new Vector2(+60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
-			if (this.getY() - MainMenu.Link.getY() > 0){
+			if (this.getY() - MainMenu.Link.getY() > 90){
 				this.getBody().applyLinearImpulse(new Vector2(0,-60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
-			else if (this.getY() - MainMenu.Link.getY() < 0){
+			else if (this.getY() - MainMenu.Link.getY() < 90){
 				this.getBody().applyLinearImpulse(new Vector2(0,+60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
 			start = System.currentTimeMillis();
 			arrét = false;
 		} 
+		if (System.currentTimeMillis() - start > 100 ) {
+//			ralentissement des pnjs
+			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 100000f, this.getBody().getLinearVelocity().y / 100000f);
+			arrét = true;
+		}
 		
 	}
 	
