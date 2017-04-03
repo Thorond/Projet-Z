@@ -4,9 +4,6 @@ import com.badlogic.gdx.graphics.Texture;
 
 import characters.MainCharacter;
 import map.CadrillageMap;
-import map.PlacementMain;
-import map.SousMapB1;
-import map.SousMapB2;
 import characters.Pnj;
 import scenes.MainMenu;
 
@@ -44,6 +41,7 @@ public class Epee extends Item{
 					&& (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) + 1.5 - cha.getBody().getPosition().y *MainMenu.PPM / 60 < 90/60){
 				CadrillageMap.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60), (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) + 1, true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM +30) );
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ));
 			}
 			
 		} else if ( cha.getDirection().equals("droite")){
@@ -53,6 +51,7 @@ public class Epee extends Item{
 					&& (int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1.5 - cha.getBody().getPosition().x *MainMenu.PPM / 60 < 90/60){
 				CadrillageMap.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60)+1, (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM)+30, (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ));
 			}
 			
 		} else if ( cha.getDirection() == "gauche"){
@@ -62,6 +61,7 @@ public class Epee extends Item{
 					&& cha.getBody().getPosition().x *MainMenu.PPM / 60 - (int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) < 30/60 ){
 				CadrillageMap.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60)-1, (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM)-30, (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ));
 			}
 			
 		}
@@ -69,6 +69,7 @@ public class Epee extends Item{
 				&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x*MainMenu.PPM / 60)) ][((int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60 )) ] == false){
 			CadrillageMap.setDécorChangé(( int) (cha.getBody().getPosition().x *MainMenu.PPM/ 60), (int) (cha.getBody().getPosition().y *MainMenu.PPM/ 60) , true);
 			CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ) );
+			Essence.remplirEssences((int) (cha.getBody().getPosition().x*MainMenu.PPM), (int) (cha.getBody().getPosition().y*MainMenu.PPM ));
 		}
 		
 		
@@ -82,7 +83,7 @@ public class Epee extends Item{
 							for ( int k = -20 ; k <= 60 ; k++){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=121;
 									k=121;
 								}
@@ -93,7 +94,7 @@ public class Epee extends Item{
 							for ( int k = -20 ; k <= 60 ; k++){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=-121;
 									k=121;
 								}
@@ -104,7 +105,7 @@ public class Epee extends Item{
 							for ( int k = 0 ; k <= 60 ; k++){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=121;
 									k=121;
 								}
@@ -115,7 +116,7 @@ public class Epee extends Item{
 							for ( int k = 0 ; k >= -60 ; k--){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=121;
 									k=-121;
 								}

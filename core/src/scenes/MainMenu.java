@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -14,20 +15,18 @@ import com.mygdx.game.GameMain;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
-import decors.ClimatMontagneux;
 import interactionClavier.AlphabetEtAcquisition;
+import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
-import items.Coffre;
 import items.Epee;
+import items.Essence;
 import items.GantDeForce;
 import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
-import map.IglooD3;
 import map.PlacementMain;
-import map.SousMapB3;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
@@ -46,6 +45,7 @@ public class MainMenu implements Screen{
 	public static Plume plume = new Plume();
 	public static GantDeForce gantDeForce = new GantDeForce();
 	public static Bouclier bouclier = new Bouclier();
+	public static Bombe bombe = new Bombe();
 	
 	Texture carte;
 	public static World world;
@@ -59,6 +59,8 @@ public class MainMenu implements Screen{
 	
 	public static float PPM = 1.5f;
 	
+	public static BitmapFont font ;
+	
 	public MainMenu(GameMain game){
 		
 //		fonction libGDX
@@ -71,11 +73,13 @@ public class MainMenu implements Screen{
 		
 		this.debugRenderer = new Box2DDebugRenderer();
 		
+		font = new BitmapFont();
+		
 		world = new World(new Vector2(0,0),true);
 		
 //		lorsqu'une sauvegarde existe, on l'appelle
 		
-		Link = new MainCharacter(world, 16, 15, 4, 0 , 0 , sauvegarde.getDirection());
+		Link = new MainCharacter(world, 40, 39, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
 		
@@ -88,6 +92,8 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
+		MenuSac.setItem(bombe);
+		bombe.setNombreItem(7);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		
@@ -341,27 +347,12 @@ public class MainMenu implements Screen{
 					PlacementMain.détectionTrou(Link);
 					PlacementMain.détectionEauP(Link);
 //									Récuparation du réceptacle 
-					if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("receptacleDeCoeur")) {
-						CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *PPM/60 ), (int) (Link.getBody().getPosition().y *PPM/ 60 ), "");
-						CoeurDeVie.receptacleDeCoeur();
-						Link.annimationAward = true;
-					}
+					CoeurDeVie.détectionReceptable(Link);
 					
 					//				récupération de vie par les coeurs de vie
-					for ( int i = 0 ; i < CoeurDeVie.coeurDeVies.length ; i ++){
-						if (CoeurDeVie.coeurDeVies[i].isEstPrésent()){
-							for ( int j = -10 ; j < 40 ; j ++){
-								for ( int k = -10 ; k < 40 ; k ++){
-									if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == CoeurDeVie.coeurDeVies[i].getX() 
-											&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == CoeurDeVie.coeurDeVies[i].getY() ){
-										if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
-										CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
-									}
-								}
-							}
-							
-						}
-					}
+					CoeurDeVie.détectionCoeur(Link);
+//					 récupération essences
+					Essence.détectionEssence(Link);
 				}
 			}
 //			Est ce que le joueur est mort?
@@ -434,17 +425,11 @@ public class MainMenu implements Screen{
 				//			=============================================================================================
 				//     		       dessiner les coeurs de vie
 				//			=============================================================================================
-				for ( int i = 0; i< CoeurDeVie.coeurDeVies.length ; i++){
-					if ( System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 10000) CoeurDeVie.coeurDeVies[i].setEstPrésent(false);
-					if ( CoeurDeVie.coeurDeVies[i].isEstPrésent() 
-							&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() < 5000) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
-					else if ( CoeurDeVie.coeurDeVies[i].isEstPrésent()
-							&& System.currentTimeMillis() - CoeurDeVie.coeurDeVies[i].getStart() > 5000){
-						CoeurDeVie.coeurDeVies[i].clignotementCoeur();
-						if (CoeurDeVie.coeurDeVies[i].isClignotement() ) game.getBatch().draw(CoeurDeVie.coeurDeVie, CoeurDeVie.coeurDeVies[i].getX() , CoeurDeVie.coeurDeVies[i].getY());
-					}
-				}
-				
+				CoeurDeVie.représentationCoeur(game);
+				// dessiner les essences
+				Essence.représentationEssence(game);
+
+				Bombe.représentationBombe(game);
 	//			dessin du joueur
 				Link.draw(game.getBatch());
 			}
@@ -462,35 +447,23 @@ public class MainMenu implements Screen{
 			if ( MenuSac.itemKOccupé ) MenuSac.affichageItemK(game);
 			if ( MenuSac.itemLOccupé ) MenuSac.affichageItemL(game);
 			
+			
 	//		=============================================================================================
 	//								dessiner la vie à la fois en jeu et dans menuSac
 	//		=============================================================================================
 			
-			int vie = 0 ;
-			int écart = 0;
-			while ( vie +4 <= Link.getHealth()  ){
-				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 );
-				écart+=30;
-				vie += 4;
-			}
-			if (Link.getHealth() != Link.getHealthMax()){
-				if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440 );
-				else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 );
-				else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440 );
-				else if ( Link.getHealth() % 4 == 0 || Link.getHealth() <= 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
-				écart+=30;
-				vie+=4;
-			}
-			while ( vie + 4 <= Link.getHealthMax()){
-				game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440 );
-				écart+=30;
-				vie+=4;
-			}
+			
+			
+			CoeurDeVie.représentationNombreCoeur(game,Link);
+			
+//			déssin du nommbres d'essences
+			
+			Essence.représentationNombreEssence(game,font);
+			
 			
 	//		déssin du gameover
 			MenuGameover.GameOver(game);
 		}
-		
 		game.getBatch().end();
 		
 		

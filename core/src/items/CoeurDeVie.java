@@ -1,7 +1,10 @@
 package items;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.GameMain;
 
+import characters.MainCharacter;
+import map.CadrillageMap;
 import map.PlacementMain;
 import map.SousMapB3;
 import scenes.MainMenu;
@@ -77,6 +80,92 @@ public class CoeurDeVie {
 		}
 	}
 	
+	public static void détectionCoeur(MainCharacter Link){
+		for ( int i = 0 ; i < coeurDeVies.length ; i ++){
+			if (coeurDeVies[i].isEstPrésent()){
+				for ( int j = -10 ; j < 40 ; j ++){
+					for ( int k = -10 ; k < 40 ; k ++){
+						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == coeurDeVies[i].getX() 
+								&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == coeurDeVies[i].getY() ){
+							if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+							coeurDeVies[i].setEstPrésent(false);
+						}
+					}
+				}
+				
+			}
+		}
+	}
+	
+//	=================================================================================================
+	
+	public static void représentationNombreCoeur(GameMain game, MainCharacter Link) {
+		int vie = 0 ;
+		int écart = 0;
+		int placeCoeurY = 0;
+		boolean premièreLigne = true;
+		
+		
+		while ( vie +4 <= Link.getHealth()  ){
+
+			if (premièreLigne ) {
+				if ( vie>= 40 ){
+					placeCoeurY = 40 ;
+					écart = 0;
+					premièreLigne = false;
+				}
+			}
+			
+			game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 - placeCoeurY );
+			écart+=30;
+			vie += 4;
+		}
+		if (premièreLigne ) {
+			if ( vie>= 40 ){
+				placeCoeurY = 40 ;
+				écart = 0;
+				premièreLigne = false;
+			}
+		}
+		if (Link.getHealth() != Link.getHealthMax()){
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440  - placeCoeurY);
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 - placeCoeurY );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440  - placeCoeurY);
+			else if ( Link.getHealth() % 4 == 0 || Link.getHealth() <= 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440  - placeCoeurY);
+			écart+=30;
+			vie+=4;
+		}
+		
+		while ( vie + 4 <= Link.getHealthMax()){
+			if (premièreLigne ) {
+				if ( vie>= 40 ){
+					placeCoeurY = 40 ;
+					écart = 0;
+					premièreLigne = false;
+				}
+			}
+			game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440  - placeCoeurY);
+			écart+=30;
+			vie+=4;
+		}
+		premièreLigne = true;
+	}
+	
+//	=================================================================================================
+	
+	public static void représentationCoeur(GameMain game){
+		for ( int i = 0; i< coeurDeVies.length ; i++){
+			if ( System.currentTimeMillis() - coeurDeVies[i].getStart() > 10000) coeurDeVies[i].setEstPrésent(false);
+			if ( coeurDeVies[i].isEstPrésent() 
+					&& System.currentTimeMillis() - coeurDeVies[i].getStart() < 5000) game.getBatch().draw(coeurDeVie, coeurDeVies[i].getX() , coeurDeVies[i].getY());
+			else if ( coeurDeVies[i].isEstPrésent()
+					&& System.currentTimeMillis() - coeurDeVies[i].getStart() > 5000){
+				coeurDeVies[i].clignotementCoeur();
+				if (coeurDeVies[i].isClignotement() ) game.getBatch().draw(coeurDeVie, coeurDeVies[i].getX() , coeurDeVies[i].getY());
+			}
+		}
+	}
+	
 	public static void réinitialisation(){
 		for ( int i = 0 ; i < coeurDeVies.length ; i++) coeurDeVies[i].setEstPrésent(false);
 	}
@@ -138,5 +227,15 @@ public class CoeurDeVie {
 			nbrDeReceptacle = 0 ;
 		}
 	}
+	
+	public static void détectionReceptable(MainCharacter Link){
+		if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *MainMenu.PPM/60 )][(int) (Link.getBody().getPosition().y *MainMenu.PPM/ 60 )].equals("receptacleDeCoeur")) {
+			CadrillageMap.setTypeDeDécor((int) (Link.getBody().getPosition().x *MainMenu.PPM/60 ), (int) (Link.getBody().getPosition().y *MainMenu.PPM/ 60 ), "");
+			receptacleDeCoeur();
+			Link.annimationAward = true;
+		}
+	}
+
+	
 	
 }

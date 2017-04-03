@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import items.Bouclier;
 import items.CoeurDeVie;
+import items.Essence;
 import scenes.MainMenu;
 
 public class Pnj extends Characters{
@@ -63,26 +64,25 @@ public class Pnj extends Characters{
 	
 	public void déplacementVersJoueur(){
 		if ( System.currentTimeMillis() - start > 400) {
-			if ( this.getX() - MainMenu.Link.getX() > 0 ){
+			if ( this.getX() - MainMenu.Link.getX() > 90 ){
 				this.getBody().applyLinearImpulse(new Vector2(-60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
-			else if (this.getX() - MainMenu.Link.getX() < 0 ){
+			else if (this.getX() - MainMenu.Link.getX() < 90 ){
 				this.getBody().applyLinearImpulse(new Vector2(+60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
-			if (this.getY() - MainMenu.Link.getY() > 0){
+			if (this.getY() - MainMenu.Link.getY() > 90){
 				this.getBody().applyLinearImpulse(new Vector2(0,-60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
-			else if (this.getY() - MainMenu.Link.getY() < 0){
+			else if (this.getY() - MainMenu.Link.getY() < 90){
 				this.getBody().applyLinearImpulse(new Vector2(0,+60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
 			start = System.currentTimeMillis();
 			arrét = false;
-		} 
-		
+		}
 	}
 	
 //	déplacement global 
@@ -104,12 +104,13 @@ public class Pnj extends Characters{
 	
 	public void drop(){
 		CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
+		Essence.remplirEssences((int) this.getX() , (int) this.getY() );
 	}
 	
 //	subir dégats et mort
 	
-	public void subirDégats( MainCharacter cha, String direction){
-		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
+	public void subirDégats( int cha, String direction){
+		if ( this.getHealth() > 0 && this.getHealth() - cha <= 0 ) {
 			this.drop();
 //			est ce la meilleure solution?
 			this.isAttacked = false;
@@ -121,7 +122,7 @@ public class Pnj extends Characters{
 			else if ( direction.equals("bas")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y -30, 0);
 			this.isAttacked = true;
 		}
-		this.setHealth(this.getHealth() - cha.getStrength());
+		this.setHealth(this.getHealth() - cha);
 	}
 	
 	

@@ -99,6 +99,74 @@ public class SousMapB5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
+		
+//		
+
+		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 240+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 300+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 360+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 540+ x, 420+ y);
+		
+
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 180+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 180+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 240+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 240+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 240+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 240+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 240+ x, 0+ y);
+
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 540+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 540+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 540+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 540+ x, 0+ y);
+		
+		ClimatMontagneux.eauProfonde(game,240+x,360+y);
+		ClimatMontagneux.eauProfonde300(game,300+x,360+y);
+		ClimatMontagneux.eauProfonde150(game,360+x,360+y);
+		ClimatMontagneux.eauProfonde150(game,420+x,360+y);
+		ClimatMontagneux.eauProfonde300(game,480+x,360+y);
+		ClimatMontagneux.eauProfonde(game,540+x,360+y);
+		
+		ClimatMontagneux.eauProfonde(game,240+x,300+y);
+		ClimatMontagneux.eauProfonde300(game,300+x,300+y);
+		ClimatMontagneux.eauProfonde300(game,360+x,300+y);
+		ClimatMontagneux.eauProfonde300(game,420+x,300+y);
+		ClimatMontagneux.eauProfonde300(game,480+x,300+y);
+		ClimatMontagneux.eauProfonde(game,540+x,300+y);
+		
+		ClimatMontagneux.eauProfonde(game,300+x,240+y);
+		ClimatMontagneux.eauProfonde(game,360+x,240+y);
+		ClimatMontagneux.eauProfonde(game,420+x,240+y);
+		ClimatMontagneux.eauProfonde(game,480+x,240+y);
+		
+		ClimatMontagneux.eauProfonde(game,300+x,180+y);
+		ClimatMontagneux.eauProfonde(game,360+x,180+y);
+		ClimatMontagneux.eauProfonde(game,420+x,180+y);
+		ClimatMontagneux.eauProfonde(game,480+x,180+y);
+		
+		ClimatMontagneux.eauProfonde(game,300+x,120+y);
+		ClimatMontagneux.eauProfonde(game,360+x,120+y);
+		ClimatMontagneux.eauProfonde(game,420+x,120+y);
+		ClimatMontagneux.eauProfonde(game,480+x,120+y);
+		
+		ClimatMontagneux.eauProfonde(game,300+x,60+y);
+		ClimatMontagneux.eauProfonde(game,360+x,60+y);
+		ClimatMontagneux.eauProfonde(game,420+x,60+y);
+		ClimatMontagneux.eauProfonde(game,480+x,60+y);
+		
+		ClimatMontagneux.eauProfonde(game,300+x,0+y);
+		ClimatMontagneux.eauProfonde(game,360+x,0+y);
+		ClimatMontagneux.eauProfonde(game,420+x,0+y);
+		ClimatMontagneux.eauProfonde(game,480+x,0+y);
+
+		ClimatMontagneux.annimationCascadePetite(game, 350+x, 400+y);
+		
+
+		game.getBatch().draw(ClimatMontagneux.grandPont, 280+ x, 120+ y);
 	}
 
 	public static void destroyBody() {

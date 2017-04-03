@@ -167,6 +167,9 @@ public class SousMapH4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 480+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 480+ x, 120+ y);
 		
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 540+ x, 180+ y);
+		
 		
 //		
 		

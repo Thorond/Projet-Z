@@ -69,6 +69,14 @@ public class ClimatMontagneux {
 	
 //	objets
 
+	public static Texture IceMan = new Texture("climatMontagneux/IceMan.png");
+	public static Texture IceManNoNose = new Texture("climatMontagneux/IceManNoNose.png");
+	public static boolean noseFound = false; // à sauvegarder
+	public static void IceMain(GameMain game, int x, int y ){
+		if ( ! noseFound ) game.getBatch().draw(IceManNoNose,x,y);
+		else game.getBatch().draw(IceMan,x,y);
+	}
+	
 	public static Texture emplacementBombe = new Texture("climatMontagneux/emplacementBombe.png");
 	public static Texture crate = new Texture("climatMontagneux/Crate.png");
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
@@ -96,6 +104,7 @@ public class ClimatMontagneux {
 	public static Texture tonneau = new Texture("climatMontagneux/Barrel.png");
 	public static Texture signTête = new Texture("climatMontagneux/signTête.png");
 
+	public static Texture grandPont = new Texture("climatMontagneux/grandPont.png");
 	public static Texture grandPontVertical = new Texture("climatMontagneux/grandPontVertical.png");
 	public static Texture grandPontVertical2 = new Texture("climatMontagneux/grandPontVertical2.png");
 	
@@ -284,6 +293,7 @@ public class ClimatMontagneux {
 	public static Texture murSombreGlacéGauche= new Texture("climatMontagneux/murSombreGlacéGauche.png");
 	public static Texture murSombreGlacéGauche2= new Texture("climatMontagneux/murSombreGlacéGauche2.png");
 	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
+	public static Texture murBasMer= new Texture("climatMontagneux/murBas.png");
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
 	public static Texture cheminGlaceHori = new Texture("climatMontagneux/cheminGlaceHori.png");
@@ -370,7 +380,7 @@ public class ClimatMontagneux {
 		
 	}
 	
-//	cascade 
+//	cascade grande
 	
 	public static Texture cascade1 = new Texture("map/cascade1.png");
 	public static Texture cascade2 = new Texture("map/cascade2.png");
@@ -394,13 +404,37 @@ public class ClimatMontagneux {
 		}
 	}
 	
+//	cascade petite
+	
+	public static Texture cascadePetite1 = new Texture("map/cascadePetite1.png");
+	public static Texture cascadePetite2 = new Texture("map/cascadePetite2.png");
+	public static Texture cascadePetite3 = new Texture("map/cascadePetite3.png");
+	public static Texture cascadePetite4 = new Texture("map/cascadePetite4.png");
+	
+	public static int etatCascadePetite = 1;
+	public static long variationCascadePetite = System.currentTimeMillis();
+	
+	public static void annimationCascadePetite(GameMain game, int x, int y){
+		if (etatCascadePetite == 1) game.getBatch().draw(cascadePetite1, x+2, y);
+		else if (etatCascadePetite == 2) game.getBatch().draw(cascadePetite2, x, y);
+		else if (etatCascadePetite == 3) game.getBatch().draw(cascadePetite3, x, y);
+		else if (etatCascadePetite == 4) game.getBatch().draw(cascadePetite4, x, y);
+		if ( System.currentTimeMillis() - variationCascadePetite > 150){
+			variationCascadePetite = System.currentTimeMillis();
+			if (etatCascadePetite == 1) etatCascadePetite = 2;
+			else if (etatCascadePetite == 2) etatCascadePetite = 3;
+			else if (etatCascadePetite == 3) etatCascadePetite = 4;
+			else if (etatCascadePetite == 4) etatCascadePetite = 1;
+		}
+	}
+	
 //	trou
 	
 	public static void setDamageTrou(MainCharacter cha) {
 		// TODO Auto-generated method stub
 		cha.setHealth(cha.getHealth() - 5 );
 		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX / MainMenu.PPM, PlacementMain.positionRelativeY/ MainMenu.PPM, 0);}
+			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX , PlacementMain.positionRelativeY, 0);}
 	}
 
 }
