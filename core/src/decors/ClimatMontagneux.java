@@ -434,7 +434,7 @@ public class ClimatMontagneux {
 		// TODO Auto-generated method stub
 		cha.setHealth(cha.getHealth() - 5 );
 		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX / MainMenu.PPM, PlacementMain.positionRelativeY/ MainMenu.PPM, 0);}
+			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX , PlacementMain.positionRelativeY, 0);}
 	}
 
 }

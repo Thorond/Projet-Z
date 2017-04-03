@@ -97,6 +97,62 @@ public class CoeurDeVie {
 		}
 	}
 	
+//	=================================================================================================
+	
+	public static void représentationNombreCoeur(GameMain game, MainCharacter Link) {
+		int vie = 0 ;
+		int écart = 0;
+		int placeCoeurY = 0;
+		boolean premièreLigne = true;
+		
+		
+		while ( vie +4 <= Link.getHealth()  ){
+
+			if (premièreLigne ) {
+				if ( vie>= 40 ){
+					placeCoeurY = 40 ;
+					écart = 0;
+					premièreLigne = false;
+				}
+			}
+			
+			game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 - placeCoeurY );
+			écart+=30;
+			vie += 4;
+		}
+		if (premièreLigne ) {
+			if ( vie>= 40 ){
+				placeCoeurY = 40 ;
+				écart = 0;
+				premièreLigne = false;
+			}
+		}
+		if (Link.getHealth() != Link.getHealthMax()){
+			if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440  - placeCoeurY);
+			else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 - placeCoeurY );
+			else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440  - placeCoeurY);
+			else if ( Link.getHealth() % 4 == 0 || Link.getHealth() <= 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440  - placeCoeurY);
+			écart+=30;
+			vie+=4;
+		}
+		
+		while ( vie + 4 <= Link.getHealthMax()){
+			if (premièreLigne ) {
+				if ( vie>= 40 ){
+					placeCoeurY = 40 ;
+					écart = 0;
+					premièreLigne = false;
+				}
+			}
+			game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440  - placeCoeurY);
+			écart+=30;
+			vie+=4;
+		}
+		premièreLigne = true;
+	}
+	
+//	=================================================================================================
+	
 	public static void représentationCoeur(GameMain game){
 		for ( int i = 0; i< coeurDeVies.length ; i++){
 			if ( System.currentTimeMillis() - coeurDeVies[i].getStart() > 10000) coeurDeVies[i].setEstPrésent(false);
@@ -179,5 +235,7 @@ public class CoeurDeVie {
 			Link.annimationAward = true;
 		}
 	}
+
+	
 	
 }

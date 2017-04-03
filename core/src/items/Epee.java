@@ -83,7 +83,7 @@ public class Epee extends Item{
 							for ( int k = -20 ; k <= 60 ; k++){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=121;
 									k=121;
 								}
@@ -94,7 +94,7 @@ public class Epee extends Item{
 							for ( int k = -20 ; k <= 60 ; k++){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=-121;
 									k=121;
 								}
@@ -105,7 +105,7 @@ public class Epee extends Item{
 							for ( int k = 0 ; k <= 60 ; k++){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=121;
 									k=121;
 								}
@@ -116,7 +116,7 @@ public class Epee extends Item{
 							for ( int k = 0 ; k >= -60 ; k--){
 								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
 										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha, cha.getDirection());
+									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 									j=121;
 									k=-121;
 								}

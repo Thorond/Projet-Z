@@ -82,13 +82,7 @@ public class Pnj extends Characters{
 			}
 			start = System.currentTimeMillis();
 			arrét = false;
-		} 
-		if (System.currentTimeMillis() - start > 100 ) {
-//			ralentissement des pnjs
-			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 100000f, this.getBody().getLinearVelocity().y / 100000f);
-			arrét = true;
 		}
-		
 	}
 	
 //	déplacement global 
@@ -115,8 +109,8 @@ public class Pnj extends Characters{
 	
 //	subir dégats et mort
 	
-	public void subirDégats( MainCharacter cha, String direction){
-		if ( this.getHealth() > 0 && this.getHealth() - cha.getStrength() <= 0 ) {
+	public void subirDégats( int cha, String direction){
+		if ( this.getHealth() > 0 && this.getHealth() - cha <= 0 ) {
 			this.drop();
 //			est ce la meilleure solution?
 			this.isAttacked = false;
@@ -128,7 +122,7 @@ public class Pnj extends Characters{
 			else if ( direction.equals("bas")) this.getBody().setTransform(this.getBody().getPosition().x, this.getBody().getPosition().y -30, 0);
 			this.isAttacked = true;
 		}
-		this.setHealth(this.getHealth() - cha.getStrength());
+		this.setHealth(this.getHealth() - cha);
 	}
 	
 	

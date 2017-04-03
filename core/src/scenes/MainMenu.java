@@ -16,6 +16,7 @@ import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
 import interactionClavier.AlphabetEtAcquisition;
+import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
 import items.Epee;
@@ -44,6 +45,7 @@ public class MainMenu implements Screen{
 	public static Plume plume = new Plume();
 	public static GantDeForce gantDeForce = new GantDeForce();
 	public static Bouclier bouclier = new Bouclier();
+	public static Bombe bombe = new Bombe();
 	
 	Texture carte;
 	public static World world;
@@ -90,6 +92,8 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
+		MenuSac.setItem(bombe);
+		bombe.setNombreItem(7);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		
@@ -424,7 +428,8 @@ public class MainMenu implements Screen{
 				CoeurDeVie.représentationCoeur(game);
 				// dessiner les essences
 				Essence.représentationEssence(game);
-				
+
+				Bombe.représentationBombe(game);
 	//			dessin du joueur
 				Link.draw(game.getBatch());
 			}
@@ -442,59 +447,14 @@ public class MainMenu implements Screen{
 			if ( MenuSac.itemKOccupé ) MenuSac.affichageItemK(game);
 			if ( MenuSac.itemLOccupé ) MenuSac.affichageItemL(game);
 			
+			
 	//		=============================================================================================
 	//								dessiner la vie à la fois en jeu et dans menuSac
 	//		=============================================================================================
 			
-			int vie = 0 ;
-			int écart = 0;
-			int placeCoeurY = 0;
-			boolean premièreLigne = true;
 			
 			
-			while ( vie +4 <= Link.getHealth()  ){
-
-				if (premièreLigne ) {
-					if ( vie>= 40 ){
-						placeCoeurY = 40 ;
-						écart = 0;
-						premièreLigne = false;
-					}
-				}
-				
-				game.getBatch().draw(MainCharacter.coeurPlein, 20 + écart, 440 - placeCoeurY );
-				écart+=30;
-				vie += 4;
-			}
-			if (premièreLigne ) {
-				if ( vie>= 40 ){
-					placeCoeurY = 40 ;
-					écart = 0;
-					premièreLigne = false;
-				}
-			}
-			if (Link.getHealth() != Link.getHealthMax()){
-				if ( Link.getHealth() % 4 == 1 ) game.getBatch().draw(MainCharacter.coeurUnQuart, 20 + écart, 440  - placeCoeurY);
-				else if ( Link.getHealth() % 4 == 2 ) game.getBatch().draw(MainCharacter.coeurMoitié, 20 + écart, 440 - placeCoeurY );
-				else if ( Link.getHealth() % 4 == 3 ) game.getBatch().draw(MainCharacter.coeurTroisQuart, 20 + écart, 440  - placeCoeurY);
-				else if ( Link.getHealth() % 4 == 0 || Link.getHealth() <= 0 ) game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440  - placeCoeurY);
-				écart+=30;
-				vie+=4;
-			}
-			
-			while ( vie + 4 <= Link.getHealthMax()){
-				if (premièreLigne ) {
-					if ( vie>= 40 ){
-						placeCoeurY = 40 ;
-						écart = 0;
-						premièreLigne = false;
-					}
-				}
-				game.getBatch().draw(MainCharacter.coeurVide, 20 + écart, 440  - placeCoeurY);
-				écart+=30;
-				vie+=4;
-			}
-			premièreLigne = true;
+			CoeurDeVie.représentationNombreCoeur(game,Link);
 			
 //			déssin du nommbres d'essences
 			

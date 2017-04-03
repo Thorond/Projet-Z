@@ -244,6 +244,8 @@ public class SousMapB3 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		if ( pontCasse == false ){
+			CadrillageMap.setTypeDeDécor(240/60,300/60,"destructible");
+			
 			CadrillageMap.setTypeDeDécor(180/60,120/60,"Trou");
 			CadrillageMap.setTypeDeDécor(180/60,180/60,"Trou");
 			CadrillageMap.setTypeDeDécor(180/60,240/60,"Trou");
@@ -281,6 +283,7 @@ public class SousMapB3 extends Sprite{
 		CadrillageMap.setTypeDeDécor(300/60,420/60,"EauProfonde");
 		CadrillageMap.setTypeDeDécor(360/60,420/60,"EauProfonde");
 		CadrillageMap.setTypeDeDécor(420/60,420/60,"EauProfonde");
+		
 		
 		if ( isBosquet1Created == false ) {
 			bosquet1 = ClimatMontagneux.createBody(110,220,110,400);
