@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import items.Bouclier;
 import items.CoeurDeVie;
+import items.Essence;
 import scenes.MainMenu;
 
 public class Pnj extends Characters{
@@ -109,6 +110,7 @@ public class Pnj extends Characters{
 	
 	public void drop(){
 		CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
+		Essence.remplirEssences((int) this.getX() , (int) this.getY() );
 	}
 	
 //	subir dégats et mort

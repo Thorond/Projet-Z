@@ -1,6 +1,7 @@
 package items;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import map.CadrillageMap;
@@ -92,6 +93,19 @@ public class CoeurDeVie {
 					}
 				}
 				
+			}
+		}
+	}
+	
+	public static void représentationCoeur(GameMain game){
+		for ( int i = 0; i< coeurDeVies.length ; i++){
+			if ( System.currentTimeMillis() - coeurDeVies[i].getStart() > 10000) coeurDeVies[i].setEstPrésent(false);
+			if ( coeurDeVies[i].isEstPrésent() 
+					&& System.currentTimeMillis() - coeurDeVies[i].getStart() < 5000) game.getBatch().draw(coeurDeVie, coeurDeVies[i].getX() , coeurDeVies[i].getY());
+			else if ( coeurDeVies[i].isEstPrésent()
+					&& System.currentTimeMillis() - coeurDeVies[i].getStart() > 5000){
+				coeurDeVies[i].clignotementCoeur();
+				if (coeurDeVies[i].isClignotement() ) game.getBatch().draw(coeurDeVie, coeurDeVies[i].getX() , coeurDeVies[i].getY());
 			}
 		}
 	}

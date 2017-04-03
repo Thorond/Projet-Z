@@ -4,6 +4,7 @@ import characters.Ghost;
 import characters.MainCharacter;
 import decors.ClimatMontagneux;
 import items.CoeurDeVie;
+import items.Essence;
 import scenes.MainMenu;
 
 public class PlacementMain {
@@ -197,6 +198,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 460/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
@@ -353,6 +355,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		} else if (perso.getBody().getPosition().x < -10 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1")  ){
@@ -515,6 +518,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		} else if (perso.getBody().getPosition().x > 580/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
@@ -674,6 +678,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		}
 		
 //		 accès a l'igloo de la carte C1 
@@ -688,6 +693,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		} else if (positionSousMap.equals("IglooC1") 
 				&& perso.getDirection().equals("bas")
 				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
@@ -699,6 +705,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		}
 //		 accès a l'igloo de la carte D3 
 		else if (positionSousMap.equals("D3") 
@@ -713,6 +720,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		} else if (positionSousMap.equals("IglooD3") 
 				&& perso.getDirection().equals("bas")
 				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
@@ -724,6 +732,7 @@ public class PlacementMain {
 			CadrillageMap.setTypeDeDécor();
 			CadrillageMap.setDécoChangéFaux();
 			CoeurDeVie.réinitialisation();
+			Essence.réinitialisation();
 		}
 		
 	}

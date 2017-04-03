@@ -163,6 +163,7 @@ public class SousMapB3 extends Sprite{
 		if ( pontCasse == false ){
 
 			game.getBatch().draw(ClimatMontagneux.cheminGlaceHori, 240+ x, 300+ y);
+			game.getBatch().draw(ClimatMontagneux.emplacementBombe, 240+ x, 315+ y);
 		
 			game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 60+ y);
 			game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 60+ y);
