@@ -141,12 +141,12 @@ public class MainMenu implements Screen{
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D) && MenuSac.itemSelect < 15){
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D) && MenuSac.itemSelect < 9){
 			MenuSac.itemSelect++;	
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z) && MenuSac.itemSelect > 5){
-			MenuSac.itemSelect-=5;	
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.S) && MenuSac.itemSelect <11){
-			MenuSac.itemSelect+=5;
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z) && MenuSac.itemSelect > 3){
+			MenuSac.itemSelect-=3;	
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.S) && MenuSac.itemSelect <7){
+			MenuSac.itemSelect+=3;
 		}
 		if (Gdx.input.isKeyJustPressed(Input.Keys.K) &&  MenuSac.itemSelect <= MenuSac.nbrItems){
 			MenuSac.acquisitionItemsK();

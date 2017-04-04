@@ -53,11 +53,11 @@ public class MainCharacter extends Characters {
 	public static Texture linkAward = new Texture("Personnage/linkAward.png");
 	
 	
-	public static Texture coeurPlein = new Texture("Divers/coeurPlein.png");
-	public static Texture coeurMoitié = new Texture("Divers/coeur1-2.png");
-	public static Texture coeurUnQuart = new Texture("Divers/coeur1-4.png");
-	public static Texture coeurTroisQuart = new Texture("Divers/coeur3-4.png");
-	public static Texture coeurVide = new Texture("Divers/coeurVide.png");
+	public static Texture coeurPlein = new Texture("Divers/coeur/coeurPlein.png");
+	public static Texture coeurMoitié = new Texture("Divers/coeur/coeur1-2.png");
+	public static Texture coeurUnQuart = new Texture("Divers/coeur/coeur1-4.png");
+	public static Texture coeurTroisQuart = new Texture("Divers/coeur/coeur3-4.png");
+	public static Texture coeurVide = new Texture("Divers/coeur/coeurVide.png");
 	
 	public MainCharacter(World world, int HM, int health, int strength, float x, float y, String direction){
 		super( world,linkBasRepos, HM, health, strength, x,  y, direction);
