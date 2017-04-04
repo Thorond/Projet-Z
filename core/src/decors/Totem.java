@@ -24,6 +24,11 @@ public class Totem {
 	public static Texture totem2 = new Texture("monstres/totem/totemDroit.png");
 	public static Texture totem1Complet = new Texture("monstres/totem/totemEntierDroit.png");
 	public static Texture totem2Complet = new Texture("monstres/totem/totemEntierGauche.png");
+	
+	public static Texture  texte0 = new Texture("texte/totem/texte0.png");
+	public static Texture  texte1 = new Texture("texte/totem/texte1.png");
+	public static Texture  texte2 = new Texture("texte/totem/texte2.png");
+	public static Texture  texte3 = new Texture("texte/totem/texte3.png");
 
 	public static void représentationTotems(GameMain game, int x, int y){
 		if  ( !( jeuRésolu ) ) {

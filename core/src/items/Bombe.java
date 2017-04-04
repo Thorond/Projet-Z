@@ -133,11 +133,12 @@ public class Bombe extends Item {
 			for ( int i = 0; i < Pnj.nbrDeMonstres ; i++){
 	//				vérification qu'ils soient vivants
 				if ( Pnj.monstres[i].isAlive() ){
-					if ( (int) this.getX() + 45 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM 
-							&& (int) this.getX() - 45 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM  
-							&& (int) this.getY() + 45 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM 
-							&& (int) this.getY() - 45 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM ){
-						Pnj.monstres[i].subirDégats(this.getDégàts(), "haut");
+					if ( (int) this.getX() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM 
+							&& (int) this.getX() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM  
+							&& (int) this.getY() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM 
+							&& (int) this.getY() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM ){
+						
+						Pnj.monstres[i].subirDégatsBombe(this, (int) this.getX(), (int) this.getY());
 					}
 				}
 				
@@ -145,10 +146,11 @@ public class Bombe extends Item {
 		}
 //		dégàt sur le joueur
 		
-		if ( (int) this.getX() + 45 >= (int) MainMenu.Link.getBody().getPosition().x * MainMenu.PPM 
-				&& (int) this.getX() - 45 <= (int) MainMenu.Link.getBody().getPosition().x * MainMenu.PPM  
-				&& (int) this.getY() + 45 >= (int) MainMenu.Link.getBody().getPosition().y * MainMenu.PPM 
-				&& (int) this.getY() - 45 <= (int) MainMenu.Link.getBody().getPosition().y * MainMenu.PPM ){
+		if ( (int) this.getX() + 60 >= (int) MainMenu.Link.getBody().getPosition().x * MainMenu.PPM 
+				&& (int) this.getX() - 60 <= (int) MainMenu.Link.getBody().getPosition().x * MainMenu.PPM  
+				&& (int) this.getY() + 60 >= (int) MainMenu.Link.getBody().getPosition().y * MainMenu.PPM 
+				&& (int) this.getY() - 60 <= (int) MainMenu.Link.getBody().getPosition().y * MainMenu.PPM ){
+			MainMenu.Link.subirDégatsBombe(this, (int) this.getX(), (int) this.getY() );
 			MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getDégàts() );
 		}
 		

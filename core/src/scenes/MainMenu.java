@@ -15,6 +15,7 @@ import com.mygdx.game.GameMain;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
+import characters.VieuxMarchand;
 import interactionClavier.AlphabetEtAcquisition;
 import items.Bombe;
 import items.Bouclier;
@@ -26,7 +27,9 @@ import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
+import map.IglooC5;
 import map.PlacementMain;
+import map.SousMapD5;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
@@ -93,7 +96,7 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
 		MenuSac.setItem(bombe);
-		bombe.setNombreItem(7);
+		bombe.setNombreItem(40);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		
@@ -141,12 +144,12 @@ public class MainMenu implements Screen{
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D) && MenuSac.itemSelect < 15){
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.D) && MenuSac.itemSelect < 9){
 			MenuSac.itemSelect++;	
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z) && MenuSac.itemSelect > 5){
-			MenuSac.itemSelect-=5;	
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.S) && MenuSac.itemSelect <11){
-			MenuSac.itemSelect+=5;
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z) && MenuSac.itemSelect > 3){
+			MenuSac.itemSelect-=3;	
+		} else if (Gdx.input.isKeyJustPressed(Input.Keys.S) && MenuSac.itemSelect <7){
+			MenuSac.itemSelect+=3;
 		}
 		if (Gdx.input.isKeyJustPressed(Input.Keys.K) &&  MenuSac.itemSelect <= MenuSac.nbrItems){
 			MenuSac.acquisitionItemsK();
@@ -201,7 +204,40 @@ public class MainMenu implements Screen{
 	void updateAlEtAc(float dt){
 		AlphabetEtAcquisition.acquisitionTouche();
 	}
-	
+//	lorsque le joueur achète quelque chose 
+	void updateAchat(float dt){
+		if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+			if ( IglooC5.étatAchat == 1 ) IglooC5.étatAchat = 2;
+			else if ( IglooC5.étatAchat == 4 ) IglooC5.étatAchat = 5;
+			else if ( ! (IglooC5.étatAchat == 2)  && ! (IglooC5.étatAchat == 5) ){
+				IglooC5.étatAchat = 10;
+			}
+		} else if ( Gdx.input.isKeyJustPressed(Input.Keys.K) ) {
+			if ( IglooC5.étatAchat == 2 ) {
+				if ( Essence.nombreEssence >= 50 ){
+					bombe.setNombreItem(bombe.getNombreItem() + 10);
+					Essence.nombreEssence -= 50 ;
+					IglooC5.étatAchat = 7;
+				} else {
+					IglooC5.étatAchat = 8;
+				}
+				
+			}
+			else if ( IglooC5.étatAchat == 5 ) {
+				if ( Essence.nombreEssence >= 20 ){
+//					faire quelque chose pour les carottes
+					Essence.nombreEssence -= 20 ;
+					IglooC5.étatAchat = 7;
+				} else {
+					IglooC5.étatAchat = 8;
+				}
+			}
+		}else if ( Gdx.input.isKeyJustPressed(Input.Keys.L) ) {
+			if( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5  ){
+				IglooC5.étatAchat = 9;
+			}
+		}
+	}
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
@@ -287,11 +323,13 @@ public class MainMenu implements Screen{
 					
 					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
 							 && ! PlacementMain.positionSousMap.equals("IglooC1")
-							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")
+							 && ! PlacementMain.positionSousMap.equals("IglooC5")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé 
 							 && ! PlacementMain.positionSousMap.equals("IglooC1")
-							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")
+							 && ! PlacementMain.positionSousMap.equals("IglooC5")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -329,6 +367,8 @@ public class MainMenu implements Screen{
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
+
+					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
 //					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
@@ -341,6 +381,11 @@ public class MainMenu implements Screen{
 					 if ( PlacementMain.positionSousMap.equals("F2")){
 						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
 							 SousMapF2.ouvertureCoffre = true;
+						 }
+					 }
+					 if ( PlacementMain.positionSousMap.equals("D5")){
+						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
+							 SousMapD5.ouvertureCoffre = true;
 						 }
 					 }
 					PlacementMain.setDéplacement(Link);
@@ -407,6 +452,7 @@ public class MainMenu implements Screen{
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
 				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
+				else if ( IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
@@ -439,6 +485,9 @@ public class MainMenu implements Screen{
 			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
 			
+//			représentation de l'achat
+			
+			if ( IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
 				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac

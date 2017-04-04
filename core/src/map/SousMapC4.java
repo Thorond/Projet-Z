@@ -175,6 +175,8 @@ public class SousMapC4 extends Sprite{
 		ClimatMontagneux.eauProfonde(game,540+x,180+y);
 		ClimatMontagneux.eauProfonde(game,540+x,240+y);
 		
+
+		
 		
 //		==================================================================
 		//		Placement des dessins des monstres

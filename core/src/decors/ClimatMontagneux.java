@@ -161,6 +161,11 @@ public class ClimatMontagneux {
 	
 	public static Texture tonneauIgloo = new Texture("climatMontagneux/BarrelIgloo.png");
 	public static Texture caisseIgloo = new Texture("climatMontagneux/CrateIgloo.png");
+
+	public static Texture longTonneau = new Texture("climatMontagneux/longTonneau.png");
+	public static Texture longTonneauVert = new Texture("climatMontagneux/longTonneauVert.png");
+	
+	public static Texture carottes = new Texture("climatMontagneux/carot.png");
 	
 	public static Texture torche1Igloo = new Texture("Divers/torche1Igloo.png");
 	public static Texture torche2Igloo = new Texture("Divers/torche2Igloo.png");

@@ -122,6 +122,40 @@ public class SousMapC5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedCassé1Sup, 420+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.piedCassé2Sup, 480+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.piedCassé1Sup, 540+ x, 360+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 360+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree,-20+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 40+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 100+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 160+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 220+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 280+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 340+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 400+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 460+ x, 330+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 520+ x, 330+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 0+ y);
+		
+
+//		igloo
+		
+		game.getBatch().draw(ClimatMontagneux.igloo, 360+ x, 180+ y);
 	}
 
 	public static void destroyBody() {

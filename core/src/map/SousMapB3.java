@@ -14,6 +14,9 @@ public class SousMapB3 extends Sprite{
 	public static boolean pontCasse = false; // à sauvegarder 
 	public static boolean isReceptaclePris = false; // à sauvegarder
 	
+	public static int annimation = 0; // à sauvegarder
+	public static long timerAnnimation = System.currentTimeMillis();
+	
 	public static Body bosquet1 ;
 	public static boolean isBosquet1Created;
 	public static Body bosquet2 ;
@@ -188,7 +191,119 @@ public class SousMapB3 extends Sprite{
 			game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 240+ y);
 			
 			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 300+ x, 180+ y);
-		} else {
+		} else if ( annimation < 4 ){
+			if ( annimation == 0 ) {
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
+			
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 60+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 60+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 60+ y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 420+ x, 120+ y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéGauche3, 180+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 360+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 420+ x, 180+ y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéGauche, 180+ x, 240+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre2, 240+ x, 240+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre2, 300+ x, 240+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 360+ x, 240+ y);
+				game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 240+ y);
+				
+				game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 300+ x, 180+ y);
+			} else if ( annimation == 1 ){
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
+			
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 60+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 60+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 60+ y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 420+ x, 120+ y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéGauche3, 180+ x, 180+ y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 180+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 360+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 420+ x, 180+ y);
+
+				ClimatMontagneux.eauProfondeGlacée(game,180+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,300+ x, 240+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 360+ x, 240+ y);
+				game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 240+ y);
+				
+				game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 300+ x, 180+ y);
+			} else if ( annimation == 2 ){
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
+			
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 60+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 60+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 60+ y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 120+ y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 120+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 420+ x, 120+ y);
+
+				ClimatMontagneux.eauProfondeGlacée(game,180+ x, 180+y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 180+y);
+				ClimatMontagneux.eauProfondeGlacée(game,300+ x, 180+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 360+ x, 180+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 420+ x, 180+ y);
+				
+				ClimatMontagneux.eauProfondeGlacée(game,180+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,300+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,360+ x, 240+y);
+				game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 240+ y);
+				
+				game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 360+ x, 180+ y);
+			} else if ( annimation == 3 ){
+
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
+				
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 60+ y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 60+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 60+ y);
+
+				ClimatMontagneux.eauProfondeGlacée(game,180+ x, 120+y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 120+y);
+				ClimatMontagneux.eauProfondeGlacée(game,300+ x, 120+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 120+ y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 420+ x, 120+ y);
+
+				ClimatMontagneux.eauProfondeGlacée(game,180+ x, 180+y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 180+y);
+				ClimatMontagneux.eauProfondeGlacée(game,300+ x, 180+y);
+				ClimatMontagneux.eauProfondeGlacée(game,360+ x, 180+y);
+				game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 420+ x, 180+ y);
+				
+				ClimatMontagneux.eauProfondeGlacée(game,180+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,240+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,300+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,360+ x, 240+y);
+				ClimatMontagneux.eauProfondeGlacée(game,420+ x, 240+y);
+				
+				game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 360+ x, 120+ y);
+			}
+			if ( System.currentTimeMillis() - timerAnnimation > 1000 ){
+				annimation ++ ;
+				timerAnnimation = System.currentTimeMillis();
+			}
+		}
+		else {
 			ClimatMontagneux.eauProfondeGlacée(game,240+ x, 300+y);
 			ClimatMontagneux.eauProfondeGlacée(game,240+ x, 60+y);
 			ClimatMontagneux.eauProfondeGlacée(game,300+ x, 60+y);

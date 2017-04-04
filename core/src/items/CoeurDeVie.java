@@ -11,8 +11,7 @@ import scenes.MainMenu;
 
 public class CoeurDeVie {
 	
-	public static Texture coeurDeVie = new Texture("Divers/coeurDeVie.png");
-	public static Texture receptacleDeCoeur = new Texture("Divers/receptacleDeCoeur.png");
+	public static Texture coeurDeVie = new Texture("Divers/coeur/coeurDeVie.png");
 	protected boolean estPrésent =false;
 	protected boolean clignotement = false;
 	protected long start;
@@ -216,6 +215,15 @@ public class CoeurDeVie {
 	}
 	
 //	gérer les réceptacles de coeurs qui rajoute un point de vie à link
+	
+
+	public static Texture receptacleDeCoeur = new Texture("Divers/receptacle/receptacleDeCoeur.png");
+	public static Texture receptacleDeCoeurVide = new Texture("Divers/receptacle/receptacleDeCoeurVide.png");
+	public static Texture receptacleInfDroi= new Texture("Divers/receptacle/receptacleInfDroi.png");
+	public static Texture receptacleInfGau= new Texture("Divers/receptacle/receptacleInfGau.png");
+	public static Texture receptacleSupDroi= new Texture("Divers/receptacle/receptacleSupDroi.png");
+	public static Texture receptacleSupGauche= new Texture("Divers/receptacle/receptacleSupGauche.png");
+	
 	public static int nbrDeReceptacle = 0; // à sauvegarder 
 	
 	public static void receptacleDeCoeur(){

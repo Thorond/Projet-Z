@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Bouclier;
 import items.Epee;
 import scenes.MainMenu;
 
@@ -164,7 +165,10 @@ public class SousMapF1 extends Sprite{
 
 		game.getBatch().draw(Epee.pedestal, 305+ x, 210+ y);
 		if ( Epee.isEpéePrise == false ) game.getBatch().draw(Epee.épéeAnvil, 312+ x, 250+ y);
-		if ( MainMenu.Link.annimationAward ) game.getBatch().draw(Epee.épéeT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
+		if ( MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(Epee.épéeT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
+			game.getBatch().draw(Epee.texteEpée, 100 + x, 60+y);
+		}
 	}
 
 	public static void destroyBody() {

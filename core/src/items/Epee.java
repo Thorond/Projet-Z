@@ -19,8 +19,8 @@ public class Epee extends Item{
 	public static Texture pedestal = new Texture("climatMontagneux/pedestal.png");
 	public static boolean isEpéePrise = false; // a sauvegarder 
 	public static boolean isEpéeUtilisé = false;
-	
-	
+
+	public static Texture texteEpée = new Texture("texte/texteEpée.png");;
 
 	public void utilisationItem( MainCharacter cha) {
 		isEpéeUtilisé = true;

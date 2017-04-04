@@ -167,6 +167,8 @@ public class SousMapB5 extends Sprite{
 		
 
 		game.getBatch().draw(ClimatMontagneux.grandPont, 280+ x, 120+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree,580+ x, 330+ y);
 	}
 
 	public static void destroyBody() {

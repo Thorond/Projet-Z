@@ -35,6 +35,7 @@ public class Coffre {
 		}
 	}
 	
+	
 	public static void drop(){
 		
 	}

@@ -5,8 +5,12 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Coffre;
 
 public class SousMapD5 extends Sprite{
+	
+	public static boolean ouvertureCoffre = false; // à sauvegarder
+	public static boolean coffreOuvert = false; // à sauvegarder
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -140,6 +144,27 @@ public class SousMapD5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 60+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.piedCassé2Sup, 0+ x,300+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 0+ y);
+
+		if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 20+ x, 300+ y);
+		else {
+			if ( coffreOuvert == false ) {
+				if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
+					coffreOuvert = true;
+				}
+				Coffre.annimationCoffreBleu(game, 20, 300);
+				
+			} else {
+				game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 20+ x, 300+ y);
+			}
+			
+		}
 	}
 
 	public static void destroyBody() {
@@ -149,7 +174,8 @@ public class SousMapD5 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+
+		CadrillageMap.setTypeDeDécor(0,300/60, "coffreBleu");
 	}
 
 	public static void destroyType() {
