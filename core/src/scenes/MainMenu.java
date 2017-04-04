@@ -93,7 +93,7 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
 		MenuSac.setItem(bombe);
-		bombe.setNombreItem(7);
+		bombe.setNombreItem(40);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
 		

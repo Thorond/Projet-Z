@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import items.Bombe;
 import items.Bouclier;
 import items.Epee;
 import map.GestionDesMaps;
@@ -201,6 +202,34 @@ public class MainCharacter extends Characters {
 //	
 	
 	public boolean isAlive = true;
+
+	public void subirDégatsBombe(Bombe cha, int x, int y) {
+		if ( x + this.getWidth() / 2 >= (int) this.getBody().getPosition().x * MainMenu.PPM  -60 
+				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM  
+				&& y +this.getHeight() / 2 >= (int) this.getBody().getPosition().y * MainMenu.PPM  
+				&& y <= (int) this.getBody().getPosition().y * MainMenu.PPM  + this.getHeight() / 2  ){
+			this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
+		}else if ((int) this.getBody().getPosition().x * MainMenu.PPM - x < 0 
+				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM + this.getWidth() / 2 +60
+				&& y +cha.getHeight() / 2 >= (int) this.getBody().getPosition().y * MainMenu.PPM 
+				&& y <= (int) this.getBody().getPosition().y * MainMenu.PPM + this.getHeight() / 2  ){
+			this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);
+		}
+	
+		if (x+ cha.getWidth() / 2 >= (int) this.getBody().getPosition().x * MainMenu.PPM  
+				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM + this.getWidth() / 2 
+				&& y +cha.getHeight() / 2 >= (int) this.getBody().getPosition().y * MainMenu.PPM -60
+				&& (int) this.getBody().getPosition().y * MainMenu.PPM - y > 0 ){
+			this.getBody().setTransform(this.getBody().getPosition().x , this.getBody().getPosition().y +30, 0);
+		}
+		else if (x + cha.getWidth() / 2 >= (int) this.getBody().getPosition().x * MainMenu.PPM   
+				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM   + this.getWidth() / 2 
+				&& (int) this.getBody().getPosition().y * MainMenu.PPM   - y < 0
+				&& y <= (int) this.getBody().getPosition().y * MainMenu.PPM   + this.getHeight() / 2  +60){
+			this.getBody().setTransform(this.getBody().getPosition().x , this.getBody().getPosition().y -30, 0);
+		}
+		
+	}
 	
 	
 
