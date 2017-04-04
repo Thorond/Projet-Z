@@ -3,6 +3,7 @@ package menus;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import decors.DonjonGlace;
 import items.CoeurDeVie;
 import items.Item;
 import scenes.MainMenu;
@@ -108,6 +109,11 @@ public class MenuSac extends Menu{
 		if (CoeurDeVie.nbrDeReceptacle >= 2 ) game.getBatch().draw(CoeurDeVie.receptacleInfDroi, 360 + CoeurDeVie.receptacleInfGau.getWidth()  , 70);
 		if (CoeurDeVie.nbrDeReceptacle >= 3 ) game.getBatch().draw(CoeurDeVie.receptacleSupGauche, 360  , 70+ CoeurDeVie.receptacleInfGau.getHeight());
 
+
+		game.getBatch().draw(DonjonGlace.CléEntièreVide, 340 , 160);
+		if ( DonjonGlace.isCléBasseTrouvé ) game.getBatch().draw(DonjonGlace.CléBasse, 340 , 160);
+		if ( DonjonGlace.isCléHauteTrouvé ) game.getBatch().draw(DonjonGlace.CléHaute, 340 , 160);
+		if ( DonjonGlace.isCléMilieuTrouvé ) game.getBatch().draw(DonjonGlace.CléMilieu, 340 , 160);
 	}
 	
 //	

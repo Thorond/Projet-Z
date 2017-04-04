@@ -36,6 +36,18 @@ public class DonjonGlace {
 		return body;
 	}
 	
+//	clé
+	
+
+	public static Texture  CléEntière= new Texture("donjon/donjonGlace/clé/CléEntière.png");
+	public static Texture  CléEntièreVide= new Texture("donjon/donjonGlace/clé/CléEntièreVide.png");
+	public static Texture  CléBasse= new Texture("donjon/donjonGlace/clé/CléBasse.png");
+	public static Texture  CléMilieu= new Texture("donjon/donjonGlace/clé/CléMilieu.png");
+	public static Texture  CléHaute= new Texture("donjon/donjonGlace/clé/HautClé.png");
+	public static boolean isCléBasseTrouvé = false; // à sauvegarder 
+	public static boolean isCléHauteTrouvé = false; // à sauvegarder 
+	public static boolean isCléMilieuTrouvé = false; // à sauvegarder 
+	
 //	tile
 
 	public static boolean transitionGate = true;
