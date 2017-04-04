@@ -297,11 +297,17 @@ public class IglooC5 extends Sprite{
 			if ( Link.getDirection().equals("haut") ){
 				if ( Link.getY() > 270 && Link.getY() < 290 ){
 					if ( Link.getX() > 200 && Link.getX() < 240 ){
-						
+						étatAchat = 1 ;
+						MainMenu.Link.setTexture(MainCharacter.linkGaucheRepos);
 					} else if ( Link.getX() > 250 && Link.getX() < 300 ){
-
+						étatAchat = 4 ; 
+						MainMenu.Link.setTexture(MainCharacter.linkGaucheRepos);
 					}
 				}
+			}
+		} if ( étatAchat == 10 ){
+			if ( Link.getY() < 270  ){
+				étatAchat = 0;
 			}
 		}
 	}

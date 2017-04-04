@@ -15,6 +15,7 @@ import com.mygdx.game.GameMain;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
+import characters.VieuxMarchand;
 import interactionClavier.AlphabetEtAcquisition;
 import items.Bombe;
 import items.Bouclier;
@@ -205,7 +206,37 @@ public class MainMenu implements Screen{
 	}
 //	lorsque le joueur achète quelque chose 
 	void updateAchat(float dt){
-		
+		if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+			if ( IglooC5.étatAchat == 1 ) IglooC5.étatAchat = 2;
+			else if ( IglooC5.étatAchat == 4 ) IglooC5.étatAchat = 5;
+			else if ( ! (IglooC5.étatAchat == 2)  && ! (IglooC5.étatAchat == 5) ){
+				IglooC5.étatAchat = 10;
+			}
+		} else if ( Gdx.input.isKeyJustPressed(Input.Keys.K) ) {
+			if ( IglooC5.étatAchat == 2 ) {
+				if ( Essence.nombreEssence >= 50 ){
+					bombe.setNombreItem(bombe.getNombreItem() + 10);
+					Essence.nombreEssence -= 50 ;
+					IglooC5.étatAchat = 7;
+				} else {
+					IglooC5.étatAchat = 8;
+				}
+				
+			}
+			else if ( IglooC5.étatAchat == 5 ) {
+				if ( Essence.nombreEssence >= 20 ){
+//					faire quelque chose pour les carottes
+					Essence.nombreEssence -= 20 ;
+					IglooC5.étatAchat = 7;
+				} else {
+					IglooC5.étatAchat = 8;
+				}
+			}
+		}else if ( Gdx.input.isKeyJustPressed(Input.Keys.L) ) {
+			if( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5  ){
+				IglooC5.étatAchat = 9;
+			}
+		}
 	}
 	
 	void updateInGame(float dt){
@@ -337,7 +368,7 @@ public class MainMenu implements Screen{
 						 MenuSac.setItem(bouclier);
 					 };
 
-					IglooC5.détectionItem(Link);
+					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
 //					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
@@ -421,7 +452,7 @@ public class MainMenu implements Screen{
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
 				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
-				else if ( IglooC5.étatAchat > 0) updateAchat(delta);
+				else if ( IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
@@ -454,6 +485,9 @@ public class MainMenu implements Screen{
 			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
 			
+//			représentation de l'achat
+			
+			if ( IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
 				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac
