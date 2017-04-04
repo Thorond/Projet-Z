@@ -7,7 +7,6 @@ import com.mygdx.game.GameMain;
 
 import characters.Ghost;
 import decors.ClimatMontagneux;
-import items.Bouclier;
 import items.Plume;
 import menus.MenuGameover;
 import scenes.MainMenu;

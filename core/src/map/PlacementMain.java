@@ -23,6 +23,14 @@ public class PlacementMain {
 	public static float positionRelativeX = MainMenu.Link.getBody().getPosition().x;
 	public static float positionRelativeY = MainMenu.Link.getBody().getPosition().y;
 	
+	public static void réinitialisation(){
+		CadrillageMap.setTypeDeDécor();
+		CadrillageMap.setDécoChangéFaux();
+		CoeurDeVie.réinitialisation();
+		Essence.réinitialisation();
+		Bombe.réinitialisation();
+	}
+	
 	
 	public static void posiSousMap(MainCharacter perso){
 		if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y < 0  ){
@@ -196,11 +204,8 @@ public class PlacementMain {
 			x=0;
 			direction = "bas";
 			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+			réinitialisation();
+			
 		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 460/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
@@ -353,12 +358,8 @@ public class PlacementMain {
 			y = 60;
 			x=0;
 			direction = "haut";
-			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
 		} else if (perso.getBody().getPosition().x < -10 && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1")  ){
@@ -517,12 +518,8 @@ public class PlacementMain {
 			x = 60;
 			y = 0;
 			direction = "gauche";
-			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
 		} else if (perso.getBody().getPosition().x > 580/MainMenu.PPM && perso.getBody().getPosition().y > 0 ){
 			if ( positionSousMap.equals("A1" ) ){
 				SousMapA1.destroyBody();
@@ -676,14 +673,8 @@ public class PlacementMain {
 			y = 0;
 			direction = "droite";
 			
-//			=============================================================================================================
-//									réinitialisation du type de décor et de leur état , et des coeurs de vies
-//			=============================================================================================================
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
 		}
 		
 //		 accès a l'igloo de la carte C1 
@@ -694,12 +685,8 @@ public class PlacementMain {
 			MainMenu.Link.getBody().setTransform(280/MainMenu.PPM, 10, 0);
 			SousMapC1.destroyBody();
 			positionSousMap = "IglooC1";
-			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
 		} else if (positionSousMap.equals("IglooC1") 
 				&& perso.getDirection().equals("bas")
 				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
@@ -707,12 +694,8 @@ public class PlacementMain {
 			MainMenu.Link.getBody().setTransform(175, 155, 0);
 			IglooC1.destroyBody();
 			positionSousMap = "C1";
-			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
 		}
 //		 accès a l'igloo de la carte D3 
 		else if (positionSousMap.equals("D3") 
@@ -723,12 +706,8 @@ public class PlacementMain {
 			SousMapD3.destroyBody();
 			positionSousMap = "IglooD3";
 			if (Ghost.etatScenario == 14 ) Ghost.etatScenario = 0;
-			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
 		} else if (positionSousMap.equals("IglooD3") 
 				&& perso.getDirection().equals("bas")
 				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
@@ -736,12 +715,28 @@ public class PlacementMain {
 			MainMenu.Link.getBody().setTransform(457/MainMenu.PPM, 95/MainMenu.PPM, 0);
 			IglooD3.destroyBody();
 			positionSousMap = "D3";
-			
-			CadrillageMap.setTypeDeDécor();
-			CadrillageMap.setDécoChangéFaux();
-			CoeurDeVie.réinitialisation();
-			Essence.réinitialisation();
-			Bombe.réinitialisation();
+
+			réinitialisation();
+		}
+//		 accès a l'igloo de la carte C5 
+		else if (positionSousMap.equals("C5") 
+				&& perso.getDirection().equals("haut")
+				&& perso.getBody().getPosition().x > 420/MainMenu.PPM &&  perso.getBody().getPosition().x < 460/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 150/MainMenu.PPM && perso.getBody().getPosition().y < 180/MainMenu.PPM ){
+			MainMenu.Link.getBody().setTransform(280/MainMenu.PPM, 10, 0);
+			SousMapC5.destroyBody();
+			positionSousMap = "IglooC5";
+
+			réinitialisation();
+		} else if (positionSousMap.equals("IglooC5") 
+				&& perso.getDirection().equals("bas")
+				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+			MainMenu.Link.getBody().setTransform(440/MainMenu.PPM, 155/MainMenu.PPM, 0);
+			IglooC5.destroyBody();
+			positionSousMap = "C5";
+
+			réinitialisation();
 		}
 		
 	}

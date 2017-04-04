@@ -27,6 +27,7 @@ import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
 import map.PlacementMain;
+import map.SousMapD5;
 import map.SousMapF1;
 import map.SousMapF2;
 import menus.MenuGameover;
@@ -341,6 +342,11 @@ public class MainMenu implements Screen{
 					 if ( PlacementMain.positionSousMap.equals("F2")){
 						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
 							 SousMapF2.ouvertureCoffre = true;
+						 }
+					 }
+					 if ( PlacementMain.positionSousMap.equals("D5")){
+						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
+							 SousMapD5.ouvertureCoffre = true;
 						 }
 					 }
 					PlacementMain.setDéplacement(Link);
