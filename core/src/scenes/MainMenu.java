@@ -26,6 +26,7 @@ import items.Plume;
 import map.CadrillageMap;
 import map.GestionDesMaps;
 import map.IglooC1;
+import map.IglooC5;
 import map.PlacementMain;
 import map.SousMapD5;
 import map.SousMapF1;
@@ -202,7 +203,10 @@ public class MainMenu implements Screen{
 	void updateAlEtAc(float dt){
 		AlphabetEtAcquisition.acquisitionTouche();
 	}
-	
+//	lorsque le joueur achète quelque chose 
+	void updateAchat(float dt){
+		
+	}
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
@@ -288,11 +292,13 @@ public class MainMenu implements Screen{
 					
 					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
 							 && ! PlacementMain.positionSousMap.equals("IglooC1")
-							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")
+							 && ! PlacementMain.positionSousMap.equals("IglooC5")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé 
 							 && ! PlacementMain.positionSousMap.equals("IglooC1")
-							 && ! PlacementMain.positionSousMap.equals("IglooD3")){
+							 && ! PlacementMain.positionSousMap.equals("IglooD3")
+							 && ! PlacementMain.positionSousMap.equals("IglooC5")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -330,6 +336,8 @@ public class MainMenu implements Screen{
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
+
+					IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
 //					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
@@ -413,6 +421,7 @@ public class MainMenu implements Screen{
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
 				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
+				else if ( IglooC5.étatAchat > 0) updateAchat(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();

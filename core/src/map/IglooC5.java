@@ -5,8 +5,11 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.MainCharacter;
+import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
-import items.Bouclier;
+import items.Bombe;
+import items.Essence;
 import menus.MenuGameover;
 import scenes.MainMenu;
 
@@ -35,6 +38,11 @@ public class IglooC5 extends Sprite{
 	public static boolean isCote10Created;
 	public static Body cote11;
 	public static boolean isCote11Created;
+
+	public static Body bord1;
+	public static boolean isbord1Created;
+	public static Body bord2;
+	public static boolean isbord2Created;
 
 	public static Body torche1;
 	public static boolean isTorche1Created;
@@ -123,9 +131,27 @@ public class IglooC5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
 		
 		
-		ClimatMontagneux.annimationTorcheIgloo(game, 140, 280);
-		ClimatMontagneux.annimationTorcheIgloo(game, 380, 280);
+
+		VieuxMarchand.annimationAttente1(game, 70+ x, 280+ y);
+		game.getBatch().draw(ClimatMontagneux.longTonneauVert, 120+ x, 220+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 210+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 180+ x, 390+ y);
+		game.getBatch().draw(ClimatMontagneux.tonneauIgloo, 240+ x, 390+ y);
 		
+		game.getBatch().draw(ClimatMontagneux.longTonneau, 140+ x, 300+ y);
+		game.getBatch().draw(Bombe.bombeT, 200+ x, 340+ y);
+		MainMenu.font.draw(game.getBatch(), "10", 230 +x, 350+x);
+		MainMenu.font.draw(game.getBatch(), "50", 230 +x, 330+x);
+		game.getBatch().draw(Essence.essenceBleu, 240+ x, 310+ y);
+		game.getBatch().draw(ClimatMontagneux.carottes, 270+ x, 330+ y);
+		MainMenu.font.draw(game.getBatch(), "5", 300 +x, 350+x);
+		MainMenu.font.draw(game.getBatch(), "20", 300 +x, 330+x);
+		game.getBatch().draw(Essence.essenceBleu, 310+ x, 310+ y);
+		game.getBatch().draw(ClimatMontagneux.longTonneau, 320+ x, 300+ y);
+		
+		ClimatMontagneux.annimationTorcheIgloo(game, 140, 180);
+		ClimatMontagneux.annimationTorcheIgloo(game, 380, 180);
 	}
 
 	public static void destroyBody() {
@@ -182,6 +208,14 @@ public class IglooC5 extends Sprite{
 			MainMenu.world.destroyBody(torche2);
 		isTorche2Created = false;
 		
+		if (isbord1Created)
+			MainMenu.world.destroyBody(bord1);
+		isbord1Created = false;
+
+		if (isbord2Created)
+			MainMenu.world.destroyBody(bord2);
+		isbord2Created = false;
+		
 	}
 
 	public static void createBodyAndType(World world) {
@@ -232,17 +266,43 @@ public class IglooC5 extends Sprite{
 		}
 
 		if (isTorche1Created == false) {
-			torche1 = ClimatMontagneux.createBodyPerso("arbre", "static", 140, 280);
+			torche1 = ClimatMontagneux.createBodyPerso("arbre", "static", 140,180);
 			isTorche1Created = true;
 		}
 		if (isTorche2Created == false) {
-			torche2 = ClimatMontagneux.createBodyPerso("arbre", "static", 380, 280);
+			torche2 = ClimatMontagneux.createBodyPerso("arbre", "static", 380, 180);
 			isTorche2Created = true;
+		}
+		
+		if (isbord1Created == false) {
+			bord1 = ClimatMontagneux.createBody(360,300, 360,1);
+			isbord1Created = true;
+		}
+		if (isbord2Created == false) {
+			bord2 = ClimatMontagneux.createBody(150,240, 1, 180);
+			isbord2Created = true;
 		}
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+//	
+	public static int étatAchat = 0 ;
+	
+	public static void détectionItem(MainCharacter Link){
+		if ( étatAchat == 0 ){
+			if ( Link.getDirection().equals("haut") ){
+				if ( Link.getY() > 270 && Link.getY() < 290 ){
+					if ( Link.getX() > 200 && Link.getX() < 240 ){
+						
+					} else if ( Link.getX() > 250 && Link.getX() < 300 ){
+
+					}
+				}
+			}
+		}
 	}
 }
