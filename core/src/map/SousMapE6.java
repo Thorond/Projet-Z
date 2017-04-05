@@ -1,12 +1,17 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapE6 extends Sprite{
+	
+	public static Body mur1;
+	public static boolean ismur1Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -174,12 +179,16 @@ public class SousMapE6 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
+		ismur1Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+		if ( ismur1Created == false ) {
+			mur1 = ClimatMontagneux.createBody(300,50,600,1);
+			ismur1Created = true;
+		}
 	}
 
 	public static void destroyType() {

@@ -9,7 +9,8 @@ import scenes.MainMenu;
 
 public class Essence {
 	
-	public static int nombreEssence = 10000000; // à sauvegarder
+	public static final int essenceMax = 999;
+	public static int nombreEssence = 999; // à sauvegarder
 	
 	public static Texture essenceBleu = new Texture("Divers/essence/essenceBleu.png");
 	public static Texture essenceJaune = new Texture("Divers/essence/essenceJaune.png");
@@ -102,7 +103,7 @@ public class Essence {
 							else if ( essences[i].type == 2) nombreEssence += 5;
 							else if ( essences[i].type == 3) nombreEssence += 10;
 							else if ( essences[i].type == 4) nombreEssence += 25;
-							
+							if ( nombreEssence > essenceMax ) nombreEssence = 999;
 							essences[i].setEstPrésent(false);
 						}
 					}

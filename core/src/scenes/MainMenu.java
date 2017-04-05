@@ -78,6 +78,7 @@ public class MainMenu implements Screen{
 		this.debugRenderer = new Box2DDebugRenderer();
 		
 		font = new BitmapFont();
+//		font.setColor(0, 0, 0, 1);
 		
 		world = new World(new Vector2(0,0),true);
 		

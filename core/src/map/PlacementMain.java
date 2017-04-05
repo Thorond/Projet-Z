@@ -801,9 +801,9 @@ public class PlacementMain {
 			}
 		} else if ( typeDéplacementHorizontal.equals("droite") ){
 			if ( typeDéplacementVertical.equals("bas")){
-				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y+5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +10)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y+5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 			} else if ( typeDéplacementVertical.equals("haut")){
-				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +10)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5) *MainMenu.PPM/ 60 )].equals("Trou")) ClimatMontagneux.setDamageTrou(Link);
 			}
 		}
 	}
@@ -817,9 +817,9 @@ public class PlacementMain {
 			}
 		} else if ( typeDéplacementHorizontal.equals("droite") ){
 			if ( typeDéplacementVertical.equals("bas")){
-				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y +5 )*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +10 )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y +5 )*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 			} else if ( typeDéplacementVertical.equals("haut")){
-				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
+				if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x +10)*MainMenu.PPM/60 )][(int) ((Link.getBody().getPosition().y -5)*MainMenu.PPM/ 60 )].equals("EauProfonde")) ClimatMontagneux.setDamageEau(Link);
 			}
 		}
 	}
