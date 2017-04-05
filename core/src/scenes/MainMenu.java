@@ -16,6 +16,7 @@ import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
 import characters.VieuxMarchand;
+import decors.ClimatMontagneux;
 import interactionClavier.AlphabetEtAcquisition;
 import items.Bombe;
 import items.Bouclier;
@@ -225,7 +226,7 @@ public class MainMenu implements Screen{
 			}
 			else if ( IglooC5.étatAchat == 5 ) {
 				if ( Essence.nombreEssence >= 20 ){
-//					faire quelque chose pour les carottes
+					if ( !ClimatMontagneux.isCarottesPrise ) ClimatMontagneux.isCarottesPrise = true;
 					Essence.nombreEssence -= 20 ;
 					IglooC5.étatAchat = 7;
 				} else {
@@ -370,7 +371,7 @@ public class MainMenu implements Screen{
 
 					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
-//					 démarage scenario 1 
+//					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
 							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
 							 && Link.getBody().getPosition().y > 200 / PPM  ){

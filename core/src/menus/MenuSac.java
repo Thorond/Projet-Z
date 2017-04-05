@@ -3,6 +3,7 @@ package menus;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import items.CoeurDeVie;
 import items.Item;
@@ -114,6 +115,9 @@ public class MenuSac extends Menu{
 		if ( DonjonGlace.isCléBasseTrouvé ) game.getBatch().draw(DonjonGlace.CléBasse, 340 , 160);
 		if ( DonjonGlace.isCléHauteTrouvé ) game.getBatch().draw(DonjonGlace.CléHaute, 340 , 160);
 		if ( DonjonGlace.isCléMilieuTrouvé ) game.getBatch().draw(DonjonGlace.CléMilieu, 340 , 160);
+		
+
+		if ( ClimatMontagneux.isCarottesPrise ) game.getBatch().draw(ClimatMontagneux.carottes, 440 , 80);
 	}
 	
 //	

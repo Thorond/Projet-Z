@@ -9,7 +9,7 @@ import scenes.MainMenu;
 
 public class Essence {
 	
-	public static int nombreEssence = 0; // à sauvegarder
+	public static int nombreEssence = 10000000; // à sauvegarder
 	
 	public static Texture essenceBleu = new Texture("Divers/essence/essenceBleu.png");
 	public static Texture essenceJaune = new Texture("Divers/essence/essenceJaune.png");

@@ -1,8 +1,9 @@
-/map/
-/scenes/
-/items/
 /characters/
+/com/
 /decors/
-/menus/
 /interactionClavier/
+/items/
+/map/
+/menus/
 /sauvegarde/
+/scenes/

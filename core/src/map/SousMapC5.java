@@ -7,6 +7,12 @@ import com.mygdx.game.GameMain;
 import decors.ClimatMontagneux;
 
 public class SousMapC5 extends Sprite{
+	public static boolean isArbuste1Cut = false;
+	public static boolean isArbuste2Cut = false;
+	public static boolean isArbuste3Cut = false;
+	public static boolean isArbuste4Cut = false;
+	public static boolean isArbuste5Cut = false;
+	public static boolean isArbuste6Cut = false;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -152,10 +158,33 @@ public class SousMapC5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 560+ x, 0+ y);
 		
+		
 
 //		igloo
 		
 		game.getBatch().draw(ClimatMontagneux.igloo, 360+ x, 180+ y);
+		
+//		arbuste 
+
+		game.getBatch().draw(ClimatMontagneux.herbeGlace120, 120+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.herbeGlace120, 210+ x, 90+ y);
+		game.getBatch().draw(ClimatMontagneux.herbeGlace120, 300+ x, 60+ y);
+		
+
+		ClimatMontagneux.arbuste(isArbuste1Cut, game, 120+x,60+ y);
+		ClimatMontagneux.arbuste(isArbuste2Cut, game, 120+x,240+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 0+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 60+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 60+ y);
+		ClimatMontagneux.arbuste(isArbuste3Cut, game, 180+x,120+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 240+ x, 120+ y);
+		ClimatMontagneux.arbuste(isArbuste4Cut, game, 300+x,300+ y);
+		ClimatMontagneux.arbuste(isArbuste5Cut, game, 360+x,120+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 360+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 50+ x, 60+ y);
+		ClimatMontagneux.arbuste(isArbuste6Cut, game, 480+x,60+ y);
 	}
 
 	public static void destroyBody() {
@@ -165,11 +194,27 @@ public class SousMapC5 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+		CadrillageMap.setTypeDeDécor(2,1,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(2,4,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(3,2,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(5,5,"HerbesHautes");
+		CadrillageMap.setTypeDeDécor(6,2,"HerbesHautes");
+		if ( CadrillageMap.décorChangé[2][1] == true ) isArbuste1Cut = true;
+		if ( CadrillageMap.décorChangé[2][4] == true ) isArbuste2Cut = true;
+		if ( CadrillageMap.décorChangé[3][2] == true ) isArbuste3Cut = true;
+		if ( CadrillageMap.décorChangé[5][5] == true ) isArbuste4Cut = true;
+		if ( CadrillageMap.décorChangé[6][2] == true ) isArbuste5Cut = true;
+		CadrillageMap.setTypeDeDécor(8,1,"HerbesHautes");
+		if ( CadrillageMap.décorChangé[8][1] == true ) isArbuste6Cut = true;
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+		isArbuste1Cut = false;
+		isArbuste2Cut = false;
+		isArbuste3Cut = false;
+		isArbuste4Cut = false;
+		isArbuste5Cut = false;
+		isArbuste6Cut = false;
 	}
 }
