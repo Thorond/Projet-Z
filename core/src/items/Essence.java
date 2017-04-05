@@ -80,7 +80,7 @@ public class Essence {
 	}
 	
 	public static void remplirEssences(int X, int Y){
-		if ( Math.random() < 0.6 ){
+		if ( Math.random() < 0.4 ){
 			for ( int i = 0 ; i < essences.length ; i++ ){
 				if ( essences[i].estPrésent == false ) {
 					essences[i].setEstPrésent(true);

@@ -370,7 +370,7 @@ public class MainMenu implements Screen{
 
 					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
-//					 démarage scenario 1
+//					 démarage scenario 1 
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
 							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
 							 && Link.getBody().getPosition().y > 200 / PPM  ){
