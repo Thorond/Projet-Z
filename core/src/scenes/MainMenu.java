@@ -16,6 +16,7 @@ import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
 import characters.VieuxMarchand;
+import decors.ClimatMontagneux;
 import interactionClavier.AlphabetEtAcquisition;
 import items.Bombe;
 import items.Bouclier;
@@ -77,6 +78,7 @@ public class MainMenu implements Screen{
 		this.debugRenderer = new Box2DDebugRenderer();
 		
 		font = new BitmapFont();
+//		font.setColor(0, 0, 0, 1);
 		
 		world = new World(new Vector2(0,0),true);
 		
@@ -225,7 +227,7 @@ public class MainMenu implements Screen{
 			}
 			else if ( IglooC5.étatAchat == 5 ) {
 				if ( Essence.nombreEssence >= 20 ){
-//					faire quelque chose pour les carottes
+					if ( !ClimatMontagneux.isCarottesPrise ) ClimatMontagneux.isCarottesPrise = true;
 					Essence.nombreEssence -= 20 ;
 					IglooC5.étatAchat = 7;
 				} else {

@@ -51,7 +51,7 @@ public class ClimatMontagneux {
 		
 		PolygonShape shape = new PolygonShape();
 		if (décor.equals("tronc") ) shape.setAsBox((2 / 2)/MainMenu.PPM  +2, (2 / 2)/MainMenu.PPM+2);
-		else if ( décor.equals("tonneau")) shape.setAsBox((10 / 2)/MainMenu.PPM +2 , (10 / 2)/MainMenu.PPM +2);
+		else if ( décor.equals("tonneau")) shape.setAsBox((20 / 2)/MainMenu.PPM +2 , (20 / 2)/MainMenu.PPM +2);
 		else if (décor.equals("grossePierre")) shape.setAsBox((20 / 2)/MainMenu.PPM  +5, (20 / 2)/MainMenu.PPM + 5);
 		else if (décor.equals("arbre")) shape.setAsBox((30 / 2)/MainMenu.PPM +5 , (60 / 2)/MainMenu.PPM);
 		
@@ -165,7 +165,10 @@ public class ClimatMontagneux {
 	public static Texture longTonneau = new Texture("climatMontagneux/longTonneau.png");
 	public static Texture longTonneauVert = new Texture("climatMontagneux/longTonneauVert.png");
 	
+	public static boolean isCarottesPrise = false ; // à sauvegarder 
 	public static Texture carottes = new Texture("climatMontagneux/carot.png");
+
+	public static Texture shop = new Texture("map/shop.png");
 	
 	public static Texture torche1Igloo = new Texture("Divers/torche1Igloo.png");
 	public static Texture torche2Igloo = new Texture("Divers/torche2Igloo.png");
@@ -288,6 +291,7 @@ public class ClimatMontagneux {
 	public static Texture murEauGlacéDroite= new Texture("climatMontagneux/murEauGlacéDroite.png");
 	public static Texture murEauGlacéGauche= new Texture("climatMontagneux/murEauGlacéGauche.png");
 	public static Texture murGlacéCentre= new Texture("climatMontagneux/murGlacéCentre.png");
+	public static Texture porteCaverne= new Texture("climatMontagneux/porteCaverne.png");
 	public static Texture murGlacéDroite= new Texture("climatMontagneux/murGlacéDroite.png");
 	public static Texture murGlacéGauche= new Texture("climatMontagneux/murGlacéGauche.png");
 	public static Texture murSombreGlacéCentre= new Texture("climatMontagneux/murSombreGlacéCentre.png");
@@ -387,10 +391,10 @@ public class ClimatMontagneux {
 	
 //	cascade grande
 	
-	public static Texture cascade1 = new Texture("map/cascade1.png");
-	public static Texture cascade2 = new Texture("map/cascade2.png");
-	public static Texture cascade3 = new Texture("map/cascade3.png");
-	public static Texture cascade4 = new Texture("map/cascade4.png");
+	public static Texture cascade1 = new Texture("map/cascade/cascade1.png");
+	public static Texture cascade2 = new Texture("map/cascade/cascade2.png");
+	public static Texture cascade3 = new Texture("map/cascade/cascade3.png");
+	public static Texture cascade4 = new Texture("map/cascade/cascade4.png");
 	
 	public static int etatCascade = 1;
 	public static long variationCascade = System.currentTimeMillis();
@@ -409,12 +413,36 @@ public class ClimatMontagneux {
 		}
 	}
 	
+//	cascade moyenne
+	
+	public static Texture cascadeMoy1 = new Texture("map/cascade/cascadeMoy1.png");
+	public static Texture cascadeMoy2 = new Texture("map/cascade/cascadeMoy2.png");
+	public static Texture cascadeMoy3 = new Texture("map/cascade/cascadeMoy3.png");
+	public static Texture cascadeMoy4 = new Texture("map/cascade/cascadeMoy4.png");
+	
+	public static int etatCascadeMoy = 1;
+	public static long variationCascadeMoy = System.currentTimeMillis();
+	
+	public static void annimationCascadeMoy(GameMain game, int x, int y){
+		if (etatCascadeMoy == 1) game.getBatch().draw(cascadeMoy1, x+2, y);
+		else if (etatCascadeMoy == 2) game.getBatch().draw(cascadeMoy2, x, y);
+		else if (etatCascadeMoy == 3) game.getBatch().draw(cascadeMoy3, x, y);
+		else if (etatCascadeMoy == 4) game.getBatch().draw(cascadeMoy4, x, y);
+		if ( System.currentTimeMillis() - variationCascadeMoy > 120){
+			variationCascadeMoy = System.currentTimeMillis();
+			if (etatCascadeMoy == 1) etatCascadeMoy = 2;
+			else if (etatCascadeMoy == 2) etatCascadeMoy = 3;
+			else if (etatCascadeMoy == 3) etatCascadeMoy = 4;
+			else if (etatCascadeMoy == 4) etatCascadeMoy = 1;
+		}
+	}
+	
 //	cascade petite
 	
-	public static Texture cascadePetite1 = new Texture("map/cascadePetite1.png");
-	public static Texture cascadePetite2 = new Texture("map/cascadePetite2.png");
-	public static Texture cascadePetite3 = new Texture("map/cascadePetite3.png");
-	public static Texture cascadePetite4 = new Texture("map/cascadePetite4.png");
+	public static Texture cascadePetite1 = new Texture("map/cascade/cascadePetite1.png");
+	public static Texture cascadePetite2 = new Texture("map/cascade/cascadePetite2.png");
+	public static Texture cascadePetite3 = new Texture("map/cascade/cascadePetite3.png");
+	public static Texture cascadePetite4 = new Texture("map/cascade/cascadePetite4.png");
 	
 	public static int etatCascadePetite = 1;
 	public static long variationCascadePetite = System.currentTimeMillis();
