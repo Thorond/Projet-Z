@@ -291,6 +291,7 @@ public class ClimatMontagneux {
 	public static Texture murEauGlacéDroite= new Texture("climatMontagneux/murEauGlacéDroite.png");
 	public static Texture murEauGlacéGauche= new Texture("climatMontagneux/murEauGlacéGauche.png");
 	public static Texture murGlacéCentre= new Texture("climatMontagneux/murGlacéCentre.png");
+	public static Texture porteCaverne= new Texture("climatMontagneux/porteCaverne.png");
 	public static Texture murGlacéDroite= new Texture("climatMontagneux/murGlacéDroite.png");
 	public static Texture murGlacéGauche= new Texture("climatMontagneux/murGlacéGauche.png");
 	public static Texture murSombreGlacéCentre= new Texture("climatMontagneux/murSombreGlacéCentre.png");

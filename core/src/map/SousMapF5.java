@@ -140,7 +140,7 @@ public class SousMapF5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.porteCaverne, 420+ x, 120+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 240+ y);
