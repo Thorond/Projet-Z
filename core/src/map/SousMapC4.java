@@ -1,21 +1,26 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
-import characters.Bats;
-import characters.MonstreAquatique;
-import characters.Pnj;
 import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
 public class SousMapC4 extends Sprite{
+
+	public static Body mur1 ;
+	public static boolean ismur1Created;
+	public static Body mur2 ;
+	public static boolean ismur2Created;
+	public static Body mur3 ;
+	public static boolean ismur3Created;
+	public static Body mur4 ;
+	public static boolean ismur4Created;
 	
-	public static MonstreAquatique monstre1;
-	public static MonstreAquatique monstre2;
-	public static boolean m1EstCrée = false ;
-	public static boolean m2EstCrée = false ;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -178,66 +183,82 @@ public class SousMapC4 extends Sprite{
 
 		
 		
-//		==================================================================
-		//		Placement des dessins des monstres
-		//==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
-			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
-		}
-		if ( m2EstCrée && monstre2.isAlive() ) {
-			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
-		}
-		//==================================================================
-		//		      			dégats des monstres
-		//==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
-			monstre1.infligéDégatLink();
-		}
-		if ( m2EstCrée && monstre2.isAlive() ) {
-			monstre2.infligéDégatLink();
-		}
+
 	}
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-//		destruction monstres
-		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
-		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
-		m1EstCrée = false;
-		m2EstCrée = false;
-		Pnj.nbrDeMonstres = 0;
+		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
+		ismur1Created = false;
+		if ( ismur2Created) MainMenu.world.destroyBody(mur2);
+		ismur2Created = false;
+		if ( ismur3Created) MainMenu.world.destroyBody(mur3);
+		ismur3Created = false;
+		if ( ismur4Created) MainMenu.world.destroyBody(mur4);
+		ismur4Created = false;
+		
+		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+		isBosquet2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-//		========================================================================================
-		//		Création des corps des montres
-		//========================================================================================
+
+		CadrillageMap.setTypeDeDécor(0, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(7, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(8, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(9, 4, "EauProfonde");
 		
+		if ( ismur1Created == false ) {
+			mur1 = ClimatMontagneux.createBody(120,345,220,1);
+			ismur1Created = true;
+		}
+		if ( ismur2Created == false ) {
+			mur2 = ClimatMontagneux.createBody(140,285,270,1);
+			ismur2Created = true;
+		}
+		if ( ismur3Created == false ) {
+			mur3 = ClimatMontagneux.createBody(225,420,1,120);
+			ismur3Created = true;
+		}
+		if ( ismur4Created == false ) {
+			mur4 = ClimatMontagneux.createBody(285,390,1,180);
+			ismur4Created = true;
+		}
 		
-		
-//		if ( m2EstCrée == false ) {
-//			monstre2 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaDroite2, 10 , 10 , 2 , 120 , 200 , "droite") ;
-//			Pnj.monstres[1] = monstre2;
-//			Pnj.nbrDeMonstres = 2;
-//			m2EstCrée = true;
-//		} else {
-//			monstre2.déplacement();
-//			monstre2.représentation();
-//			monstre2.updateBody();
-//		}
-//		
-//		if ( m1EstCrée == false ) {
-//			monstre1 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaFace2, 10 , 10 , 2 , 460 , 300 , "bas") ;
-//			Pnj.monstres[0] = monstre1;
-//			m1EstCrée = true;
-//		} else {
-//			monstre1.déplacement();
-//			monstre1.représentation();
-//			monstre1.updateBody();
-//		}
+		if ( isBosquet2Created == false ) {
+			bosquet2 = ClimatMontagneux.createBody(10,450,60,40);
+			isBosquet2Created = true;
+		}
 	}
 
 	public static void destroyType() {

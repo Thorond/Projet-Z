@@ -229,7 +229,7 @@ public class SousMapC3 extends Sprite{
 			isBosquet1Created = true;
 		}
 		if ( isBosquet2Created == false ) {
-			bosquet2 = ClimatMontagneux.createBody(10,60,60,80);
+			bosquet2 = ClimatMontagneux.createBody(10,50,60,100);
 			isBosquet2Created = true;
 		}
 		if ( isBosquet3Created == false ) {

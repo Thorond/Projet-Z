@@ -159,6 +159,9 @@ public class SousMapB3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 00+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, 70+ x, -40+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 120+ x, -50+ y);
 		
 			
 		
@@ -398,10 +401,16 @@ public class SousMapB3 extends Sprite{
 		CadrillageMap.setTypeDeDécor(300/60,420/60,"EauProfonde");
 		CadrillageMap.setTypeDeDécor(360/60,420/60,"EauProfonde");
 		CadrillageMap.setTypeDeDécor(420/60,420/60,"EauProfonde");
+
+		CadrillageMap.setTypeDeDécor(0,7,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(1,7,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(2,7,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(3,7,"EauProfonde");
+		CadrillageMap.setTypeDeDécor(4,7,"EauProfonde");
 		
 		
 		if ( isBosquet1Created == false ) {
-			bosquet1 = ClimatMontagneux.createBody(110,220,110,400);
+			bosquet1 = ClimatMontagneux.createBody(110,200,110,400);
 			isBosquet1Created = true;
 		}
 		if ( isBosquet2Created == false ) {

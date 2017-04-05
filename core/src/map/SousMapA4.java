@@ -122,6 +122,9 @@ public class SousMapA4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 0+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 360+ y);
 	}
 
 	public static void destroyBody() {
