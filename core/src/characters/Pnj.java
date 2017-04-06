@@ -64,7 +64,6 @@ public class Pnj extends Characters{
 //	déplacement vers le joueur 
 	
 	public void déplacementVersJoueur(){
-		if ( System.currentTimeMillis() - start > 400) {
 			if ( this.getX() - MainMenu.Link.getX() > 90 ){
 				this.getBody().applyLinearImpulse(new Vector2(-60000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
@@ -81,10 +80,8 @@ public class Pnj extends Characters{
 				this.getBody().applyLinearImpulse(new Vector2(0,+60000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
-			start = System.currentTimeMillis();
 			arrét = false;
 		}
-	}
 	
 //	déplacement global 
 	

@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
 import scenes.MainMenu;
 
 public class SousMapE6 extends Sprite{
@@ -175,6 +176,11 @@ public class SousMapE6 extends Sprite{
 		ClimatMontagneux.IceMain(game, 360 + x, 180 + y);
 		ClimatMontagneux.IceMain(game, 370 + x, 70 + y);
 		ClimatMontagneux.IceMain(game, 470 + x, 150 + y);
+		
+		if ( MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(DonjonGlace.CléMilieu,MainMenu.Link.getX() -40, MainMenu.Link.getY() + 40 );
+			game.getBatch().draw(DonjonGlace.texteClé,100,60);
+		}
 	}
 
 	public static void destroyBody() {

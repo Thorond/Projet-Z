@@ -15,6 +15,7 @@ import com.mygdx.game.GameMain;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
+import characters.SnowMan;
 import characters.Tigre;
 import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
@@ -410,6 +411,7 @@ public class MainMenu implements Screen{
 							 DonjonGlace.isCléHauteTrouvé = true;
 						 }
 					 }
+					SnowMan.détection(Link);
 					PlacementMain.setDéplacement(Link);
 					PlacementMain.détectionTrou(Link);
 					PlacementMain.détectionEauP(Link);
@@ -475,6 +477,7 @@ public class MainMenu implements Screen{
 				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
 				else if ( IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
+				else if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
@@ -499,23 +502,21 @@ public class MainMenu implements Screen{
 
 				Bombe.représentationBombe(game);
 				
-				Tigre.représentation(game);
+//				Tigre.représentation(game);
+				
 	//			dessin du joueur
 				Link.draw(game.getBatch());
 			}
 			
 //			 texte de la map totem
-			
 			if ( Totem.étatTexte > 0 ) Totem.représentationTexte(game);
-			
 //			 dessin de l'intéraction avec le fantome, codé ici car doit être au dessus du dessin du personnage
-			
 			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
-			
 //			représentation de l'achat
-			
 			if ( IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
+//			texte des bonhommes de neiges 		
+			if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.représentationTexte(game);
 				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac
