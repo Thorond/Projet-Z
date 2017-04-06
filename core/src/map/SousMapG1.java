@@ -475,5 +475,6 @@ public class SousMapG1 extends Sprite{
 	public static void destroyType() {
 		// TODO Auto-generated method stub
 		
+		Totem.étatTexte = 0;
 	}
 }

@@ -47,6 +47,7 @@ public class DonjonGlace {
 	public static boolean isCléBasseTrouvé = false; // à sauvegarder 
 	public static boolean isCléHauteTrouvé = false; // à sauvegarder 
 	public static boolean isCléMilieuTrouvé = false; // à sauvegarder 
+	public static Texture  texteClé= new Texture("texte/divers/texteClé.png");
 	
 //	tile
 

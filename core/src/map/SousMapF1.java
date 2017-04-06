@@ -6,7 +6,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
-import items.Bouclier;
 import items.Epee;
 import scenes.MainMenu;
 
