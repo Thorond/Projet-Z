@@ -64,24 +64,24 @@ public class Pnj extends Characters{
 //	déplacement vers le joueur 
 	
 	public void déplacementVersJoueur(){
-			if ( this.getX() - MainMenu.Link.getX() > 90 ){
-				this.getBody().applyLinearImpulse(new Vector2(-60000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("gauche");
-			}
-			else if (this.getX() - MainMenu.Link.getX() < -90 ){
-				this.getBody().applyLinearImpulse(new Vector2(+60000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("droite");
-			}
-			if (this.getY() - MainMenu.Link.getY() > 90){
-				this.getBody().applyLinearImpulse(new Vector2(0,-60000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("bas");
-			}
-			else if (this.getY() - MainMenu.Link.getY() < -90){
-				this.getBody().applyLinearImpulse(new Vector2(0,+60000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("haut");
-			}
-			arrét = false;
+		if ( this.getX() - MainMenu.Link.getX() > 90 ){
+			this.getBody().applyLinearImpulse(new Vector2(-60000f,0), this.getBody().getWorldCenter(), true);
+			this.setDirection("gauche");
 		}
+		else if (this.getX() - MainMenu.Link.getX() < -90 ){
+			this.getBody().applyLinearImpulse(new Vector2(+60000f,0), this.getBody().getWorldCenter(), true);
+			this.setDirection("droite");
+		}
+		if (this.getY() - MainMenu.Link.getY() > 90){
+			this.getBody().applyLinearImpulse(new Vector2(0,-60000f), this.getBody().getWorldCenter(), true);
+			this.setDirection("bas");
+		}
+		else if (this.getY() - MainMenu.Link.getY() < -90){
+			this.getBody().applyLinearImpulse(new Vector2(0,+60000f), this.getBody().getWorldCenter(), true);
+			this.setDirection("haut");
+		}
+		arrét = false;
+	}
 	
 //	déplacement global 
 	
