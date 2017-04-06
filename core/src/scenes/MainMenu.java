@@ -15,6 +15,7 @@ import com.mygdx.game.GameMain;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
+import characters.Tigre;
 import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
@@ -497,6 +498,8 @@ public class MainMenu implements Screen{
 				Essence.représentationEssence(game);
 
 				Bombe.représentationBombe(game);
+				
+				Tigre.représentation(game);
 	//			dessin du joueur
 				Link.draw(game.getBatch());
 			}
