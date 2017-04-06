@@ -10,6 +10,8 @@ import scenes.MainMenu;
 
 public class SousMapD3 extends Sprite{
 	
+	
+	
 	public static Body bosquet1 ;
 	public static boolean isBosquet1Created;
 	public static Body bosquet2 ;

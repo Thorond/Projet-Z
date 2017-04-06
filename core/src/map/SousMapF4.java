@@ -144,7 +144,11 @@ public class SousMapF4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 60+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 60+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.cheminGlaceHori, 60+ x, 0+ y);
+		
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 120+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 180+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 240+ x, 0+ y);
 		
 	}
 

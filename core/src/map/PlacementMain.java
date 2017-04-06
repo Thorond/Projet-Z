@@ -3,6 +3,7 @@ package map;
 import characters.Ghost;
 import characters.MainCharacter;
 import decors.ClimatMontagneux;
+import decors.Totem;
 import items.Bombe;
 import items.CoeurDeVie;
 import items.Essence;
@@ -54,6 +55,7 @@ public class PlacementMain {
 				SousMapF1.destroyBody();
 			}  else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "G2";
+				Totem.étatTexte = 0;
 				SousMapG1.destroyBody();
 			}  else if ( positionSousMap.equals("H1")  ){
 				positionSousMap = "H2";
@@ -541,6 +543,7 @@ public class PlacementMain {
 				SousMapF1.destroyBody();
 			} else if ( positionSousMap.equals("G1")  ){
 				positionSousMap = "H1";
+				Totem.étatTexte = 0;
 				SousMapG1.destroyBody();
 			} else if ( positionSousMap.equals("H1")  ){
 				positionSousMap = "I1";

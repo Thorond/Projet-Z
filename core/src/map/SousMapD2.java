@@ -6,9 +6,14 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
+import items.Coffre;
 import scenes.MainMenu;
 
 public class SousMapD2 extends Sprite{
+	
+	public static boolean ouvertureCoffre = false; // à sauvegarder
+	public static boolean coffreOuvert = false; // à sauvegarder
 	
 	public static Body bosquet1 ;
 	public static boolean isBosquet1Created;
@@ -206,6 +211,24 @@ public class SousMapD2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.petitePierre, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 0+ y);
 		
+		if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 260+ x, 180+ y);
+		else {
+			if ( coffreOuvert == false ) {
+				if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
+					coffreOuvert = true;
+				}
+				Coffre.annimationCoffreBleu(game, 260, 180);
+				
+			} else {
+				game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 260+ x, 180+ y);
+			}
+			
+		}
+		if ( MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
+			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
+		}
+		
 	}
 
 	public static void destroyBody() {
@@ -282,6 +305,8 @@ public class SousMapD2 extends Sprite{
 			petitePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static",480,0);
 			isPetitePierre1Created = true;
 		}
+		
+		CadrillageMap.setTypeDeDécor(4,3, "coffreBleu");
 	}
 
 	public static void destroyType() {

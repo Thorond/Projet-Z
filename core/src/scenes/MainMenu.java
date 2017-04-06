@@ -15,8 +15,12 @@ import com.mygdx.game.GameMain;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
+import characters.SnowMan;
+import characters.Tigre;
 import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
+import decors.Totem;
 import interactionClavier.AlphabetEtAcquisition;
 import items.Bombe;
 import items.Bouclier;
@@ -30,6 +34,7 @@ import map.GestionDesMaps;
 import map.IglooC1;
 import map.IglooC5;
 import map.PlacementMain;
+import map.SousMapD2;
 import map.SousMapD5;
 import map.SousMapF1;
 import map.SousMapF2;
@@ -255,6 +260,16 @@ public class MainMenu implements Screen{
 			} else {
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
+					
+					if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER ) ) {
+						if ( PlacementMain.positionSousMap.equals("G1" )){
+							if ( Totem.étatTexte >0 && Totem.étatTexte < 4 ) Totem.étatTexte ++ ;
+							else if ( Totem.étatTexte == 5 ) Totem.étatTexte = 0;
+						}
+					}
+					
+					
+//					déplacement
 					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
 						Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
 						if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
@@ -390,6 +405,13 @@ public class MainMenu implements Screen{
 							 SousMapD5.ouvertureCoffre = true;
 						 }
 					 }
+					 if ( PlacementMain.positionSousMap.equals("D2")){
+						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
+							 SousMapD2.ouvertureCoffre = true;
+							 DonjonGlace.isCléHauteTrouvé = true;
+						 }
+					 }
+					SnowMan.détection(Link);
 					PlacementMain.setDéplacement(Link);
 					PlacementMain.détectionTrou(Link);
 					PlacementMain.détectionEauP(Link);
@@ -455,6 +477,7 @@ public class MainMenu implements Screen{
 				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
 				else if ( IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
+				else if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
@@ -478,18 +501,25 @@ public class MainMenu implements Screen{
 				Essence.représentationEssence(game);
 
 				Bombe.représentationBombe(game);
+				
+				Tigre.createBody(world);
+				Tigre.tigre.mouvement();
+				Tigre.tigre.représentation(game);
+				
+				
 	//			dessin du joueur
 				Link.draw(game.getBatch());
 			}
 			
+//			 texte de la map totem
+			if ( Totem.étatTexte > 0 ) Totem.représentationTexte(game);
 //			 dessin de l'intéraction avec le fantome, codé ici car doit être au dessus du dessin du personnage
-			
 			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
 			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
-			
 //			représentation de l'achat
-			
 			if ( IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
+//			texte des bonhommes de neiges 		
+			if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.représentationTexte(game);
 				
 	//		=============================================================================================
 	//     						  dessiner les items à la fois en jeu et dans menuSac
