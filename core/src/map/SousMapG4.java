@@ -176,6 +176,9 @@ public class SousMapG4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 300+ y);
 		
+
+		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 280+ y);
+		
 //		==================================================================
 		//		Placement des dessins des monstres
 		//==================================================================

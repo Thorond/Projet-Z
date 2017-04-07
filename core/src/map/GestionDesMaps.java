@@ -258,8 +258,8 @@ public class GestionDesMaps {
 					SousMapE4.sousMap(game, 0- PlacementMain.x,0);
 					SousMapF4.sousMap(game, 600- PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("G4") ) {
-					SousMapF4.sousMap(game, 0- PlacementMain.x,0);
 					SousMapG4.sousMap(game, 600- PlacementMain.x, 0);
+					SousMapF4.sousMap(game, 0- PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("H4") ) {
 					SousMapG4.sousMap(game, 0- PlacementMain.x,0);
 					SousMapH4.sousMap(game, 600- PlacementMain.x, 0);

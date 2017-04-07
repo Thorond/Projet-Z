@@ -502,9 +502,9 @@ public class MainMenu implements Screen{
 
 				Bombe.représentationBombe(game);
 				
-				Tigre.createBody(world);
-				Tigre.tigre.mouvement();
-				Tigre.tigre.représentation(game);
+//				Tigre.createBody(world);
+//				Tigre.tigre.mouvement();
+//				Tigre.tigre.représentation(game);
 				
 				
 	//			dessin du joueur

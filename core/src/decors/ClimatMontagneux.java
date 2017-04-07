@@ -165,7 +165,7 @@ public class ClimatMontagneux {
 	public static Texture longTonneau = new Texture("climatMontagneux/longTonneau.png");
 	public static Texture longTonneauVert = new Texture("climatMontagneux/longTonneauVert.png");
 	
-	public static boolean isCarottesPrise = true ; // à sauvegarder 
+	public static boolean isCarottesPrise = false ; // à sauvegarder 
 	public static Texture carottes = new Texture("climatMontagneux/carot.png");
 
 	public static Texture shop = new Texture("map/shop.png");

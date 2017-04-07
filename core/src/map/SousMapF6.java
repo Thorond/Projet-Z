@@ -193,7 +193,16 @@ public class SousMapF6 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+
+		CadrillageMap.setTypeDeDécor(4, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 6, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 5, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 3, "EauProfonde");
 	}
 
 	public static void destroyType() {
