@@ -180,7 +180,8 @@ public class SousMapF6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 180+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 180+ x, 180+ y);
 
-		game.getBatch().draw(ClimatMontagneux.grandPont, 190+ x, 220+ y);
+//		game.getBatch().draw(ClimatMontagneux.grandPont, 190+ x, 220+ y);
+		ClimatMontagneux.placerGrandPont(game, 190+x, 220+y);
 
 		ClimatMontagneux.annimationCascadePetite(game, 290+x, 400 + y);
 		ClimatMontagneux.annimationCascadeMoy(game, 210 + x, 35 + y);

@@ -179,7 +179,7 @@ public class SousMapB5 extends Sprite{
 		ClimatMontagneux.annimationCascadePetite(game, 350+x, 400+y);
 		
 
-		game.getBatch().draw(ClimatMontagneux.grandPont, 280+ x, 120+ y);
+		ClimatMontagneux.placerGrandPont(game, 280+x, 120+y);
 
 		game.getBatch().draw(ClimatMontagneux.tree,580+ x, 330+ y);
 		game.getBatch().draw(ClimatMontagneux.tree,550+ x, 270+ y);
