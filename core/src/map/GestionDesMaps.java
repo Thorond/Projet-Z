@@ -159,6 +159,15 @@ public class GestionDesMaps {
 					SousMapI6.sousMap(game, 0 + PlacementMain.x, 0);
 					SousMapH6.sousMap(game, -600 + PlacementMain.x,0);
 				}
+				// 		******************** Grotte1 *******************************
+				else if (PlacementMain.positionSousMap.equals("GrotteI1Salle2")){
+					GrotteI1Salle3.sousMap(game, 0 + PlacementMain.x, 0);
+					GrotteI1Salle2.sousMap(game, -600 + PlacementMain.x,0);
+				} else if (PlacementMain.positionSousMap.equals("GrotteI1Salle3")){
+					GrotteI1Salle4.sousMap(game, 0 + PlacementMain.x, 0);
+					GrotteI1Salle3.sousMap(game, -600 + PlacementMain.x,0);
+				}
+
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.x+=15;
 					PlacementMain.start = System.currentTimeMillis();
@@ -317,6 +326,15 @@ public class GestionDesMaps {
 					SousMapH6.sousMap(game, 0- PlacementMain.x,0);
 					SousMapI6.sousMap(game, 600- PlacementMain.x, 0);
 				}
+				// 		******************** Grotte1 *******************************
+				else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle3") ) {
+					GrotteI1Salle2.sousMap(game, 0- PlacementMain.x,0);
+					GrotteI1Salle3.sousMap(game, 600- PlacementMain.x, 0);
+				}else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle4") ) {
+					GrotteI1Salle3.sousMap(game, 0- PlacementMain.x,0);
+					GrotteI1Salle4.sousMap(game, 600- PlacementMain.x, 0);
+				}
+
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.x+=15;
 					PlacementMain.start = System.currentTimeMillis();
@@ -469,6 +487,12 @@ public class GestionDesMaps {
 					SousMapI6.sousMap(game, 0, -480 + PlacementMain.y);
 					SousMapI5.sousMap(game, 0, PlacementMain.y);
 				}
+// 		******************** Grotte1 *******************************
+				else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle1") ) {
+					GrotteI1Salle1.sousMap(game, 0, -480 + PlacementMain.y);
+					GrotteI1Salle2.sousMap(game, 0, PlacementMain.y);
+				}
+
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.y+=15;
 					PlacementMain.start = System.currentTimeMillis();
@@ -613,6 +637,12 @@ public class GestionDesMaps {
 					SousMapI6.sousMap(game, 0, 0-PlacementMain.y);
 					SousMapI5.sousMap(game, 0, 480-PlacementMain.y);
 				}
+// 		******************** Grotte1 *******************************
+				else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle2") ) {
+					GrotteI1Salle1.sousMap(game, 0, 0-PlacementMain.y);
+					GrotteI1Salle2.sousMap(game, 0, 480-PlacementMain.y);
+				}
+
 				if ( System.currentTimeMillis() - PlacementMain.start > 10) {
 					PlacementMain.y+=15;
 					PlacementMain.start = System.currentTimeMillis();
@@ -644,286 +674,307 @@ public class GestionDesMaps {
 //		=============================================================================================
 //                  					  affichage de la sous carte
 //			=============================================================================================
-			if ( PlacementMain.positionSousMap.equals("A1")) {
-				SousMapA1.createBodyAndType(MainMenu.world);
-				SousMapA1.sousMap(game, 0,0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("B1")) {
-				SousMapB1.createBodyAndType(MainMenu.world);
-				SousMapB1.sousMap(game, 0,0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("C1")) {
-				SousMapC1.createBodyAndType(MainMenu.world);
-				SousMapC1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("D1")) {
-				SousMapD1.createBodyAndType(MainMenu.world);
-				SousMapD1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("E1")) {
-				SousMapE1.createBodyAndType(MainMenu.world);
-				SousMapE1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("F1")) {
-				SousMapF1.createBodyAndType(MainMenu.world);
-				SousMapF1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("G1")) {
-				SousMapG1.destroyBody();  
-				SousMapG1.createBodyAndType(MainMenu.world);
-				SousMapG1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("H1")) {
-				SousMapH1.destroyBody();  
-				SousMapH1.createBodyAndType(MainMenu.world);
-				SousMapH1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("I1")) {
-				SousMapI1.destroyBody();  
-				SousMapI1.createBodyAndType(MainMenu.world);
-				SousMapI1.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("A2")){
-				SousMapA2.createBodyAndType(MainMenu.world);
-				SousMapA2.sousMap(game, 0,0 );
-			}
-			else if ( PlacementMain.positionSousMap.equals("B2")) {
-				SousMapB2.destroyType();
-				SousMapB2.createBodyAndType(MainMenu.world);
-				SousMapB2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("C2")) {
-				SousMapC2.destroyType();
-				SousMapC2.createBodyAndType(MainMenu.world);
-				SousMapC2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("D2")) {
-				SousMapD2.destroyType();
-				SousMapD2.createBodyAndType(MainMenu.world);
-				SousMapD2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("E2")) {
-				SousMapE2.destroyType();
-				SousMapE2.createBodyAndType(MainMenu.world);
-				SousMapE2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("F2")) {
-				SousMapF2.destroyType();
-				SousMapF2.createBodyAndType(MainMenu.world);
-				SousMapF2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("G2")) {
-				SousMapG2.destroyType();
-				SousMapG2.createBodyAndType(MainMenu.world);
-				SousMapG2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("H2")) {
-				SousMapH2.destroyType();
-				SousMapH2.createBodyAndType(MainMenu.world);
-				SousMapH2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("I2")) {
-				SousMapI2.destroyType();
-				SousMapI2.createBodyAndType(MainMenu.world);
-				SousMapI2.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("A3")){
-				SousMapA3.createBodyAndType(MainMenu.world);
-				SousMapA3.sousMap(game, 0,0 );
-			}
-			else if ( PlacementMain.positionSousMap.equals("B3")) {
-				SousMapB3.destroyType();
-				SousMapB3.createBodyAndType(MainMenu.world);
-				SousMapB3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("C3")) {
-				SousMapC3.destroyType();
-				SousMapC3.createBodyAndType(MainMenu.world);
-				SousMapC3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("D3")) {
-				SousMapD3.destroyType();
-				SousMapD3.createBodyAndType(MainMenu.world);
-				SousMapD3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("E3")) {
-				SousMapE3.destroyType();
-				SousMapE3.createBodyAndType(MainMenu.world);
-				SousMapE3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("F3")) {
-				SousMapF3.destroyType();
-				SousMapF3.createBodyAndType(MainMenu.world);
-				SousMapF3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("G3")) {
-				SousMapG3.destroyType();
-				SousMapG3.createBodyAndType(MainMenu.world);
-				SousMapG3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("H3")) {
-				SousMapH3.destroyType();
-				SousMapH3.createBodyAndType(MainMenu.world);
-				SousMapH3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("I3")) {
-				SousMapI3.destroyType();
-				SousMapI3.createBodyAndType(MainMenu.world);
-				SousMapI3.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("A4")){
-				SousMapA4.createBodyAndType(MainMenu.world);
-				SousMapA4.sousMap(game, 0,0 );
-			}
-			else if ( PlacementMain.positionSousMap.equals("B4")) {
-				SousMapB4.destroyType();
-				SousMapB4.createBodyAndType(MainMenu.world);
-				SousMapB4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("C4")) {
-				SousMapC4.destroyType();
-				SousMapC4.createBodyAndType(MainMenu.world);
-				SousMapC4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("D4")) {
-				SousMapD4.destroyType();
-				SousMapD4.createBodyAndType(MainMenu.world);
-				SousMapD4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("E4")) {
-				SousMapE4.destroyType();
-				SousMapE4.createBodyAndType(MainMenu.world);
-				SousMapE4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("F4")) {
-				SousMapF4.destroyType();
-				SousMapF4.createBodyAndType(MainMenu.world);
-				SousMapF4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("G4")) {
-				SousMapG4.destroyType();
-				SousMapG4.createBodyAndType(MainMenu.world);
-				SousMapG4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("H4")) {
-				SousMapH4.destroyType();
-				SousMapH4.createBodyAndType(MainMenu.world);
-				SousMapH4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("I4")) {
-				SousMapI4.destroyType();
-				SousMapI4.createBodyAndType(MainMenu.world);
-				SousMapI4.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("A5")){
-				SousMapA5.createBodyAndType(MainMenu.world);
-				SousMapA5.sousMap(game, 0,0 );
-			}
-			else if ( PlacementMain.positionSousMap.equals("B5")) {
-				SousMapB5.destroyType();
-				SousMapB5.createBodyAndType(MainMenu.world);
-				SousMapB5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("C5")) {
-				SousMapC5.destroyType();
-				SousMapC5.createBodyAndType(MainMenu.world);
-				SousMapC5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("D5")) {
-				SousMapD5.destroyType();
-				SousMapD5.createBodyAndType(MainMenu.world);
-				SousMapD5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("E5")) {
-				SousMapE5.destroyType();
-				SousMapE5.createBodyAndType(MainMenu.world);
-				SousMapE5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("F5")) {
-				SousMapF5.destroyType();
-				SousMapF5.createBodyAndType(MainMenu.world);
-				SousMapF5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("G5")) {
-				SousMapG5.destroyType();
-				SousMapG5.createBodyAndType(MainMenu.world);
-				SousMapG5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("H5")) {
-				SousMapH5.destroyType();
-				SousMapH5.createBodyAndType(MainMenu.world);
-				SousMapH5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("I5")) {
-				SousMapI5.destroyType();
-				SousMapI5.createBodyAndType(MainMenu.world);
-				SousMapI5.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("A6")){
-				SousMapA6.createBodyAndType(MainMenu.world);
-				SousMapA6.sousMap(game, 0,0 );
-			}
-			else if ( PlacementMain.positionSousMap.equals("B6")) {
-				SousMapB6.destroyType();
-				SousMapB6.createBodyAndType(MainMenu.world);
-				SousMapB6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("C6")) {
-				SousMapC6.destroyType();
-				SousMapC6.createBodyAndType(MainMenu.world);
-				SousMapC6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("D6")) {
-				SousMapD6.destroyType();
-				SousMapD6.createBodyAndType(MainMenu.world);
-				SousMapD6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("E6")) {
-				SousMapE6.destroyType();
-				SousMapE6.createBodyAndType(MainMenu.world);
-				SousMapE6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("F6")) {
-				SousMapF6.destroyType();
-				SousMapF6.createBodyAndType(MainMenu.world);
-				SousMapF6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("G6")) {
-				SousMapG6.destroyType();
-				SousMapG6.createBodyAndType(MainMenu.world);
-				SousMapG6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("H6")) {
-				SousMapH6.destroyType();
-				SousMapH6.createBodyAndType(MainMenu.world);
-				SousMapH6.sousMap(game, 0, 0);
-			}
-			else if ( PlacementMain.positionSousMap.equals("I6")) {
-				SousMapI6.destroyType();
-				SousMapI6.createBodyAndType(MainMenu.world);
-				SousMapI6.sousMap(game, 0, 0);
-			}
-			
-			else if ( PlacementMain.positionSousMap.equals("IglooC1")) {
-				IglooC1.destroyType();
-				IglooC1.createBodyAndType(MainMenu.world); 
-				MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
-				IglooC1.représentation(game, 0, 0);
-			}
-			
-			else if ( PlacementMain.positionSousMap.equals("IglooD3")) {
-				IglooD3.destroyType();
-				IglooD3.createBodyAndType(MainMenu.world); 
-				MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
-				IglooD3.représentation(game, 0, 0);
-			}
-			
-			else if ( PlacementMain.positionSousMap.equals("IglooC5")) {
-				IglooC5.destroyType();
-				IglooC5.createBodyAndType(MainMenu.world); 
-				MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
-				IglooC5.représentation(game, 0, 0);
-			}
+		if ( PlacementMain.positionSousMap.equals("A1")) {
+			SousMapA1.createBodyAndType(MainMenu.world);
+			SousMapA1.sousMap(game, 0,0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("B1")) {
+			SousMapB1.createBodyAndType(MainMenu.world);
+			SousMapB1.sousMap(game, 0,0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("C1")) {
+			SousMapC1.createBodyAndType(MainMenu.world);
+			SousMapC1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("D1")) {
+			SousMapD1.createBodyAndType(MainMenu.world);
+			SousMapD1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("E1")) {
+			SousMapE1.createBodyAndType(MainMenu.world);
+			SousMapE1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("F1")) {
+			SousMapF1.createBodyAndType(MainMenu.world);
+			SousMapF1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("G1")) {
+			SousMapG1.destroyBody();
+			SousMapG1.createBodyAndType(MainMenu.world);
+			SousMapG1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("H1")) {
+			SousMapH1.destroyBody();
+			SousMapH1.createBodyAndType(MainMenu.world);
+			SousMapH1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("I1")) {
+			SousMapI1.destroyBody();
+			SousMapI1.createBodyAndType(MainMenu.world);
+			SousMapI1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("A2")){
+			SousMapA2.createBodyAndType(MainMenu.world);
+			SousMapA2.sousMap(game, 0,0 );
+		}
+		else if ( PlacementMain.positionSousMap.equals("B2")) {
+			SousMapB2.destroyType();
+			SousMapB2.createBodyAndType(MainMenu.world);
+			SousMapB2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("C2")) {
+			SousMapC2.destroyType();
+			SousMapC2.createBodyAndType(MainMenu.world);
+			SousMapC2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("D2")) {
+			SousMapD2.destroyType();
+			SousMapD2.createBodyAndType(MainMenu.world);
+			SousMapD2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("E2")) {
+			SousMapE2.destroyType();
+			SousMapE2.createBodyAndType(MainMenu.world);
+			SousMapE2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("F2")) {
+			SousMapF2.destroyType();
+			SousMapF2.createBodyAndType(MainMenu.world);
+			SousMapF2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("G2")) {
+			SousMapG2.destroyType();
+			SousMapG2.createBodyAndType(MainMenu.world);
+			SousMapG2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("H2")) {
+			SousMapH2.destroyType();
+			SousMapH2.createBodyAndType(MainMenu.world);
+			SousMapH2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("I2")) {
+			SousMapI2.destroyType();
+			SousMapI2.createBodyAndType(MainMenu.world);
+			SousMapI2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("A3")){
+			SousMapA3.createBodyAndType(MainMenu.world);
+			SousMapA3.sousMap(game, 0,0 );
+		}
+		else if ( PlacementMain.positionSousMap.equals("B3")) {
+			SousMapB3.destroyType();
+			SousMapB3.createBodyAndType(MainMenu.world);
+			SousMapB3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("C3")) {
+			SousMapC3.destroyType();
+			SousMapC3.createBodyAndType(MainMenu.world);
+			SousMapC3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("D3")) {
+			SousMapD3.destroyType();
+			SousMapD3.createBodyAndType(MainMenu.world);
+			SousMapD3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("E3")) {
+			SousMapE3.destroyType();
+			SousMapE3.createBodyAndType(MainMenu.world);
+			SousMapE3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("F3")) {
+			SousMapF3.destroyType();
+			SousMapF3.createBodyAndType(MainMenu.world);
+			SousMapF3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("G3")) {
+			SousMapG3.destroyType();
+			SousMapG3.createBodyAndType(MainMenu.world);
+			SousMapG3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("H3")) {
+			SousMapH3.destroyType();
+			SousMapH3.createBodyAndType(MainMenu.world);
+			SousMapH3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("I3")) {
+			SousMapI3.destroyType();
+			SousMapI3.createBodyAndType(MainMenu.world);
+			SousMapI3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("A4")){
+			SousMapA4.createBodyAndType(MainMenu.world);
+			SousMapA4.sousMap(game, 0,0 );
+		}
+		else if ( PlacementMain.positionSousMap.equals("B4")) {
+			SousMapB4.destroyType();
+			SousMapB4.createBodyAndType(MainMenu.world);
+			SousMapB4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("C4")) {
+			SousMapC4.destroyType();
+			SousMapC4.createBodyAndType(MainMenu.world);
+			SousMapC4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("D4")) {
+			SousMapD4.destroyType();
+			SousMapD4.createBodyAndType(MainMenu.world);
+			SousMapD4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("E4")) {
+			SousMapE4.destroyType();
+			SousMapE4.createBodyAndType(MainMenu.world);
+			SousMapE4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("F4")) {
+			SousMapF4.destroyType();
+			SousMapF4.createBodyAndType(MainMenu.world);
+			SousMapF4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("G4")) {
+			SousMapG4.destroyType();
+			SousMapG4.createBodyAndType(MainMenu.world);
+			SousMapG4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("H4")) {
+			SousMapH4.destroyType();
+			SousMapH4.createBodyAndType(MainMenu.world);
+			SousMapH4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("I4")) {
+			SousMapI4.destroyType();
+			SousMapI4.createBodyAndType(MainMenu.world);
+			SousMapI4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("A5")){
+			SousMapA5.createBodyAndType(MainMenu.world);
+			SousMapA5.sousMap(game, 0,0 );
+		}
+		else if ( PlacementMain.positionSousMap.equals("B5")) {
+			SousMapB5.destroyType();
+			SousMapB5.createBodyAndType(MainMenu.world);
+			SousMapB5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("C5")) {
+			SousMapC5.destroyType();
+			SousMapC5.createBodyAndType(MainMenu.world);
+			SousMapC5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("D5")) {
+			SousMapD5.destroyType();
+			SousMapD5.createBodyAndType(MainMenu.world);
+			SousMapD5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("E5")) {
+			SousMapE5.destroyType();
+			SousMapE5.createBodyAndType(MainMenu.world);
+			SousMapE5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("F5")) {
+			SousMapF5.destroyType();
+			SousMapF5.createBodyAndType(MainMenu.world);
+			SousMapF5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("G5")) {
+			SousMapG5.destroyType();
+			SousMapG5.createBodyAndType(MainMenu.world);
+			SousMapG5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("H5")) {
+			SousMapH5.destroyType();
+			SousMapH5.createBodyAndType(MainMenu.world);
+			SousMapH5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("I5")) {
+			SousMapI5.destroyType();
+			SousMapI5.createBodyAndType(MainMenu.world);
+			SousMapI5.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("A6")){
+			SousMapA6.createBodyAndType(MainMenu.world);
+			SousMapA6.sousMap(game, 0,0 );
+		}
+		else if ( PlacementMain.positionSousMap.equals("B6")) {
+			SousMapB6.destroyType();
+			SousMapB6.createBodyAndType(MainMenu.world);
+			SousMapB6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("C6")) {
+			SousMapC6.destroyType();
+			SousMapC6.createBodyAndType(MainMenu.world);
+			SousMapC6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("D6")) {
+			SousMapD6.destroyType();
+			SousMapD6.createBodyAndType(MainMenu.world);
+			SousMapD6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("E6")) {
+			SousMapE6.destroyType();
+			SousMapE6.createBodyAndType(MainMenu.world);
+			SousMapE6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("F6")) {
+			SousMapF6.destroyType();
+			SousMapF6.createBodyAndType(MainMenu.world);
+			SousMapF6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("G6")) {
+			SousMapG6.destroyType();
+			SousMapG6.createBodyAndType(MainMenu.world);
+			SousMapG6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("H6")) {
+			SousMapH6.destroyType();
+			SousMapH6.createBodyAndType(MainMenu.world);
+			SousMapH6.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("I6")) {
+			SousMapI6.destroyType();
+			SousMapI6.createBodyAndType(MainMenu.world);
+			SousMapI6.sousMap(game, 0, 0);
+		}
+
+		else if ( PlacementMain.positionSousMap.equals("IglooC1")) {
+			IglooC1.destroyType();
+			IglooC1.createBodyAndType(MainMenu.world);
+			MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
+			IglooC1.représentation(game, 0, 0);
+		}
+
+		else if ( PlacementMain.positionSousMap.equals("IglooD3")) {
+			IglooD3.destroyType();
+			IglooD3.createBodyAndType(MainMenu.world);
+			MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
+			IglooD3.représentation(game, 0, 0);
+		}
+
+		else if ( PlacementMain.positionSousMap.equals("IglooC5")) {
+			IglooC5.destroyType();
+			IglooC5.createBodyAndType(MainMenu.world);
+			MainMenu.Link.setSize(50, 61); // taille augmenter quand link est dans l'igloo
+			IglooC5.représentation(game, 0, 0);
+		}
+
+		else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle1")) {
+			GrotteI1Salle1.destroyType();
+			GrotteI1Salle1.createBodyAndType(MainMenu.world);
+			GrotteI1Salle1.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle2")) {
+			GrotteI1Salle2.destroyType();
+			GrotteI1Salle2.createBodyAndType(MainMenu.world);
+			GrotteI1Salle2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle3")) {
+			GrotteI1Salle3.destroyType();
+			GrotteI1Salle3.createBodyAndType(MainMenu.world);
+			GrotteI1Salle3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMain.positionSousMap.equals("GrotteI1Salle4")) {
+			GrotteI1Salle4.destroyType();
+			GrotteI1Salle4.createBodyAndType(MainMenu.world);
+			GrotteI1Salle4.sousMap(game, 0, 0);
+		}
 	}
 	
 //	 ===========================================================================================================
@@ -991,6 +1042,12 @@ public class GestionDesMaps {
 		else if (PlacementMain.positionSousMap.equals("G6")) SousMapG6.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("H6")) SousMapH6.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("I6")) SousMapI6.destroyBody();
+
+
+		else if (PlacementMain.positionSousMap.equals("GrotteI1Salle1")) GrotteI1Salle1.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("GrotteI1Salle2")) GrotteI1Salle2.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("GrotteI1Salle3")) GrotteI1Salle3.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("GrotteI1Salle4")) GrotteI1Salle4.destroyBody();
 	}
 	
 }
