@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import map.CadrillageMap;
 import map.PlacementMain;
 import scenes.MainMenu;
 
@@ -108,6 +109,23 @@ public class ClimatMontagneux {
 	public static Texture grandPontVertical = new Texture("climatMontagneux/grandPontVertical.png");
 	public static Texture grandPontVertical2 = new Texture("climatMontagneux/grandPontVertical2.png");
 	
+	public static void placerGrandPont(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.grandPont,  x,  y);
+		if ( PlacementMain.défilement == false ) {
+			CadrillageMap.setTypeDeDécor((int) ( x/60), (int) ( y/60), "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +1, (int) ( y/60), "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +2, (int) ( y/60), "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +3, (int) ( y/60), "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +4, (int) ( y/60), "pont");
+			
+			CadrillageMap.setTypeDeDécor((int) ( x/60), (int) ( y/60) +1, "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +1, (int) ( y/60) +1, "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +2, (int) ( y/60) +1, "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +3, (int) ( y/60) +1, "pont");
+			CadrillageMap.setTypeDeDécor((int) ( x/60) +4, (int) ( y/60) +1, "pont");
+		}
+	}
+	
 	public static Texture coffreBleuFermé = new Texture("climatMontagneux/coffreBleuFermé.png");
 	public static Texture coffreBleuOuvert1 = new Texture("climatMontagneux/coffreBleuOuvert1.png");
 	public static Texture coffreBleuOuvert2 = new Texture("climatMontagneux/coffreBleuOuvert2.png");
@@ -165,7 +183,7 @@ public class ClimatMontagneux {
 	public static Texture longTonneau = new Texture("climatMontagneux/longTonneau.png");
 	public static Texture longTonneauVert = new Texture("climatMontagneux/longTonneauVert.png");
 	
-	public static boolean isCarottesPrise = true ; // à sauvegarder 
+	public static boolean isCarottesPrise = false ; // à sauvegarder 
 	public static Texture carottes = new Texture("climatMontagneux/carot.png");
 
 	public static Texture shop = new Texture("map/shop.png");
@@ -223,6 +241,7 @@ public class ClimatMontagneux {
 	public static Texture  arbreSommetMilieu = new Texture("climatMontagneux/arbreSommetMilieu.png");
 	
 	public static Texture  bordUni = new Texture("climatMontagneux/bordUni.png");
+	public static Texture  carreauSombre = new Texture("climatMontagneux/carreauSombre.png");
 	
 	public static Texture  bordGlacéDroi = new Texture("climatMontagneux/bordGlacéDroi.png");
 	public static Texture  bordGlacéGau  = new Texture("climatMontagneux/bordGlacéGau.png");
@@ -249,12 +268,14 @@ public class ClimatMontagneux {
 	public static Texture  escalierHaut2= new Texture("climatMontagneux/escalierHaut2.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
 	public static Texture  glace2= new Texture("climatMontagneux/glace2.png");
+	public static Texture  entréGrotteArc= new Texture("climatMontagneux/entréGrotteArc.png");
 
 	public static Texture  herbeGlace= new Texture("climatMontagneux/herbeGlace.png");
 	public static Texture  herbeGlace120= new Texture("climatMontagneux/herbeGlace120.png");
 
 	public static Texture  glaceSombre= new Texture("climatMontagneux/glaceSombre.png");
 	public static Texture  glaceSombre2= new Texture("climatMontagneux/glaceSombre2.png");
+	public static Texture  glaceSombre3= new Texture("climatMontagneux/glaceSombre3.png");
 	
 	public static Texture  merGlacéCassé1Sup= new Texture("climatMontagneux/merGlacéCassé1Sup.png");
 	public static Texture  merGlacéCassé2Sup= new Texture("climatMontagneux/merGlacéCassé2Sup.png");
@@ -295,6 +316,7 @@ public class ClimatMontagneux {
 	public static Texture murGlacéDroite= new Texture("climatMontagneux/murGlacéDroite.png");
 	public static Texture murGlacéGauche= new Texture("climatMontagneux/murGlacéGauche.png");
 	public static Texture murSombreGlacéCentre= new Texture("climatMontagneux/murSombreGlacéCentre.png");
+	public static Texture meurtrière= new Texture("climatMontagneux/meurtrière.png");
 	public static Texture murSombreGlacéCentre2= new Texture("climatMontagneux/murSombreGlacéCentre2.png");
 	public static Texture murSombreGlacéDroite= new Texture("climatMontagneux/murSombreGlacéDroite.png");
 	public static Texture murSombreGlacéDroite2= new Texture("climatMontagneux/murSombreGlacéDroite2.png");
@@ -303,6 +325,19 @@ public class ClimatMontagneux {
 	public static Texture murSombreGlacéGauche2= new Texture("climatMontagneux/murSombreGlacéGauche2.png");
 	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
 	public static Texture murBasMer= new Texture("climatMontagneux/murBas.png");
+	
+	public static void placerMurSombreGlacéCentre(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre,  x,  y);
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+	}
+	public static void placerMurSombreGlacéDroite(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite,  x,  y);
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+	}
+	public static void placerMurSombreGlacéDroite3(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3,  x,  y);
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+	}
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
 	public static Texture cheminGlaceHori = new Texture("climatMontagneux/cheminGlaceHori.png");
@@ -340,6 +375,7 @@ public class ClimatMontagneux {
 			if ( etat1 == false ) etat1=true;
 			else etat1=false;
 		}
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -364,6 +400,7 @@ public class ClimatMontagneux {
 			if ( etat2 == false ) etat2=true;
 			else etat2=false;
 		}
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -375,6 +412,7 @@ public class ClimatMontagneux {
 			if ( etat3 == false ) etat3=true;
 			else etat3=false;
 		}
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -386,6 +424,7 @@ public class ClimatMontagneux {
 			if ( etat4 == false ) etat4=true;
 			else etat4=false;
 		}
+		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	

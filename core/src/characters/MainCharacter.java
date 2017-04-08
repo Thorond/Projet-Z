@@ -112,24 +112,9 @@ public class MainCharacter extends Characters {
 		if ( changementDeVitesse == true){
 			if (Bouclier.isBouclierUtilisé == true ) {
 				vitesseMouvements = 400;
-				
-//					MainMenu.PPM = 0.8f;
-//					MainMenu.world.destroyBody(MainMenu.Link.getBody());
-//					MainMenu.Link.createBody();
-//					MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
-//					MainMenu.box2DCamera.update();
-//					GestionDesMaps.destructionDesCorps();
-					
-				
 			} else if ( Ghost.etatScenario !=0 && Ghost.etatScenario < 16 ) vitesseMouvements = 600;
 			else {
 				vitesseMouvements = 200;
-//				MainMenu.PPM = 1.5f;
-//				MainMenu.world.destroyBody(MainMenu.Link.getBody());
-//				MainMenu.Link.createBody();
-//				MainMenu.box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
-//				MainMenu.box2DCamera.update();
-//				GestionDesMaps.destructionDesCorps();
 			}
 			changementDeVitesse = false;
 		}

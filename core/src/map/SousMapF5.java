@@ -178,7 +178,27 @@ public class SousMapF5 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+		CadrillageMap.setTypeDeDécor(0, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(0, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(1, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(2, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(3, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 3, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(4, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 1, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(5, 2, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 0, "EauProfonde");
+		CadrillageMap.setTypeDeDécor(6, 1, "EauProfonde");
 	}
 
 	public static void destroyType() {

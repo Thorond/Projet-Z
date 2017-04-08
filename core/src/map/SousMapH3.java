@@ -110,31 +110,31 @@ public class SousMapH3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 00+ x, 420+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 60+ x, 360+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 420+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 60+ x, 420+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 120+ x, 300+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 420+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 360+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 120+ x, 420+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 120+ x, 360+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 180+ x, 240+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 300+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 360+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 180+ x, 420+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 180+ x, 300+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 180+ x, 360+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 180+ x, 420+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 240+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 240+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 300+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 240+ x, 360+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 240+ x, 420+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 240+ x, 240+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 240+ x, 300+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 240+ x, 360+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite(game, 240+ x, 420+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 300+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 240+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 300+ x, 300+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 300+ x, 240+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 300+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 300+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 300+ x, 420+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 360+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 360+ x, 240+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 360+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 360+ x, 300+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 420+ x, 240+ y);
@@ -142,17 +142,17 @@ public class SousMapH3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 360+ x, 180+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 420+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 420+ x, 180+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 420+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 420+ x, 240+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 480+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 480+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 480+ x, 180+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 480+ x, 120+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite(game, 480+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 480+ x, 240+ y);
 		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 540+ x, 00+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 540+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 540+ x, 120+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 540+ x, 60+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite(game, 540+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 540+ x, 180+ y);
 		
 //		

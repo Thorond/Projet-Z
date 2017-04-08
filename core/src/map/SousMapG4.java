@@ -176,6 +176,9 @@ public class SousMapG4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 300+ y);
 		
+
+		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 280+ y);
+		
 //		==================================================================
 		//		Placement des dessins des monstres
 		//==================================================================
@@ -252,6 +255,7 @@ public class SousMapG4 extends Sprite{
 		if ( m1EstCrée == false ) {
 			monstre1 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaFace2 , 360 , 300 , "bas") ;
 			Pnj.monstres[0] = monstre1;
+			Pnj.nbrDeMonstres = 1;
 			m1EstCrée = true;
 		} else {
 			monstre1.déplacement();

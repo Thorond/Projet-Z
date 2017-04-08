@@ -120,13 +120,13 @@ public class SousMapG3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 420+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 420+ x, 0+ y);
 
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 240+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 240+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 300+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 300+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x,0+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 360+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3, 360+ x, 0+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite(game, 240+ x, 180+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 240+ x, 120+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite(game, 300+ x, 120+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 300+ x, 60+ y);
+		ClimatMontagneux.placerMurSombreGlacéCentre(game, 300+ x,0+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite(game, 360+ x, 60+ y);
+		ClimatMontagneux.placerMurSombreGlacéDroite3(game, 360+ x, 0+ y);
 		
 		
 		

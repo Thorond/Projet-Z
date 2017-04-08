@@ -79,48 +79,32 @@ public class Epee extends Item{
 //					vérification qu'ils soient vivants
 				if ( Pnj.monstres[i].isAlive() ){
 					if (cha.getDirection().equals("droite")){
-						for ( int j = 0 ; j <= 60 ; j ++){
-							for ( int k = -20 ; k <= 60 ; k++){
-								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
-										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
-									j=121;
-									k=121;
-								}
-							}
+						if ( (int) cha.getBody().getPosition().x <= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().x + 60 >= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().y -20 <= (int) Pnj.monstres[i].getBody().getPosition().y
+								&& (int) cha.getBody().getPosition().y +60 >= (int) Pnj.monstres[i].getBody().getPosition().y ){
+							Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 						}
 					} else if (cha.getDirection().equals("gauche")){
-						for ( int j = 0 ; j >= -60 ; j --){
-							for ( int k = -20 ; k <= 60 ; k++){
-								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
-										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
-									j=-121;
-									k=121;
-								}
-							}
+						if ( (int) cha.getBody().getPosition().x >= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().x -60 <= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().y -20 <= (int) Pnj.monstres[i].getBody().getPosition().y
+								&& (int) cha.getBody().getPosition().y +60 >= (int) Pnj.monstres[i].getBody().getPosition().y  ){
+							Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 						}
 					} else if (cha.getDirection().equals("haut")){
-						for ( int j = -20 ; j <= 60 ; j++){
-							for ( int k = 0 ; k <= 60 ; k++){
-								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
-										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
-									j=121;
-									k=121;
-								}
-							}
+						if ( (int) cha.getBody().getPosition().x -20 <= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().x + 60 >= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().y  <= (int) Pnj.monstres[i].getBody().getPosition().y
+								&& (int) cha.getBody().getPosition().y +60 >= (int) Pnj.monstres[i].getBody().getPosition().y ){
+							Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 						}
 					} else if (cha.getDirection().equals("bas")){
-						for ( int j = -20 ; j <= 60 ; j++){
-							for ( int k = 0 ; k >= -60 ; k--){
-								if ( (int) cha.getBody().getPosition().x +j == (int) Pnj.monstres[i].getBody().getPosition().x 
-										&& (int) cha.getBody().getPosition().y +k == (int) Pnj.monstres[i].getBody().getPosition().y ){
-									Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
-									j=121;
-									k=-121;
-								}
-							}
+						if ( (int) cha.getBody().getPosition().x -20 <= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().x + 60 >= (int) Pnj.monstres[i].getBody().getPosition().x
+								&& (int) cha.getBody().getPosition().y >= (int) Pnj.monstres[i].getBody().getPosition().y
+								&& (int) cha.getBody().getPosition().y -60 <= (int) Pnj.monstres[i].getBody().getPosition().y){
+							Pnj.monstres[i].subirDégats(cha.getStrength(), cha.getDirection());
 						}
 					}
 				}

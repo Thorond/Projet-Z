@@ -22,11 +22,13 @@ import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import decors.Totem;
 import interactionClavier.AlphabetEtAcquisition;
+import items.Arc;
 import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
 import items.Epee;
 import items.Essence;
+import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
 import map.CadrillageMap;
@@ -55,6 +57,7 @@ public class MainMenu implements Screen{
 	public static GantDeForce gantDeForce = new GantDeForce();
 	public static Bouclier bouclier = new Bouclier();
 	public static Bombe bombe = new Bombe();
+	public static Arc arc = new Arc();
 	
 	Texture carte;
 	public static World world;
@@ -99,6 +102,7 @@ public class MainMenu implements Screen{
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		MenuSac.setItem(plume);
+		MenuSac.setItem(arc);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
@@ -387,6 +391,7 @@ public class MainMenu implements Screen{
 
 					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
+					Flèches.déplacement(Link);
 //					 démarage scenario 1
 					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
 							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
@@ -500,11 +505,12 @@ public class MainMenu implements Screen{
 				// dessiner les essences
 				Essence.représentationEssence(game);
 
+				Flèches.représentationFlèches(game);
 				Bombe.représentationBombe(game);
 				
-				Tigre.createBody(world);
-				Tigre.tigre.mouvement();
-				Tigre.tigre.représentation(game);
+//				Tigre.createBody(world);
+//				Tigre.tigre.mouvement();
+//				Tigre.tigre.représentation(game);
 				
 				
 	//			dessin du joueur

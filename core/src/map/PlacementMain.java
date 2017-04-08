@@ -7,6 +7,7 @@ import decors.Totem;
 import items.Bombe;
 import items.CoeurDeVie;
 import items.Essence;
+import items.Flèches;
 import scenes.MainMenu;
 
 public class PlacementMain {
@@ -27,6 +28,7 @@ public class PlacementMain {
 	public static void réinitialisation(){
 		CadrillageMap.setTypeDeDécor();
 		CadrillageMap.setDécoChangéFaux();
+		Flèches.réinitialisation();
 		CoeurDeVie.réinitialisation();
 		Essence.réinitialisation();
 		Bombe.réinitialisation();
@@ -199,6 +201,11 @@ public class PlacementMain {
 				SousMapI6.destroyBody();
 				positionSousMap = "I7";
 			}
+// 		******************** Grotte1 *******************************
+			else if ( positionSousMap.equals("GrotteI1Salle2")  ){
+				GrotteI1Salle2.destroyBody();
+				positionSousMap = "GrotteI1Salle1";
+			}
 			
 			défilement = true;
 			start = System.currentTimeMillis();
@@ -353,6 +360,11 @@ public class PlacementMain {
 			} else if ( positionSousMap.equals("I6") ){
 				SousMapI6.destroyBody();
 				positionSousMap = "I5";
+			}
+// 		******************** Grotte1 *******************************
+			else if ( positionSousMap.equals("GrotteI1Salle1") ){
+				GrotteI1Salle1.destroyBody();
+				positionSousMap = "GrotteI1Salle2";
 			}
 			
 			défilement = true;
@@ -514,6 +526,14 @@ public class PlacementMain {
 				SousMapI6.destroyBody();
 				positionSousMap = "H6";
 			}
+			// 		******************** Grotte1 *******************************
+			else if ( positionSousMap.equals("GrotteI1Salle3")  ){
+				GrotteI1Salle3.destroyBody();
+				positionSousMap = "GrotteI1Salle2";
+			} else if ( positionSousMap.equals("GrotteI1Salle4")  ){
+				GrotteI1Salle4.destroyBody();
+				positionSousMap = "GrotteI1Salle3";
+			}
 			
 			défilement = true;
 			start = System.currentTimeMillis();
@@ -669,7 +689,15 @@ public class PlacementMain {
 				SousMapH6.destroyBody();
 				positionSousMap = "I6";
 			}
-			
+			// 		******************** Grotte1 *******************************
+			else if ( positionSousMap.equals("GrotteI1Salle2") ){
+				GrotteI1Salle2.destroyBody();
+				positionSousMap = "GrotteI1Salle3";
+			} else if ( positionSousMap.equals("GrotteI1Salle3") ){
+				GrotteI1Salle3.destroyBody();
+				positionSousMap = "GrotteI1Salle4";
+			}
+
 			défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
@@ -738,6 +766,26 @@ public class PlacementMain {
 			MainMenu.Link.getBody().setTransform(440/MainMenu.PPM, 155/MainMenu.PPM, 0);
 			IglooC5.destroyBody();
 			positionSousMap = "C5";
+
+			réinitialisation();
+		}
+		//		 accès a la grotte en I1
+		else if (positionSousMap.equals("I1")
+				&& perso.getDirection().equals("haut")
+				&& perso.getBody().getPosition().x > 240/MainMenu.PPM &&  perso.getBody().getPosition().x < 360/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 230/MainMenu.PPM && perso.getBody().getPosition().y < 260/MainMenu.PPM ){
+			MainMenu.Link.getBody().setTransform(300/MainMenu.PPM, 10, 0);
+			SousMapI1.destroyBody();
+			positionSousMap = "GrotteI1Salle1";
+
+			réinitialisation();
+		} else if (positionSousMap.equals("GrotteI1Salle1")
+				&& perso.getDirection().equals("bas")
+				&& perso.getBody().getPosition().x > 270/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+			MainMenu.Link.getBody().setTransform(270/MainMenu.PPM, 220/MainMenu.PPM, 0);
+			GrotteI1Salle1.destroyBody();
+			positionSousMap = "I1";
 
 			réinitialisation();
 		}
