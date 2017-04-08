@@ -255,6 +255,7 @@ public class SousMapG4 extends Sprite{
 		if ( m1EstCrée == false ) {
 			monstre1 = new MonstreAquatique(world ,MonstreAquatique.monstreAquaFace2 , 360 , 300 , "bas") ;
 			Pnj.monstres[0] = monstre1;
+			Pnj.nbrDeMonstres = 1;
 			m1EstCrée = true;
 		} else {
 			monstre1.déplacement();
