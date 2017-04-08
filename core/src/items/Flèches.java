@@ -13,6 +13,7 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import characters.Pnj;
+import map.PlacementMain;
 import scenes.MainMenu;
 import sun.awt.image.ImageWatched;
 
@@ -90,34 +91,31 @@ public class Flèches extends Sprite {
 
 
     public boolean enDéplacement = false;
+    public static long timerUtilisation = System.currentTimeMillis();
 
-    public static void déplacementInitial(MainCharacter Link){
-        for ( int i = 0 ; i < flèches.length ; i++ ){
-            if ( flèches[i].enDéplacement == false ) {
-                if( Link.getDirection().equals("haut") )
-                {
-                    flèches[i] = new Flèches("haut",(int) Link.getX(), (int) Link.getY() +60,flècheHaut);
-                    flèches[i].getBody().applyLinearImpulse(new Vector2(0f,+100000f), Link.getBody().getWorldCenter(), true);
+    public static void déplacementInitial(String direction , float x ,float  y){
+        if ( System.currentTimeMillis() - timerUtilisation > 400 ) {
+            for (int i = 0; i < flèches.length; i++) {
+                if (flèches[i].enDéplacement == false) {
+                    if (direction.equals("haut")) {
+                        flèches[i] = new Flèches("haut", (int) x, (int) y + 60, flècheHaut);
+                        flèches[i].getBody().applyLinearImpulse(new Vector2(0f, +100000f), flèches[i].getBody().getWorldCenter(), true);
+                    } else if (direction.equals("bas")) {
+                        flèches[i] = new Flèches("bas", (int) x, (int) y - 60, flècheBas);
+                        flèches[i].getBody().applyLinearImpulse(new Vector2(0f, -100000f), flèches[i].getBody().getWorldCenter(), true);
+                    } else if (direction.equals("gauche")) {
+                        flèches[i] = new Flèches("gauche", (int) x - 60, (int) y, flècheGauche);
+                        flèches[i].getBody().applyLinearImpulse(new Vector2(-100000f, 0f), flèches[i].getBody().getWorldCenter(), true);
+                    } else if (direction.equals("droite")) {
+                        flèches[i] = new Flèches("droite", (int) x + 60, (int) y, flècheDroite);
+                        flèches[i].getBody().applyLinearImpulse(new Vector2(+100000f, 0f), flèches[i].getBody().getWorldCenter(), true);
+                    }
+                    flèches[i].enDéplacement = true;
+                    flèches[i].updateBody();
+                    break;
                 }
-                else if( Link.getDirection().equals("bas"))
-                {
-                    flèches[i] = new Flèches("bas",(int) Link.getX(), (int) Link.getY()-60,flècheBas);
-                    flèches[i].getBody().applyLinearImpulse(new Vector2(0f,-100000f), Link.getBody().getWorldCenter(), true);
-                }
-                else if( Link.getDirection().equals("gauche"))
-                {
-                    flèches[i] = new Flèches("gauche",(int) Link.getX()-60, (int) Link.getY(),flècheGauche);
-                    flèches[i].getBody().applyLinearImpulse(new Vector2(-100000f,0f), Link.getBody().getWorldCenter(), true);
-                }
-                else if( Link.getDirection().equals("droite"))
-                {
-                    flèches[i] = new Flèches("droite",(int) Link.getX()+60, (int) Link.getY(),flècheDroite);
-                    flèches[i].getBody().applyLinearImpulse(new Vector2(+100000f,0f), Link.getBody().getWorldCenter(), true);
-                }
-                flèches[i].enDéplacement = true;
-                flèches[i].updateBody();
-                break;
             }
+            timerUtilisation = System.currentTimeMillis();
         }
     }
     public boolean àRencontrerObstacle = false;
@@ -140,6 +138,7 @@ public class Flèches extends Sprite {
                             || flèches[i].getBody().getLinearVelocity().y < -10
                             || flèches[i].getBody().getLinearVelocity().y > 10 ) {
                         flèches[i].enDéplacement = false;
+                        flèches[i].àRencontrerObstacle = true;
                         MainMenu.world.destroyBody(flèches[i].body);
                     } else if ( flèches[i].getX() > 610 ) {
                         flèches[i].enDéplacement = false;
@@ -150,6 +149,7 @@ public class Flèches extends Sprite {
                             || flèches[i].getBody().getLinearVelocity().x > 10
                             || flèches[i].getBody().getLinearVelocity().y < 90 ) {
                         flèches[i].enDéplacement = false;
+                        flèches[i].àRencontrerObstacle = true;
                         MainMenu.world.destroyBody(flèches[i].body);
                     } else if ( flèches[i].getY() > 490 ) {
                         flèches[i].enDéplacement = false;
@@ -160,12 +160,15 @@ public class Flèches extends Sprite {
                             || flèches[i].getBody().getLinearVelocity().x > 10
                             || flèches[i].getBody().getLinearVelocity().y > -90 ) {
                         flèches[i].enDéplacement = false;
+                        flèches[i].àRencontrerObstacle = true;
                         MainMenu.world.destroyBody(flèches[i].body);
                     } else if ( flèches[i].getY() < -10 ) {
                         flèches[i].enDéplacement = false;
                         MainMenu.world.destroyBody(flèches[i].body);
                     }
                 }
+
+
 
                 if ( flèches[i].àRencontrerObstacle){
 
@@ -176,34 +179,74 @@ public class Flèches extends Sprite {
                             if ( Pnj.monstres[j].isAlive() ){
                                 if (flèches[i].direction.equals("droite")){
                                     if ( (int) flèches[i].getBody().getPosition().x <= (int) Pnj.monstres[j].getBody().getPosition().x
-                                            && (int) flèches[i].getBody().getPosition().x + 90 >= (int) Pnj.monstres[j].getBody().getPosition().x
+                                            && (int) flèches[i].getBody().getPosition().x + 60 >= (int) Pnj.monstres[j].getBody().getPosition().x
                                             && (int) flèches[i].getBody().getPosition().y -20 <= (int) Pnj.monstres[j].getBody().getPosition().y
                                             && (int) flèches[i].getBody().getPosition().y +20 >= (int) Pnj.monstres[j].getBody().getPosition().y ){
                                         Pnj.monstres[j].subirDégats(2, flèches[i].direction);
                                     }
                                 } else if (flèches[i].direction.equals("gauche")){
                                     if ( (int) flèches[i].getBody().getPosition().x >= (int) Pnj.monstres[j].getBody().getPosition().x
-                                            && (int) flèches[i].getBody().getPosition().x -90 <= (int) Pnj.monstres[j].getBody().getPosition().x
+                                            && (int) flèches[i].getBody().getPosition().x -60 <= (int) Pnj.monstres[j].getBody().getPosition().x
                                             && (int) flèches[i].getBody().getPosition().y -20 <= (int) Pnj.monstres[j].getBody().getPosition().y
                                             && (int) flèches[i].getBody().getPosition().y +20 >= (int) Pnj.monstres[j].getBody().getPosition().y  ){
                                         Pnj.monstres[j].subirDégats(2, flèches[i].direction);
                                     }
                                 } else if (flèches[i].direction.equals("haut")){
                                     if ( (int) flèches[i].getBody().getPosition().x -20 <= (int) Pnj.monstres[j].getBody().getPosition().x
-                                            && (int) flèches[i].getBody().getPosition().x + 20 >= (int) Pnj.monstres[j].getBody().getPosition().x
+                                            && (int) flèches[i].getBody().getPosition().x + 80 >= (int) Pnj.monstres[j].getBody().getPosition().x
                                             && (int) flèches[i].getBody().getPosition().y  <= (int) Pnj.monstres[j].getBody().getPosition().y
-                                            && (int) flèches[i].getBody().getPosition().y +90 >= (int) Pnj.monstres[j].getBody().getPosition().y ){
+                                            && (int) flèches[i].getBody().getPosition().y +60 >= (int) Pnj.monstres[j].getBody().getPosition().y ){
                                         Pnj.monstres[j].subirDégats(2, flèches[i].direction);
                                     }
                                 } else if (flèches[i].direction.equals("bas")){
                                     if ( (int) flèches[i].getBody().getPosition().x -20 <= (int) Pnj.monstres[j].getBody().getPosition().x
                                             && (int) flèches[i].getBody().getPosition().x + 20 >= (int) Pnj.monstres[j].getBody().getPosition().x
                                             && (int) flèches[i].getBody().getPosition().y >= (int) Pnj.monstres[j].getBody().getPosition().y
-                                            && (int) flèches[i].getBody().getPosition().y -90 <= (int) Pnj.monstres[j].getBody().getPosition().y){
+                                            && (int) flèches[i].getBody().getPosition().y -60 <= (int) Pnj.monstres[j].getBody().getPosition().y){
                                         Pnj.monstres[j].subirDégats(2, flèches[i].direction);
                                     }
                                 }
                             }
+                        }
+                    }
+
+//                    dégat sur joueur
+
+                    if (flèches[i].direction.equals("droite")){
+                        if ( (int) flèches[i].getBody().getPosition().x <= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().x + 60 >= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().y -20 <= (int) Link.getBody().getPosition().y
+                                && (int) flèches[i].getBody().getPosition().y +20 >= (int) Link.getBody().getPosition().y ){
+                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x + 30, MainMenu.Link.getBody().getPosition().y , 0);
+                            if ( MainMenu.Link.getDirection().equals("gauche") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+                            } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
+                        }
+                    } else if (flèches[i].direction.equals("gauche")){
+                        if ( (int) flèches[i].getBody().getPosition().x >= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().x -60 <= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().y -20 <= (int) Link.getBody().getPosition().y
+                                && (int) flèches[i].getBody().getPosition().y +20 >= (int) Link.getBody().getPosition().y  ){
+                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -30, MainMenu.Link.getBody().getPosition().y, 0);
+                            if ( MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+                            } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
+                        }
+                    } else if (flèches[i].direction.equals("haut")){
+                        if ( (int) flèches[i].getBody().getPosition().x -20 <= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().x + 80 >= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().y  <= (int) Link.getBody().getPosition().y
+                                && (int) flèches[i].getBody().getPosition().y +60 >= (int) Link.getBody().getPosition().y ){
+                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
+                            if ( MainMenu.Link.getDirection().equals("bas") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+                            } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
+                        }
+                    } else if (flèches[i].direction.equals("bas")){
+                        if ( (int) flèches[i].getBody().getPosition().x -20 <= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().x + 20 >= (int) Link.getBody().getPosition().x
+                                && (int) flèches[i].getBody().getPosition().y >= (int) Link.getBody().getPosition().y
+                                && (int) flèches[i].getBody().getPosition().y -60 <= (int) Link.getBody().getPosition().y){
+                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
+                            if ( MainMenu.Link.getDirection().equals("haut") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+                            } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
                         }
                     }
                 }
@@ -216,6 +259,15 @@ public class Flèches extends Sprite {
             if (  flèches[i].enDéplacement){
                 flèches[i].draw( game.getBatch());
                 flèches[i].updateBody();
+            }
+        }
+    }
+
+    public static void réinitialisation() {
+        for ( int i = 0 ; i < flèches.length ; i++ ){
+            if ( flèches[i].enDéplacement ){
+                flèches[i].enDéplacement = false;
+                MainMenu.world.destroyBody(flèches[i].body);
             }
         }
     }

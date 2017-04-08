@@ -25,6 +25,10 @@ public class Arc extends Item{
 
     @Override
     public void utilisationItem( MainCharacter cha) {
-       Flèches.déplacementInitial(cha);
+       Flèches.déplacementInitial(cha.getDirection(), cha.getX(), cha.getY());
+    }
+
+    public void utilisationNonJoueur(String direction , float x ,float  y){
+        Flèches.déplacementInitial(direction , x ,y);
     }
 }

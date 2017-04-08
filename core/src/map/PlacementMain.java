@@ -7,6 +7,7 @@ import decors.Totem;
 import items.Bombe;
 import items.CoeurDeVie;
 import items.Essence;
+import items.Flèches;
 import scenes.MainMenu;
 
 public class PlacementMain {
@@ -27,6 +28,7 @@ public class PlacementMain {
 	public static void réinitialisation(){
 		CadrillageMap.setTypeDeDécor();
 		CadrillageMap.setDécoChangéFaux();
+		Flèches.réinitialisation();
 		CoeurDeVie.réinitialisation();
 		Essence.réinitialisation();
 		Bombe.réinitialisation();
@@ -738,6 +740,26 @@ public class PlacementMain {
 			MainMenu.Link.getBody().setTransform(440/MainMenu.PPM, 155/MainMenu.PPM, 0);
 			IglooC5.destroyBody();
 			positionSousMap = "C5";
+
+			réinitialisation();
+		}
+		//		 accès a la grotte en I1
+		else if (positionSousMap.equals("I1")
+				&& perso.getDirection().equals("haut")
+				&& perso.getBody().getPosition().x > 180/MainMenu.PPM &&  perso.getBody().getPosition().x < 360/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 220/MainMenu.PPM && perso.getBody().getPosition().y < 260/MainMenu.PPM ){
+			MainMenu.Link.getBody().setTransform(300/MainMenu.PPM, 10, 0);
+			SousMapI1.destroyBody();
+			positionSousMap = "GrotteI1Salle1";
+
+			réinitialisation();
+		} else if (positionSousMap.equals("GrotteI1Salle1")
+				&& perso.getDirection().equals("bas")
+				&& perso.getBody().getPosition().x > 270/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+			MainMenu.Link.getBody().setTransform(270, 220, 0);
+			GrotteI1Salle1.destroyBody();
+			positionSousMap = "I1";
 
 			réinitialisation();
 		}
