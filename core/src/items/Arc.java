@@ -28,7 +28,7 @@ public class Arc extends Item{
        Flèches.déplacementInitial(cha.getDirection(), cha.getX(), cha.getY());
     }
 
-    public void utilisationNonJoueur(String direction , float x ,float  y){
-        Flèches.déplacementInitial(direction , x ,y);
+    public static void utilisationNonJoueur(String direction , float x ,float  y){
+        Flèches.déplacementInitialNonJoueur(direction , x ,y);
     }
 }

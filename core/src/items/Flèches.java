@@ -72,7 +72,13 @@ public class Flèches extends Sprite {
     public static Flèches[] flèches = new Flèches[] { new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
             new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
             new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
-            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches()
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches()
     };
 
     public Flèches(){
@@ -118,6 +124,32 @@ public class Flèches extends Sprite {
             timerUtilisation = System.currentTimeMillis();
         }
     }
+
+    public static void déplacementInitialNonJoueur(String direction , float x ,float  y ){
+
+        for (int i = 0; i < flèches.length; i++) {
+            if (flèches[i].enDéplacement == false) {
+                if (direction.equals("haut")) {
+                    flèches[i] = new Flèches("haut", (int) x, (int) y + 60, flècheHaut);
+                    flèches[i].getBody().applyLinearImpulse(new Vector2(0f, +100000f), flèches[i].getBody().getWorldCenter(), true);
+                } else if (direction.equals("bas")) {
+                    flèches[i] = new Flèches("bas", (int) x, (int) y - 60, flècheBas);
+                    flèches[i].getBody().applyLinearImpulse(new Vector2(0f, -100000f), flèches[i].getBody().getWorldCenter(), true);
+                } else if (direction.equals("gauche")) {
+                    flèches[i] = new Flèches("gauche", (int) x - 60, (int) y, flècheGauche);
+                    flèches[i].getBody().applyLinearImpulse(new Vector2(-100000f, 0f), flèches[i].getBody().getWorldCenter(), true);
+                } else if (direction.equals("droite")) {
+                    flèches[i] = new Flèches("droite", (int) x + 60, (int) y, flècheDroite);
+                    flèches[i].getBody().applyLinearImpulse(new Vector2(+100000f, 0f), flèches[i].getBody().getWorldCenter(), true);
+                }
+                flèches[i].enDéplacement = true;
+                flèches[i].updateBody();
+                break;
+            }
+        }
+    }
+
+
     public boolean àRencontrerObstacle = false;
     public static void déplacement(MainCharacter Link ){
         for ( int i = 0 ; i < flèches.length ; i++ ){
