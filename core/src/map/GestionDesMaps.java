@@ -33,8 +33,8 @@ public class GestionDesMaps {
 					SousMapF1.sousMap(game,-600 + PlacementMain.x,0);
 					SousMapG1.sousMap(game, PlacementMain.x, 0);
 				} else if ( PlacementMain.positionSousMap.equals("G1") ) {
-					SousMapG1.sousMap(game,-600 + PlacementMain.x,0);
 					SousMapH1.sousMap(game, PlacementMain.x, 0);
+					SousMapG1.sousMap(game,-600 + PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("H1") ) {
 					SousMapH1.sousMap(game,-600 + PlacementMain.x,0);
 					SousMapI1.sousMap(game, PlacementMain.x, 0);
@@ -195,8 +195,8 @@ public class GestionDesMaps {
 					SousMapF1.sousMap(game,0- PlacementMain.x,0);
 					SousMapG1.sousMap(game,600 - PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("H1") ) {
-					SousMapG1.sousMap(game,0- PlacementMain.x,0);
 					SousMapH1.sousMap(game,600 - PlacementMain.x,0);
+					SousMapG1.sousMap(game,0- PlacementMain.x,0);
 				} else if ( PlacementMain.positionSousMap.equals("I1") ) {
 					SousMapH1.sousMap(game,0- PlacementMain.x,0);
 					SousMapI1.sousMap(game,600 - PlacementMain.x,0);

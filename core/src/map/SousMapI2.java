@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
 
 public class SousMapI2 extends Sprite{
 	
@@ -99,6 +100,16 @@ public class SousMapI2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
+
+//
+
+		game.getBatch().draw(DonjonGlace.murVertical, 162+ x, 410+ y);
+		game.getBatch().draw(DonjonGlace.murVertical, 162+ x, 240+ y);
+		game.getBatch().draw(DonjonGlace.murVertical, 162+ x, 70+ y);
+		game.getBatch().draw(DonjonGlace.murVertical, 162+ x, -10+ y);
+
+		game.getBatch().draw(DonjonGlace.murHorizontal, 0+ x, -30+ y);
+		game.getBatch().draw(DonjonGlace.murHorizontal, 90+ x, -30+ y);
 	}
 
 	public static void destroyBody() {
