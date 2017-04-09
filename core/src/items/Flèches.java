@@ -23,6 +23,8 @@ import sun.awt.image.ImageWatched;
 
 public class Flèches extends Sprite {
 
+    public static int nombreFlèche = 0; // à sauvegarder
+
     public String direction;
     public int x;
     public int y;
@@ -100,7 +102,7 @@ public class Flèches extends Sprite {
     public static long timerUtilisation = System.currentTimeMillis();
 
     public static void déplacementInitial(String direction , float x ,float  y){
-        if ( System.currentTimeMillis() - timerUtilisation > 400 ) {
+        if ( nombreFlèche > 0 && System.currentTimeMillis() - timerUtilisation > 400 ) {
             for (int i = 0; i < flèches.length; i++) {
                 if (flèches[i].enDéplacement == false) {
                     if (direction.equals("haut")) {
@@ -118,6 +120,7 @@ public class Flèches extends Sprite {
                     }
                     flèches[i].enDéplacement = true;
                     flèches[i].updateBody();
+                    nombreFlèche --;
                     break;
                 }
             }

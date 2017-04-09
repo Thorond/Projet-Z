@@ -239,29 +239,35 @@ public class GrotteI1Salle3 extends Sprite {
 //    ************************************************
 
     public static long timerUtilisationMeurtrière = System.currentTimeMillis();
+    public static boolean estPassé = false; // à sauvegarder
     public static void détectionLink(MainCharacter Link){
-        if ( CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x  )* MainMenu.PPM/60)][(int) ((Link.getBody().getPosition().y )*MainMenu.PPM/ 60 )].equals("piège")){
-            if (System.currentTimeMillis() - timerUtilisationMeurtrière >400 ){
-                Arc.utilisationNonJoueur("bas",80 , 420 );
-                Arc.utilisationNonJoueur("bas",140 , 420 );
-                Arc.utilisationNonJoueur("bas",200 , 420 );
-                Arc.utilisationNonJoueur("bas",260 , 420 );
-                Arc.utilisationNonJoueur("bas",320 , 420 );
-                Arc.utilisationNonJoueur("bas",380 , 420 );
-                Arc.utilisationNonJoueur("bas",440 , 420 );
-                Arc.utilisationNonJoueur("bas",500 , 420 );
+        if ( ! estPassé ) {
+            if (CadrillageMap.typeDeDécor[(int) ((Link.getBody().getPosition().x) * MainMenu.PPM / 60)][(int) ((Link.getBody().getPosition().y) * MainMenu.PPM / 60)].equals("piège")) {
+                if (System.currentTimeMillis() - timerUtilisationMeurtrière > 400) {
+                    Arc.utilisationNonJoueur("bas", 80, 420);
+                    Arc.utilisationNonJoueur("bas", 140, 420);
+                    Arc.utilisationNonJoueur("bas", 200, 420);
+                    Arc.utilisationNonJoueur("bas", 260, 420);
+                    Arc.utilisationNonJoueur("bas", 320, 420);
+                    Arc.utilisationNonJoueur("bas", 380, 420);
+                    Arc.utilisationNonJoueur("bas", 440, 420);
+                    Arc.utilisationNonJoueur("bas", 500, 420);
 
-                Arc.utilisationNonJoueur("haut",80 , 0 );
-                Arc.utilisationNonJoueur("haut",140 , 0 );
-                Arc.utilisationNonJoueur("haut",200 , 0 );
-                Arc.utilisationNonJoueur("haut",260 , 0 );
-                Arc.utilisationNonJoueur("haut",320 , 0 );
-                Arc.utilisationNonJoueur("haut",380 , 0 );
-                Arc.utilisationNonJoueur("haut",440 , 0 );
-                Arc.utilisationNonJoueur("haut",500 , 0 );
-                timerUtilisationMeurtrière = System.currentTimeMillis();
+                    Arc.utilisationNonJoueur("haut", 80, 0);
+                    Arc.utilisationNonJoueur("haut", 140, 0);
+                    Arc.utilisationNonJoueur("haut", 200, 0);
+                    Arc.utilisationNonJoueur("haut", 260, 0);
+                    Arc.utilisationNonJoueur("haut", 320, 0);
+                    Arc.utilisationNonJoueur("haut", 380, 0);
+                    Arc.utilisationNonJoueur("haut", 440, 0);
+                    Arc.utilisationNonJoueur("haut", 500, 0);
+                    timerUtilisationMeurtrière = System.currentTimeMillis();
+                }
+
             }
-
+            if ( (Link.getBody().getPosition().x) * MainMenu.PPM > 540 ) {
+                estPassé = true;
+            }
         }
     }
 }

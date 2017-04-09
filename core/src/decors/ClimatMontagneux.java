@@ -260,10 +260,18 @@ public class ClimatMontagneux {
 	public static Texture  bordMerGlacéInfGau= new Texture("climatMontagneux/bordMerGlacéInfGau.png");
 	public static Texture  bordMerGlacéSupDroi= new Texture("climatMontagneux/bordMerGlacéSupDroi.png");
 	public static Texture  bordMerGlacéSupGau= new Texture("climatMontagneux/bordMerGlacéSupGau.png");
+
+
+	public static Texture  bordGlacéSupSombre2= new Texture("climatMontagneux/bordGlacéSupSombre2.png");
+	public static Texture  bordGlacéSupDroiSombre2 = new Texture("climatMontagneux/bordGlacéSupDroiSombre2.png");
+	public static Texture  bordGlacéSupGauSombre2 = new Texture("climatMontagneux/bordGlacéSupGauSombre2.png");
+	public static Texture  bordGlacéInfDroiSombre2 = new Texture("climatMontagneux/bordGlacéInfDroiSombre2.png");
+	public static Texture  bordGlacéInfGauSombre2 = new Texture("climatMontagneux/bordGlacéInfGauSombre2.png");
 	
 	public static Texture  ciel= new Texture("climatMontagneux/ciel.png");
 	public static Texture  escalierGlacé= new Texture("climatMontagneux/escalieGlacé.png");
 	public static Texture  escalierGlacé2= new Texture("climatMontagneux/escalieGlacé2.png");
+	public static Texture  escalierGlacéSombre2= new Texture("climatMontagneux/escalieGlacéSombre2.png");
 	public static Texture  escalierHaut= new Texture("climatMontagneux/escalierHaut.png");
 	public static Texture  escalierHaut2= new Texture("climatMontagneux/escalierHaut2.png");
 	public static Texture  glace1= new Texture("climatMontagneux/glace1.png");
@@ -283,6 +291,8 @@ public class ClimatMontagneux {
 	public static Texture  piedCassé1Sup= new Texture("climatMontagneux/piedCassé1Sup.png");
 	public static Texture  piedCassé2Sup= new Texture("climatMontagneux/piedCassé2Sup.png");
 	public static Texture  piedGlacéSup= new Texture("climatMontagneux/piedGlacéSup.png");
+
+	public static Texture  piedGlacéSupSombre2= new Texture("climatMontagneux/piedGlacéSupSombre2.png");
 	
 	public static Texture angleBasGauche = new Texture("climatMontagneux/angleBasGauche.png");
 	
@@ -325,6 +335,10 @@ public class ClimatMontagneux {
 	public static Texture murSombreGlacéGauche2= new Texture("climatMontagneux/murSombreGlacéGauche2.png");
 	public static Texture murSombreGlacéGauche3= new Texture("climatMontagneux/murSombreGlacéGauche3.png");
 	public static Texture murBasMer= new Texture("climatMontagneux/murBas.png");
+
+	public static Texture murSombre2GlacéCentre= new Texture("climatMontagneux/murGlacéSombre2Centre.png");
+	public static Texture murSombre2GlacéDroite= new Texture("climatMontagneux/murGlacéSombre2Droite.png");
+	public static Texture murSombre2GlacéGauche= new Texture("climatMontagneux/murGlacéSombre2Gauche.png");
 	
 	public static void placerMurSombreGlacéCentre(GameMain game, int x , int y ){
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre,  x,  y);
@@ -344,8 +358,6 @@ public class ClimatMontagneux {
 	public static Texture cheminGlaceBas = new Texture("climatMontagneux/cheminGlaceBas.png");
 	public static Texture cheminGlaceHautDroit= new Texture("climatMontagneux/cheminGlaceHautDroit.png");
 	public static Texture cheminGlaceHautGauche = new Texture("climatMontagneux/cheminGlaceHautGauche.png");
-	
-//	public static Texture = new Texture("climatMontagneux/.png");
 	
 	public static Texture icebergWater = new Texture("climatMontagneux/iceBergWater.png");
 	public static Texture iceberg1 = new Texture("climatMontagneux/iceBerg1.png");

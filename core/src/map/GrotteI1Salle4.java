@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Arc;
+import scenes.MainMenu;
 
 /**
  * Created by arnOo on 08/04/2017.
@@ -137,6 +139,36 @@ public class GrotteI1Salle4 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
+
+//
+
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 180+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 180+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéGauche, 180+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 240+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.escalierGlacéSombre2, 300+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéDroite, 420+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 360+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 420+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 420+ x, 300+ y);
+
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 180+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 240+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 360+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 420+ x, 120+ y);
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupGauSombre2, 240+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupSombre2, 300+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroiSombre2, 360+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInfGauSombre2, 240+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroiSombre2, 360+ x, 240+ y);
+
+        if (Arc.isArcPris == false ) game.getBatch().draw(Arc.arcT, 300+ x, 300+ y);
+        if ( MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(Arc.arcT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
+//            game.getBatch().draw(Arc.texteArc, 100 + x, 60+y);
+        }
+
     }
 
     public static void destroyBody() {
