@@ -265,7 +265,7 @@ public class GrotteI1Salle3 extends Sprite {
                 }
 
             }
-            if ( (Link.getBody().getPosition().x) * MainMenu.PPM > 540 ) {
+            if ( ! PlacementMain.défilement && (Link.getBody().getPosition().x) * MainMenu.PPM > 540 ) {
                 estPassé = true;
             }
         }
