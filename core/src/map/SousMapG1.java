@@ -172,7 +172,7 @@ public class SousMapG1 extends Sprite{
 		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau, 540+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 60+ y);
-		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre2, 540+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 540+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 540+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 300+ y);

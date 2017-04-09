@@ -781,7 +781,7 @@ public class PlacementMain {
 			réinitialisation();
 		} else if (positionSousMap.equals("GrotteI1Salle1")
 				&& perso.getDirection().equals("bas")
-				&& perso.getBody().getPosition().x > 270/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
 				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
 			MainMenu.Link.getBody().setTransform(270/MainMenu.PPM, 220/MainMenu.PPM, 0);
 			GrotteI1Salle1.destroyBody();

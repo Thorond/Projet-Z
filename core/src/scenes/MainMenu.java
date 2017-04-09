@@ -388,7 +388,7 @@ public class MainMenu implements Screen{
 						 IglooC1.destroyBody();
 						 MenuSac.setItem(bouclier);
 					 };
-
+					Arc.détection(Link);
 					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
 					 Plume.récupérationPlume();
 					Flèches.déplacement(Link);
