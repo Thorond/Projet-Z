@@ -114,7 +114,7 @@ public class SousMapH6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 300+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 360+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 420+ x, 360+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 480+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.escalierHaut, 480+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 540+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 60+ x, 120+ y);
@@ -124,7 +124,7 @@ public class SousMapH6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 300+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 360+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 420+ x, 300+ y);
-		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.cheminGlace, 480+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 60+ x, 60+ y);
@@ -134,8 +134,9 @@ public class SousMapH6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 300+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 360+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 420+ x, 240+ y);
-		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 480+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.cheminGlace, 480+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 540+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 540+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murBasMer, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murBasMer, 60+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murBasMer, 120+ x, 60+ y);
