@@ -97,7 +97,7 @@ public class Essence {
 			if (essences[i].isEstPrésent()){
 				for ( int j = -10 ; j < 40 ; j ++){
 					for ( int k = -10 ; k < 40 ; k ++){
-						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == essences[i].getX() 
+						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == essences[i].getX()
 								&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == essences[i].getY() ){
 							if ( essences[i].type == 1) nombreEssence += 1;
 							else if ( essences[i].type == 2) nombreEssence += 5;
@@ -108,7 +108,64 @@ public class Essence {
 						}
 					}
 				}
-				
+
+			}
+		}
+	}
+
+	public static void détectionEssenceEpée(MainCharacter Link){
+		for ( int i = 0 ; i < essences.length ; i ++){
+			if (essences[i].isEstPrésent()){
+				if (Link.getDirection().equals("droite")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM <=  essences[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >=  essences[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM -20 <=  essences[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >=  essences[i].getY() ){
+						if ( essences[i].type == 1) nombreEssence += 1;
+						else if ( essences[i].type == 2) nombreEssence += 5;
+						else if ( essences[i].type == 3) nombreEssence += 10;
+						else if ( essences[i].type == 4) nombreEssence += 25;
+						if ( nombreEssence > essenceMax ) nombreEssence = 999;
+						essences[i].setEstPrésent(false);
+					}
+				} else if (Link.getDirection().equals("gauche")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM >= essences[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM -60 <= essences[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM -20 <= essences[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >= essences[i].getY() ){
+						if ( essences[i].type == 1) nombreEssence += 1;
+						else if ( essences[i].type == 2) nombreEssence += 5;
+						else if ( essences[i].type == 3) nombreEssence += 10;
+						else if ( essences[i].type == 4) nombreEssence += 25;
+						if ( nombreEssence > essenceMax ) nombreEssence = 999;
+						essences[i].setEstPrésent(false);
+					}
+				} else if (Link.getDirection().equals("haut")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM -20 <= essences[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >= essences[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM  <= essences[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >= essences[i].getY() ){
+						if ( essences[i].type == 1) nombreEssence += 1;
+						else if ( essences[i].type == 2) nombreEssence += 5;
+						else if ( essences[i].type == 3) nombreEssence += 10;
+						else if ( essences[i].type == 4) nombreEssence += 25;
+						if ( nombreEssence > essenceMax ) nombreEssence = 999;
+						essences[i].setEstPrésent(false);
+					}
+				} else if (Link.getDirection().equals("bas")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM -20 <= essences[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >= essences[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM >= essences[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM -60 <= essences[i].getY() ){
+						if ( essences[i].type == 1) nombreEssence += 1;
+						else if ( essences[i].type == 2) nombreEssence += 5;
+						else if ( essences[i].type == 3) nombreEssence += 10;
+						else if ( essences[i].type == 4) nombreEssence += 25;
+						if ( nombreEssence > essenceMax ) nombreEssence = 999;
+						essences[i].setEstPrésent(false);
+					}
+				}
+
 			}
 		}
 	}

@@ -24,6 +24,11 @@ public class Epee extends Item{
 
 	public void utilisationItem( MainCharacter cha) {
 		isEpéeUtilisé = true;
+
+//		**** récupération item grâce à épée ****
+		CoeurDeVie.détectionCoeurEpée(cha);
+		Essence.détectionEssenceEpée(cha);
+
 		MainMenu.Link.getBody().setLinearVelocity(MainMenu.Link.getBody().getLinearVelocity().x / 100f, MainMenu.Link.getBody().getLinearVelocity().y / 100f);
 		if ( cha.getDirection().equals("bas")){
 			if ( ((int) cha.getBody().getPosition().y *MainMenu.PPM/ 60 ) -1 >= 0 &&
