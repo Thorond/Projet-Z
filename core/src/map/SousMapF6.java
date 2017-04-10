@@ -1,12 +1,27 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapF6 extends Sprite{
+
+	public static Body mur1;
+	public static boolean ismur1Created;
+
+	public static Body bordPont1 ;
+	public static boolean isbordPont1Created;
+	public static Body bordPont2 ;
+	public static boolean isbordPont2Created;
+
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -14,7 +29,7 @@ public class SousMapF6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 180+ y);		
-		game.getBatch().draw(ClimatMontagneux.glace1, 0 + x,240 + y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x,240 + y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 420+ y);
@@ -180,8 +195,7 @@ public class SousMapF6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 180+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 180+ x, 180+ y);
 
-//		game.getBatch().draw(ClimatMontagneux.grandPont, 190+ x, 220+ y);
-		ClimatMontagneux.placerGrandPont(game, 190+x, 220+y);
+		ClimatMontagneux.placerGrandPont(game, 190+x, 200+y);
 
 		ClimatMontagneux.annimationCascadePetite(game, 290+x, 400 + y);
 		ClimatMontagneux.annimationCascadeMoy(game, 210 + x, 35 + y);
@@ -189,21 +203,47 @@ public class SousMapF6 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
+		ismur1Created = false;
+
+		if ( isbordPont1Created) MainMenu.world.destroyBody(bordPont1);
+		isbordPont1Created = false;
+
+		if ( isbordPont2Created) MainMenu.world.destroyBody(bordPont2);
+		isbordPont2Created = false;
+
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
+
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
 
-		CadrillageMap.setTypeDeDécor(4, 6, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(5, 6, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(6, 6, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(4, 5, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(5, 5, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(6, 5, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(4, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(5, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(6, 3, "EauProfonde");
+
+		if ( ismur1Created == false ) {
+			mur1 = ClimatMontagneux.createBody(300,180,600,1);
+			ismur1Created = true;
+		}
+
+		if ( isbordPont1Created == false ) {
+			bordPont1 = ClimatMontagneux.createBody(330,220,270,1);
+			isbordPont1Created = true;
+		}
+		if ( isbordPont2Created == false ) {
+			bordPont2 = ClimatMontagneux.createBody(330,300,270,1);
+			isbordPont2Created = true;
+		}
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(50,450,100,60);
+			isCote1Created = true;
+		}
+		if ( isCote2Created == false ) {
+			cote2 = ClimatMontagneux.createBody(380,450,420,60);
+			isCote2Created = true;
+		}
 	}
 
 	public static void destroyType() {

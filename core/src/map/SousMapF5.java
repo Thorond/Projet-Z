@@ -1,12 +1,27 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapF5 extends Sprite{
+
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
+	public static Body cote3 ;
+	public static boolean isCote3Created;
+	public static Body cote4 ;
+	public static boolean isCote4Created;
+	public static Body arbre ;
+	public static boolean isarbreCreated;
+	public static Body cote5 ;
+	public static boolean isCote5Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -167,38 +182,65 @@ public class SousMapF5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.cheminGlaceHori, 60+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 120+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.cheminGlaceHori, 180+ x, 0+ y);
-		
+
+//		arbres
+
+		game.getBatch().draw(ClimatMontagneux.tree, 190+ x, 10+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, 490+ x, 70+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 70+ y);
 		
 	}
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
+
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
+
+		if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+		isCote3Created = false;
+
+		if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+		isCote4Created = false;
+
+		if ( isarbreCreated) MainMenu.world.destroyBody(arbre);
+		isarbreCreated = false;
+
+		if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+		isCote5Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		CadrillageMap.setTypeDeDécor(0, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(0, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(0, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(1, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(1, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(1, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(2, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(2, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(2, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(3, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(3, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(3, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(4, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(4, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(4, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(4, 0, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(5, 0, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(5, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(5, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(6, 0, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(6, 1, "EauProfonde");
+
+
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(300,360,1,240);
+			isCote1Created = true;
+		}
+		if ( isCote2Created == false ) {
+			cote2 = ClimatMontagneux.createBody(330,300,60,240);
+			isCote2Created = true;
+		}
+		if ( isCote3Created == false ) {
+			cote3 = ClimatMontagneux.createBody(420,270,120,180);
+			isCote3Created = true;
+		}
+		if ( isCote4Created == false ) {
+			cote4 = ClimatMontagneux.createBody(540,220,120,280);
+			isCote4Created = true;
+		}
+		if ( isarbreCreated == false ) {
+			arbre = ClimatMontagneux.createBodyPerso("arbre", "static", 180,0);
+			isarbreCreated = true;
+		}
+		if ( isCote5Created == false ) {
+			cote5 = ClimatMontagneux.createBody(50,0,100,1);
+			isCote5Created = true;
+		}
 	}
 
 	public static void destroyType() {

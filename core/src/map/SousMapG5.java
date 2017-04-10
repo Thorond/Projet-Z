@@ -100,7 +100,13 @@ public class SousMapG5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 540+ x, 420+ y);
 		
-//		
+//
+
+
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 0+ x, 360+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 60+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 120+ x, 420+ y);
+
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0+ x, 180+ y);
@@ -170,6 +176,19 @@ public class SousMapG5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 420+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 480+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 540+ x, 240+ y);
+
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 0+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 60+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 120+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 180+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 300+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 360+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 420+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 480+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 540+ x, 0+ y);
+
+
 		
 	}
 

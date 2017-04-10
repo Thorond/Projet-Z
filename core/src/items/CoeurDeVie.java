@@ -84,14 +84,55 @@ public class CoeurDeVie {
 			if (coeurDeVies[i].isEstPrésent()){
 				for ( int j = -10 ; j < 40 ; j ++){
 					for ( int k = -10 ; k < 40 ; k ++){
-						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == coeurDeVies[i].getX() 
+						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == coeurDeVies[i].getX()
 								&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == coeurDeVies[i].getY() ){
 							if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
 							coeurDeVies[i].setEstPrésent(false);
 						}
 					}
 				}
-				
+
+			}
+		}
+	}
+
+	public static void détectionCoeurEpée(MainCharacter Link){
+		for ( int i = 0 ; i < coeurDeVies.length ; i ++){
+			if (coeurDeVies[i].isEstPrésent()){
+				if (Link.getDirection().equals("droite")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM <=  coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >=  coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM -20 <=  coeurDeVies[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >=  coeurDeVies[i].getY() ){
+						if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+						coeurDeVies[i].setEstPrésent(false);
+					}
+				} else if (Link.getDirection().equals("gauche")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM >= coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM -60 <= coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM -20 <= coeurDeVies[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >= coeurDeVies[i].getY() ){
+						if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+						coeurDeVies[i].setEstPrésent(false);
+					}
+				} else if (Link.getDirection().equals("haut")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM -20 <= coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >= coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM  <= coeurDeVies[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >= coeurDeVies[i].getY() ){
+						if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+						coeurDeVies[i].setEstPrésent(false);
+					}
+				} else if (Link.getDirection().equals("bas")){
+					if ( (int) Link.getBody().getPosition().x*MainMenu.PPM -20 <= coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >= coeurDeVies[i].getX()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM >= coeurDeVies[i].getY()
+							&& (int) Link.getBody().getPosition().y*MainMenu.PPM -60 <= coeurDeVies[i].getY() ){
+						if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+						coeurDeVies[i].setEstPrésent(false);
+					}
+				}
+
 			}
 		}
 	}

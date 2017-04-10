@@ -1,6 +1,7 @@
 package map;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
@@ -24,7 +25,38 @@ public class SousMapG4 extends Sprite{
 	public static boolean isArbuste4Cut = false;
 	public static boolean isArbuste5Cut = false;
 	public static boolean isArbuste6Cut = false;
-	
+
+	public static Body arbuste1;
+	public static boolean isarbuste1Created;
+	public static Body arbuste2;
+	public static boolean isarbuste2Created;
+	public static Body arbuste3;
+	public static boolean isarbuste3Created;
+	public static Body arbuste4;
+	public static boolean isarbuste4Created;
+	public static Body arbuste5;
+	public static boolean isarbuste5Created;
+	public static Body arbuste6;
+	public static boolean isarbuste6Created;
+	public static Body arbuste7;
+	public static boolean isarbuste7Created;
+
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
+	public static Body cote3 ;
+	public static boolean isCote3Created;
+	public static Body cote4 ;
+	public static boolean isCote4Created;
+	public static Body cote5 ;
+	public static boolean isCote5Created;
+
+	public static Body arbre1;
+	public static boolean isarbre1Created;
+	public static Body arbre2;
+	public static boolean isarbre2Created;
+
 	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
@@ -175,9 +207,9 @@ public class SousMapG4 extends Sprite{
 		ClimatMontagneux.arbuste(isArbuste6Cut, game, 420+x,240+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 300+ y);
-		
 
 		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 280+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 140+ y);
 		
 //		==================================================================
 		//		Placement des dessins des monstres
@@ -218,6 +250,48 @@ public class SousMapG4 extends Sprite{
 		m2EstCrée = false;
 		m3EstCrée = false;
 		Pnj.nbrDeMonstres = 0;
+
+		if ( isarbuste1Created) MainMenu.world.destroyBody(arbuste1);
+		isarbuste1Created = false;
+
+		if ( isarbuste2Created) MainMenu.world.destroyBody(arbuste2);
+		isarbuste2Created = false;
+
+		if ( isarbuste3Created) MainMenu.world.destroyBody(arbuste3);
+		isarbuste3Created = false;
+
+		if ( isarbuste4Created) MainMenu.world.destroyBody(arbuste4);
+		isarbuste4Created = false;
+
+		if ( isarbuste5Created) MainMenu.world.destroyBody(arbuste5);
+		isarbuste5Created = false;
+
+		if ( isarbuste6Created) MainMenu.world.destroyBody(arbuste6);
+		isarbuste6Created = false;
+
+		if ( isarbuste7Created) MainMenu.world.destroyBody(arbuste7);
+		isarbuste7Created = false;
+
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
+
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
+
+		if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+		isCote3Created = false;
+
+		if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+		isCote4Created = false;
+
+		if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+		isCote5Created = false;
+
+		if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+		isarbre1Created = false;
+
+		if ( isarbre2Created) MainMenu.world.destroyBody(arbre2);
+		isarbre2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -272,6 +346,64 @@ public class SousMapG4 extends Sprite{
 			monstre3.déplacement();
 			monstre3.représentation();
 			monstre3.updateBody();
+		}
+		if ( isarbuste1Created == false ) {
+			arbuste1 = ClimatMontagneux.createBodyPerso("tonneau", "static",120,60);
+			isarbuste1Created = true;
+		}
+		if ( isarbuste2Created == false ) {
+			arbuste2 = ClimatMontagneux.createBodyPerso("tonneau", "static",120,240);
+			isarbuste2Created = true;
+		}
+		if ( isarbuste3Created == false ) {
+			arbuste3 = ClimatMontagneux.createBodyPerso("tonneau", "static",180,120);
+			isarbuste3Created = true;
+		}
+		if ( isarbuste4Created == false ) {
+			arbuste4 = ClimatMontagneux.createBodyPerso("tonneau", "static",300,300);
+			isarbuste4Created = true;
+		}
+		if ( isarbuste5Created == false ) {
+			arbuste5 = ClimatMontagneux.createBodyPerso("tonneau", "static",360,180);
+			isarbuste5Created = true;
+		}
+		if ( isarbuste6Created == false ) {
+			arbuste6 = ClimatMontagneux.createBodyPerso("tonneau", "static",420,240);
+			isarbuste6Created = true;
+		}
+		if ( isarbuste7Created == false ) {
+			arbuste7 = ClimatMontagneux.createBodyPerso("tonneau", "static",300,60);
+			isarbuste7Created = true;
+		}
+
+		if ( isCote1Created == false ) {
+			cote1 = ClimatMontagneux.createBody(300,450,600,60);
+			isCote1Created = true;
+		}
+		if ( isCote2Created == false ) {
+			cote2 = ClimatMontagneux.createBody(60,390,120,60);
+			isCote2Created = true;
+		}
+		if ( isCote3Created == false ) {
+			cote3 = ClimatMontagneux.createBody(460,30,240,60);
+			isCote3Created = true;
+		}
+		if ( isCote4Created == false ) {
+			cote4 = ClimatMontagneux.createBody(550,90,60,60);
+			isCote4Created = true;
+		}
+		if ( isCote5Created == false ) {
+			cote5 = ClimatMontagneux.createBody(270,0,180,1);
+			isCote5Created = true;
+		}
+
+		if ( isarbre1Created == false ) {
+			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",-30,260);
+			isarbre1Created = true;
+		}
+		if ( isarbre2Created == false ) {
+			arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",550,140);
+			isarbre2Created = true;
 		}
 	}
 
