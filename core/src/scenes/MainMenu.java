@@ -215,6 +215,7 @@ public class MainMenu implements Screen{
 	void updateAlEtAc(float dt){
 		AlphabetEtAcquisition.acquisitionTouche();
 	}
+
 //	lorsque le joueur achète quelque chose 
 	void updateAchat(float dt){
 		if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
@@ -249,6 +250,8 @@ public class MainMenu implements Screen{
 			}
 		}
 	}
+
+//	 ********************************************************************
 	
 	void updateInGame(float dt){
 		if ( Link.isAlive){
@@ -259,8 +262,23 @@ public class MainMenu implements Screen{
 				if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
 					Link.annimationAward = false;
 				}
-			} else if (Epee.isEpéeUtilisé){
-				épée.annimationEpée(Link);
+			} else if (Epee.typeAttaque != 0){
+
+
+				if ( Epee.typeAttaque != 0 ){
+
+					if ( Epee.typeAttaque  == 1 ) {
+						épée.annimationEpée(Link);
+					} else if ( Epee.typeAttaque  == 2 ){
+						épée.annimationEpéeTournante(Link);
+					}
+
+					if ( ! épée.dégatEffectué ){
+						épée.utilisationItem(Link);
+						épée.dégatEffectué = true;
+					}
+				}
+
 			} else {
 				if (PlacementMain.défilement == false){
 	//				choix clavier du joueur
@@ -340,7 +358,7 @@ public class MainMenu implements Screen{
 					}
 					
 					
-	//				intéraction avec l'environnement; lorsqu'il est dans un batiment il n'a pas le droit d'utiliser un item
+	//				intéraction avec l'environnement; lorsqu'il est dans un iglooil n'a pas le droit d'utiliser un item
 					
 					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
 							 && ! PlacementMain.positionSousMap.equals("IglooC1")
@@ -360,7 +378,7 @@ public class MainMenu implements Screen{
 						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 						 MenuSac.isSacAffiché = true;
 					 }
-//					 cas particulier du bouclier, en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
+//					 cas particulier du bouclier , en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
 					 if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K) ){
 						 MenuSac.itemsKL[0].utilisationItem(Link);
 					 } else if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.L) ){
@@ -369,7 +387,16 @@ public class MainMenu implements Screen{
 						 Bouclier.isBouclierUtilisé = false;
 						 MainCharacter.changementDeVitesse = true;
 					 }
-					 
+					if ( Bouclier.isBouclierUtilisé && Epee.isEpéeUtilisé ){
+						Epee.typeAttaque = 1;
+					} else {
+						if (Epee.isEpéeUtilisé && (!(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)))) {
+							if (System.currentTimeMillis() - Epee.timerToucheAppuyé > 700) {
+								Epee.typeAttaque = 2;
+							} else Epee.typeAttaque = 1;
+
+						}
+					}
 					
 					 if (Link.getDirection().equals("haut") 
 							 && CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("épée")
