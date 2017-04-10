@@ -789,6 +789,27 @@ public class PlacementMain {
 
 			réinitialisation();
 		}
+
+		//		 accès a la grotte en F5
+		else if (positionSousMap.equals("F5")
+				&& perso.getDirection().equals("haut")
+				&& perso.getBody().getPosition().x > 400/MainMenu.PPM &&  perso.getBody().getPosition().x < 480/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 120/MainMenu.PPM && perso.getBody().getPosition().y < 140/MainMenu.PPM ){
+			MainMenu.Link.getBody().setTransform(300/MainMenu.PPM, 10, 0);
+			SousMapF5.destroyBody();
+			positionSousMap = "GrotteF5Salle1";
+
+			réinitialisation();
+		} else if (positionSousMap.equals("GrotteF5Salle1")
+				&& perso.getDirection().equals("bas")
+				&& perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+				&& perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+			MainMenu.Link.getBody().setTransform(430/MainMenu.PPM, 110/MainMenu.PPM, 0);
+			GrotteF5Salle1.destroyBody();
+			positionSousMap = "F5";
+
+			réinitialisation();
+		}
 		
 	}
 	

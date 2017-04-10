@@ -975,6 +975,12 @@ public class GestionDesMaps {
 			GrotteI1Salle4.createBodyAndType(MainMenu.world);
 			GrotteI1Salle4.sousMap(game, 0, 0);
 		}
+
+		else if ( PlacementMain.positionSousMap.equals("GrotteF5Salle1")) {
+			GrotteF5Salle1.destroyType();
+			GrotteF5Salle1.createBodyAndType(MainMenu.world);
+			GrotteF5Salle1.sousMap(game, 0, 0);
+		}
 	}
 	
 //	 ===========================================================================================================
@@ -1030,6 +1036,7 @@ public class GestionDesMaps {
 		else if (PlacementMain.positionSousMap.equals("D5")) SousMapD5.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("E5")) SousMapE5.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("F5")) SousMapF5.destroyBody();
+		else if (PlacementMain.positionSousMap.equals("GrotteF5Salle1")) GrotteF5Salle1.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("G5")) SousMapG5.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("H5")) SousMapH5.destroyBody();
 		else if (PlacementMain.positionSousMap.equals("I5")) SousMapI5.destroyBody();
