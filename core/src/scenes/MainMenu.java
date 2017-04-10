@@ -102,11 +102,11 @@ public class MainMenu implements Screen{
 //		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
 		
 		MenuSac.setItem(plume);
-		MenuSac.setItem(arc);
-		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
 		MenuSac.setItem(bombe);
+		MenuSac.setItem(arc);
+		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		bombe.setNombreItem(40);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);

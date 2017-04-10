@@ -124,10 +124,10 @@ public class Epee extends Item{
 				for ( int i = 0; i < Pnj.nbrDeMonstres ; i++){
 					//				vérification qu'ils soient vivants
 					if ( Pnj.monstres[i].isAlive() ){
-						if ( (int) cha.getBody().getPosition().x + 150 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
-								&& (int) cha.getBody().getPosition().x - 150 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
-								&& (int) cha.getBody().getPosition().y + 150 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM
-								&& (int) cha.getBody().getPosition().y - 150 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM ){
+						if ( (int) cha.getX() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
+								&& (int) cha.getX() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
+								&& (int) cha.getY() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM
+								&& (int) cha.getY() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM ){
 
 							Pnj.monstres[i].subirDégats(cha.getStrength() * 2, cha.getDirection());
 						}
