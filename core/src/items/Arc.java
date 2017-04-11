@@ -3,9 +3,7 @@ package items;
 import com.badlogic.gdx.graphics.Texture;
 
 import characters.MainCharacter;
-import characters.Pnj;
-import map.CadrillageMap;
-import map.PlacementMain;
+import map.zoneGlace.PlacementMainZoneGlace;
 import menus.MenuSac;
 import scenes.MainMenu;
 
@@ -36,7 +34,7 @@ public class Arc extends Item{
     }
 
     public static void détection(MainCharacter link) {
-        if ( isArcPris == false && PlacementMain.positionSousMap.equals("GrotteI1Salle4") ) {
+        if ( isArcPris == false && PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle4") ) {
             if ( link.getX() > 280 && link.getX() < 320
                     && link.getY() > 280 && link.getY() < 320 ) {
                 Arc.isArcPris = true;

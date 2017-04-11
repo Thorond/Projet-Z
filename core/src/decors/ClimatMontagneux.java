@@ -11,7 +11,7 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import map.CadrillageMap;
-import map.PlacementMain;
+import map.zoneGlace.PlacementMainZoneGlace;
 import scenes.MainMenu;
 
 public class ClimatMontagneux {
@@ -112,7 +112,7 @@ public class ClimatMontagneux {
 	
 	public static void placerGrandPont(GameMain game, int x , int y ){
 		game.getBatch().draw(ClimatMontagneux.grandPont,  x,  y);
-		if ( PlacementMain.défilement == false ) {
+		if ( PlacementMainZoneGlace.défilement == false ) {
 			CadrillageMap.setTypeDeDécor((int) ( x/60), (int) ( y/60), "pont");
 			CadrillageMap.setTypeDeDécor((int) ( x/60) +1, (int) ( y/60), "pont");
 			CadrillageMap.setTypeDeDécor((int) ( x/60) +2, (int) ( y/60), "pont");
@@ -343,15 +343,15 @@ public class ClimatMontagneux {
 	
 	public static void placerMurSombreGlacéCentre(GameMain game, int x , int y ){
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre,  x,  y);
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
 	}
 	public static void placerMurSombreGlacéDroite(GameMain game, int x , int y ){
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite,  x,  y);
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
 	}
 	public static void placerMurSombreGlacéDroite3(GameMain game, int x , int y ){
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3,  x,  y);
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
 	}
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
@@ -375,7 +375,7 @@ public class ClimatMontagneux {
 	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
 		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX, PlacementMain.positionRelativeY, 0);
+			MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX, PlacementMainZoneGlace.positionRelativeY, 0);
 		}
 		
 	}
@@ -388,7 +388,7 @@ public class ClimatMontagneux {
 			if ( etat1 == false ) etat1=true;
 			else etat1=false;
 		}
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -413,7 +413,7 @@ public class ClimatMontagneux {
 			if ( etat2 == false ) etat2=true;
 			else etat2=false;
 		}
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -425,7 +425,7 @@ public class ClimatMontagneux {
 			if ( etat3 == false ) etat3=true;
 			else etat3=false;
 		}
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -437,7 +437,7 @@ public class ClimatMontagneux {
 			if ( etat4 == false ) etat4=true;
 			else etat4=false;
 		}
-		if ( PlacementMain.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "EauProfonde");
 		
 	}
 	
@@ -519,7 +519,7 @@ public class ClimatMontagneux {
 		// TODO Auto-generated method stub
 		cha.setHealth(cha.getHealth() - 5 );
 		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMain.positionRelativeX , PlacementMain.positionRelativeY, 0);}
+			MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX , PlacementMainZoneGlace.positionRelativeY, 0);}
 	}
 
 }

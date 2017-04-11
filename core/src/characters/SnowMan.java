@@ -7,7 +7,7 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
-import map.PlacementMain;
+import map.zoneGlace.PlacementMainZoneGlace;
 import scenes.MainMenu;
 
 public class SnowMan {
@@ -23,7 +23,7 @@ public class SnowMan {
 	public static Texture texte10 = new Texture("texte/iceman/texte10.png");
 	
 	public static void détection(MainCharacter Link ){
-		 if ( étatTexte == 0 && PlacementMain.positionSousMap.equals("E6") && Link.getDirection().equals("bas")
+		 if ( étatTexte == 0 && PlacementMainZoneGlace.positionSousMap.equals("E6") && Link.getDirection().equals("bas")
 				 && Link.getBody().getPosition().x > 240 / MainMenu.PPM && Link.getBody().getPosition().x < 260 /  MainMenu.PPM 
 				 && Link.getBody().getPosition().y < 230 /  MainMenu.PPM  ){
 			 étatTexte = 1;

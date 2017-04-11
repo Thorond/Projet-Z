@@ -6,8 +6,8 @@ import com.mygdx.game.GameMain;
 
 import items.CoeurDeVie;
 import map.CadrillageMap;
-import map.GestionDesMaps;
-import map.PlacementMain;
+import map.zoneGlace.GestionDesMapsZoneGlace;
+import map.zoneGlace.PlacementMainZoneGlace;
 import scenes.MainMenu;
 
 public class MenuGameover extends Menu {
@@ -30,7 +30,7 @@ public class MenuGameover extends Menu {
 				opacitéGO = 0;
 				MainMenu.Link.isAlive = true;
 //				destruction des corps de la sous map sur laquelle on était quand on meurt 
-				GestionDesMaps.destructionDesCorps();
+				GestionDesMapsZoneGlace.destructionDesCorps();
 				
 //				suppression des types de décor 
 				CadrillageMap.setTypeDeDécor();
@@ -39,7 +39,7 @@ public class MenuGameover extends Menu {
 				
 				MainMenu.Link.setDirection(MainMenu.sauvegarde.getDirection());
 				MainMenu.Link.getBody().setTransform(MainMenu.sauvegarde.getCoordX(), MainMenu.sauvegarde.getCoordY(), 0);
-				PlacementMain.positionSousMap = MainMenu.sauvegarde.posiSousMap;
+				PlacementMainZoneGlace.positionSousMap = MainMenu.sauvegarde.posiSousMap;
 				MainMenu.Link.setHealth(MainMenu.Link.getHealthMax());
 			}
 		} 

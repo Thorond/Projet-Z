@@ -6,8 +6,8 @@ import com.mygdx.game.GameMain;
 import characters.MainCharacter;
 import characters.Pnj;
 import map.CadrillageMap;
-import map.PlacementMain;
-import map.SousMapB3;
+import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapB3;
 import scenes.MainMenu;
 
 public class Bombe extends Item {
@@ -157,19 +157,19 @@ public class Bombe extends Item {
 //		 effet sur les décors 
 		if ( CadrillageMap.typeDeDécor[(int) ( (this.getX() + 45 )/ 60 )][(int) ((this.getY()) / 60 )].equals("destructible") ){
 
-			if ( PlacementMain.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
+			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) (( this.getX() ) / 60 )][(int) ((this.getY()+ 45 )/ 60 )].equals("destructible") ){
 
-			if ( PlacementMain.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
+			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) ( this.getX()  / 60 )][(int) ((this.getY()- 45 )/ 60 )].equals("destructible") ){
 
-			if ( PlacementMain.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
+			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) ( (this.getX() - 45) / 60 )][(int) (this.getY() / 60 )].equals("destructible") ){
 
-			if ( PlacementMain.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
+			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) ( this.getX()  / 60 )][(int) (this.getY() / 60 )].equals("destructible") ){
 
-			if ( PlacementMain.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
+			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		}
 	}
 

@@ -3,7 +3,7 @@ package sauvegarde;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-import map.PlacementMain;
+import map.zoneGlace.PlacementMainZoneGlace;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class SendClass
       oos.close();
       fos.close();
       System.out.println("Serialzation Done!!");
-      System.out.println(PlacementMain.positionSousMap);
+      System.out.println(PlacementMainZoneGlace.positionSousMap);
    }catch(IOException ioe){
       System.out.println(ioe);
     }

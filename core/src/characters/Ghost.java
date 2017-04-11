@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
 import items.Plume;
-import map.IglooD3;
+import map.zoneGlace.IglooD3;
 
 public class Ghost {
 	

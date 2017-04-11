@@ -13,9 +13,7 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import characters.Pnj;
-import map.PlacementMain;
 import scenes.MainMenu;
-import sun.awt.image.ImageWatched;
 
 /**
  * Created by arnOo on 07/04/2017.
