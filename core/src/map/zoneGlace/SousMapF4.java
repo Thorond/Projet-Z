@@ -20,6 +20,32 @@ public class SousMapF4 extends Sprite{
 	public static boolean isarbre1Created;
 	public static Body arbre2;
 	public static boolean isarbre2Created;
+	public static Body arbre3;
+	public static boolean isarbre3Created;
+	public static Body arbre4;
+	public static boolean isarbre4Created;
+	public static Body arbre5;
+	public static boolean isarbre5Created;
+	public static Body arbre6;
+	public static boolean isarbre6Created;
+	public static Body arbre7;
+	public static boolean isarbre7Created;
+	public static Body arbre8;
+	public static boolean isarbre8Created;
+
+	public static Body petitePierre1;
+	public static boolean isPetitePierre1Created;
+	public static boolean isPetitePierre1Déplacé = false;
+	public static Body petitePierre2;
+	public static boolean isPetitePierre2Created;
+	public static boolean isPetitePierre2Déplacé = false;
+
+	public static Body bosquet1 ;
+	public static boolean isBosquet1Created;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
+	public static Body bosquet3 ;
+	public static boolean isBosquet3Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -166,8 +192,8 @@ public class SousMapF4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 360+ x, 180+ y);
 
-		game.getBatch().draw(ClimatMontagneux.petitePierre, 420+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.petitePierre, 360+ x, 300+ y);
+		ClimatMontagneux.petitePierre(isPetitePierre1Déplacé,game, 420+x, 180+y);
+		ClimatMontagneux.petitePierre(isPetitePierre2Déplacé,game, 360+x, 300+y);
 
 		game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 280+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 250+ y);
@@ -212,16 +238,43 @@ public class SousMapF4 extends Sprite{
 
 		if ( isarbre2Created) MainMenu.world.destroyBody(arbre2);
 		isarbre2Created = false;
+
+		if ( isarbre3Created) MainMenu.world.destroyBody(arbre3);
+		isarbre3Created = false;
+
+		if ( isarbre4Created) MainMenu.world.destroyBody(arbre4);
+		isarbre4Created = false;
+
+		if ( isarbre5Created) MainMenu.world.destroyBody(arbre5);
+		isarbre5Created = false;
+
+		if ( isarbre6Created) MainMenu.world.destroyBody(arbre6);
+		isarbre6Created = false;
+
+		if ( isarbre7Created) MainMenu.world.destroyBody(arbre7);
+		isarbre7Created = false;
+
+		if ( isarbre8Created) MainMenu.world.destroyBody(arbre8);
+		isarbre8Created = false;
+
+		if ( isPetitePierre1Created) MainMenu.world.destroyBody(petitePierre1);
+		isPetitePierre1Created = false;
+
+		if ( isPetitePierre2Created) MainMenu.world.destroyBody(petitePierre2);
+		isPetitePierre2Created = false;
+
+		if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
+		isBosquet1Created = false;
+
+		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+		isBosquet2Created = false;
+
+		if ( isBosquet3Created) MainMenu.world.destroyBody(bosquet3);
+		isBosquet3Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		CadrillageMap.setTypeDeDécor(0, 0, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(0, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(0, 2, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(0, 3, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(1, 1, "EauProfonde");
-		CadrillageMap.setTypeDeDécor(1, 2, "EauProfonde");
 		
 		if ( isCote1Created == false ) {
 			cote1 = ClimatMontagneux.createBody(140,420,290,120);
@@ -233,17 +286,68 @@ public class SousMapF4 extends Sprite{
 		}
 
 		if ( isarbre1Created == false ) {
-			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",-30,260);
+			arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",570,260);
 			isarbre1Created = true;
 		}
 		if ( isarbre2Created == false ) {
-			arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",550,140);
+			arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",530,230);
 			isarbre2Created = true;
+		}
+		if ( isarbre3Created == false ) {
+			arbre3 = ClimatMontagneux.createBodyPerso("arbre", "static",490,200);
+			isarbre3Created = true;
+		}
+		if ( isarbre4Created == false ) {
+			arbre4 = ClimatMontagneux.createBodyPerso("arbre", "static",460,230);
+			isarbre4Created = true;
+		}
+		if ( isarbre5Created == false ) {
+			arbre5 = ClimatMontagneux.createBodyPerso("arbre", "static",430,255);
+			isarbre5Created = true;
+		}
+		if ( isarbre6Created == false ) {
+			arbre6 = ClimatMontagneux.createBodyPerso("arbre", "static",370,130);
+			isarbre6Created = true;
+		}
+		if ( isarbre7Created == false ) {
+			arbre7 = ClimatMontagneux.createBodyPerso("arbre", "static",340,100);
+			isarbre7Created = true;
+		}
+		if ( isarbre8Created == false ) {
+			arbre8 = ClimatMontagneux.createBodyPerso("arbre", "static",400,100);
+			isarbre8Created = true;
+		}
+
+		CadrillageMap.setTypeDeDécor(420/60, 180/60, "petitePierre");
+		if ( CadrillageMap.décorChangé[420/60][180/60] == true ) isPetitePierre1Déplacé = true;
+		if ( isPetitePierre1Created == false && isPetitePierre1Déplacé == false) {
+			petitePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 420,180);
+			isPetitePierre1Created = true;
+		}
+		CadrillageMap.setTypeDeDécor(360/60, 300/60, "petitePierre");
+		if ( CadrillageMap.décorChangé[360/60][300/60] == true ) isPetitePierre2Déplacé = true;
+		if ( isPetitePierre2Created == false && isPetitePierre2Déplacé == false) {
+			petitePierre2 = ClimatMontagneux.createBodyPerso("grossePierre", "static", 360,300);
+			isPetitePierre2Created = true;
+		}
+
+		if ( isBosquet1Created == false ) {
+			bosquet1 = ClimatMontagneux.createBody(210,40,260,80);
+			isBosquet1Created = true;
+		}
+		if ( isBosquet2Created == false ) {
+			bosquet2 = ClimatMontagneux.createBody(270,80,250,60);
+			isBosquet2Created = true;
+		}
+		if ( isBosquet3Created == false ) {
+			bosquet3 = ClimatMontagneux.createBody(340,120,210,30);
+			isBosquet3Created = true;
 		}
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+		isPetitePierre1Déplacé = false;
+		isPetitePierre2Déplacé = false;
 	}
 }

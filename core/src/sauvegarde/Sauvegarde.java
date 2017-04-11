@@ -16,6 +16,21 @@ public class Sauvegarde implements java.io.Serializable{
 //	public int HealthMax;
 //	public int Health;
 //	public boolean isEpéePrise;
+//	public boolean isArcPris;
+//	public boolean isBombeRécupéré;
+//	public boolean isBouclierPris;
+//	public int nombreFlèche;
+//	public boolean isGantDeForcePris ;
+//	public boolean isPlumePrise;
+//
+////	 totem
+//	public  boolean jeuRésolu;
+////	iceman
+//	public int étatTexte;
+////	ghost
+//	public int etatScenario;
+////	grotteArc salle 3
+//	public boolean estPassé;
 	 
 	  public Sauvegarde(float x, float y, String direction, String posiSousMap, String zone){
 	    this.coordX = x;

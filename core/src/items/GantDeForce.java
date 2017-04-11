@@ -10,7 +10,9 @@ import scenes.MainMenu;
 public class GantDeForce extends Item{
 	
 public static Texture gantDeForce = new Texture("items/gloves.png");
-	
+
+	public static boolean isGantDeForcePris = false; // a sauvegarder
+
 	public GantDeForce(){
 		super(gantDeForce);
 	}

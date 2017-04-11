@@ -30,6 +30,8 @@ public class SousMapF2 extends Sprite{
 	public static boolean ismur8Created;
 	public static Body mur9;
 	public static boolean ismur9Created;
+	public static Body mur10;
+	public static boolean ismur10Created;
 	public static Body murCoffre;
 	public static boolean ismurCoffreCreated;
 	
@@ -279,6 +281,8 @@ public class SousMapF2 extends Sprite{
 		ismur8Created = false;
 		if ( ismur9Created) MainMenu.world.destroyBody(mur9);
 		ismur9Created = false;
+		if ( ismur10Created) MainMenu.world.destroyBody(mur10);
+		ismur10Created = false;
 		if ( ismurCoffreCreated) MainMenu.world.destroyBody(murCoffre);
 		ismurCoffreCreated = false;
 		
@@ -332,6 +336,10 @@ public class SousMapF2 extends Sprite{
 		if ( ismur9Created == false ) {
 			mur9 = ClimatMontagneux.createBody(0,240,1,420);
 			ismur9Created = true;
+		}
+		if ( ismur10Created == false ) {
+			mur10 = ClimatMontagneux.createBody(540,270,60,60);
+			ismur10Created = true;
 		}
 		CadrillageMap.setTypeDeDécor(0,360/60, "coffreBleu");
 		if ( ismurCoffreCreated == false ) {
