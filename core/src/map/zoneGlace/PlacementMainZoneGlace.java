@@ -205,10 +205,18 @@ public class PlacementMainZoneGlace {
 				SousMapI6.destroyBody();
 				positionSousMap = "I7";
 			}
-// 		******************** Grotte1 *******************************
+// 		******************** GrotteI1 *******************************
 			else if ( positionSousMap.equals("GrotteI1Salle2")  ){
 				map.zoneGlace.GrotteI1Salle2.destroyBody();
 				positionSousMap = "GrotteI1Salle1";
+			}
+// 		******************** GrotteF5 *******************************
+			else if ( positionSousMap.equals("GrotteF5Salle4")  ){
+				map.zoneGlace.GrotteF5Salle4.destroyBody();
+				positionSousMap = "GrotteF5Salle2";
+			}else if ( positionSousMap.equals("GrotteF5Salle2")  ){
+				map.zoneGlace.GrotteF5Salle2.destroyBody();
+				positionSousMap = "GrotteF5Salle3";
 			}
 			
 			défilement = true;
@@ -365,10 +373,18 @@ public class PlacementMainZoneGlace {
 				SousMapI6.destroyBody();
 				positionSousMap = "I5";
 			}
-// 		******************** Grotte1 *******************************
+// 		******************** GrotteI1 *******************************
 			else if ( positionSousMap.equals("GrotteI1Salle1") ){
 				map.zoneGlace.GrotteI1Salle1.destroyBody();
 				positionSousMap = "GrotteI1Salle2";
+			}
+// 		******************** GrotteF5 *******************************
+			else if ( positionSousMap.equals("GrotteF5Salle3") ){
+				map.zoneGlace.GrotteF5Salle3.destroyBody();
+				positionSousMap = "GrotteF5Salle2";
+			}else if ( positionSousMap.equals("GrotteF5Salle2") ){
+				map.zoneGlace.GrotteF5Salle2.destroyBody();
+				positionSousMap = "GrotteF5Salle4";
 			}
 			
 			défilement = true;
@@ -530,13 +546,21 @@ public class PlacementMainZoneGlace {
 				SousMapI6.destroyBody();
 				positionSousMap = "H6";
 			}
-			// 		******************** Grotte1 *******************************
+			// 		******************** GrotteI1 *******************************
 			else if ( positionSousMap.equals("GrotteI1Salle3")  ){
 				map.zoneGlace.GrotteI1Salle3.destroyBody();
 				positionSousMap = "GrotteI1Salle2";
 			} else if ( positionSousMap.equals("GrotteI1Salle4")  ){
 				GrotteI1Salle4.destroyBody();
 				positionSousMap = "GrotteI1Salle3";
+			}
+			// 		******************** GrotteF5 *******************************
+			else if ( positionSousMap.equals("GrotteF5Salle5")  ){
+				map.zoneGlace.GrotteF5Salle5.destroyBody();
+				positionSousMap = "GrotteF5Salle4";
+			} else if ( positionSousMap.equals("GrotteF5Salle1")  ){
+				GrotteF5Salle1.destroyBody();
+				positionSousMap = "GrotteF5Salle2";
 			}
 			
 			défilement = true;
@@ -701,13 +725,21 @@ public class PlacementMainZoneGlace {
 				changementDeZone = true;
 			}
 
-			// 		******************** Grotte1 *******************************
+			// 		******************** GrotteI1 *******************************
 			else if ( positionSousMap.equals("GrotteI1Salle2") ){
 				map.zoneGlace.GrotteI1Salle2.destroyBody();
 				positionSousMap = "GrotteI1Salle3";
 			} else if ( positionSousMap.equals("GrotteI1Salle3") ){
 				map.zoneGlace.GrotteI1Salle3.destroyBody();
 				positionSousMap = "GrotteI1Salle4";
+			}
+			// 		******************** GrotteF5 *******************************
+			else if ( positionSousMap.equals("GrotteF5Salle2") ){
+				map.zoneGlace.GrotteF5Salle2.destroyBody();
+				positionSousMap = "GrotteF5Salle1";
+			} else if ( positionSousMap.equals("GrotteF5Salle4") ){
+				map.zoneGlace.GrotteF5Salle4.destroyBody();
+				positionSousMap = "GrotteF5Salle5";
 			}
 
 			if ( changementDeZone == false ) défilement = true;

@@ -159,13 +159,21 @@ public class GestionDesMapsZoneGlace {
 					SousMapI6.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
 					SousMapH6.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
 				}
-				// 		******************** Grotte1 *******************************
+				// 		******************** GrotteI1 *******************************
 				else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle2")){
 					GrotteI1Salle3.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
 					GrotteI1Salle2.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
 				} else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle3")){
 					GrotteI1Salle4.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
 					GrotteI1Salle3.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+				}
+				// 		******************** GrotteF5 *******************************
+				else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle2")){
+					GrotteF5Salle1.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+					GrotteF5Salle2.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+				} else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle4")){
+					GrotteF5Salle5.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+					GrotteF5Salle4.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
 				}
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
@@ -326,13 +334,21 @@ public class GestionDesMapsZoneGlace {
 					SousMapH6.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 					SousMapI6.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
 				}
-				// 		******************** Grotte1 *******************************
+				// 		******************** GrotteI1 *******************************
 				else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle3") ) {
 					GrotteI1Salle2.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 					GrotteI1Salle3.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
 				}else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle4") ) {
 					GrotteI1Salle3.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 					GrotteI1Salle4.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+				}
+				// 		******************** GrotteF5 *******************************
+				else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle1") ) {
+					GrotteF5Salle2.sousMap(game, 0- PlacementMainZoneGlace.x,0);
+					GrotteF5Salle1.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+				}else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle5") ) {
+					GrotteF5Salle4.sousMap(game, 0- PlacementMainZoneGlace.x,0);
+					GrotteF5Salle5.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
 				}
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
@@ -487,10 +503,18 @@ public class GestionDesMapsZoneGlace {
 					SousMapI6.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 					SousMapI5.sousMap(game, 0, PlacementMainZoneGlace.y);
 				}
-// 		******************** Grotte1 *******************************
+// 		******************** GrotteI1 *******************************
 				else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle1") ) {
 					GrotteI1Salle1.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 					GrotteI1Salle2.sousMap(game, 0, PlacementMainZoneGlace.y);
+				}
+// 		******************** GrotteF5 *******************************
+				else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle3") ) {
+					GrotteF5Salle3.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+					GrotteF5Salle2.sousMap(game, 0, PlacementMainZoneGlace.y);
+				}else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle2") ) {
+					GrotteF5Salle2.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+					GrotteF5Salle4.sousMap(game, 0, PlacementMainZoneGlace.y);
 				}
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
@@ -637,10 +661,18 @@ public class GestionDesMapsZoneGlace {
 					SousMapI6.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 					SousMapI5.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
 				}
-// 		******************** Grotte1 *******************************
+// 		******************** GrotteI1 *******************************
 				else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle2") ) {
 					GrotteI1Salle1.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 					GrotteI1Salle2.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+				}
+// 		******************** GrotteF5 *******************************
+				else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle2") ) {
+					GrotteF5Salle3.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+					GrotteF5Salle2.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+				}else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle4") ) {
+					GrotteF5Salle2.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+					GrotteF5Salle4.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
 				}
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
@@ -981,6 +1013,26 @@ public class GestionDesMapsZoneGlace {
 			GrotteF5Salle1.createBodyAndType(MainMenu.world);
 			GrotteF5Salle1.sousMap(game, 0, 0);
 		}
+		else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle2")) {
+			GrotteF5Salle2.destroyType();
+			GrotteF5Salle2.createBodyAndType(MainMenu.world);
+			GrotteF5Salle2.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle3")) {
+			GrotteF5Salle3.destroyType();
+			GrotteF5Salle3.createBodyAndType(MainMenu.world);
+			GrotteF5Salle3.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle4")) {
+			GrotteF5Salle4.destroyType();
+			GrotteF5Salle4.createBodyAndType(MainMenu.world);
+			GrotteF5Salle4.sousMap(game, 0, 0);
+		}
+		else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle5")) {
+			GrotteF5Salle5.destroyType();
+			GrotteF5Salle5.createBodyAndType(MainMenu.world);
+			GrotteF5Salle5.sousMap(game, 0, 0);
+		}
 	}
 	
 //	 ===========================================================================================================
@@ -1055,6 +1107,12 @@ public class GestionDesMapsZoneGlace {
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle2")) GrotteI1Salle2.destroyBody();
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle3")) GrotteI1Salle3.destroyBody();
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle4")) GrotteI1Salle4.destroyBody();
+
+		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle1")) GrotteF5Salle1.destroyBody();
+		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle2")) GrotteF5Salle2.destroyBody();
+		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle3")) GrotteF5Salle3.destroyBody();
+		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle4")) GrotteF5Salle4.destroyBody();
+		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle5")) GrotteF5Salle5.destroyBody();
 	}
 	
 }
