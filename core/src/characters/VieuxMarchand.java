@@ -3,7 +3,7 @@ package characters;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
-import map.IglooC5;
+import map.zoneGlace.IglooC5;
 
 public class VieuxMarchand {
 

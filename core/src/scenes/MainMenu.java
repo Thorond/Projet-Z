@@ -16,7 +16,6 @@ import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
 import characters.SnowMan;
-import characters.Tigre;
 import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
@@ -32,14 +31,16 @@ import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
 import map.CadrillageMap;
-import map.GestionDesMaps;
-import map.IglooC1;
-import map.IglooC5;
-import map.PlacementMain;
-import map.SousMapD2;
-import map.SousMapD5;
-import map.SousMapF1;
-import map.SousMapF2;
+import map.zoneDesert.GestionDesMapsZoneDesert;
+import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.GestionDesMapsZoneGlace;
+import map.zoneGlace.IglooC1;
+import map.zoneGlace.IglooC5;
+import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapD2;
+import map.zoneGlace.SousMapD5;
+import map.zoneGlace.SousMapF1;
+import map.zoneGlace.SousMapF2;
 import menus.MenuGameover;
 import menus.MenuPause;
 import menus.MenuSac;
@@ -94,12 +95,14 @@ public class MainMenu implements Screen{
 		
 		Link = new MainCharacter(world, 40, 39, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
-		PlacementMain.positionSousMap = sauvegarde.getPosiSousMap();
+		Link.zone = sauvegarde.zone;
+		if ( Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = sauvegarde.getPosiSousMap();
+		else if ( Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = sauvegarde.getPosiSousMap();
 		
 //		à utiliser en cas de renouvellement de la sauvegarde
-		
-//		PlacementMain.positionSousMap = "B1";
-//		Link = new MainCharacter(world,10,  10 , 4 , 50 , 50 , "bas");
+
+//		Link = new MainCharacter(world,10,  10 , 4 , 200 , 200 , "bas");
+//		PlacementMainZoneGlace.positionSousMap = "I6";
 		
 		MenuSac.setItem(plume);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
@@ -145,7 +148,12 @@ public class MainMenu implements Screen{
 		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
 			if (MenuPause.choix == 1) MenuPause.isPause = false;
 			else if (MenuPause.choix == 3){
-				sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+				if ( Link.zone.equals("zoneGlace"))
+					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
+							"zoneGlace");
+				else
+					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
+							"zoneDesert");
 				SendClass.sendClass(sauvegarde);
 //				affichage de quelques choses pour montrer que c'est sauvegarder
 			}
@@ -280,11 +288,12 @@ public class MainMenu implements Screen{
 				}
 
 			} else {
-				if (PlacementMain.défilement == false){
+				if ( (Link.zone.equals("zoneGlace") && PlacementMainZoneGlace.défilement == false)
+						|| (Link.zone.equals("zoneDesert") && PlacementMainZoneDesert.défilement == false) ){
 	//				choix clavier du joueur
 					
 					if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER ) ) {
-						if ( PlacementMain.positionSousMap.equals("G1" )){
+						if ( PlacementMainZoneGlace.positionSousMap.equals("G1" )){
 							if ( Totem.étatTexte >0 && Totem.étatTexte < 4 ) Totem.étatTexte ++ ;
 							else if ( Totem.étatTexte == 5 ) Totem.étatTexte = 0;
 						}
@@ -345,7 +354,13 @@ public class MainMenu implements Screen{
 					
 //					mettre le jeu en pause et sauvegarder
 					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-						sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMain.positionSousMap);
+						if ( Link.zone.equals("zoneGlace"))
+							sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
+									"zoneGlace");
+						else
+							sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
+									"zoneDesert");
+
 						SendClass.sendClass(sauvegarde);
 					}
 					if (Gdx.input.isKeyPressed(Input.Keys.O)){
@@ -361,14 +376,14 @@ public class MainMenu implements Screen{
 	//				intéraction avec l'environnement; lorsqu'il est dans un iglooil n'a pas le droit d'utiliser un item
 					
 					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
-							 && ! PlacementMain.positionSousMap.equals("IglooC1")
-							 && ! PlacementMain.positionSousMap.equals("IglooD3")
-							 && ! PlacementMain.positionSousMap.equals("IglooC5")){
+							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
+							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
+							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC5")){
 							MenuSac.itemsKL[0].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé 
-							 && ! PlacementMain.positionSousMap.equals("IglooC1")
-							 && ! PlacementMain.positionSousMap.equals("IglooD3")
-							 && ! PlacementMain.positionSousMap.equals("IglooC5")){
+							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
+							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
+							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC5")){
 						 	MenuSac.itemsKL[1].utilisationItem(Link);
 					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
@@ -397,56 +412,64 @@ public class MainMenu implements Screen{
 
 						}
 					}
-					
-					 if (Link.getDirection().equals("haut") 
-							 && CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )].equals("épée")
-							 &&  CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] == false) {
-						 Epee.isEpéePrise = true;
-						 CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 )] = true;
-						 MainMenu.Link.annimationAward = true;
-						 SousMapF1.destroyBody();
-						 MenuSac.setItem(épée);
-					 };
-					 if (PlacementMain.positionSousMap.equals("IglooC1") && Link.getDirection().equals("haut") && !(Bouclier.isBouclierPris) 
-							 && Link.getX() >420
-							 && Link.getY()>270 ) {
-						 Bouclier.isBouclierPris = true;
-						 MainMenu.Link.annimationAward = true;
-						 IglooC1.destroyBody();
-						 MenuSac.setItem(bouclier);
-					 };
-					Arc.détection(Link);
-					if ( PlacementMain.positionSousMap.equals("IglooC5")) IglooC5.détectionItem(Link);
-					 Plume.récupérationPlume();
-					Flèches.déplacement(Link);
+//********************************** première zone *******************
+					if ( Link.zone.equals("zoneGlace")) {
+						if (Link.getDirection().equals("haut")
+								&& CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("épée")
+								&& CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)] == false) {
+							Epee.isEpéePrise = true;
+							CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)] = true;
+							MainMenu.Link.annimationAward = true;
+							SousMapF1.destroyBody();
+							MenuSac.setItem(épée);
+						}
+						;
+						if (PlacementMainZoneGlace.positionSousMap.equals("IglooC1") && Link.getDirection().equals("haut") && !(Bouclier.isBouclierPris)
+								&& Link.getX() > 420
+								&& Link.getY() > 270) {
+							Bouclier.isBouclierPris = true;
+							MainMenu.Link.annimationAward = true;
+							IglooC1.destroyBody();
+							MenuSac.setItem(bouclier);
+						}
+						;
+						Arc.détection(Link);
+						if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5"))
+							IglooC5.détectionItem(Link);
+						Plume.récupérationPlume();
 //					 démarage scenario 1
-					 if ( Ghost.etatScenario == 0 && PlacementMain.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
-							 && Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM 
-							 && Link.getBody().getPosition().y > 200 / PPM  ){
-						 Ghost.etatScenario = 1;
-						 Link.getBody().setLinearVelocity(0, 0);
-						 
-					 }
-					 if ( PlacementMain.positionSousMap.equals("F2")){
-						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
-							 SousMapF2.ouvertureCoffre = true;
-						 }
-					 }
-					 if ( PlacementMain.positionSousMap.equals("D5")){
-						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
-							 SousMapD5.ouvertureCoffre = true;
-						 }
-					 }
-					 if ( PlacementMain.positionSousMap.equals("D2")){
-						 if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *PPM/60 )][(int) (Link.getBody().getPosition().y *PPM/ 60 ) +1].equals("coffreBleu") ){
-							 SousMapD2.ouvertureCoffre = true;
-							 DonjonGlace.isCléHauteTrouvé = true;
-						 }
-					 }
-					SnowMan.détection(Link);
-					PlacementMain.setDéplacement(Link);
-					PlacementMain.détectionTrou(Link);
-					PlacementMain.détectionEauP(Link);
+						if (Ghost.etatScenario == 0 && PlacementMainZoneGlace.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
+								&& Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM
+								&& Link.getBody().getPosition().y > 200 / PPM) {
+							Ghost.etatScenario = 1;
+							Link.getBody().setLinearVelocity(0, 0);
+
+						}
+						if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
+							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+								SousMapF2.ouvertureCoffre = true;
+							}
+						}
+						if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
+							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+								SousMapD5.ouvertureCoffre = true;
+							}
+						}
+						if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
+							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+								SousMapD2.ouvertureCoffre = true;
+								DonjonGlace.isCléHauteTrouvé = true;
+							}
+						}
+						SnowMan.détection(Link);
+					} else if ( Link.zone.equals("zoneDesert")){
+
+					}
+
+					PlacementMainZoneGlace.setDéplacement(Link);
+					PlacementMainZoneGlace.détectionTrou(Link);
+					PlacementMainZoneGlace.détectionEauP(Link);
+					Flèches.déplacement(Link);
 //									Récuparation du réceptacle 
 					CoeurDeVie.détectionReceptable(Link);
 					
@@ -513,17 +536,32 @@ public class MainMenu implements Screen{
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
-				
-				if (PlacementMain.défilement == false ) {
-					PlacementMain.posiSousMap(Link);
+
+				if ( Link.zone.equals("zoneGlace")){
+					if (PlacementMainZoneGlace.défilement == false ) {
+						PlacementMainZoneGlace.posiSousMap(Link);
+					}
+
+					if ( PlacementMainZoneGlace.défilement == true) {
+						GestionDesMapsZoneGlace.défilementDeMap(game);
+					}else {
+						Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
+						GestionDesMapsZoneGlace.affichageDeSousCarte(game);
+					}
+				} else if ( Link.zone.equals("zoneDesert")){
+					if (PlacementMainZoneDesert.défilement == false ) {
+						PlacementMainZoneDesert.posiSousMap(Link);
+					}
+
+					if ( PlacementMainZoneDesert.défilement == true) {
+						GestionDesMapsZoneDesert.défilementDeMap(game);
+					}else {
+						Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
+						GestionDesMapsZoneDesert.affichageDeSousCarte(game);
+					}
 				}
 				
-				if ( PlacementMain.défilement == true) {
-					GestionDesMaps.défilementDeMap(game);
-				}else {
-					Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
-					GestionDesMaps.affichageDeSousCarte(game);
-				}
+
 				
 				//			=============================================================================================
 				//     		       dessiner les coeurs de vie

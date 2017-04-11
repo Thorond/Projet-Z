@@ -12,15 +12,17 @@ public class Sauvegarde implements java.io.Serializable{
 	private float coordY;
 	public String direction;
 	public String posiSousMap;
+	public String zone;
 //	public int HealthMax;
 //	public int Health;
 //	public boolean isEpéePrise;
 	 
-	  public Sauvegarde(float x, float y, String direction, String posiSousMap){
+	  public Sauvegarde(float x, float y, String direction, String posiSousMap, String zone){
 	    this.coordX = x;
 	    this.coordY = y;
 	    this.direction = direction;
 	    this.posiSousMap = posiSousMap;
+		this.zone = zone;
 	  }
 
 	public float getCoordX() {

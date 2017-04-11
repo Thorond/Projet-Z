@@ -5,8 +5,8 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import map.CadrillageMap;
-import map.PlacementMain;
-import map.SousMapB3;
+import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapB3;
 import scenes.MainMenu;
 
 public class CoeurDeVie {
@@ -268,7 +268,7 @@ public class CoeurDeVie {
 	public static int nbrDeReceptacle = 0; // à sauvegarder 
 	
 	public static void receptacleDeCoeur(){
-		if (PlacementMain.positionSousMap.equals("B3")) SousMapB3.isReceptaclePris = true;
+		if (PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.isReceptaclePris = true;
 		nbrDeReceptacle += 1 ;
 		if (nbrDeReceptacle == 4) {
 			MainMenu.Link.setHealthMax(MainMenu.Link.getHealthMax() + 4);

@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
-import map.PlacementMain;
+import map.zoneGlace.PlacementMainZoneGlace;
 import scenes.MainMenu;
 
 public class Tigre extends Pnj{
@@ -41,7 +41,7 @@ public class Tigre extends Pnj{
 	
 	@Override
 	public void déplacementVersJoueur(){
-		if ( PlacementMain.défilement ) this.getBody().setTransform(MainMenu.Link.getBody().getPosition().x,MainMenu.Link.getBody().getPosition().y, 0);
+		if ( PlacementMainZoneGlace.défilement ) this.getBody().setTransform(MainMenu.Link.getBody().getPosition().x,MainMenu.Link.getBody().getPosition().y, 0);
 		else {
 			if ( this.getX() - MainMenu.Link.getX() > 50 ){
 				this.getBody().applyLinearImpulse(new Vector2(-30000f,0), this.getBody().getWorldCenter(), true);

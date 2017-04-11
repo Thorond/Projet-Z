@@ -11,7 +11,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import items.Bombe;
 import items.Bouclier;
 import items.Epee;
-import map.GestionDesMaps;
 import scenes.MainMenu;
 
 public class MainCharacter extends Characters {
@@ -48,6 +47,8 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroiteReposBouclier = new Texture("Personnage/link7Bouclier.png");
 	public static Texture linkDroite1Bouclier = new Texture("Personnage/link8Bouclier.png");
 	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
+
+	public String zone = "zoneGlace"; // à sauvegarder
 
 	
 	public boolean annimationAward = false;

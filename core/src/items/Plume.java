@@ -3,8 +3,7 @@ package items;
 import com.badlogic.gdx.graphics.Texture;
 
 import characters.MainCharacter;
-import map.IglooC1;
-import map.PlacementMain;
+import map.zoneGlace.PlacementMainZoneGlace;
 import menus.MenuSac;
 import scenes.MainMenu;
 
@@ -20,7 +19,7 @@ public class Plume extends Item {
 	public static boolean isPlumePrise = false; // a sauvegarder 
 	
 	public static void récupérationPlume(){
-		if (PlacementMain.positionSousMap.equals("IglooD3") && MainMenu.Link.getDirection().equals("haut") && !(Plume.isPlumePrise) 
+		if (PlacementMainZoneGlace.positionSousMap.equals("IglooD3") && MainMenu.Link.getDirection().equals("haut") && !(Plume.isPlumePrise)
 				 && MainMenu.Link.getX() >260 && MainMenu.Link.getX() < 280 
 				 && MainMenu.Link.getY()>360 ) {
 			 Plume.isPlumePrise = true;
