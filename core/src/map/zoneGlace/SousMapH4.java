@@ -37,6 +37,8 @@ public class SousMapH4 extends Sprite{
 
     public static Body bosquet1 ;
     public static boolean isBosquet1Created;
+    public static Body bosquet2 ;
+    public static boolean isBosquet2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -216,6 +218,13 @@ public class SousMapH4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 130+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 220+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 310+ x, 420+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 450+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 390+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 370+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 370+ y);
 	}
 
 	public static void destroyBody() {
@@ -258,6 +267,9 @@ public class SousMapH4 extends Sprite{
 
         if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
         isBosquet1Created = false;
+
+        if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+        isBosquet2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -314,6 +326,10 @@ public class SousMapH4 extends Sprite{
         if ( isBosquet1Created == false ) {
             bosquet1 = ClimatMontagneux.createBody(170,450,360,60);
             isBosquet1Created = true;
+        }
+        if ( isBosquet2Created == false ) {
+            bosquet2 = ClimatMontagneux.createBody(530,420,120,90);
+            isBosquet2Created = true;
         }
 	}
 

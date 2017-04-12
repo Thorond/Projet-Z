@@ -443,8 +443,8 @@ public class GestionDesMapsZoneGlace {
 					SousMapG4.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 					SousMapG3.sousMap(game, 0, PlacementMainZoneGlace.y);
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("H4") ) {
-					SousMapH4.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 					SousMapH3.sousMap(game, 0, PlacementMainZoneGlace.y);
+					SousMapH4.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("I4") ) {
 					SousMapI4.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 					SousMapI3.sousMap(game, 0, PlacementMainZoneGlace.y);
@@ -601,8 +601,8 @@ public class GestionDesMapsZoneGlace {
 					SousMapG4.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 					SousMapG3.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("H3") ) {
-					SousMapH4.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 					SousMapH3.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+					SousMapH4.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("I3") ) {
 					SousMapI4.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 					SousMapI3.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
