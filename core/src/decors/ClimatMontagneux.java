@@ -268,6 +268,9 @@ public class ClimatMontagneux {
 	public static Texture  bordGlacéSupGauSombre2 = new Texture("climatMontagneux/bordGlacéSupGauSombre2.png");
 	public static Texture  bordGlacéInfDroiSombre2 = new Texture("climatMontagneux/bordGlacéInfDroiSombre2.png");
 	public static Texture  bordGlacéInfGauSombre2 = new Texture("climatMontagneux/bordGlacéInfGauSombre2.png");
+	public static Texture  bordGlacéInfSombre2 = new Texture("climatMontagneux/bordGlacéInfSombre2.png");
+	public static Texture  bordGlacéGauSombre2 = new Texture("climatMontagneux/bordGlacéGauSombre2.png");
+	public static Texture  bordGlacéDroiSombre2 = new Texture("climatMontagneux/bordGlacéDroiSombre2.png");
 	
 	public static Texture  ciel= new Texture("climatMontagneux/ciel.png");
 	public static Texture  escalierGlacé= new Texture("climatMontagneux/escalieGlacé.png");

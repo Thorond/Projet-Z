@@ -16,6 +16,7 @@ import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
 import characters.SnowMan;
+import characters.Tigre;
 import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
@@ -572,10 +573,8 @@ public class MainMenu implements Screen{
 
 				Flèches.représentationFlèches(game);
 				Bombe.représentationBombe(game);
-				
-//				Tigre.createBody(world);
-//				Tigre.tigre.mouvement();
-//				Tigre.tigre.représentation(game);
+
+				Tigre.représentationPoursuite(world, game);
 				
 				
 	//			dessin du joueur

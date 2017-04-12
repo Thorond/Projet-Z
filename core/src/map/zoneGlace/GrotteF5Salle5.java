@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import characters.Tigre;
 import decors.ClimatMontagneux;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 /**
@@ -14,6 +15,8 @@ import scenes.MainMenu;
  */
 
 public class GrotteF5Salle5 extends Sprite {
+
+    public static boolean glacierCassé = false; // à sauvegarder
 
     public static Body cote1 ;
     public static boolean isCote1Created;
@@ -164,29 +167,38 @@ public class GrotteF5Salle5 extends Sprite {
 
 //
 
-        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 180+ x, 240+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 180+ x, 300+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéGauche, 180+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 240+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.escalierGlacéSombre2, 300+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéDroite, 420+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 360+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 120+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 120+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 120+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéGauche, 120+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 180+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 240+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.escalierGlacéSombre2, 300+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéDroite, 420+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 360+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 420+ x, 180+ y);
         game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 420+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 420+ x, 300+ y);
 
-        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 180+ x, 120+ y);
-        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 240+ x, 120+ y);
-        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 360+ x, 120+ y);
-        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 420+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 180+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 120+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 240+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 360+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.piedGlacéSupSombre2, 420+ x, 60+ y);
 
-        game.getBatch().draw(ClimatMontagneux.bordGlacéSupGauSombre2, 240+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéGauSombre2, 180+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupGauSombre2, 180+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupSombre2, 240+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéSupSombre2, 300+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroiSombre2, 360+ x, 300+ y);
-        game.getBatch().draw(ClimatMontagneux.bordGlacéInfGauSombre2, 240+ x, 240+ y);
-        game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroiSombre2, 360+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroiSombre2, 360+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInfSombre2, 240+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInfGauSombre2, 180+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroiSombre2, 360+ x, 180+ y);
 
-
-        game.getBatch().draw(Tigre.tigrePiège, 200+ x, 240+ y);
+        if ( glacierCassé == false ) {
+            game.getBatch().draw(Tigre.tigrePiège, 200 + x, 250 + y);
+        } else     game.getBatch().draw(ClimatMontagneux.iceberg2, 220 + x, 250 + y);
 
 
     }
@@ -248,24 +260,36 @@ public class GrotteF5Salle5 extends Sprite {
         }
 
         if ( isCote3Created == false ) {
-            cote3 = ClimatMontagneux.createBody(200,270,60,180);
+            cote3 = ClimatMontagneux.createBody(140,240,60,240);
             isCote3Created = true;
         }
         if ( isCote7Created == false ) {
-            cote7 = ClimatMontagneux.createBody(440,270,60,180);
+            cote7 = ClimatMontagneux.createBody(440,240,60,240);
             isCote7Created = true;
         }
         if ( isCote8Created == false ) {
-            cote8 = ClimatMontagneux.createBody(250,210,60,60);
+            cote8 = ClimatMontagneux.createBody(220,150,120,60);
             isCote8Created = true;
         }
         if ( isCote9Created == false ) {
-            cote9 = ClimatMontagneux.createBody(370,210,60,60);
+            cote9 = ClimatMontagneux.createBody(370,150,60,60);
             isCote9Created = true;
         }
         if ( isCote10Created == false ) {
-            cote10 = ClimatMontagneux.createBody(310,360,240,1);
+            cote10 = ClimatMontagneux.createBody(280,300,300,120);
             isCote10Created = true;
+        }
+
+        if ( glacierCassé == false ) {
+
+
+            if (CadrillageMap.typeDeDécor[4][4].equals("détruit")
+                    || CadrillageMap.typeDeDécor[5][4].equals("détruit")) {
+                glacierCassé = true;
+            }
+
+            CadrillageMap.setTypeDeDécor(4, 4, "destructible");
+            CadrillageMap.setTypeDeDécor(5, 4, "destructible");
         }
     }
 
