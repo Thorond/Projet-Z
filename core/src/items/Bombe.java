@@ -156,20 +156,20 @@ public class Bombe extends Item {
 		
 //		 effet sur les décors 
 		if ( CadrillageMap.typeDeDécor[(int) ( (this.getX() + 45 )/ 60 )][(int) ((this.getY()) / 60 )].equals("destructible") ){
+			CadrillageMap.setTypeDeDécor((int) ( (this.getX() + 45 )/ 60 ),(int) ((this.getY()) / 60 ), "détruit");
 
-			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) (( this.getX() ) / 60 )][(int) ((this.getY()+ 45 )/ 60 )].equals("destructible") ){
+			CadrillageMap.setTypeDeDécor((int) ( (this.getX()  )/ 60 ),(int) ((this.getY() + 45) / 60 ), "détruit");
 
-			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) ( this.getX()  / 60 )][(int) ((this.getY()- 45 )/ 60 )].equals("destructible") ){
+			CadrillageMap.setTypeDeDécor((int) ( (this.getX()  )/ 60 ),(int) ((this.getY() - 45) / 60 ), "détruit");
 
-			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) ( (this.getX() - 45) / 60 )][(int) (this.getY() / 60 )].equals("destructible") ){
+			CadrillageMap.setTypeDeDécor((int) ( (this.getX() - 45 )/ 60 ),(int) ((this.getY()) / 60 ), "détruit");
 
-			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		} else if ( CadrillageMap.typeDeDécor[(int) ( this.getX()  / 60 )][(int) (this.getY() / 60 )].equals("destructible") ){
+			CadrillageMap.setTypeDeDécor((int) ( (this.getX()  )/ 60 ),(int) ((this.getY()) / 60 ), "détruit");
 
-			if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.pontCasse = true;
 		}
 	}
 
