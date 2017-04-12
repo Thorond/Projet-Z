@@ -211,7 +211,7 @@ public class Epee extends Item{
 	public  long annimation = System.currentTimeMillis();
 	
 	public void annimationEpée(MainCharacter cha){
-		if (System.currentTimeMillis() - annimation >70 ){
+		if (System.currentTimeMillis() - annimation >50 ){
 			if (etatEpée == 0) {
 				etatEpée = 1;
 			} else if (etatEpée == 1) {

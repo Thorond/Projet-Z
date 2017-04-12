@@ -131,6 +131,8 @@ public class GrotteF5Salle3 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 0+ y);
@@ -186,16 +188,12 @@ public class GrotteF5Salle3 extends Sprite {
             isCote2Created = true;
         }
         if ( isCote3Created == false ) {
-            cote3 = ClimatMontagneux.createBody(100,20,240,60);
+            cote3 = ClimatMontagneux.createBody(300,20,600,60);
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
             cote4 = ClimatMontagneux.createBody(100,440,240,60);
             isCote4Created = true;
-        }
-        if ( isCote5Created == false ) {
-            cote5 = ClimatMontagneux.createBody(460,20,240,60);
-            isCote5Created = true;
         }
         if ( isCote6Created == false ) {
             cote6 = ClimatMontagneux.createBody(460,440,240,60);

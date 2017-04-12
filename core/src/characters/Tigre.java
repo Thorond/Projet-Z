@@ -5,10 +5,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import map.zoneGlace.GrotteF5Salle5;
 import map.zoneGlace.PlacementMainZoneGlace;
 import scenes.MainMenu;
 
 public class Tigre extends Pnj{
+
+	public static boolean tigreRamené = false; // à sauvegarder
 	
 	public long start = System.currentTimeMillis();
 	
@@ -34,30 +37,39 @@ public class Tigre extends Pnj{
 
 	public static Tigre tigre;
 	public static boolean tigreCrée = false ;
+
 	
 	public Tigre(World world,Texture text, float x, float y, String direction) {
 		super(world,text, 100, 100, 100, x, y, direction);
 	}
+
+    public static void représentationPoursuite(World world, GameMain game){
+        if (GrotteF5Salle5.glacierCassé && ! tigreRamené ){
+            Tigre.createBody(world);
+            Tigre.tigre.mouvement();
+            Tigre.tigre.représentation(game);
+        }
+    }
 	
 	@Override
 	public void déplacementVersJoueur(){
 		if ( PlacementMainZoneGlace.défilement ) this.getBody().setTransform(MainMenu.Link.getBody().getPosition().x,MainMenu.Link.getBody().getPosition().y, 0);
 		else {
-			if ( this.getX() - MainMenu.Link.getX() > 50 ){
+			if ( this.getX() - MainMenu.Link.getX() > 30 ){
 				this.getBody().applyLinearImpulse(new Vector2(-30000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
-			else if (this.getX() - MainMenu.Link.getX() < -70 ){
+			else if (this.getX() - MainMenu.Link.getX() < -50 ){
 				this.getBody().applyLinearImpulse(new Vector2(+30000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			} else {
 				this.getBody().setLinearVelocity( new Vector2(0,this.getBody().getLinearVelocity().y));
 			}
-			if (this.getY() - MainMenu.Link.getY() > 50){
+			if (this.getY() - MainMenu.Link.getY() > 30){
 				this.getBody().applyLinearImpulse(new Vector2(0,-30000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
-			else if (this.getY() - MainMenu.Link.getY() < -70){
+			else if (this.getY() - MainMenu.Link.getY() < -50){
 				this.getBody().applyLinearImpulse(new Vector2(0,+30000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}  else {
@@ -176,95 +188,5 @@ public class Tigre extends Pnj{
 			tigre.updateBody();
 		}
 	}
-	
-//	public static void représentation(GameMain game){
-//		if (MainMenu.Link.getDirection().equals("gauche")){
-//			if (MainMenu.Link.getBody().getLinearVelocity().x > -100  ){
-//				game.getBatch().draw(tigreGauche2, MainMenu.Link.getX() +60 , MainMenu.Link.getY());
-//			} else {
-//				if (textGauche == 0  ) {
-//					game.getBatch().draw(tigreGauche1, MainMenu.Link.getX() +60 , MainMenu.Link.getY());
-//				} else if ( textGauche == 1){
-//					game.getBatch().draw(tigreGauche3, MainMenu.Link.getX() +60 , MainMenu.Link.getY());
-//				} else if ( textGauche == 2){
-//					game.getBatch().draw(tigreGauche2, MainMenu.Link.getX() +60, MainMenu.Link.getY());
-//				} 
-//			}
-//			if ( System.currentTimeMillis() - start > 250) {
-//				if (textGauche == 0  ) {
-//					textGauche = 1;
-//				} else if ( textGauche == 1){
-//					textGauche = 2;
-//				} else if ( textGauche == 2){
-//					textGauche = 0;
-//				} 
-//				start = System.currentTimeMillis();
-//					
-//			} 
-//		}
-//		else if (MainMenu.Link.getDirection().equals("droite")){
-//			if (MainMenu.Link.getBody().getLinearVelocity().x < 100  ){
-//				game.getBatch().draw(tigreDroite2, MainMenu.Link.getX() -90 , MainMenu.Link.getY());
-//			} else {
-//				if (textDroite == 0  ) {
-//					game.getBatch().draw(tigreDroite1, MainMenu.Link.getX() -90 , MainMenu.Link.getY());
-//				} else if ( textDroite == 1){
-//					game.getBatch().draw(tigreDroite3, MainMenu.Link.getX() -90 , MainMenu.Link.getY());
-//				} else if ( textDroite == 2){
-//					game.getBatch().draw(tigreDroite2, MainMenu.Link.getX() -90, MainMenu.Link.getY());
-//				} 
-//			}
-//			if ( System.currentTimeMillis() - start > 250) {
-//				if (textDroite == 0  ) {
-//					textDroite = 1;
-//				} else if ( textDroite == 1){
-//					textDroite = 2;
-//				} else if ( textDroite == 2){
-//					textDroite = 0;
-//				} 
-//				start = System.currentTimeMillis();
-//					
-//			} 
-//		}
-//		else if (MainMenu.Link.getDirection().equals("haut")){
-//			if (MainMenu.Link.getBody().getLinearVelocity().y < 100  ){
-//				game.getBatch().draw(tigreHaut2, MainMenu.Link.getX()  , MainMenu.Link.getY() -90);
-//			} else {
-//				if (textHaut == 0  ) {
-//					game.getBatch().draw(tigreHaut1, MainMenu.Link.getX() , MainMenu.Link.getY() -90);
-//				} else if ( textHaut == 1){
-//					game.getBatch().draw(tigreHaut3, MainMenu.Link.getX() , MainMenu.Link.getY() -90);
-//				}
-//			}
-//			if ( System.currentTimeMillis() - start > 250) {
-//				if (textHaut == 0  ) {
-//					textHaut = 1;
-//				} else if ( textHaut == 1){
-//					textHaut = 0;
-//				} 
-//				start = System.currentTimeMillis();
-//					
-//			} 
-//		}
-//		else if (MainMenu.Link.getDirection().equals("bas")){
-//			if (MainMenu.Link.getBody().getLinearVelocity().y > -100  ){
-//				game.getBatch().draw(tigreBas2, MainMenu.Link.getX()  , MainMenu.Link.getY() +60);
-//			} else {
-//				if (textBas == 0  ) {
-//					game.getBatch().draw(tigreBas1, MainMenu.Link.getX() , MainMenu.Link.getY() +60);
-//				} else if ( textBas == 1){
-//					game.getBatch().draw(tigreBas3, MainMenu.Link.getX() , MainMenu.Link.getY() +60);
-//				}
-//			}
-//			if ( System.currentTimeMillis() - start > 250) {
-//				if (textBas == 0  ) {
-//					textBas = 1;
-//				} else if ( textBas == 1){
-//					textBas = 0;
-//				} 
-//				start = System.currentTimeMillis();
-//					
-//			} 
-//		}
-//	}
+
 }
