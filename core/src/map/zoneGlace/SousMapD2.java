@@ -36,6 +36,10 @@ public class SousMapD2 extends Sprite{
 	
 	public static Body arbre1;
 	public static boolean isArbre1Created;
+
+
+	public static Body coffre;
+	public static boolean iscoffreCreated;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -257,6 +261,9 @@ public class SousMapD2 extends Sprite{
 		
 		if ( isPetitePierre1Created) MainMenu.world.destroyBody(petitePierre1);
 		isPetitePierre1Created = false;
+
+		if ( iscoffreCreated) MainMenu.world.destroyBody(coffre);
+		iscoffreCreated = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -305,6 +312,10 @@ public class SousMapD2 extends Sprite{
 		if ( isPetitePierre1Created == false ) {
 			petitePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static",480,0);
 			isPetitePierre1Created = true;
+		}
+		if ( iscoffreCreated == false ) {
+			coffre = ClimatMontagneux.createBodyPerso("grossePierre", "static",260,180);
+			iscoffreCreated = true;
 		}
 		
 		CadrillageMap.setTypeDeDécor(4,3, "coffreBleu");

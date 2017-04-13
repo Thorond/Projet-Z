@@ -540,6 +540,7 @@ public class MainMenu implements Screen{
 				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
 				else if ( IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
 				else if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
+				else if ( SousMapD5.étatTexteTombe > 0) SousMapD5.updateTombe(delta);
 				else updateInGame(delta );
 				
 				Link.updatePlayer();
@@ -584,6 +585,7 @@ public class MainMenu implements Screen{
 				
 				
 	//			dessin du joueur
+//				Link.setColor(0.8f,0.8f,0,1f);
 				Link.draw(game.getBatch());
 			}
 			
