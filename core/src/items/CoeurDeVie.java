@@ -82,14 +82,12 @@ public class CoeurDeVie {
 	public static void détectionCoeur(MainCharacter Link){
 		for ( int i = 0 ; i < coeurDeVies.length ; i ++){
 			if (coeurDeVies[i].isEstPrésent()){
-				for ( int j = -10 ; j < 40 ; j ++){
-					for ( int k = -10 ; k < 40 ; k ++){
-						if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) +j == coeurDeVies[i].getX()
-								&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +k == coeurDeVies[i].getY() ){
-							if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
-							coeurDeVies[i].setEstPrésent(false);
-						}
-					}
+				if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) -10 <= coeurDeVies[i].getX()
+						&& (int) (Link.getBody().getPosition().x*MainMenu.PPM) +40 >= coeurDeVies[i].getX()
+						&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) -10 <= coeurDeVies[i].getY()
+						&& (int) (Link.getBody().getPosition().y*MainMenu.PPM) +40 >= coeurDeVies[i].getY() ){
+					if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+					coeurDeVies[i].setEstPrésent(false);
 				}
 
 			}

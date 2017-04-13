@@ -5,9 +5,11 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.MainCharacter;
 import characters.Pnj;
 import characters.Squelette;
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
@@ -24,6 +26,10 @@ public class GrotteF5Salle4 extends Sprite {
     public static boolean premièreApparition = true; // à sauvegarder
     public static int nbrTué = 0; // à sauvegarder
     public static long timerApparition;
+
+    public static int yClé = 480;
+
+    public static int yCléFinal = 240;
 
     public static Body cote1 ;
     public static boolean isCote1Created;
@@ -259,6 +265,20 @@ public class GrotteF5Salle4 extends Sprite {
         if ( m8EstCrée && monstre8.isAlive() ) {
             monstre8.infligéDégatLink();
         }
+
+//        ******************** récompense ***********************
+
+        if (DonjonGlace.isCléBasseTrouvé == false && nbrTué == 8 ){
+            if ( yClé > yCléFinal ) {
+                yClé -= 5 ;
+            }
+            game.getBatch().draw(DonjonGlace.CléBasse, 180, yClé);
+        }
+
+        if ( MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(DonjonGlace.CléBasse, MainMenu.Link.getX() - 45, MainMenu.Link.getY() +50);
+            game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
+        }
     }
 
     public static void destroyBody() {
@@ -398,7 +418,7 @@ public class GrotteF5Salle4 extends Sprite {
                 if ( m2EstCrée == false) {
                     if ( nbrTué <= 6 ) {
                         if (premièreApparition)
-                            monstre2 = new Squelette(world, Squelette.squeletteDroite2, 60, 330, "droite");
+                            monstre2 = new Squelette(world, Squelette.squeletteDroite2, 60, 340, "droite");
                         else
                             monstre2 = new Squelette(world, Squelette.squeletteDroite2, 60, 200, "droite");
                         Pnj.monstres[1] = monstre2;
@@ -417,7 +437,7 @@ public class GrotteF5Salle4 extends Sprite {
                 if ( m3EstCrée == false) {
                     if ( nbrTué <= 5 ) {
                         if (premièreApparition)
-                            monstre3 = new Squelette(world, Squelette.squeletteBas2, 60, 330, "bas");
+                            monstre3 = new Squelette(world, Squelette.squeletteBas2, 50, 330, "bas");
                         else
                             monstre3 = new Squelette(world, Squelette.squeletteHaut2, 350, 120, "haut");
                         Pnj.monstres[2] = monstre3;
@@ -455,7 +475,7 @@ public class GrotteF5Salle4 extends Sprite {
                 if ( m5EstCrée == false) {
                     if ( nbrTué <= 3 ) {
                         if (premièreApparition)
-                            monstre5 = new Squelette(world, Squelette.squeletteGauche2, 60, 330, "gauche");
+                            monstre5 = new Squelette(world, Squelette.squeletteGauche2, 70, 330, "gauche");
                         else
                             monstre5 = new Squelette(world, Squelette.squeletteGauche2, 480, 380, "gauche");
                         Pnj.monstres[4] = monstre5;
@@ -474,7 +494,7 @@ public class GrotteF5Salle4 extends Sprite {
                 if ( m6EstCrée == false) {
                     if ( nbrTué <= 2 ) {
                         if (premièreApparition)
-                            monstre6 = new Squelette(world, Squelette.squeletteBas2, 60, 330, "bas");
+                            monstre6 = new Squelette(world, Squelette.squeletteBas2, 50, 340, "bas");
                         else
                             monstre6 = new Squelette(world, Squelette.squeletteDroite2, 60, 100, "droite");
                         Pnj.monstres[5] = monstre6;
@@ -512,7 +532,7 @@ public class GrotteF5Salle4 extends Sprite {
                 if ( m8EstCrée == false) {
                     if ( nbrTué <= 0 ){
                         if (premièreApparition) {
-                            monstre8 = new Squelette(world, Squelette.squeletteGauche2, 60, 330, "gauche");
+                            monstre8 = new Squelette(world, Squelette.squeletteGauche2, 70, 330, "gauche");
                             premièreApparition = false;
                         } else
                             monstre8 = new Squelette(world, Squelette.squeletteGauche2, 360, 180, "gauche");
@@ -563,11 +583,27 @@ public class GrotteF5Salle4 extends Sprite {
                 nbrTué ++ ;
                 m8EstTué = true;
             }
+
+            if ( DonjonGlace.isCléBasseTrouvé == false ) CadrillageMap.setTypeDeDécor(3,4,"cléBasse");
+            détectionClé(MainMenu.Link);
+
         }
     }
 
     public static void destroyType() {
         // TODO Auto-generated method stub
 
+    }
+
+    public static void détectionClé(MainCharacter Link){
+        if (DonjonGlace.isCléBasseTrouvé == false && nbrTué == 8 ){
+            if ( yClé <= yCléFinal ) {
+                if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * MainMenu.PPM / 60)][(int) (Link.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("cléBasse")) {
+                   DonjonGlace.isCléBasseTrouvé = true;
+                    MainMenu.Link.annimationAward = true;
+                    CadrillageMap.setTypeDeDécor(3,4,"");
+                }
+            }
+        }
     }
 }
