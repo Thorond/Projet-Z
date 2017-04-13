@@ -6,10 +6,13 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.CoeurDeVie;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class SousMapF4 extends Sprite{
+
+	public static boolean isReceptaclePris = false; // à sauvegarder
 	
 	public static Body cote1 ;
 	public static boolean isCote1Created;
@@ -223,6 +226,10 @@ public class SousMapF4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 540+ x, 00+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 540+ x, 180+ y);
+
+		if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 480+ x, 300+ y);
+		else if ( isReceptaclePris && MainMenu.Link.annimationAward ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+
 	}
 
 	public static void destroyBody() {
@@ -343,6 +350,9 @@ public class SousMapF4 extends Sprite{
 			bosquet3 = ClimatMontagneux.createBody(340,120,210,30);
 			isBosquet3Created = true;
 		}
+
+
+		if ( !(isReceptaclePris)) CadrillageMap.setTypeDeDécor(480/60, 300/60, "receptacleDeCoeur");
 	}
 
 	public static void destroyType() {

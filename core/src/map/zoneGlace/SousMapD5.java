@@ -188,14 +188,17 @@ public class SousMapD5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 360+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 420+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 480+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 540+ x, 120+ y);
 
 		game.getBatch().draw(ClimatMontagneux.murGlacéGauche, 540+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.cheminGlaceHori, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 480+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 420+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 360+ x, 420+ y);
-		
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé,0+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3,0+ x, 180+ y);
+
 		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, -40+ x, 180+ y);
@@ -217,6 +220,22 @@ public class SousMapD5 extends Sprite{
 			}
 			
 		}
+//
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 120+ x, 140+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 260+ x, 100+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 70+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 70+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 10+ y);
+
+
+        game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 130+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 190+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 370+ y);
 
 //
 		game.getBatch().draw(Arc.tombe, 200+ x, 200+ y);
