@@ -26,7 +26,7 @@ public class Pnj extends Characters{
 	
 	
 	public static int nbrDeMonstres = 0;
-	public static Pnj[] monstres = new Pnj[10];
+	public static Pnj[] monstres = new Pnj[20];
 	
 //	déplacement aléatoire
 	
