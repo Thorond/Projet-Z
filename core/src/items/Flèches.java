@@ -13,6 +13,7 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import characters.Pnj;
+import menus.MenuSac;
 import scenes.MainMenu;
 
 /**
@@ -26,6 +27,7 @@ public class Flèches extends Sprite {
     public String direction;
     public int x;
     public int y;
+    public boolean avecBombe = false;
 
     // *************************** corps ***********************
     private Body body;
@@ -119,6 +121,11 @@ public class Flèches extends Sprite {
                     flèches[i].enDéplacement = true;
                     flèches[i].updateBody();
                     nombreFlèche --;
+
+                    if (MenuSac.itemsKL[0] instanceof Bombe || MenuSac.itemsKL[1] instanceof Bombe){
+                        flèches[i].avecBombe = true;
+                        MainMenu.bombe.setNombreItem(MainMenu.bombe.getNombreItem() -1);
+                    }
                     break;
                 }
             }

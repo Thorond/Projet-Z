@@ -22,6 +22,8 @@ public class SousMapF5 extends Sprite{
 	public static boolean isarbreCreated;
 	public static Body cote5 ;
 	public static boolean isCote5Created;
+	public static Body cote6 ;
+	public static boolean isCote6Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -211,6 +213,9 @@ public class SousMapF5 extends Sprite{
 
 		if ( isCote5Created) MainMenu.world.destroyBody(cote5);
 		isCote5Created = false;
+
+		if ( isCote6Created) MainMenu.world.destroyBody(cote6);
+		isCote6Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -240,6 +245,10 @@ public class SousMapF5 extends Sprite{
 		if ( isCote5Created == false ) {
 			cote5 = ClimatMontagneux.createBody(50,0,100,1);
 			isCote5Created = true;
+		}
+		if ( isCote6Created == false ) {
+			cote6 = ClimatMontagneux.createBody(510,0,180,1);
+			isCote6Created = true;
 		}
 	}
 

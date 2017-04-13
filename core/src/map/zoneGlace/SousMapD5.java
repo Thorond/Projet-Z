@@ -36,6 +36,17 @@ public class SousMapD5 extends Sprite{
     public static boolean istombe2Created;
     public static Body tombe3;
     public static boolean istombe3Created;
+
+
+    public static Body bosquet1 ;
+    public static boolean isBosquet1Created;
+    public static Body bosquet2 ;
+    public static boolean isBosquet2Created;
+    public static Body bosquet3 ;
+    public static boolean isBosquet3Created;
+
+    public static Body grossePierre1;
+    public static boolean isGrossePierre1Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -227,6 +238,12 @@ public class SousMapD5 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.planteGelé3, 70+ x, 70+ y);
         game.getBatch().draw(ClimatMontagneux.planteGelé3, 70+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 10+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 10+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 360+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 130+ y);
+
+        game.getBatch().draw(ClimatMontagneux.grossePierre, 480+ x, 10+ y);
 
 
         game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 360+ y);
@@ -271,6 +288,19 @@ public class SousMapD5 extends Sprite{
 
         if ( istombe3Created) MainMenu.world.destroyBody(tombe3);
         istombe3Created = false;
+
+        if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
+        isBosquet1Created = false;
+
+        if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+        isBosquet2Created = false;
+
+        if ( isBosquet3Created) MainMenu.world.destroyBody(bosquet3);
+        isBosquet3Created = false;
+
+
+        if ( isGrossePierre1Created) MainMenu.world.destroyBody(grossePierre1);
+        isGrossePierre1Created = false;
 		
 	}
 
@@ -314,6 +344,24 @@ public class SousMapD5 extends Sprite{
         if ( istombe3Created == false ) {
             tombe3 = ClimatMontagneux.createBodyPerso("grossePierre", "static",160,70);
             istombe3Created = true;
+        }
+
+        if ( isBosquet1Created == false ) {
+            bosquet1 = ClimatMontagneux.createBody(150,330,180,60);
+            isBosquet1Created = true;
+        }
+        if ( isBosquet2Created == false ) {
+            bosquet2 = ClimatMontagneux.createBody(530,150,120,60);
+            isBosquet2Created = true;
+        }
+        if ( isBosquet3Created == false ) {
+            bosquet3 = ClimatMontagneux.createBody(550,450,60,120);
+            isBosquet3Created = true;
+        }
+
+        if ( isGrossePierre1Created == false ) {
+            grossePierre1 = ClimatMontagneux.createBodyPerso("grossePierre", "static",480,10);
+            isGrossePierre1Created = true;
         }
 	}
 
