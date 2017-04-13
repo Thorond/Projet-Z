@@ -21,6 +21,10 @@ public class Characters extends Sprite{
 	
 	private World world;
 	private Body body;
+
+
+	public boolean isHit = false;
+	public long timerHit = System.currentTimeMillis();
 	
 	public Characters(World world,Texture texture, int HM, int health, int strength, float x, float y, String direction){
 		super(texture);

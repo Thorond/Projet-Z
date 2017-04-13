@@ -300,59 +300,65 @@ public class MainMenu implements Screen{
 						}
 					}
 					
-					
-//					déplacement
-					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
-						Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
-						else Link.setDirection("gauche");
-						Link.représentationLink(Link);
-			
-						
-					} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-						Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-						else Link.setDirection("droite");
-						Link.représentationLink(Link);
-						
-					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
-						Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-						else Link.setDirection("haut");
-						Link.représentationLink(Link);
-			
-					} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-						Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-						else Link.setDirection("bas");
-						Link.représentationLink(Link);
-			
-					} else {
-						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
-						if (Link.getDirection().equals("bas")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkBasReposBouclier);
-							else Link.setTexture(MainCharacter.linkBasRepos);
+					if ( Link.isHit ){
+						if ( System.currentTimeMillis() - Link.timerHit > 300 ) Link.isHit = false;
+					}else {
+
+	//					déplacement
+						if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
+							Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
+							else Link.setDirection("gauche");
+							Link.représentationLink(Link);
+
+
+						} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
+							Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
+							else Link.setDirection("droite");
+							Link.représentationLink(Link);
+
+						} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
+							Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
+							else Link.setDirection("haut");
+							Link.représentationLink(Link);
+
+						} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
+							Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
+							else Link.setDirection("bas");
+							Link.représentationLink(Link);
+
+						} else {
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
+							if (Link.getDirection().equals("bas")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkBasReposBouclier);
+								else Link.setTexture(MainCharacter.linkBasRepos);
+							}
+							else if (Link.getDirection().equals("haut")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkHautReposBouclier);
+								else Link.setTexture(MainCharacter.linkHautRepos);
+							}
+							else if (Link.getDirection().equals("gauche")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkGaucheReposBouclier);
+								else Link.setTexture(MainCharacter.linkGaucheRepos);
+							}
+							else if (Link.getDirection().equals("droite")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkDroiteReposBouclier);
+								else Link.setTexture(MainCharacter.linkDroiteRepos);
+							}
 						}
-						else if (Link.getDirection().equals("haut")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkHautReposBouclier);
-							else Link.setTexture(MainCharacter.linkHautRepos);
-						}
-						else if (Link.getDirection().equals("gauche")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkGaucheReposBouclier);
-							else Link.setTexture(MainCharacter.linkGaucheRepos);
-						}
-						else if (Link.getDirection().equals("droite")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkDroiteReposBouclier);
-							else Link.setTexture(MainCharacter.linkDroiteRepos);
-						}
-					} 
-					
-					
-					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D))) 
-							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
-					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
-						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
-					
+
+
+						if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D)))
+								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
+						if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) )
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
+
+
+					}
+
 //					mettre le jeu en pause et sauvegarder
 					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
 						if ( Link.zone.equals("zoneGlace"))

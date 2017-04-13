@@ -250,7 +250,10 @@ public class Flèches extends Sprite {
                                 && (int) flèches[i].getBody().getPosition().x + 60 >= (int) Link.getBody().getPosition().x
                                 && (int) flèches[i].getBody().getPosition().y -20 <= (int) Link.getBody().getPosition().y
                                 && (int) flèches[i].getBody().getPosition().y +20 >= (int) Link.getBody().getPosition().y ){
-                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x + 30, MainMenu.Link.getBody().getPosition().y , 0);
+                            MainMenu.Link.isHit = true;
+                            MainMenu.Link.timerHit = System.currentTimeMillis();
+                            MainMenu.Link.getBody().applyLinearImpulse(new Vector2(+600000,0), MainMenu.Link.getBody().getWorldCenter(), true);
+
                             if ( MainMenu.Link.getDirection().equals("gauche") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
                             } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
                         }
@@ -259,7 +262,10 @@ public class Flèches extends Sprite {
                                 && (int) flèches[i].getBody().getPosition().x -60 <= (int) Link.getBody().getPosition().x
                                 && (int) flèches[i].getBody().getPosition().y -20 <= (int) Link.getBody().getPosition().y
                                 && (int) flèches[i].getBody().getPosition().y +20 >= (int) Link.getBody().getPosition().y  ){
-                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x -30, MainMenu.Link.getBody().getPosition().y, 0);
+                            MainMenu.Link.isHit = true;
+                            MainMenu.Link.timerHit = System.currentTimeMillis();
+                            MainMenu.Link.getBody().applyLinearImpulse(new Vector2(-600000,0), MainMenu.Link.getBody().getWorldCenter(), true);
+
                             if ( MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
                             } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
                         }
@@ -268,7 +274,10 @@ public class Flèches extends Sprite {
                                 && (int) flèches[i].getBody().getPosition().x + 80 >= (int) Link.getBody().getPosition().x
                                 && (int) flèches[i].getBody().getPosition().y  <= (int) Link.getBody().getPosition().y
                                 && (int) flèches[i].getBody().getPosition().y +60 >= (int) Link.getBody().getPosition().y ){
-                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y + 30, 0);
+                            MainMenu.Link.isHit = true;
+                            MainMenu.Link.timerHit = System.currentTimeMillis();
+                            MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,+600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
                             if ( MainMenu.Link.getDirection().equals("bas") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
                             } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
                         }
@@ -277,7 +286,10 @@ public class Flèches extends Sprite {
                                 && (int) flèches[i].getBody().getPosition().x + 20 >= (int) Link.getBody().getPosition().x
                                 && (int) flèches[i].getBody().getPosition().y >= (int) Link.getBody().getPosition().y
                                 && (int) flèches[i].getBody().getPosition().y -60 <= (int) Link.getBody().getPosition().y){
-                            MainMenu.Link.getBody().setTransform(MainMenu.Link.getBody().getPosition().x, MainMenu.Link.getBody().getPosition().y - 30, 0);
+                            MainMenu.Link.isHit = true;
+                            MainMenu.Link.timerHit = System.currentTimeMillis();
+                            MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,-600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
                             if ( MainMenu.Link.getDirection().equals("haut") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
                             } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
                         }
