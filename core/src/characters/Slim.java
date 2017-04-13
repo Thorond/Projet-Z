@@ -57,32 +57,7 @@ public class Slim extends Pnj{
 		}
 	}
 	
-	
-//	déplacement vers le joueur 
-	@Override
-	public void déplacementVersJoueur(){
-		if ( System.currentTimeMillis() - startS > 400) {
-			if ( this.getX() - MainMenu.Link.getX() > 0 ){
-				this.getBody().applyLinearImpulse(new Vector2(-30000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("gauche");
-			}
-			else if (this.getX() - MainMenu.Link.getX() < 0 ){
-				this.getBody().applyLinearImpulse(new Vector2(+30000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("droite");
-			}
-			if (this.getY() - MainMenu.Link.getY() > 0){
-				this.getBody().applyLinearImpulse(new Vector2(0,-30000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("bas");
-			}
-			else if (this.getY() - MainMenu.Link.getY() < 0){
-				this.getBody().applyLinearImpulse(new Vector2(0,+30000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("haut");
-			}
-			startS = System.currentTimeMillis();
-			arrét = false;
-		} 
-		
-	}
+
 		
 	
 	public void représentation(){

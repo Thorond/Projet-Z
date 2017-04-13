@@ -6,10 +6,10 @@ import com.mygdx.game.GameMain;
 
 public class MenuPause extends Menu {
 	
-	public static Texture nomPause = new Texture("menus/nomPause.png"); 
+	public static Texture nomPause = new Texture("menus/nomPause.png");
 	
-	public static Texture boutonPresséSave = new Texture("menus/boutonPresséSave.png"); 
-	public static Texture boutonSave = new Texture("menus/boutonSave.png"); 
+	public static Texture boutonPresséSave = new Texture("menus/boutonPresséSave.png");
+	public static Texture boutonSave = new Texture("menus/boutonSave.png");
 	
 	public static boolean isPause = false;
 	

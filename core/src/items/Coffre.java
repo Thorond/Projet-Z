@@ -30,14 +30,10 @@ public class Coffre {
 			} else if ( ouvert1 && ouvert2 ){
 				game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3,x,y);
 				ouvert1= false;
-				ouvert2=false;			
-				drop();
+				ouvert2=false;
 		}
 	}
 	
-	
-	public static void drop(){
-		
-	}
+
 
 }

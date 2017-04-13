@@ -1,6 +1,7 @@
 package characters;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Fixture;
@@ -49,6 +50,7 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
 
 	public String zone = "zoneGlace"; // à sauvegarder
+
 
 	
 	public boolean annimationAward = false;
@@ -192,25 +194,37 @@ public class MainCharacter extends Characters {
 				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM  
 				&& y +this.getHeight() / 2 >= (int) this.getBody().getPosition().y * MainMenu.PPM  
 				&& y <= (int) this.getBody().getPosition().y * MainMenu.PPM  + this.getHeight() / 2  ){
-			this.getBody().setTransform(this.getBody().getPosition().x +30, this.getBody().getPosition().y, 0);
+			MainMenu.Link.isHit = true;
+			MainMenu.Link.timerHit = System.currentTimeMillis();
+			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(+600000,0), MainMenu.Link.getBody().getWorldCenter(), true);
+
 		}else if ((int) this.getBody().getPosition().x * MainMenu.PPM - x < 0 
 				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM + this.getWidth() / 2 +60
 				&& y +cha.getHeight() / 2 >= (int) this.getBody().getPosition().y * MainMenu.PPM 
 				&& y <= (int) this.getBody().getPosition().y * MainMenu.PPM + this.getHeight() / 2  ){
-			this.getBody().setTransform(this.getBody().getPosition().x -30, this.getBody().getPosition().y, 0);
+			MainMenu.Link.isHit = true;
+			MainMenu.Link.timerHit = System.currentTimeMillis();
+			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(-600000,0), MainMenu.Link.getBody().getWorldCenter(), true);
+
 		}
 	
 		if (x+ cha.getWidth() / 2 >= (int) this.getBody().getPosition().x * MainMenu.PPM  
 				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM + this.getWidth() / 2 
 				&& y +cha.getHeight() / 2 >= (int) this.getBody().getPosition().y * MainMenu.PPM -60
 				&& (int) this.getBody().getPosition().y * MainMenu.PPM - y > 0 ){
-			this.getBody().setTransform(this.getBody().getPosition().x , this.getBody().getPosition().y +30, 0);
+			MainMenu.Link.isHit = true;
+			MainMenu.Link.timerHit = System.currentTimeMillis();
+			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,+600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
 		}
 		else if (x + cha.getWidth() / 2 >= (int) this.getBody().getPosition().x * MainMenu.PPM   
 				&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM   + this.getWidth() / 2 
 				&& (int) this.getBody().getPosition().y * MainMenu.PPM   - y < 0
 				&& y <= (int) this.getBody().getPosition().y * MainMenu.PPM   + this.getHeight() / 2  +60){
-			this.getBody().setTransform(this.getBody().getPosition().x , this.getBody().getPosition().y -30, 0);
+			MainMenu.Link.isHit = true;
+			MainMenu.Link.timerHit = System.currentTimeMillis();
+			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,-600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
 		}
 		
 	}

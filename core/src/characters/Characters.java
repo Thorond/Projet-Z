@@ -21,6 +21,10 @@ public class Characters extends Sprite{
 	
 	private World world;
 	private Body body;
+
+
+	public boolean isHit = false;
+	public long timerHit = System.currentTimeMillis();
 	
 	public Characters(World world,Texture texture, int HM, int health, int strength, float x, float y, String direction){
 		super(texture);
@@ -42,7 +46,7 @@ public class Characters extends Sprite{
 		body = world.createBody(bodyDef);
 		
 		PolygonShape shape = new PolygonShape();
-		shape.setAsBox((getWidth() / 3f)/MainMenu.PPM , (getHeight() / 3f)/MainMenu.PPM);
+		shape.setAsBox((getWidth() / 4f)/MainMenu.PPM , (getHeight() / 4f)/MainMenu.PPM);
 		
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = shape;

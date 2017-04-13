@@ -42,6 +42,7 @@ import map.zoneGlace.SousMapD2;
 import map.zoneGlace.SousMapD5;
 import map.zoneGlace.SousMapF1;
 import map.zoneGlace.SousMapF2;
+import menus.MenuDémarrer;
 import menus.MenuGameover;
 import menus.MenuPause;
 import menus.MenuSac;
@@ -74,37 +75,37 @@ public class MainMenu implements Screen{
 	public static float PPM = 1.5f;
 	
 	public static BitmapFont font ;
-	
+
 	public MainMenu(GameMain game){
-		
+
 //		fonction libGDX
-		
+
 		this.game = game;
-		
+
 		box2DCamera = new OrthographicCamera();
 		box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);
 		box2DCamera.position.set(300,240,0);
-		
+
 		this.debugRenderer = new Box2DDebugRenderer();
-		
+
 		font = new BitmapFont();
 //		font.setColor(0, 0, 0, 1);
-		
+
 		world = new World(new Vector2(0,0),true);
-		
+
 //		lorsqu'une sauvegarde existe, on l'appelle
-		
+
 		Link = new MainCharacter(world, 40, 39, 4, 0 , 0 , sauvegarde.getDirection());
 		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
 		Link.zone = sauvegarde.zone;
 		if ( Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = sauvegarde.getPosiSousMap();
 		else if ( Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = sauvegarde.getPosiSousMap();
-		
+
 //		à utiliser en cas de renouvellement de la sauvegarde
 
 //		Link = new MainCharacter(world,10,  10 , 4 , 200 , 200 , "bas");
 //		PlacementMainZoneGlace.positionSousMap = "I6";
-		
+
 		MenuSac.setItem(plume);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
@@ -114,13 +115,13 @@ public class MainMenu implements Screen{
 		bombe.setNombreItem(40);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
-		
+
 		start = System.currentTimeMillis();
-		
+
 		CadrillageMap.setTypeDeDécor();
 		CadrillageMap.setDécoChangéFaux();
-		
-		
+
+
 	}
 	
 	void updateGO(float dt){
@@ -133,6 +134,10 @@ public class MainMenu implements Screen{
 		}
 		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
 			if (MenuGameover.choix == 1) MenuGameover.isGO = false;
+			else if (MenuGameover.choix == 2){
+				MenuDémarrer.isInGame = false;
+				MenuDémarrer.choix=0;
+			}
 		}
 	}
 	
@@ -148,6 +153,10 @@ public class MainMenu implements Screen{
 		}
 		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
 			if (MenuPause.choix == 1) MenuPause.isPause = false;
+			else if (MenuPause.choix == 2){
+				MenuDémarrer.isInGame = false;
+				MenuDémarrer.choix=0;
+			}
 			else if (MenuPause.choix == 3){
 				if ( Link.zone.equals("zoneGlace"))
 					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
@@ -300,59 +309,65 @@ public class MainMenu implements Screen{
 						}
 					}
 					
-					
-//					déplacement
-					if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
-						Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
-						else Link.setDirection("gauche");
-						Link.représentationLink(Link);
-			
-						
-					} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-						Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-						else Link.setDirection("droite");
-						Link.représentationLink(Link);
-						
-					} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
-						Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-						else Link.setDirection("haut");
-						Link.représentationLink(Link);
-			
-					} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-						Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
-						if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-						else Link.setDirection("bas");
-						Link.représentationLink(Link);
-			
-					} else {
-						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
-						if (Link.getDirection().equals("bas")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkBasReposBouclier);
-							else Link.setTexture(MainCharacter.linkBasRepos);
+					if ( Link.isHit ){
+						if ( System.currentTimeMillis() - Link.timerHit > 300 ) Link.isHit = false;
+					}else {
+
+	//					déplacement
+						if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
+							Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
+							else Link.setDirection("gauche");
+							Link.représentationLink(Link);
+
+
+						} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
+							Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
+							else Link.setDirection("droite");
+							Link.représentationLink(Link);
+
+						} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
+							Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
+							else Link.setDirection("haut");
+							Link.représentationLink(Link);
+
+						} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
+							Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
+							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
+							else Link.setDirection("bas");
+							Link.représentationLink(Link);
+
+						} else {
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
+							if (Link.getDirection().equals("bas")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkBasReposBouclier);
+								else Link.setTexture(MainCharacter.linkBasRepos);
+							}
+							else if (Link.getDirection().equals("haut")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkHautReposBouclier);
+								else Link.setTexture(MainCharacter.linkHautRepos);
+							}
+							else if (Link.getDirection().equals("gauche")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkGaucheReposBouclier);
+								else Link.setTexture(MainCharacter.linkGaucheRepos);
+							}
+							else if (Link.getDirection().equals("droite")) {
+								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkDroiteReposBouclier);
+								else Link.setTexture(MainCharacter.linkDroiteRepos);
+							}
 						}
-						else if (Link.getDirection().equals("haut")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkHautReposBouclier);
-							else Link.setTexture(MainCharacter.linkHautRepos);
-						}
-						else if (Link.getDirection().equals("gauche")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkGaucheReposBouclier);
-							else Link.setTexture(MainCharacter.linkGaucheRepos);
-						}
-						else if (Link.getDirection().equals("droite")) {
-							if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkDroiteReposBouclier);
-							else Link.setTexture(MainCharacter.linkDroiteRepos);
-						}
-					} 
-					
-					
-					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D))) 
-							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
-					if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) ) 
-						Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
-					
+
+
+						if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D)))
+								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
+						if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) )
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
+
+
+					}
+
 //					mettre le jeu en pause et sauvegarder
 					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
 						if ( Link.zone.equals("zoneGlace"))
@@ -497,7 +512,7 @@ public class MainMenu implements Screen{
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -508,112 +523,121 @@ public class MainMenu implements Screen{
 		
 		
 		game.getBatch().begin();
-		
-		if ( Link.isAlive && MenuGameover.isGO ) {
-		//			  dessiner le menu de game over
-			 MenuGameover.affichageMenuGO(game);
-			 updateGO(delta);
-		} else if ( MenuPause.isPause == true ) {
-			
-			updatePause(delta );
-			MenuPause.affichageMenuPause(game);
+
+		if ( ! MenuDémarrer.isInGame ){
+			MenuDémarrer.affichageMenuDémarrer(game);
+			MenuDémarrer.updateDémarrage(delta);
 		} else {
-			
-			if ( MenuSac.isSacAffiché == true ) {
-				
-				updateSac(delta );
-	//			=============================================================================================
-	//											  dessiner le sac
-	//			=============================================================================================
-	
-				MenuSac.affichéSac(game);
+
+			if (Link.isAlive && MenuGameover.isGO) {
+				//			  dessiner le menu de game over
+				MenuGameover.affichageMenuGO(game);
+				updateGO(delta);
+			} else if (MenuPause.isPause ) {
+
+				updatePause(delta);
+				MenuPause.affichageMenuPause(game);
 			} else {
-				
+
+				if (MenuSac.isSacAffiché ) {
+
+					updateSac(delta);
+					//			=============================================================================================
+					//											  dessiner le sac
+					//			=============================================================================================
+
+					MenuSac.affichéSac(game);
+				} else {
+
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
-				if ( Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14) updateSc1Ghost(delta);
-				else if ( AlphabetEtAcquisition.isAlphabetUtilisé ) updateAlEtAc(delta);
-				else if ( IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
-				else if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
-				else updateInGame(delta );
-				
-				Link.updatePlayer();
+					if (Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14)
+						updateSc1Ghost(delta);
+					else if (AlphabetEtAcquisition.isAlphabetUtilisé) updateAlEtAc(delta);
+					else if (IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
+					else if (SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
+					else if (SousMapD5.étatTexteTombe > 0) SousMapD5.updateTombe(delta);
+					else updateInGame(delta);
 
-				if ( Link.zone.equals("zoneGlace")){
-					if (PlacementMainZoneGlace.défilement == false ) {
-						PlacementMainZoneGlace.posiSousMap(Link);
+					Link.updatePlayer();
+
+					if (Link.zone.equals("zoneGlace")) {
+						if (PlacementMainZoneGlace.défilement == false) {
+							PlacementMainZoneGlace.posiSousMap(Link);
+						}
+
+						if (PlacementMainZoneGlace.défilement == true) {
+							GestionDesMapsZoneGlace.défilementDeMap(game);
+						} else {
+							Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
+							GestionDesMapsZoneGlace.affichageDeSousCarte(game);
+						}
+					} else if (Link.zone.equals("zoneDesert")) {
+						if (PlacementMainZoneDesert.défilement == false) {
+							PlacementMainZoneDesert.posiSousMap(Link);
+						}
+
+						if (PlacementMainZoneDesert.défilement == true) {
+							GestionDesMapsZoneDesert.défilementDeMap(game);
+						} else {
+							Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
+							GestionDesMapsZoneDesert.affichageDeSousCarte(game);
+						}
 					}
 
-					if ( PlacementMainZoneGlace.défilement == true) {
-						GestionDesMapsZoneGlace.défilementDeMap(game);
-					}else {
-						Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
-						GestionDesMapsZoneGlace.affichageDeSousCarte(game);
-					}
-				} else if ( Link.zone.equals("zoneDesert")){
-					if (PlacementMainZoneDesert.défilement == false ) {
-						PlacementMainZoneDesert.posiSousMap(Link);
-					}
 
-					if ( PlacementMainZoneDesert.défilement == true) {
-						GestionDesMapsZoneDesert.défilementDeMap(game);
-					}else {
-						Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
-						GestionDesMapsZoneDesert.affichageDeSousCarte(game);
-					}
+					//			=============================================================================================
+					//     		       dessiner les coeurs de vie
+					//			=============================================================================================
+					CoeurDeVie.représentationCoeur(game);
+					// dessiner les essences
+					Essence.représentationEssence(game);
+
+					Flèches.représentationFlèches(game);
+					Bombe.représentationBombe(game);
+
+					Tigre.représentationPoursuite(world, game);
+
+
+					//			dessin du joueur
+//				Link.setColor(0.8f,0.8f,0,1f);
+					Link.draw(game.getBatch());
 				}
-				
 
-				
-				//			=============================================================================================
-				//     		       dessiner les coeurs de vie
-				//			=============================================================================================
-				CoeurDeVie.représentationCoeur(game);
-				// dessiner les essences
-				Essence.représentationEssence(game);
-
-				Flèches.représentationFlèches(game);
-				Bombe.représentationBombe(game);
-
-				Tigre.représentationPoursuite(world, game);
-				
-				
-	//			dessin du joueur
-				Link.draw(game.getBatch());
-			}
-			
 //			 texte de la map totem
-			if ( Totem.étatTexte > 0 ) Totem.représentationTexte(game);
+				if (Totem.étatTexte > 0) Totem.représentationTexte(game);
 //			 dessin de l'intéraction avec le fantome, codé ici car doit être au dessus du dessin du personnage
-			if ( Ghost.etatScenario > 0  && Ghost.etatScenario < 14 ) Ghost.scenario1(game);
-			if ( AlphabetEtAcquisition.isAlphabetUtilisé ) AlphabetEtAcquisition.affichageMot(game);
+				if (Ghost.etatScenario > 0 && Ghost.etatScenario < 14) Ghost.scenario1(game);
+				if (AlphabetEtAcquisition.isAlphabetUtilisé)
+					AlphabetEtAcquisition.affichageMot(game);
 //			représentation de l'achat
-			if ( IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
+				if (IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
 //			texte des bonhommes de neiges 		
-			if ( SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.représentationTexte(game);
-				
-	//		=============================================================================================
-	//     						  dessiner les items à la fois en jeu et dans menuSac
-	//		=============================================================================================
-	
-			if ( MenuSac.itemKOccupé ) MenuSac.affichageItemK(game);
-			if ( MenuSac.itemLOccupé ) MenuSac.affichageItemL(game);
-			
-			
-	//		=============================================================================================
-	//								dessiner la vie à la fois en jeu et dans menuSac
-	//		=============================================================================================
-			
-			
-			
-			CoeurDeVie.représentationNombreCoeur(game,Link);
-			
+				if (SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11)
+					SnowMan.représentationTexte(game);
+
+				//		=============================================================================================
+				//     						  dessiner les items à la fois en jeu et dans menuSac
+				//		=============================================================================================
+
+				if (MenuSac.itemKOccupé) MenuSac.affichageItemK(game);
+				if (MenuSac.itemLOccupé) MenuSac.affichageItemL(game);
+
+
+				//		=============================================================================================
+				//								dessiner la vie à la fois en jeu et dans menuSac
+				//		=============================================================================================
+
+
+				CoeurDeVie.représentationNombreCoeur(game, Link);
+
 //			déssin du nommbres d'essences
-			
-			Essence.représentationNombreEssence(game,font);
-			
-			
-	//		déssin du gameover
-			MenuGameover.GameOver(game);
+
+				Essence.représentationNombreEssence(game, font);
+
+
+				//		déssin du gameover
+				MenuGameover.GameOver(game);
+			}
 		}
 		game.getBatch().end();
 		
