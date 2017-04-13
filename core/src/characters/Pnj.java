@@ -34,19 +34,19 @@ public class Pnj extends Characters{
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - start > 1000) {
 			if ( tempo < 0.25 && this.getBody().getPosition().x > 90/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(-40000f,0), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(-20000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("gauche");
 			}
 			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 480/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(+40000f,0), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(+20000f,0), this.getBody().getWorldCenter(), true);
 				this.setDirection("droite");
 			}
 			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 90/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(0,-40000f), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(0,-20000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("bas");
 			}
 			else if (tempo > 0.75 && this.getBody().getPosition().y < 360/MainMenu.PPM){
-				this.getBody().applyLinearImpulse(new Vector2(0,+40000f), this.getBody().getWorldCenter(), true);
+				this.getBody().applyLinearImpulse(new Vector2(0,+20000f), this.getBody().getWorldCenter(), true);
 				this.setDirection("haut");
 			}
 			start = System.currentTimeMillis();
@@ -65,21 +65,21 @@ public class Pnj extends Characters{
 	
 	public void déplacementVersJoueur(){
 		if ( this.getX() - MainMenu.Link.getX() > 30 ){
-			this.getBody().applyLinearImpulse(new Vector2(-40000f,0), this.getBody().getWorldCenter(), true);
+			this.getBody().setLinearVelocity(new Vector2(-100f,0));
 			this.setDirection("gauche");
 		}
 		else if (this.getX() - MainMenu.Link.getX() < -50 ){
-			this.getBody().applyLinearImpulse(new Vector2(+40000f,0), this.getBody().getWorldCenter(), true);
+			this.getBody().setLinearVelocity(new Vector2(+100f,0));
 			this.setDirection("droite");
 		} else {
 			this.getBody().setLinearVelocity( new Vector2(0,this.getBody().getLinearVelocity().y));
 		}
 		if (this.getY() - MainMenu.Link.getY() > 30){
-			this.getBody().applyLinearImpulse(new Vector2(0,-40000f), this.getBody().getWorldCenter(), true);
+			this.getBody().setLinearVelocity(new Vector2(0,-100f));
 			this.setDirection("bas");
 		}
 		else if (this.getY() - MainMenu.Link.getY() < -50){
-			this.getBody().applyLinearImpulse(new Vector2(0,+40000f), this.getBody().getWorldCenter(), true);
+			this.getBody().setLinearVelocity(new Vector2(0,+100f));
 			this.setDirection("haut");
 		}  else {
 			this.getBody().setLinearVelocity( new Vector2(this.getBody().getLinearVelocity().x,0));
@@ -209,7 +209,7 @@ public class Pnj extends Characters{
 	public void infligéDégatLink(){
 		
 		
-		if ( MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -25 
+		if ( MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -20
 				&& MainMenu.Link.getX() <= this.getX() 
 				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
 				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){
@@ -221,7 +221,7 @@ public class Pnj extends Characters{
 			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
 		}
 		else if (this.getX() - MainMenu.Link.getX() < 0 
-				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +25
+				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +20
 				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
 				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){
 			MainMenu.Link.isHit = true;
@@ -235,7 +235,7 @@ public class Pnj extends Characters{
 	
 		if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()  
 				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 
-				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -30
+				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -20
 				&& this.getY() - MainMenu.Link.getY() > 0 ){
 			MainMenu.Link.isHit = true;
 			MainMenu.Link.timerHit = System.currentTimeMillis();
@@ -248,7 +248,7 @@ public class Pnj extends Characters{
 		else if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()  
 				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 
 				&& this.getY() - MainMenu.Link.getY() < 0
-				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +25){
+				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +15){
 			MainMenu.Link.isHit = true;
 			MainMenu.Link.timerHit = System.currentTimeMillis();
 			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,+600000), MainMenu.Link.getBody().getWorldCenter(), true);
