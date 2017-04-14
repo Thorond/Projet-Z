@@ -242,6 +242,8 @@ public class SousMapD5 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 180+ y);
         game.getBatch().draw(ClimatMontagneux.planteGelé, 360+ x, 70+ y);
         game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 130+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 360+ x, 420+ y);
 
         game.getBatch().draw(ClimatMontagneux.grossePierre, 480+ x, 10+ y);
 
