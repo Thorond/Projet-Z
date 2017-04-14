@@ -611,7 +611,7 @@ public class MainMenu implements Screen{
 					AlphabetEtAcquisition.affichageMot(game);
 //			représentation de l'achat
 				if (IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
-//			texte des bonhommes de neiges 		
+//			texte des bonhommes de neiges
 				if (SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11)
 					SnowMan.représentationTexte(game);
 

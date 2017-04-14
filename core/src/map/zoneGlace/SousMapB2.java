@@ -169,6 +169,18 @@ public class SousMapB2 extends Sprite {
 		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 540+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreCentreMilieu, 540+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 540+ x, 420+ y);
+
+
+		game.getBatch().draw(ClimatMontagneux.herbeGlace120, 360+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.herbeGlace120, 300+ x, 180+ y);
+
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 0+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 480+ x, 240+ y);
+
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 420+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 00+ y);
 		
 		ClimatMontagneux.buisson(isBuisson1Cut,game, 360+x, 0+y);
 		ClimatMontagneux.buisson(isBuisson2Cut,game, 60+x, 180+y);
@@ -193,7 +205,7 @@ public class SousMapB2 extends Sprite {
 //				Placement des dessins des monstres
 //		==================================================================
 
-		if ( m1EstCrée && monstre1.isAlive() ) { 
+		if ( m1EstCrée && monstre1.isAlive() ) {
 			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
@@ -202,8 +214,8 @@ public class SousMapB2 extends Sprite {
 //		==================================================================
 //				      			dégats des monstres
 //		==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
+
+		if ( m1EstCrée && monstre1.isAlive() ) {
 			monstre1.infligéDégatLink();
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
