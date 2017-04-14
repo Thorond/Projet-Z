@@ -13,6 +13,29 @@ public class SousMapE6 extends Sprite{
 	
 	public static Body mur1;
 	public static boolean ismur1Created;
+	public static Body mur2;
+	public static boolean ismur2Created;
+	public static Body mur3;
+	public static boolean ismur3Created;
+	public static Body mur4;
+	public static boolean ismur4Created;
+	public static Body mur5;
+	public static boolean ismur5Created;
+	public static Body mur6;
+	public static boolean ismur6Created;
+	public static Body mur7;
+	public static boolean ismur7Created;
+	public static Body mur8;
+	public static boolean ismur8Created;
+
+    public static Body iceMan1;
+    public static boolean isiceMan1Created;
+    public static Body iceMan2;
+    public static boolean isiceMan2Created;
+    public static Body iceMan3;
+    public static boolean isiceMan3Created;
+    public static Body iceMan4;
+    public static boolean isiceMan4Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -187,6 +210,39 @@ public class SousMapE6 extends Sprite{
 		// TODO Auto-generated method stub
 		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
 		ismur1Created = false;
+
+		if ( ismur2Created) MainMenu.world.destroyBody(mur2);
+		ismur2Created = false;
+
+        if ( ismur3Created) MainMenu.world.destroyBody(mur3);
+        ismur3Created = false;
+
+        if ( ismur4Created) MainMenu.world.destroyBody(mur4);
+        ismur4Created = false;
+
+        if ( ismur5Created) MainMenu.world.destroyBody(mur5);
+        ismur5Created = false;
+
+        if ( ismur6Created) MainMenu.world.destroyBody(mur6);
+        ismur6Created = false;
+
+        if ( ismur7Created) MainMenu.world.destroyBody(mur7);
+        ismur7Created = false;
+
+        if ( ismur8Created) MainMenu.world.destroyBody(mur8);
+        ismur8Created = false;
+
+        if ( isiceMan1Created) MainMenu.world.destroyBody(iceMan1);
+        isiceMan1Created = false;
+
+        if ( isiceMan2Created) MainMenu.world.destroyBody(iceMan2);
+        isiceMan2Created = false;
+
+        if ( isiceMan3Created) MainMenu.world.destroyBody(iceMan3);
+        isiceMan3Created = false;
+
+        if ( isiceMan4Created) MainMenu.world.destroyBody(iceMan4);
+        isiceMan4Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -195,6 +251,51 @@ public class SousMapE6 extends Sprite{
 			mur1 = ClimatMontagneux.createBody(300,50,600,1);
 			ismur1Created = true;
 		}
+        if ( ismur2Created == false ) {
+            mur2 = ClimatMontagneux.createBody(300,420,600,1);
+            ismur2Created = true;
+        }
+        if ( ismur3Created == false ) {
+            mur3 = ClimatMontagneux.createBody(20,120,60,120);
+            ismur3Created = true;
+        }
+        if ( ismur4Created == false ) {
+            mur4 = ClimatMontagneux.createBody(560,120,60,120);
+            ismur4Created = true;
+        }
+        if ( ismur5Created == false ) {
+            mur5 = ClimatMontagneux.createBody(50,240,1,240);
+            ismur5Created = true;
+        }
+        if ( ismur6Created == false ) {
+            mur6 = ClimatMontagneux.createBody(530,240,1,240);
+            ismur6Created = true;
+        }
+        if ( ismur7Created == false ) {
+            mur7 = ClimatMontagneux.createBody(140,300,180,120);
+            ismur7Created = true;
+        }
+        if ( ismur8Created == false ) {
+            mur8 = ClimatMontagneux.createBody(400,300,250,120);
+            ismur8Created = true;
+        }
+
+        if ( isiceMan1Created == false ) {
+            iceMan1 = ClimatMontagneux.createBodyPerso("arbre", "static",160,200);
+            isiceMan1Created = true;
+        }
+        if ( isiceMan2Created == false ) {
+            iceMan2 = ClimatMontagneux.createBodyPerso("arbre", "static",360,180);
+            isiceMan2Created = true;
+        }
+        if ( isiceMan3Created == false ) {
+            iceMan3 = ClimatMontagneux.createBodyPerso("arbre", "static",370,70);
+            isiceMan3Created = true;
+        }
+        if ( isiceMan4Created == false ) {
+            iceMan4 = ClimatMontagneux.createBodyPerso("arbre", "static",470,150);
+            isiceMan4Created = true;
+        }
 	}
 
 	public static void destroyType() {

@@ -171,6 +171,14 @@ public class SousMapB4 extends Sprite{
 		ClimatMontagneux.eauProfonde(game,540+x,0+y);
 		ClimatMontagneux.eauProfonde(game,540+x,60+y);
 		ClimatMontagneux.eauProfonde(game,540+x,120+y);
+
+//
+
+
+		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 0+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 0+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 60+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 60+ x, 180+ y);
 		
 	}
 
