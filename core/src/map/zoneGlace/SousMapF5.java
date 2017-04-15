@@ -191,6 +191,17 @@ public class SousMapF5 extends Sprite{
 
 		game.getBatch().draw(ClimatMontagneux.tree, 490+ x, 70+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 70+ y);
+
+
+		game.getBatch().draw(ClimatMontagneux.grossePierre, 300+ x, 430+ y);
+
+
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 0+ x, 10+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 120+ x, 10+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 430+ x, 20+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 490+ x, 420+ y);;
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 370+ x, 420+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 430+ x, 380+ y);
 		
 	}
 
@@ -227,7 +238,7 @@ public class SousMapF5 extends Sprite{
 			isCote1Created = true;
 		}
 		if ( isCote2Created == false ) {
-			cote2 = ClimatMontagneux.createBody(330,300,60,240);
+			cote2 = ClimatMontagneux.createBody(330,330,60,300);
 			isCote2Created = true;
 		}
 		if ( isCote3Created == false ) {

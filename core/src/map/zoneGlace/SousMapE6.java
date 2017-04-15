@@ -204,6 +204,17 @@ public class SousMapE6 extends Sprite{
 			game.getBatch().draw(DonjonGlace.CléMilieu,MainMenu.Link.getX() -40, MainMenu.Link.getY() + 40 );
 			game.getBatch().draw(DonjonGlace.texteClé,100,60);
 		}
+
+//
+
+
+        game.getBatch().draw(ClimatMontagneux.tree, -20+ x, 290+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, -20+ x, 250+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, -20+ x, 210+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 130+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 110+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 70+ y);
 	}
 
 	public static void destroyBody() {
