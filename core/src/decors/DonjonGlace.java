@@ -55,6 +55,32 @@ public class DonjonGlace {
 	public static Texture  murGlacéPorte2 = new Texture("donjon/donjonGlace/murGlacéPorte2.png");
 	public static Texture  murGlacéPorte3 = new Texture("donjon/donjonGlace/murGlacéPorte3.png");
 	public static Texture  murGlacéPorte4 = new Texture("donjon/donjonGlace/murGlacéPorte4.png");
+
+
+    public static Texture  flag1 = new Texture("donjon/donjonGlace/flag/flag1.png");
+    public static Texture  flag2 = new Texture("donjon/donjonGlace/flag/flag2.png");
+    public static Texture  flag3 = new Texture("donjon/donjonGlace/flag/flag3.png");
+    public static Texture  flag4 = new Texture("donjon/donjonGlace/flag/flag4.png");
+    public static Texture  flag5 = new Texture("donjon/donjonGlace/flag/flag5.png");
+
+    public static long timerFlag = System.currentTimeMillis();
+    public static int étatFlag = 0;
+
+    public static void annimationFlag(GameMain game, int x, int y){
+        if (étatFlag == 0) game.getBatch().draw(flag1, x , y);
+        else if (étatFlag == 1) game.getBatch().draw(flag2, x , y);
+        else if (étatFlag == 2) game.getBatch().draw(flag3, x , y);
+        else if (étatFlag == 3) game.getBatch().draw(flag4, x , y);
+        else if (étatFlag == 4) game.getBatch().draw(flag5, x , y);
+        if ( System.currentTimeMillis() - timerFlag > 300 ){
+            if (étatFlag == 0) étatFlag ++ ;
+            else if (étatFlag == 1) étatFlag ++;
+            else if (étatFlag == 2) étatFlag ++;
+            else if (étatFlag == 3) étatFlag ++;
+            else if (étatFlag == 4) étatFlag = 0;
+            timerFlag = System.currentTimeMillis();
+        }
+    }
 	
 //	tile
 

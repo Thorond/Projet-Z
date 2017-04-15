@@ -225,6 +225,16 @@ public class SousMapH2 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 480 + x, 420 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 540 + x, 420 + y);
 
+
+
+//
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 90+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 360+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 420+ x, 180+ y);
+
+
     }
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
