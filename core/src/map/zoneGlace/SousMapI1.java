@@ -6,8 +6,14 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
+import items.CoeurDeVie;
+import map.CadrillageMap;
+import scenes.MainMenu;
 
 public class SousMapI1 extends Sprite{
+
+
+    public static boolean isReceptaclePris = false; // à sauvegarder
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -145,7 +151,27 @@ public class SousMapI1 extends Sprite{
 		game.getBatch().draw(DonjonGlace.murVertical, 162+ x, 100+ y);
 		game.getBatch().draw(DonjonGlace.murVertical, 162+ x, -70+ y);
 
-	}
+
+		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 0 + x, 0 + y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0 + x, 60 + y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 0 + x, 120 + y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 0 + x, 180 + y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 0 + x, 300 + y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 60 + x, 300 + y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 60 + x, 240 + y);
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSupDroi, 60 + x, 0 + y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 60 + x, 60 + y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 60 + x, 120 + y);
+		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 60 + x, 180 + y);
+
+
+        if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 60 + x, 230 + y);
+        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+
+
+
+    }
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
@@ -154,7 +180,7 @@ public class SousMapI1 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+        if ( !(isReceptaclePris)) CadrillageMap.setTypeDeDécor(60/60, 180/60, "receptacleDeCoeur");
 	}
 
 	public static void destroyType() {

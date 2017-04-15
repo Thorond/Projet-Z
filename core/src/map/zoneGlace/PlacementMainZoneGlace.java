@@ -40,7 +40,7 @@ public class PlacementMainZoneGlace {
 	
 	
 	public static void posiSousMap(MainCharacter perso){
-		if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y < 0  ){
+		if (perso.getBody().getPosition().x > -10 && perso.getBody().getPosition().y < 0  ){
 			if ( positionSousMap.equals("A1")  ){
 				SousMapA1.destroyBody();
 				positionSousMap = "A2";
@@ -227,7 +227,7 @@ public class PlacementMainZoneGlace {
 			
 			réinitialisation();
 			
-		} else if (perso.getBody().getPosition().x > 0 && perso.getBody().getPosition().y > 460/MainMenu.PPM ){
+		} else if (perso.getBody().getPosition().x > -10 && perso.getBody().getPosition().y > 460/MainMenu.PPM ){
 			if ( positionSousMap.equals("A1")  ){
 			} else if ( positionSousMap.equals("B1" ) ){
 			} else if ( positionSousMap.equals("C1" ) ){

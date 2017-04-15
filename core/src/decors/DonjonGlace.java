@@ -48,6 +48,13 @@ public class DonjonGlace {
 	public static boolean isCléHauteTrouvé = false; // à sauvegarder 
 	public static boolean isCléMilieuTrouvé = false; // à sauvegarder 
 	public static Texture  texteClé= new Texture("texte/divers/texteClé.png");
+
+
+	public static Texture  serrure= new Texture("donjon/donjonGlace/serrure.png");
+	public static Texture  murGlacéPorte1 = new Texture("donjon/donjonGlace/murGlacéPorte1.png");
+	public static Texture  murGlacéPorte2 = new Texture("donjon/donjonGlace/murGlacéPorte2.png");
+	public static Texture  murGlacéPorte3 = new Texture("donjon/donjonGlace/murGlacéPorte3.png");
+	public static Texture  murGlacéPorte4 = new Texture("donjon/donjonGlace/murGlacéPorte4.png");
 	
 //	tile
 

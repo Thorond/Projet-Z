@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class SousMapE6 extends Sprite{
@@ -36,6 +37,21 @@ public class SousMapE6 extends Sprite{
     public static boolean isiceMan3Created;
     public static Body iceMan4;
     public static boolean isiceMan4Created;
+
+
+    public static boolean isBuisson1Cut = false;
+    public static boolean isBuisson2Cut = false;
+    public static boolean isBuisson3Cut = false;
+    public static boolean isBuisson4Cut = false;
+    public static boolean isBuisson5Cut = false;
+    public static boolean isBuisson6Cut = false;
+    public static boolean isBuisson7Cut = false;
+
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
+    public static Body arbre2;
+    public static boolean isarbre2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -212,9 +228,34 @@ public class SousMapE6 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.tree, -20+ x, 250+ y);
         game.getBatch().draw(ClimatMontagneux.tree, -20+ x, 210+ y);
 
+
+        game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 290+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 250+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 210+ y);
+
         game.getBatch().draw(ClimatMontagneux.tree, 130+ x, 70+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 110+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 70+ y);
+
+
+//		buissons
+
+
+        ClimatMontagneux.buisson(isBuisson1Cut,game, 300+x, 120+y);
+        ClimatMontagneux.buisson(isBuisson2Cut,game, 60+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson3Cut,game, 120+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson4Cut,game, 240+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson5Cut,game, 360+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson6Cut,game, 480+x, 60+y);
+        ClimatMontagneux.buisson(isBuisson7Cut,game, 180+x, 60+y);
+
+//
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 370+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 180+ x, 140+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 540+ x, 360+ y);
+
 	}
 
 	public static void destroyBody() {
@@ -254,6 +295,13 @@ public class SousMapE6 extends Sprite{
 
         if ( isiceMan4Created) MainMenu.world.destroyBody(iceMan4);
         isiceMan4Created = false;
+
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
+
+        if ( isarbre2Created) MainMenu.world.destroyBody(arbre2);
+        isarbre2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -267,11 +315,11 @@ public class SousMapE6 extends Sprite{
             ismur2Created = true;
         }
         if ( ismur3Created == false ) {
-            mur3 = ClimatMontagneux.createBody(20,120,60,120);
+            mur3 = ClimatMontagneux.createBody(20,210,60,300);
             ismur3Created = true;
         }
         if ( ismur4Created == false ) {
-            mur4 = ClimatMontagneux.createBody(560,120,60,120);
+            mur4 = ClimatMontagneux.createBody(560,210,60,300);
             ismur4Created = true;
         }
         if ( ismur5Created == false ) {
@@ -307,10 +355,43 @@ public class SousMapE6 extends Sprite{
             iceMan4 = ClimatMontagneux.createBodyPerso("arbre", "static",470,150);
             isiceMan4Created = true;
         }
+
+
+        CadrillageMap.setTypeDeDécor(5,2,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(1,6,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(2,6,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(4,6,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(6,6,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(8,1,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(3,1,"HerbesHautes");
+        if ( CadrillageMap.décorChangé[5][2] == true ) isBuisson1Cut = true;
+        if ( CadrillageMap.décorChangé[1][6] == true ) isBuisson2Cut = true;
+        if ( CadrillageMap.décorChangé[2][6] == true ) isBuisson3Cut = true;
+        if ( CadrillageMap.décorChangé[4][6] == true ) isBuisson4Cut = true;
+        if ( CadrillageMap.décorChangé[6][6] == true ) isBuisson5Cut = true;
+        if ( CadrillageMap.décorChangé[8][1] == true ) isBuisson6Cut = true;
+        if ( CadrillageMap.décorChangé[3][1] == true ) isBuisson7Cut = true;
+
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",70,110);
+            isarbre1Created = true;
+        }
+        if ( isarbre2Created == false ) {
+            arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",130,70);
+            isarbre2Created = true;
+        }
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+
+        isBuisson1Cut = false;
+        isBuisson2Cut = false;
+        isBuisson3Cut = false;
+        isBuisson4Cut = false;
+        isBuisson5Cut = false;
+        isBuisson6Cut = false;
+        isBuisson7Cut = false;
 	}
 }

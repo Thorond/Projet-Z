@@ -42,6 +42,7 @@ import map.zoneGlace.SousMapD2;
 import map.zoneGlace.SousMapD5;
 import map.zoneGlace.SousMapF1;
 import map.zoneGlace.SousMapF2;
+import map.zoneGlace.SousMapH2;
 import menus.MenuDémarrer;
 import menus.MenuGameover;
 import menus.MenuPause;
@@ -469,6 +470,11 @@ public class MainMenu implements Screen{
 						if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
 							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
 								SousMapD5.ouvertureCoffre = true;
+							}
+						}
+						if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
+							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) ].equals("coffreBleu")) {
+								SousMapH2.ouvertureCoffre = true;
 							}
 						}
 						if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
