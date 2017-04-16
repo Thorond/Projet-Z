@@ -125,6 +125,15 @@ public class SousMapI5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 180+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 180+ x, 0+ y);
 
+//
+
+
+		game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 430+ y);
+
+		game.getBatch().draw(ClimatMontagneux.icebergWater, 360+ x, 50+ y);
+        game.getBatch().draw(ClimatMontagneux.iceberg2, 150+ x, 430+ y);
+		game.getBatch().draw(ClimatMontagneux.icebergWater, 310+ x, 300+ y);
+
 	}
 
 	public static void destroyBody() {

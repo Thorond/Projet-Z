@@ -40,6 +40,7 @@ public class Epee extends Item{
 						&& cha.getBody().getPosition().y * MainMenu.PPM / 60 - (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) < 30 / 60) {
 					CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60), (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1, true);
 					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM - 30));
+					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM -30));
 				}
 
 			} else if (cha.getDirection().equals("haut")) {
@@ -49,7 +50,7 @@ public class Epee extends Item{
 						&& (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) + 1.5 - cha.getBody().getPosition().y * MainMenu.PPM / 60 < 90 / 60) {
 					CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60), (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) + 1, true);
 					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM + 30));
-					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
+					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM) +30);
 				}
 
 			} else if (cha.getDirection().equals("droite")) {
@@ -59,7 +60,7 @@ public class Epee extends Item{
 						&& (int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1.5 - cha.getBody().getPosition().x * MainMenu.PPM / 60 < 90 / 60) {
 					CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60), true);
 					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM) + 30, (int) (cha.getBody().getPosition().y * MainMenu.PPM));
-					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
+					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM +30), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
 				}
 
 			} else if (cha.getDirection() == "gauche") {
@@ -69,7 +70,7 @@ public class Epee extends Item{
 						&& cha.getBody().getPosition().x * MainMenu.PPM / 60 - (int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) < 30 / 60) {
 					CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) - 1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60), true);
 					CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM) - 30, (int) (cha.getBody().getPosition().y * MainMenu.PPM));
-					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
+					Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM -30), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
 				}
 
 			}
@@ -124,9 +125,9 @@ public class Epee extends Item{
 				for ( int i = 0; i < Pnj.nbrDeMonstres ; i++){
 					//				vérification qu'ils soient vivants
 					if ( Pnj.monstres[i].isAlive() ){
-						if ( (int) cha.getX() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
+						if ( (int) cha.getX() + 100 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
 								&& (int) cha.getX() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
-								&& (int) cha.getY() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM
+								&& (int) cha.getY() + 100 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM
 								&& (int) cha.getY() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM ){
 
 							Pnj.monstres[i].subirDégats(cha.getStrength() * 2, cha.getDirection());
@@ -135,43 +136,83 @@ public class Epee extends Item{
 
 				}
 			}
-
+// bas
 			if (((int) cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1 >= 0 &&
 					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) - 1].equals("HerbesHautes")
 					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60))][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) - 1] == false
-					&& cha.getBody().getPosition().y * MainMenu.PPM / 60 - (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) < 30 / 60) {
+					) {
 				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60), (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1, true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM - 30));
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM ), (int) (cha.getBody().getPosition().y * MainMenu.PPM -30));
 			}
-
+// bas gauche
+			if (((int) cha.getBody().getPosition().x / 60) - 1 >= 0 &&
+					((int) cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1 >= 0 &&
+					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) -1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) - 1].equals("HerbesHautes")
+					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)) -1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) - 1] == false
+					) {
+				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) -1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1, true);
+				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM -30), (int) (cha.getBody().getPosition().y * MainMenu.PPM - 30));
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM -30), (int) (cha.getBody().getPosition().y * MainMenu.PPM -30));
+			}
+// haut
 			if (((int) cha.getBody().getPosition().y / 60) + 1 <= 7 &&
 					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) + 1].equals("HerbesHautes")
 					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60))][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) + 1] == false
-					&& (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) + 1.5 - cha.getBody().getPosition().y * MainMenu.PPM / 60 < 90 / 60) {
+					) {
 				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60), (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) + 1, true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM + 30));
-				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM +30));
 			}
-
+// haut Gauche
+			if (((int) cha.getBody().getPosition().x / 60) - 1 >= 0 &&
+					((int) cha.getBody().getPosition().y / 60) + 1 <= 7 &&
+					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)-1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) + 1].equals("HerbesHautes")
+					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)-1)][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) + 1] == false
+					) {
+				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60 )-1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) + 1, true);
+				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM)-30, (int) (cha.getBody().getPosition().y * MainMenu.PPM + 30));
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM)-30, (int) (cha.getBody().getPosition().y * MainMenu.PPM +30));
+			}
+//	droite
 			if (((int) cha.getBody().getPosition().x / 60) + 1 <= 9 &&
 					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60))].equals("HerbesHautes")
 					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)) + 1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60))] == false
-					&& (int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1.5 - cha.getBody().getPosition().x * MainMenu.PPM / 60 < 90 / 60) {
+					) {
 				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60), true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM) + 30, (int) (cha.getBody().getPosition().y * MainMenu.PPM));
 				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
 			}
-
+//  haut droite
+			if (((int) cha.getBody().getPosition().y / 60) + 1 <= 7 &&
+					((int) cha.getBody().getPosition().x / 60) + 1 <= 9 &&
+					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)+1)].equals("HerbesHautes")
+					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)) + 1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)+1)] == false
+					) {
+				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) + 1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)+1, true);
+				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM) + 30, (int) (cha.getBody().getPosition().y * MainMenu.PPM)+30);
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM)+30 , (int) (cha.getBody().getPosition().y * MainMenu.PPM +30));
+			}
+//	gauche
 			if (((int) cha.getBody().getPosition().x / 60) - 1 >= 0 &&
 					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) - 1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60))].equals("HerbesHautes")
 					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)) - 1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60))] == false
-					&& cha.getBody().getPosition().x * MainMenu.PPM / 60 - (int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) < 30 / 60) {
+					) {
 				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) - 1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60), true);
 				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM) - 30, (int) (cha.getBody().getPosition().y * MainMenu.PPM));
 				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM), (int) (cha.getBody().getPosition().y * MainMenu.PPM));
 			}
-
-
+//	bas droite
+			if (((int) cha.getBody().getPosition().x / 60) + 1 <= 9 &&
+					((int) cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1 >= 0 &&
+					CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) +1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) - 1].equals("HerbesHautes")
+					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)) +1][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60)) - 1] == false
+					) {
+				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60) +1, (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1, true);
+				CoeurDeVie.remplirCoeurDeVies((int) (cha.getBody().getPosition().x * MainMenu.PPM +30), (int) (cha.getBody().getPosition().y * MainMenu.PPM - 30));
+				Essence.remplirEssences((int) (cha.getBody().getPosition().x * MainMenu.PPM +30), (int) (cha.getBody().getPosition().y * MainMenu.PPM -30));
+			}
+// centre
 			if (CadrillageMap.typeDeDécor[(int) (cha.getBody().getPosition().x * MainMenu.PPM / 60)][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60))].equals("HerbesHautes")
 					&& CadrillageMap.décorChangé[((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60))][((int) (cha.getBody().getPosition().y * MainMenu.PPM / 60))] == false) {
 				CadrillageMap.setDécorChangé((int) (cha.getBody().getPosition().x * MainMenu.PPM / 60), (int) (cha.getBody().getPosition().y * MainMenu.PPM / 60), true);

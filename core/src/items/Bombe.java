@@ -218,4 +218,6 @@ public class Bombe extends Item {
 		this.y = y;
 	}
 
+
+
 }

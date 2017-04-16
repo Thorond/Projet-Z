@@ -8,6 +8,7 @@ import map.CadrillageMap;
 import map.zoneGlace.PlacementMainZoneGlace;
 import map.zoneGlace.SousMapB3;
 import map.zoneGlace.SousMapF4;
+import map.zoneGlace.SousMapI1;
 import scenes.MainMenu;
 
 public class CoeurDeVie {
@@ -269,6 +270,7 @@ public class CoeurDeVie {
 	public static void receptacleDeCoeur(){
 		if (PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.isReceptaclePris = true;
 		if (PlacementMainZoneGlace.positionSousMap.equals("F4")) SousMapF4.isReceptaclePris = true;
+		if (PlacementMainZoneGlace.positionSousMap.equals("I1")) SousMapI1.isReceptaclePris = true;
 		nbrDeReceptacle += 1 ;
 		if (nbrDeReceptacle == 4) {
 			MainMenu.Link.setHealthMax(MainMenu.Link.getHealthMax() + 4);

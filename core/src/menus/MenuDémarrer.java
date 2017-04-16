@@ -20,7 +20,7 @@ public class MenuDémarrer extends Menu {
     public static Texture boutonPresséOption = new Texture("menus/menuDémarrer/boutonPresséOption.png");
     public static Texture boutonOption = new Texture("menus/menuDémarrer/boutonOption.png");
 
-    public static boolean isInGame = true; // à mettre false à la fin du développement
+    public static boolean isInGame =true; // à mettre false à la fin du développement
 
 
     public static int choix = 0;

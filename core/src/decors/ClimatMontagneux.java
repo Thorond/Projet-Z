@@ -177,7 +177,11 @@ public class ClimatMontagneux {
 
 	
 //	objets igloo 
-	
+
+
+	public static Texture escalierBas = new Texture("climatMontagneux/escalierBas.png");
+	public static Texture escalier = new Texture("climatMontagneux/escalier.png");
+
 	public static Texture tonneauIgloo = new Texture("climatMontagneux/BarrelIgloo.png");
 	public static Texture caisseIgloo = new Texture("climatMontagneux/CrateIgloo.png");
 
@@ -377,9 +381,6 @@ public class ClimatMontagneux {
 
 	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
-		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX, PlacementMainZoneGlace.positionRelativeY, 0);
-		}
 		
 	}
 	
@@ -521,8 +522,6 @@ public class ClimatMontagneux {
 	public static void setDamageTrou(MainCharacter cha) {
 		// TODO Auto-generated method stub
 		cha.setHealth(cha.getHealth() - 5 );
-		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX , PlacementMainZoneGlace.positionRelativeY, 0);}
 	}
 
 }

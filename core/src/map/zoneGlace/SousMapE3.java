@@ -182,34 +182,49 @@ public class SousMapE3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, -40+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, -40+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 300+ x, -40+ y);
-		
+
+
+//
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 60+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 120+ x, 300+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 240+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 120+ x, 00+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 360+ x, 300+ y);
+
+
 //		==================================================================
 		//		Placement des dessins des monstres
 		//==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
+
+		if ( m1EstCrée && monstre1.isAlive() ) {
 			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
 			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
 		}
-		if ( m1EstCrée && monstre3.isAlive() ) { 
+		if ( m3EstCrée && monstre3.isAlive() ) {
 			game.getBatch().draw(monstre3,monstre3.getX(), monstre3.getY());
 		}
-		if ( m2EstCrée && monstre4.isAlive() ) {
+		if ( m4EstCrée && monstre4.isAlive() ) {
 			game.getBatch().draw(monstre4.getTexture(), monstre4.getX(), monstre4.getY());
 		}
 		//==================================================================
 		//		      			dégats des monstres
 		//==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
+
+		if ( m1EstCrée && monstre1.isAlive() ) {
 			monstre1.infligéDégatLink();
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
 			monstre2.infligéDégatLink();
 		}
-		if ( m3EstCrée && monstre3.isAlive() ) { 
+		if ( m3EstCrée && monstre3.isAlive() ) {
 			monstre3.infligéDégatLink();
 		}
 		if ( m4EstCrée && monstre4.isAlive() ) {

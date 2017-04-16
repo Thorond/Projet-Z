@@ -8,6 +8,7 @@ import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
 import items.Essence;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class Pnj extends Characters{
@@ -33,21 +34,34 @@ public class Pnj extends Characters{
 	public void déplacementAléa(){
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - start > 1000) {
-			if ( tempo < 0.25 && this.getBody().getPosition().x > 90/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(-20000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("gauche");
+			if ( tempo < 0.25 && this.getBody().getPosition().x > 90/MainMenu.PPM ) {
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) - 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) - 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("EauProfonde")){
+					this.getBody().applyLinearImpulse(new Vector2(-20000f, 0), this.getBody().getWorldCenter(), true);
+					this.setDirection("gauche");
+				}
 			}
-			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 480/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(+20000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("droite");
+			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 480/MainMenu.PPM ) {
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) + 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) + 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("EauProfonde")) {
+					this.getBody().applyLinearImpulse(new Vector2(+20000f, 0), this.getBody().getWorldCenter(), true);
+					this.setDirection("droite");
+
+				}
 			}
 			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 90/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(0,-20000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("bas");
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) - 1].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) - 1].equals("EauProfonde")) {
+					this.getBody().applyLinearImpulse(new Vector2(0, -20000f), this.getBody().getWorldCenter(), true);
+					this.setDirection("bas");
+				}
 			}
 			else if (tempo > 0.75 && this.getBody().getPosition().y < 360/MainMenu.PPM){
-				this.getBody().applyLinearImpulse(new Vector2(0,+20000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("haut");
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("EauProfonde")) {
+					this.getBody().applyLinearImpulse(new Vector2(0, +20000f), this.getBody().getWorldCenter(), true);
+					this.setDirection("haut");
+				}
 			}
 			start = System.currentTimeMillis();
 			arrét = false;
@@ -205,59 +219,62 @@ public class Pnj extends Characters{
 	
 // infligé des dégats 
 
+    public long timerSubirDégat = System.currentTimeMillis();
+
 	
 	public void infligéDégatLink(){
-		
-		
-		if ( MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() -20
-				&& MainMenu.Link.getX() <= this.getX() 
-				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
-				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){
-			MainMenu.Link.isHit = true;
-			MainMenu.Link.timerHit = System.currentTimeMillis();
-			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(-600000,0), MainMenu.Link.getBody().getWorldCenter(), true);
-			if ( MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
-				
-			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
-		}
-		else if (this.getX() - MainMenu.Link.getX() < 0 
-				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 +20
-				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() 
-				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  ){
-			MainMenu.Link.isHit = true;
-			MainMenu.Link.timerHit = System.currentTimeMillis();
-			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(+600000,0), MainMenu.Link.getBody().getWorldCenter(), true);
 
-			if ( MainMenu.Link.getDirection().equals("gauche") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
-				
-			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
-		} 
-	
-		if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()  
-				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 
-				&& MainMenu.Link.getY() +MainMenu.Link.getHeight() / 2 >= this.getY() -20
-				&& this.getY() - MainMenu.Link.getY() > 0 ){
-			MainMenu.Link.isHit = true;
-			MainMenu.Link.timerHit = System.currentTimeMillis();
-			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,-600000), MainMenu.Link.getBody().getWorldCenter(), true);
+        if ( System.currentTimeMillis() - timerSubirDégat > 250 ) {
 
-			if ( MainMenu.Link.getDirection().equals("haut") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+            if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() - 20
+                    && MainMenu.Link.getX() <= this.getX()
+                    && MainMenu.Link.getY() + MainMenu.Link.getHeight() / 2 >= this.getY()
+                    && MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2) {
+                MainMenu.Link.isHit = true;
+                MainMenu.Link.timerHit = System.currentTimeMillis();
+                MainMenu.Link.getBody().applyLinearImpulse(new Vector2(-600000, 0), MainMenu.Link.getBody().getWorldCenter(), true);
+                if (MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé) { // utilisation du bouclier
 
-			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
-		}
-		else if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()  
-				&& MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 
-				&& this.getY() - MainMenu.Link.getY() < 0
-				&& MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2  +15){
-			MainMenu.Link.isHit = true;
-			MainMenu.Link.timerHit = System.currentTimeMillis();
-			MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0,+600000), MainMenu.Link.getBody().getWorldCenter(), true);
+                } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+            } else if (this.getX() - MainMenu.Link.getX() < 0
+                    && MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2 + 20
+                    && MainMenu.Link.getY() + MainMenu.Link.getHeight() / 2 >= this.getY()
+                    && MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2) {
+                MainMenu.Link.isHit = true;
+                MainMenu.Link.timerHit = System.currentTimeMillis();
+                MainMenu.Link.getBody().applyLinearImpulse(new Vector2(+600000, 0), MainMenu.Link.getBody().getWorldCenter(), true);
 
-			if ( MainMenu.Link.getDirection().equals("bas") && Bouclier.isBouclierUtilisé){ // utilisation du bouclier
+                if (MainMenu.Link.getDirection().equals("gauche") && Bouclier.isBouclierUtilisé) { // utilisation du bouclier
 
-			} else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
-		}
-			
+                } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+            }
+
+            if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()
+                    && MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2
+                    && MainMenu.Link.getY() + MainMenu.Link.getHeight() / 2 >= this.getY() - 20
+                    && this.getY() - MainMenu.Link.getY() > 0) {
+                MainMenu.Link.isHit = true;
+                MainMenu.Link.timerHit = System.currentTimeMillis();
+                MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0, -600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
+                if (MainMenu.Link.getDirection().equals("haut") && Bouclier.isBouclierUtilisé) { // utilisation du bouclier
+
+                } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+            } else if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX()
+                    && MainMenu.Link.getX() <= this.getX() + this.getWidth() / 2
+                    && this.getY() - MainMenu.Link.getY() < 0
+                    && MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2 + 15) {
+                MainMenu.Link.isHit = true;
+                MainMenu.Link.timerHit = System.currentTimeMillis();
+                MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0, +600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
+                if (MainMenu.Link.getDirection().equals("bas") && Bouclier.isBouclierUtilisé) { // utilisation du bouclier
+
+                } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+            }
+
+            timerSubirDégat = System.currentTimeMillis();
+        }
 		
 	}
 	

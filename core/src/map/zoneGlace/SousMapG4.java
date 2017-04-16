@@ -211,12 +211,12 @@ public class SousMapG4 extends Sprite{
 
 		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 280+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 140+ y);
-		
+
 //		==================================================================
 		//		Placement des dessins des monstres
 		//==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
+
+		if ( m1EstCrée && monstre1.isAlive() ) {
 			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {
@@ -228,8 +228,8 @@ public class SousMapG4 extends Sprite{
 		//==================================================================
 		//		      			dégats des monstres
 		//==================================================================
-		
-		if ( m1EstCrée && monstre1.isAlive() ) { 
+
+		if ( m1EstCrée && monstre1.isAlive() ) {
 			monstre1.infligéDégatLink();
 		}
 		if ( m2EstCrée && monstre2.isAlive() ) {

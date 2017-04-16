@@ -32,6 +32,18 @@ public class SousMapC1 extends Sprite {
 	public static boolean isTonneau3Created;
 	public static Body tonneau4 ;
 	public static boolean isTonneau4Created;
+
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
+    public static Body arbre2;
+    public static boolean isarbre2Created;
+    public static Body arbre3;
+    public static boolean isarbre3Created;
+    public static Body arbre4;
+    public static boolean isarbre4Created;
+    public static Body arbre5;
+    public static boolean isarbre5Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -160,6 +172,16 @@ public class SousMapC1 extends Sprite {
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 300+y);
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 360+y);
 		ClimatMontagneux.eauProfondeGlacée(game,540+ x, 420+y);
+
+//
+
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 120+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 480+ x, 120+ y);
+
+		game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 480+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 00+ y);
 		
 //		arbre
 
@@ -240,7 +262,27 @@ public class SousMapC1 extends Sprite {
 			tonneau4 =ClimatMontagneux.createBodyPerso("tonneau","static",410,350);
 			isTonneau4Created = true;
 		}
-		
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",60,0);
+            isarbre1Created = true;
+        }
+        if ( isarbre2Created == false ) {
+            arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",480,180);
+            isarbre2Created = true;
+        }
+        if ( isarbre3Created == false ) {
+            arbre3 = ClimatMontagneux.createBodyPerso("arbre", "static",540,120);
+            isarbre3Created = true;
+        }
+        if ( isarbre4Created == false ) {
+            arbre4 = ClimatMontagneux.createBodyPerso("arbre", "static",100,280);
+            isarbre4Created = true;
+        }
+        if ( isarbre5Created == false ) {
+            arbre5 = ClimatMontagneux.createBodyPerso("arbre", "static",420,180);
+            isarbre5Created = true;
+        }
 		
 	}
 	
@@ -265,6 +307,22 @@ public class SousMapC1 extends Sprite {
 		isTonneau3Created = false;
 		if ( isTonneau4Created ) MainMenu.world.destroyBody(tonneau4);
 		isTonneau4Created = false;
+
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
+
+        if ( isarbre2Created) MainMenu.world.destroyBody(arbre2);
+        isarbre2Created = false;
+
+        if ( isarbre3Created) MainMenu.world.destroyBody(arbre3);
+        isarbre3Created = false;
+
+        if ( isarbre4Created) MainMenu.world.destroyBody(arbre4);
+        isarbre4Created = false;
+
+        if ( isarbre5Created) MainMenu.world.destroyBody(arbre5);
+        isarbre5Created = false;
 	}
 
 }

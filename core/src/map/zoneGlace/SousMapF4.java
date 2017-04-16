@@ -339,7 +339,7 @@ public class SousMapF4 extends Sprite{
 		}
 
 		if ( isBosquet1Created == false ) {
-			bosquet1 = ClimatMontagneux.createBody(210,40,260,80);
+			bosquet1 = ClimatMontagneux.createBody(220,40,280,80);
 			isBosquet1Created = true;
 		}
 		if ( isBosquet2Created == false ) {

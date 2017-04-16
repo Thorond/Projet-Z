@@ -125,6 +125,23 @@ public class SousMapA4 extends Sprite{
 		
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 360+ y);
+
+//
+
+        game.getBatch().draw(ClimatMontagneux.tree, 450+ x, 360+ y);
+
+        game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 420+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.arbreSommetDroite, 480+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 420+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 480+ x, 300+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreGauche, 420+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreCentreDroite, 480+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 420+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasDroite, 480+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 480+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetGauche, 480+ x, 180+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreBasMilieu, 540+ x, 120+ y);
+		game.getBatch().draw(ClimatMontagneux.arbreSommetMilieu, 540+ x, 180+ y);
 	}
 
 	public static void destroyBody() {

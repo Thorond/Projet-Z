@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class SousMapF6 extends Sprite{
@@ -22,6 +23,18 @@ public class SousMapF6 extends Sprite{
 	public static boolean isCote1Created;
 	public static Body cote2 ;
 	public static boolean isCote2Created;
+
+
+    public static boolean isBuisson1Cut = false;
+    public static boolean isBuisson2Cut = false;
+    public static boolean isBuisson3Cut = false;
+    public static boolean isBuisson4Cut = false;
+    public static boolean isBuisson5Cut = false;
+    public static boolean isBuisson6Cut = false;
+    public static boolean isBuisson7Cut = false;
+    public static boolean isBuisson8Cut = false;
+    public static boolean isBuisson9Cut = false;
+    public static boolean isBuisson10Cut = false;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -195,10 +208,52 @@ public class SousMapF6 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 180+ x, 240+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 180+ x, 180+ y);
 
+
+//
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 0+ x, 350+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 90+ x, 350+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 60+ x, 280+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 120+ x, 240+ y);
+
+
+
+        game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 380+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 320+ y);
+
+
+//		buissons
+
+
+        ClimatMontagneux.buisson(isBuisson1Cut,game, 420+x, 300+y);
+        ClimatMontagneux.buisson(isBuisson2Cut,game, 480+x, 300+y);
+        ClimatMontagneux.buisson(isBuisson3Cut,game, 540+x, 300+y);
+        ClimatMontagneux.buisson(isBuisson4Cut,game, 420+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson5Cut,game, 480+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson6Cut,game, 540+x, 360+y);
+        ClimatMontagneux.buisson(isBuisson7Cut,game, 480+x, 240+y);
+        ClimatMontagneux.buisson(isBuisson8Cut,game, 480+x, 180+y);
+        ClimatMontagneux.buisson(isBuisson9Cut,game, 540+x, 240+y);
+        ClimatMontagneux.buisson(isBuisson10Cut,game, 540+x, 180+y);
+
 		ClimatMontagneux.placerGrandPont(game, 190+x, 200+y);
 
 		ClimatMontagneux.annimationCascadePetite(game, 290+x, 400 + y);
 		ClimatMontagneux.annimationCascadeMoy(game, 210 + x, 35 + y);
+
+//
+
+        game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 290+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 250+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 210+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 10+ x, 290+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 10+ x, 250+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 10+ x, 210+ y);
+
+
+        game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 210+ y);
+
+
 	}
 
 	public static void destroyBody() {
@@ -244,10 +299,42 @@ public class SousMapF6 extends Sprite{
 			cote2 = ClimatMontagneux.createBody(380,450,420,60);
 			isCote2Created = true;
 		}
+
+
+        CadrillageMap.setTypeDeDécor(7,5,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(8,5,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(9,5,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(7,6,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(8,6,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(9,6,"HerbesHautes");
+        if ( CadrillageMap.décorChangé[7][5] == true ) isBuisson1Cut = true;
+        if ( CadrillageMap.décorChangé[8][5] == true ) isBuisson2Cut = true;
+        if ( CadrillageMap.décorChangé[9][5] == true ) isBuisson3Cut = true;
+        if ( CadrillageMap.décorChangé[7][6] == true ) isBuisson4Cut = true;
+        if ( CadrillageMap.décorChangé[8][6] == true ) isBuisson5Cut = true;
+        if ( CadrillageMap.décorChangé[9][6] == true ) isBuisson6Cut = true;
+        CadrillageMap.setTypeDeDécor(8,4,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(8,3,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(9,4,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(9,3,"HerbesHautes");
+        if ( CadrillageMap.décorChangé[8][4] == true ) isBuisson7Cut = true;
+        if ( CadrillageMap.décorChangé[8][3] == true ) isBuisson8Cut = true;
+        if ( CadrillageMap.décorChangé[9][4] == true ) isBuisson9Cut = true;
+        if ( CadrillageMap.décorChangé[9][3] == true ) isBuisson10Cut = true;
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+
+        isBuisson1Cut = false;
+        isBuisson2Cut = false;
+        isBuisson3Cut = false;
+        isBuisson4Cut = false;
+        isBuisson5Cut = false;
+        isBuisson6Cut = false;
+        isBuisson7Cut = false;
+        isBuisson8Cut = false;
+        isBuisson9Cut = false;
+        isBuisson10Cut = false;
 	}
 }

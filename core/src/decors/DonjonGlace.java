@@ -9,7 +9,10 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.MainCharacter;
+import map.zoneGlace.SousMapH2;
 import scenes.MainMenu;
+import sun.applet.Main;
 
 public class DonjonGlace {
 	
@@ -48,10 +51,83 @@ public class DonjonGlace {
 	public static boolean isCléHauteTrouvé = false; // à sauvegarder 
 	public static boolean isCléMilieuTrouvé = false; // à sauvegarder 
 	public static Texture  texteClé= new Texture("texte/divers/texteClé.png");
+
+
+	public static Texture  serrure= new Texture("donjon/donjonGlace/serrure.png");
+
+    public static void détectionSerrure(MainCharacter Link){
+        if ( Link.getBody().getPosition().x * MainMenu.PPM > 410
+                && Link.getBody().getPosition().x * MainMenu.PPM < 450
+                && Link.getBody().getPosition().y * MainMenu.PPM > 220){
+            if ( ouvertureGrille == -1  && isCléBasseTrouvé && isCléHauteTrouvé
+                    && isCléMilieuTrouvé && Link.getDirection().equals("haut")) ouvertureGrille = 0;
+        }
+    }
+
+	public static Texture  murGlacéPorte1 = new Texture("donjon/donjonGlace/murGlacéPorte1.png");
+	public static Texture  murGlacéPorte2 = new Texture("donjon/donjonGlace/murGlacéPorte2.png");
+	public static Texture  murGlacéPorte3 = new Texture("donjon/donjonGlace/murGlacéPorte3.png");
+	public static Texture  murGlacéPorte4 = new Texture("donjon/donjonGlace/murGlacéPorte4.png");
+
+    public static boolean transitionGrille = true;
+
+    public static int ouvertureGrille = -1; // à sauvegarder
+    public static long changementOuvertureGrille = System.currentTimeMillis();
+
+    public static void annimationOuvertureGrille(GameMain game, int x, int y){
+        if ( transitionGrille ) {
+            if ( ouvertureGrille == 0 ) game.getBatch().draw(DonjonGlace.murGlacéPorte1, 480 + x, 240 + y);
+            else if ( ouvertureGrille == 1 ) game.getBatch().draw(DonjonGlace.murGlacéPorte2, 480 + x, 240 + y);
+            else if ( ouvertureGrille == 2 ) game.getBatch().draw(DonjonGlace.murGlacéPorte3, 480 + x, 240 + y);
+            else if ( ouvertureGrille == 3 ) game.getBatch().draw(DonjonGlace.murGlacéPorte4, 480 + x, 240 + y);
+            else if ( ouvertureGrille == 4 ) {
+                transitionGrille = false;
+            }
+        }
+        if (System.currentTimeMillis() - changementOuvertureGrille > 3000 ){
+            if ( ouvertureGrille == -1 ) ouvertureGrille = 0;
+            else if ( ouvertureGrille == 0 ) ouvertureGrille = 1;
+            else if ( ouvertureGrille == 1 ) ouvertureGrille = 2;
+            else if ( ouvertureGrille == 2 ) {
+                ouvertureGrille = 3;
+                SousMapH2.destroyBody();
+            }
+            else if ( ouvertureGrille == 3 ) ouvertureGrille = 4;
+            else if ( ouvertureGrille == 4 ) ouvertureGrille = 5;
+            changementOuvertureGrille = System.currentTimeMillis();
+        }
+    }
+//
+
+
+    public static Texture  flag1 = new Texture("donjon/donjonGlace/flag/flag1.png");
+    public static Texture  flag2 = new Texture("donjon/donjonGlace/flag/flag2.png");
+    public static Texture  flag3 = new Texture("donjon/donjonGlace/flag/flag3.png");
+    public static Texture  flag4 = new Texture("donjon/donjonGlace/flag/flag4.png");
+    public static Texture  flag5 = new Texture("donjon/donjonGlace/flag/flag5.png");
+
+    public static long timerFlag = System.currentTimeMillis();
+    public static int étatFlag = 0;
+
+    public static void annimationFlag(GameMain game, int x, int y){
+        if (étatFlag == 0) game.getBatch().draw(flag1, x , y);
+        else if (étatFlag == 1) game.getBatch().draw(flag2, x , y);
+        else if (étatFlag == 2) game.getBatch().draw(flag3, x , y);
+        else if (étatFlag == 3) game.getBatch().draw(flag4, x , y);
+        else if (étatFlag == 4) game.getBatch().draw(flag5, x , y);
+        if ( System.currentTimeMillis() - timerFlag > 300 ){
+            if (étatFlag == 0) étatFlag ++ ;
+            else if (étatFlag == 1) étatFlag ++;
+            else if (étatFlag == 2) étatFlag ++;
+            else if (étatFlag == 3) étatFlag ++;
+            else if (étatFlag == 4) étatFlag = 0;
+            timerFlag = System.currentTimeMillis();
+        }
+    }
 	
 //	tile
 
-	public static boolean transitionGate = true;
+	public static boolean transitionGate = true; // à sauvegarder
 	public static int variationX = 0;
 	public static int variationY = 0;
 	public static long changementVariation = System.currentTimeMillis();
