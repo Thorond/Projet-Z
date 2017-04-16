@@ -381,9 +381,6 @@ public class ClimatMontagneux {
 
 	public static void setDamageEau(MainCharacter cha) {
 		cha.setHealth(cha.getHealth() - 2 );
-		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX, PlacementMainZoneGlace.positionRelativeY, 0);
-		}
 		
 	}
 	
@@ -525,8 +522,6 @@ public class ClimatMontagneux {
 	public static void setDamageTrou(MainCharacter cha) {
 		// TODO Auto-generated method stub
 		cha.setHealth(cha.getHealth() - 5 );
-		if (cha.getHealth() > 0){
-			MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX , PlacementMainZoneGlace.positionRelativeY, 0);}
 	}
 
 }

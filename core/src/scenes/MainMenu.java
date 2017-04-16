@@ -309,196 +309,219 @@ public class MainMenu implements Screen{
 							else if ( Totem.étatTexte == 5 ) Totem.étatTexte = 0;
 						}
 					}
-					
-					if ( Link.isHit ){
-						if ( System.currentTimeMillis() - Link.timerHit > 300 ) Link.isHit = false;
-					}else {
+					if ( Link.tombe){
+						Link.setTexture(MainCharacter.linkTombé);
+						if (System.currentTimeMillis() - Link.timerChute > 100) {
+							Link.setSize(Link.getTexture().getWidth() / Link.tailleChute , Link.getTexture().getHeight() / Link.tailleChute );
+							Link.timerChute = System.currentTimeMillis();
+							Link.tailleChute += 0.3f;
+							MainMenu.Link.getBody().setTransform(Link.getBody().getPosition().x + 2, Link.getBody().getPosition().y + 2, 0);
 
-	//					déplacement
-						if (Gdx.input.isKeyPressed(Input.Keys.Q) ){
-							Link.getBody().applyLinearImpulse(new Vector2(-100000f,0), Link.getBody().getWorldCenter(), true);
-							if (Bouclier.isBouclierUtilisé ); // que le joueur garde sa défense
-							else Link.setDirection("gauche");
-							Link.représentationLink(Link);
-
-
-						} else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-							Link.getBody().applyLinearImpulse(new Vector2(+100000f,0), Link.getBody().getWorldCenter(), true);
-							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-							else Link.setDirection("droite");
-							Link.représentationLink(Link);
-
-						} else if (Gdx.input.isKeyPressed(Input.Keys.Z)  ){
-							Link.getBody().applyLinearImpulse(new Vector2(0,+100000f), Link.getBody().getWorldCenter(), true);
-							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-							else Link.setDirection("haut");
-							Link.représentationLink(Link);
-
-						} else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-							Link.getBody().applyLinearImpulse(new Vector2(0,-100000f), Link.getBody().getWorldCenter(), true);
-							if (Bouclier.isBouclierUtilisé); // que le joueur garde sa défense
-							else Link.setDirection("bas");
-							Link.représentationLink(Link);
-
-						} else {
-							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
-							if (Link.getDirection().equals("bas")) {
-								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkBasReposBouclier);
-								else Link.setTexture(MainCharacter.linkBasRepos);
-							}
-							else if (Link.getDirection().equals("haut")) {
-								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkHautReposBouclier);
-								else Link.setTexture(MainCharacter.linkHautRepos);
-							}
-							else if (Link.getDirection().equals("gauche")) {
-								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkGaucheReposBouclier);
-								else Link.setTexture(MainCharacter.linkGaucheRepos);
-							}
-							else if (Link.getDirection().equals("droite")) {
-								if ( Bouclier.isBouclierUtilisé ) Link.setTexture(MainCharacter.linkDroiteReposBouclier);
-								else Link.setTexture(MainCharacter.linkDroiteRepos);
-							}
 						}
+						if (System.currentTimeMillis() - Link.timerChuteTotal > 1000) {
+							Link.tailleChute = 1;
+							Link.tombe = false;
+							if (Link.getHealth() > 0) {
+								MainMenu.Link.getBody().setTransform(PlacementMainZoneGlace.positionRelativeX, PlacementMainZoneGlace.positionRelativeY, 0);
+							}
+
+						}
+					} else {
+						if (Link.isHit) {
 
 
-						if ( ! (Gdx.input.isKeyPressed(Input.Keys.Q)) && ! (Gdx.input.isKeyPressed(Input.Keys.D)))
-								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y );
-						if ( ! (Gdx.input.isKeyPressed(Input.Keys.Z)) && ! (Gdx.input.isKeyPressed(Input.Keys.S)) )
-							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x , Link.getBody().getLinearVelocity().y / 1.2f);
+							if (System.currentTimeMillis() - Link.timerHit > 300) {
+								Link.isHit = false;
+							}
+						} else {
+
+							//					déplacement
+							if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
+								Link.getBody().applyLinearImpulse(new Vector2(-100000f, 0), Link.getBody().getWorldCenter(), true);
+								if (Bouclier.isBouclierUtilisé) ; // que le joueur garde sa défense
+								else Link.setDirection("gauche");
+								Link.représentationLink(Link);
 
 
-					}
+							} else if (Gdx.input.isKeyPressed(Input.Keys.D)) {
+								Link.getBody().applyLinearImpulse(new Vector2(+100000f, 0), Link.getBody().getWorldCenter(), true);
+								if (Bouclier.isBouclierUtilisé) ; // que le joueur garde sa défense
+								else Link.setDirection("droite");
+								Link.représentationLink(Link);
+
+							} else if (Gdx.input.isKeyPressed(Input.Keys.Z)) {
+								Link.getBody().applyLinearImpulse(new Vector2(0, +100000f), Link.getBody().getWorldCenter(), true);
+								if (Bouclier.isBouclierUtilisé) ; // que le joueur garde sa défense
+								else Link.setDirection("haut");
+								Link.représentationLink(Link);
+
+							} else if (Gdx.input.isKeyPressed(Input.Keys.S)) {
+								Link.getBody().applyLinearImpulse(new Vector2(0, -100000f), Link.getBody().getWorldCenter(), true);
+								if (Bouclier.isBouclierUtilisé) ; // que le joueur garde sa défense
+								else Link.setDirection("bas");
+								Link.représentationLink(Link);
+
+							} else {
+								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y / 1.2f);
+								if (Link.getDirection().equals("bas")) {
+									if (Bouclier.isBouclierUtilisé)
+										Link.setTexture(MainCharacter.linkBasReposBouclier);
+									else Link.setTexture(MainCharacter.linkBasRepos);
+								} else if (Link.getDirection().equals("haut")) {
+									if (Bouclier.isBouclierUtilisé)
+										Link.setTexture(MainCharacter.linkHautReposBouclier);
+									else Link.setTexture(MainCharacter.linkHautRepos);
+								} else if (Link.getDirection().equals("gauche")) {
+									if (Bouclier.isBouclierUtilisé)
+										Link.setTexture(MainCharacter.linkGaucheReposBouclier);
+									else Link.setTexture(MainCharacter.linkGaucheRepos);
+								} else if (Link.getDirection().equals("droite")) {
+									if (Bouclier.isBouclierUtilisé)
+										Link.setTexture(MainCharacter.linkDroiteReposBouclier);
+									else Link.setTexture(MainCharacter.linkDroiteRepos);
+								}
+							}
+
+
+							if (!(Gdx.input.isKeyPressed(Input.Keys.Q)) && !(Gdx.input.isKeyPressed(Input.Keys.D)))
+								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y);
+							if (!(Gdx.input.isKeyPressed(Input.Keys.Z)) && !(Gdx.input.isKeyPressed(Input.Keys.S)))
+								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x, Link.getBody().getLinearVelocity().y / 1.2f);
+
+
+						}
 
 //					mettre le jeu en pause et sauvegarder
-					if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
-						if ( Link.zone.equals("zoneGlace"))
-							sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
-									"zoneGlace");
-						else
-							sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
-									"zoneDesert");
+						if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+							if (Link.zone.equals("zoneGlace"))
+								sauvegarde = new Sauvegarde(Link.getBody().getPosition().x, Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
+										"zoneGlace");
+							else
+								sauvegarde = new Sauvegarde(Link.getBody().getPosition().x, Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
+										"zoneDesert");
 
-						SendClass.sendClass(sauvegarde);
-					}
-					if (Gdx.input.isKeyPressed(Input.Keys.O)){
+							SendClass.sendClass(sauvegarde);
+						}
+						if (Gdx.input.isKeyPressed(Input.Keys.O)) {
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
 //						 classe gestionDesMaps ?
-						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
-							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
-						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
-						 MenuPause.isPause = true;
-					}
-					
-					
-	//				intéraction avec l'environnement; lorsqu'il est dans un iglooil n'a pas le droit d'utiliser un item
-					
-					 if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé  
-							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
-							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
-							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC5")){
+							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
+								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
+							MenuPause.isPause = true;
+						}
+
+
+						//				intéraction avec l'environnement; lorsqu'il est dans un iglooil n'a pas le droit d'utiliser un item
+
+						if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé
+								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
+								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
+								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC5")) {
 							MenuSac.itemsKL[0].utilisationItem(Link);
-					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé 
-							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
-							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
-							 && ! PlacementMainZoneGlace.positionSousMap.equals("IglooC5")){
-						 	MenuSac.itemsKL[1].utilisationItem(Link);
-					 } else if (Gdx.input.isKeyJustPressed(Input.Keys.M) ){
+						} else if (Gdx.input.isKeyJustPressed(Input.Keys.L) && MenuSac.itemLOccupé
+								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
+								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
+								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC5")) {
+							MenuSac.itemsKL[1].utilisationItem(Link);
+						} else if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
 //						 classe gestionDesMaps ?
-						 for ( int l = 0; l < Pnj.nbrDeMonstres ; l ++) 
-							 Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
-						 Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
-						 MenuSac.isSacAffiché = true;
-					 }
+							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
+								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
+							MenuSac.isSacAffiché = true;
+						}
 //					 cas particulier du bouclier , en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
-					 if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K) ){
-						 MenuSac.itemsKL[0].utilisationItem(Link);
-					 } else if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.L) ){
-						 MenuSac.itemsKL[1].utilisationItem(Link);
-					 } else if (Bouclier.isBouclierUtilisé && ( !(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)) )){
-						 Bouclier.isBouclierUtilisé = false;
-						 MainCharacter.changementDeVitesse = true;
-					 }
-					if ( Bouclier.isBouclierUtilisé && Epee.isEpéeUtilisé ){
-						Epee.typeAttaque = 1;
-					} else {
-						if (Epee.isEpéeUtilisé && (!(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)))) {
-							if (System.currentTimeMillis() - Epee.timerToucheAppuyé > 700) {
-								Epee.typeAttaque = 2;
-							} else Epee.typeAttaque = 1;
-
+						if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K)) {
+							MenuSac.itemsKL[0].utilisationItem(Link);
+						} else if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.L)) {
+							MenuSac.itemsKL[1].utilisationItem(Link);
+						} else if (Bouclier.isBouclierUtilisé && (!(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)))) {
+							Bouclier.isBouclierUtilisé = false;
+							MainCharacter.changementDeVitesse = true;
 						}
-					}
+						if (Bouclier.isBouclierUtilisé && Epee.isEpéeUtilisé) {
+							Epee.typeAttaque = 1;
+						} else {
+							if (Epee.isEpéeUtilisé && (!(Gdx.input.isKeyPressed(Input.Keys.K)) && !(Gdx.input.isKeyPressed(Input.Keys.L)))) {
+								if (System.currentTimeMillis() - Epee.timerToucheAppuyé > 700) {
+									Epee.typeAttaque = 2;
+								} else Epee.typeAttaque = 1;
+
+							}
+						}
 //********************************** première zone *******************
-					if ( Link.zone.equals("zoneGlace")) {
-						if (Link.getDirection().equals("haut")
-								&& CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("épée")
-								&& CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)] == false) {
-							Epee.isEpéePrise = true;
-							CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)] = true;
-							MainMenu.Link.annimationAward = true;
-							SousMapF1.destroyBody();
-							MenuSac.setItem(épée);
-						}
-						;
-						if (PlacementMainZoneGlace.positionSousMap.equals("IglooC1") && Link.getDirection().equals("haut") && !(Bouclier.isBouclierPris)
-								&& Link.getX() > 420
-								&& Link.getY() > 270) {
-							Bouclier.isBouclierPris = true;
-							MainMenu.Link.annimationAward = true;
-							IglooC1.destroyBody();
-							MenuSac.setItem(bouclier);
-						}
-						;
-						Arc.détection(Link);
-						if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5"))
-							IglooC5.détectionItem(Link);
-						Plume.récupérationPlume();
+						if (Link.zone.equals("zoneGlace")) {
+							if (Link.getDirection().equals("haut")
+									&& CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("épée")
+									&& CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)] == false) {
+								Epee.isEpéePrise = true;
+								CadrillageMap.décorChangé[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)] = true;
+								MainMenu.Link.annimationAward = true;
+								SousMapF1.destroyBody();
+								MenuSac.setItem(épée);
+							}
+							;
+							if (PlacementMainZoneGlace.positionSousMap.equals("IglooC1") && Link.getDirection().equals("haut") && !(Bouclier.isBouclierPris)
+									&& Link.getX() > 420
+									&& Link.getY() > 270) {
+								Bouclier.isBouclierPris = true;
+								MainMenu.Link.annimationAward = true;
+								IglooC1.destroyBody();
+								MenuSac.setItem(bouclier);
+							}
+							;
+							Arc.détection(Link);
+							if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5"))
+								IglooC5.détectionItem(Link);
+							Plume.récupérationPlume();
 //					 démarage scenario 1
-						if (Ghost.etatScenario == 0 && PlacementMainZoneGlace.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
-								&& Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM
-								&& Link.getBody().getPosition().y > 200 / PPM) {
-							Ghost.etatScenario = 1;
-							Link.getBody().setLinearVelocity(0, 0);
+							if (Ghost.etatScenario == 0 && PlacementMainZoneGlace.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
+									&& Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM
+									&& Link.getBody().getPosition().y > 200 / PPM) {
+								Ghost.etatScenario = 1;
+								Link.getBody().setLinearVelocity(0, 0);
+
+							}
+							if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
+								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+									SousMapF2.ouvertureCoffre = true;
+								}
+							}
+							if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
+								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+									SousMapD5.ouvertureCoffre = true;
+								}
+							}
+							if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
+								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+									SousMapH2.ouvertureCoffre = true;
+								}
+							}
+							if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
+								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+									SousMapD2.ouvertureCoffre = true;
+									DonjonGlace.isCléHauteTrouvé = true;
+								}
+							}
+							SnowMan.détection(Link);
+						} else if (Link.zone.equals("zoneDesert")) {
 
 						}
-						if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
-							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-								SousMapF2.ouvertureCoffre = true;
-							}
-						}
-						if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
-							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-								SousMapD5.ouvertureCoffre = true;
-							}
-						}
-						if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
-							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) ].equals("coffreBleu")) {
-								SousMapH2.ouvertureCoffre = true;
-							}
-						}
-						if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
-							if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-								SousMapD2.ouvertureCoffre = true;
-								DonjonGlace.isCléHauteTrouvé = true;
-							}
-						}
-						SnowMan.détection(Link);
-					} else if ( Link.zone.equals("zoneDesert")){
 
-					}
-
-					PlacementMainZoneGlace.setDéplacement(Link);
-					PlacementMainZoneGlace.détectionTrou(Link);
-					PlacementMainZoneGlace.détectionEauP(Link);
-					Flèches.déplacement(Link);
+						PlacementMainZoneGlace.setDéplacement(Link);
+						PlacementMainZoneGlace.détectionTrou(Link);
+						PlacementMainZoneGlace.détectionEauP(Link);
+						Flèches.déplacement(Link);
 //									Récuparation du réceptacle 
-					CoeurDeVie.détectionReceptable(Link);
-					
-					//				récupération de vie par les coeurs de vie
-					CoeurDeVie.détectionCoeur(Link);
+						CoeurDeVie.détectionReceptable(Link);
+
+						//				récupération de vie par les coeurs de vie
+						CoeurDeVie.détectionCoeur(Link);
 //					 récupération essences
-					Essence.détectionEssence(Link);
+						Essence.détectionEssence(Link);
+					}
 				}
 			}
 //			Est ce que le joueur est mort?
@@ -574,7 +597,7 @@ public class MainMenu implements Screen{
 						if (PlacementMainZoneGlace.défilement == true) {
 							GestionDesMapsZoneGlace.défilementDeMap(game);
 						} else {
-							Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
+							if ( ! Link.tombe )Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
 							GestionDesMapsZoneGlace.affichageDeSousCarte(game);
 						}
 					} else if (Link.zone.equals("zoneDesert")) {
@@ -585,7 +608,7 @@ public class MainMenu implements Screen{
 						if (PlacementMainZoneDesert.défilement == true) {
 							GestionDesMapsZoneDesert.défilementDeMap(game);
 						} else {
-							Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
+							if ( ! Link.tombe ) Link.setSize(Link.getTexture().getWidth(), Link.getTexture().getHeight());
 							GestionDesMapsZoneDesert.affichageDeSousCarte(game);
 						}
 					}
