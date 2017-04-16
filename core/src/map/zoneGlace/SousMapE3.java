@@ -208,10 +208,10 @@ public class SousMapE3 extends Sprite{
 		if ( m2EstCrée && monstre2.isAlive() ) {
 			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
 		}
-		if ( m1EstCrée && monstre3.isAlive() ) {
+		if ( m3EstCrée && monstre3.isAlive() ) {
 			game.getBatch().draw(monstre3,monstre3.getX(), monstre3.getY());
 		}
-		if ( m2EstCrée && monstre4.isAlive() ) {
+		if ( m4EstCrée && monstre4.isAlive() ) {
 			game.getBatch().draw(monstre4.getTexture(), monstre4.getX(), monstre4.getY());
 		}
 		//==================================================================
