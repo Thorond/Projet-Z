@@ -167,6 +167,9 @@ public class SousMapH5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 540+ x, 0+ y);
 
+		game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 190+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 20+ y);
 
 
 

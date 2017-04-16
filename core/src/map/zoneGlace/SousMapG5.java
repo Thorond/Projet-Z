@@ -5,16 +5,25 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Coffre;
+import map.CadrillageMap;
+import scenes.MainMenu;
 
 public class SousMapG5 extends Sprite{
-	
+
+
+
+	public static boolean ouvertureCoffre = false; // à sauvegarder
+	public static boolean coffreOuvert = false; // à sauvegarder
+
+
 	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 60+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 180+ y);		
-		game.getBatch().draw(ClimatMontagneux.glace1, 0 + x,240 + y);
+		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x,240 + y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 300+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 360+ y);
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 420+ y);
@@ -175,7 +184,7 @@ public class SousMapG5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 360+ x, 120+ y);
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 420+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 480+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 540+ x, 240+ y);
+		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 540+ x, 180+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 0+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 60+ x, 0+ y);
@@ -189,6 +198,39 @@ public class SousMapG5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 540+ x, 0+ y);
 
 
+        game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 10+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 70+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 130+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 190+ x, 70+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 250+ x, 130+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 310+ x, 130+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 370+ x, 130+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 430+ x, 190+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 490+ x, 190+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 190+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 430+ x, 20+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 490+ x, 20+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 550+ x, 20+ y);
+
+        if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 70+ x,260+ y);
+        else {
+            if ( coffreOuvert == false ) {
+                if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
+                    coffreOuvert = true;
+                }
+                Coffre.annimationCoffreBleu(game, 70+ x,260+ y);
+
+            } else {
+                game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 70+ x,260+ y);
+            }
+
+        }
+        if ( MainMenu.Link.annimationAward ) {
+//			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
+//			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
+        }
 		
 	}
 
@@ -199,7 +241,8 @@ public class SousMapG5 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+
+        CadrillageMap.setTypeDeDécor(1,4, "coffreBleu");
 	}
 
 	public static void destroyType() {
