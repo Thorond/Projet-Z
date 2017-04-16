@@ -221,7 +221,19 @@ public class SousMapH2 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.glaceSombre3, 540+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.entréGrotteArc, 540+ x, 180+ y);
 
-        game.getBatch().draw(DonjonGlace.murGlacéPorte1, 480 + x, 240 + y);
+
+        DonjonGlace.détectionSerrure(MainMenu.Link);
+//		grille
+        if ( DonjonGlace.ouvertureGrille < 0 ) {
+            game.getBatch().draw(DonjonGlace.murGlacéPorte1, 480 + x, 240 + y);
+        } else if (DonjonGlace.transitionGrille ){
+            DonjonGlace.annimationOuvertureGrille(game, x, y);
+        } else {
+            game.getBatch().draw(DonjonGlace.murGlacéPorte4, 480 + x, 240 + y);
+        }
+
+
+//        game.getBatch().draw(DonjonGlace.murGlacéPorte1, 480 + x, 240 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 480 + x, 420 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 540 + x, 420 + y);
 

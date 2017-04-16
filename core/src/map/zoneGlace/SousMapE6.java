@@ -215,11 +215,7 @@ public class SousMapE6 extends Sprite{
 		ClimatMontagneux.IceMain(game, 360 + x, 180 + y);
 		ClimatMontagneux.IceMain(game, 370 + x, 70 + y);
 		ClimatMontagneux.IceMain(game, 470 + x, 150 + y);
-		
-		if ( MainMenu.Link.annimationAward ) {
-			game.getBatch().draw(DonjonGlace.CléMilieu,MainMenu.Link.getX() -40, MainMenu.Link.getY() + 40 );
-			game.getBatch().draw(DonjonGlace.texteClé,100,60);
-		}
+
 
 //
 
@@ -256,6 +252,12 @@ public class SousMapE6 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 180+ y);
         game.getBatch().draw(ClimatMontagneux.planteGelé, 540+ x, 360+ y);
 
+
+
+        if ( MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(DonjonGlace.CléMilieu,MainMenu.Link.getX() -40, MainMenu.Link.getY() + 40 );
+            game.getBatch().draw(DonjonGlace.texteClé,100,60);
+        }
 	}
 
 	public static void destroyBody() {
