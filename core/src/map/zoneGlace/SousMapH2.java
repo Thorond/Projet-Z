@@ -20,6 +20,29 @@ public class SousMapH2 extends Sprite{
     public static Body murCoffre;
     public static boolean ismurCoffreCreated;
 
+
+    public static Body cote1 ;
+    public static boolean isCote1Created;
+    public static Body cote2 ;
+    public static boolean isCote2Created;
+    public static Body cote3 ;
+    public static boolean isCote3Created;
+    public static Body cote4 ;
+    public static boolean isCote4Created;
+    public static Body cote5 ;
+    public static boolean isCote5Created;
+    public static Body cote6 ;
+    public static boolean isCote6Created;
+    public static Body cote7 ;
+    public static boolean isCote7Created;
+    public static Body cote8 ;
+    public static boolean isCote8Created;
+    public static Body cote9 ;
+    public static boolean isCote9Created;
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
+
 	public static void sousMap(GameMain game, int x, int y) {
 
         game.getBatch().draw(ClimatMontagneux.glace1, 0 + x, 0 + y);
@@ -118,19 +141,19 @@ public class SousMapH2 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0 + x, 0 + y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0 + x, 60 + y);
         ClimatMontagneux.placerMurSombreGlacéDroite3(game, 0 + x, 120 + y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 0 + x, 180 + y);
+        ClimatMontagneux.placerMurSombreGlacéDroite( game, 0 + x, 180 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 0 + x, 240 + y);
 
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60 + x, 00 + y);
         ClimatMontagneux.placerMurSombreGlacéDroite3(game, 60 + x, 60 + y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 60 + x, 120 + y);
+        ClimatMontagneux.placerMurSombreGlacéDroite( game, 60 + x, 120 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 60 + x, 180 + y);
 
         ClimatMontagneux.placerMurSombreGlacéDroite3(game, 120 + x, 0 + y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 120 + x, 60 + y);
+        ClimatMontagneux.placerMurSombreGlacéDroite( game, 120 + x, 60 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 120 + x, 120 + y);
 
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite, 180 + x, 0 + y);
+        ClimatMontagneux.placerMurSombreGlacéDroite( game, 180 + x, 0 + y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 180 + x, 60 + y);
 
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfGau, 240 + x, 0 + y);
@@ -253,6 +276,36 @@ public class SousMapH2 extends Sprite{
 
         if ( ismurCoffreCreated) MainMenu.world.destroyBody(murCoffre);
         ismurCoffreCreated = false;
+
+        if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+        isCote1Created = false;
+
+        if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+        isCote2Created = false;
+
+        if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+        isCote3Created = false;
+
+        if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+        isCote4Created = false;
+
+        if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+        isCote5Created = false;
+
+        if ( isCote6Created) MainMenu.world.destroyBody(cote6);
+        isCote6Created = false;
+
+        if ( isCote7Created) MainMenu.world.destroyBody(cote7);
+        isCote7Created = false;
+
+        if ( isCote8Created) MainMenu.world.destroyBody(cote8);
+        isCote8Created = false;
+
+        if ( isCote9Created) MainMenu.world.destroyBody(cote9);
+        isCote9Created = false;
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -262,6 +315,57 @@ public class SousMapH2 extends Sprite{
         if ( ismurCoffreCreated == false ) {
             murCoffre = ClimatMontagneux.createBody(290,120,30,30);
             ismurCoffreCreated = true;
+        }
+
+
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(335,390,130,180);
+            isCote1Created = true;
+        }
+        if ( DonjonGlace.ouvertureGrille < 3 ){
+            if ( isCote2Created == false ) {
+                cote2 = ClimatMontagneux.createBody(560,330,300,180);
+                isCote2Created = true;
+            }
+        } else {
+            if ( isCote2Created == false ) {
+                cote2 = ClimatMontagneux.createBody(450,330,80,180);
+                isCote2Created = true;
+            }
+        }
+
+        if ( isCote3Created == false ) {
+            cote3 = ClimatMontagneux.createBody(60,420,160,120);
+            isCote3Created = true;
+        }
+        if ( isCote4Created == false ) {
+            cote4 = ClimatMontagneux.createBody(110,315,160,150);
+            isCote4Created = true;
+        }
+        if ( isCote5Created == false ) {
+            cote5 = ClimatMontagneux.createBody(240,180,160,120);
+            isCote5Created = true;
+        }
+        if ( isCote6Created == false ) {
+            cote6 = ClimatMontagneux.createBody(330,80,70,170);
+            isCote6Created = true;
+        }
+        if ( isCote7Created == false ) {
+            cote7 = ClimatMontagneux.createBody(480,40,240,80);
+            isCote7Created = true;
+        }
+        if ( isCote8Created == false ) {
+            cote8 = ClimatMontagneux.createBody(240,0,120,1);
+            isCote8Created = true;
+        }
+        if ( isCote9Created == false ) {
+            cote9 = ClimatMontagneux.createBody(570,360,20,240);
+            isCote9Created = true;
+        }
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",180,80);
+            isarbre1Created = true;
         }
 	}
 

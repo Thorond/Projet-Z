@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import map.zoneGlace.SousMapH2;
 import scenes.MainMenu;
 import sun.applet.Main;
 
@@ -59,7 +60,7 @@ public class DonjonGlace {
                 && Link.getBody().getPosition().x * MainMenu.PPM < 450
                 && Link.getBody().getPosition().y * MainMenu.PPM > 220){
             if ( ouvertureGrille == -1  && isCléBasseTrouvé && isCléHauteTrouvé
-                    && isCléMilieuTrouvé) ouvertureGrille = 0;
+                    && isCléMilieuTrouvé && Link.getDirection().equals("haut")) ouvertureGrille = 0;
         }
     }
 
@@ -87,8 +88,12 @@ public class DonjonGlace {
             if ( ouvertureGrille == -1 ) ouvertureGrille = 0;
             else if ( ouvertureGrille == 0 ) ouvertureGrille = 1;
             else if ( ouvertureGrille == 1 ) ouvertureGrille = 2;
-            else if ( ouvertureGrille == 2 ) ouvertureGrille = 3;
+            else if ( ouvertureGrille == 2 ) {
+                ouvertureGrille = 3;
+                SousMapH2.destroyBody();
+            }
             else if ( ouvertureGrille == 3 ) ouvertureGrille = 4;
+            else if ( ouvertureGrille == 4 ) ouvertureGrille = 5;
             changementOuvertureGrille = System.currentTimeMillis();
         }
     }
