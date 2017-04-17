@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Dompteuse;
 import decors.ClimatMontagneux;
 import map.CadrillageMap;
 import scenes.MainMenu;
@@ -278,6 +279,11 @@ public class SousMapG6 extends Sprite{
         ClimatMontagneux.arbuste(isArbuste5Cut, game, 360+x,180+ y);
         ClimatMontagneux.arbuste(isArbuste6Cut, game, 420+x,240+ y);
         ClimatMontagneux.arbuste(isArbuste7Cut, game, 480+x,360+ y);
+
+//         dompteuse
+
+        Dompteuse.affichageDompteuse(game, 300+x,240+y);
+        Dompteuse.détectionDompteuse(MainMenu.Link );
 
 	}
 

@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
 import characters.Pnj;
@@ -591,6 +592,7 @@ public class MainMenu implements Screen{
 					else if (IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
 					else if (SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
 					else if (SousMapD5.étatTexteTombe > 0) SousMapD5.updateTombe(delta);
+					else if (Dompteuse.etatScenario != 0 && Dompteuse.etatScenario != 3 ) Dompteuse.updateDompteuse(delta);
 					else updateInGame(delta);
 
 					Link.updatePlayer();
