@@ -1,6 +1,7 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
@@ -14,6 +15,25 @@ public class SousMapI1 extends Sprite{
 
 
     public static boolean isReceptaclePris = false; // à sauvegarder
+
+
+    public static Body cote1 ;
+    public static boolean isCote1Created;
+    public static Body cote2 ;
+    public static boolean isCote2Created;
+    public static Body cote3 ;
+    public static boolean isCote3Created;
+    public static Body cote4 ;
+    public static boolean isCote4Created;
+    public static Body cote5 ;
+    public static boolean isCote5Created;
+    public static Body cote6 ;
+    public static boolean isCote6Created;
+    public static Body cote7 ;
+    public static boolean isCote7Created;
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -248,12 +268,73 @@ public class SousMapI1 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+
+
+        if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+        isCote1Created = false;
+
+        if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+        isCote2Created = false;
+
+        if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+        isCote3Created = false;
+
+        if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+        isCote4Created = false;
+
+        if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+        isCote5Created = false;
+
+        if ( isCote6Created) MainMenu.world.destroyBody(cote6);
+        isCote6Created = false;
+
+        if ( isCote7Created) MainMenu.world.destroyBody(cote7);
+        isCote7Created = false;
+
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
         if ( !(isReceptaclePris)) CadrillageMap.setTypeDeDécor(60/60, 180/60, "receptacleDeCoeur");
+
+
+
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(120,90,220,180);
+            isCote1Created = true;
+        }
+        if ( isCote2Created == false ) {
+            cote2 = ClimatMontagneux.createBody(120,370,220,60);
+            isCote2Created = true;
+        }
+        if ( isCote3Created == false ) {
+            cote3 = ClimatMontagneux.createBody(160,240,140,300);
+            isCote3Created = true;
+        }
+        if ( isCote4Created == false ) {
+            cote4 = ClimatMontagneux.createBody(430,260,200,240);
+            isCote4Created = true;
+        }
+        if ( isCote5Created == false ) {
+            cote5 = ClimatMontagneux.createBody(530,90,1,180);
+            isCote5Created = true;
+        }
+        if ( isCote6Created == false ) {
+            cote6 = ClimatMontagneux.createBody(300,30,220,70);
+            isCote6Created = true;
+        }
+        if ( isCote7Created == false ) {
+            cote7 = ClimatMontagneux.createBody(300,300,120,1);
+            isCote7Created = true;
+        }
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",220,30);
+            isarbre1Created = true;
+        }
 	}
 
 	public static void destroyType() {
