@@ -9,9 +9,12 @@ import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
 public class SousMapD6 extends Sprite{
-	
-	public static Body mur1;
-	public static boolean ismur1Created;
+
+    public static Body mur1;
+    public static boolean ismur1Created;
+
+    public static Body mur2;
+    public static boolean ismur2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -178,6 +181,9 @@ public class SousMapD6 extends Sprite{
 		// TODO Auto-generated method stub
 		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
 		ismur1Created = false;
+
+		if ( ismur2Created) MainMenu.world.destroyBody(mur2);
+		ismur2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -186,6 +192,11 @@ public class SousMapD6 extends Sprite{
 			mur1 = ClimatMontagneux.createBody(300,180,600,1);
 			ismur1Created = true;
 		}
+
+        if ( ismur2Created == false ) {
+            mur2 = ClimatMontagneux.createBody(320,450,540,60);
+            ismur2Created = true;
+        }
 	}
 
 	public static void destroyType() {
