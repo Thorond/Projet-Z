@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import map.zoneGlace.GrotteF5Salle5;
 import map.zoneGlace.PlacementMainZoneGlace;
+import menus.MenuSac;
 import scenes.MainMenu;
 
 /**
@@ -61,6 +62,7 @@ public class Dompteuse {
                 Tigre.destroyBody();
                 etatScenario = 3;
                 MainMenu.Link.annimationAward = true;
+                MenuSac.setItem(MainMenu.potion);
             }
         }
     }

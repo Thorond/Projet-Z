@@ -32,6 +32,7 @@ import items.Essence;
 import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
+import items.Potion;
 import map.CadrillageMap;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
@@ -64,8 +65,8 @@ public class MainMenu implements Screen{
 	public static Bouclier bouclier = new Bouclier();
 	public static Bombe bombe = new Bombe();
 	public static Arc arc = new Arc();
-	
-	Texture carte;
+	public static Potion potion = new Potion();
+
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
@@ -115,6 +116,7 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bombe);
 		MenuSac.setItem(arc);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
+		MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
@@ -655,6 +657,7 @@ public class MainMenu implements Screen{
 				//		=============================================================================================
 				//     						  dessiner les items à la fois en jeu et dans menuSac
 				//		=============================================================================================
+				potion.affichageTemps();
 
 				if (MenuSac.itemKOccupé) MenuSac.affichageItemK(game);
 				if (MenuSac.itemLOccupé) MenuSac.affichageItemL(game);
@@ -714,7 +717,6 @@ public class MainMenu implements Screen{
 	public void dispose() {
 		// TODO Auto-generated method stub
 		Link.getTexture().dispose();
-		carte.dispose();
 	}
 
 }
