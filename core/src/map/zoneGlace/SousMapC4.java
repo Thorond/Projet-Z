@@ -32,6 +32,14 @@ public class SousMapC4 extends Sprite{
     public static boolean isBuisson6Cut = false;
     public static boolean isBuisson7Cut = false;
 
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
+    public static Body arbre2;
+    public static boolean isarbre2Created;
+    public static Body arbre3;
+    public static boolean isarbre3Created;
+
 	public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
@@ -234,6 +242,17 @@ public class SousMapC4 extends Sprite{
 		
 		if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
 		isBosquet2Created = false;
+
+
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
+
+        if ( isarbre2Created) MainMenu.world.destroyBody(arbre2);
+        isarbre2Created = false;
+
+        if ( isarbre3Created) MainMenu.world.destroyBody(arbre3);
+        isarbre3Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -276,6 +295,20 @@ public class SousMapC4 extends Sprite{
         if ( CadrillageMap.décorChangé[7][6] == true ) isBuisson5Cut = true;
         if ( CadrillageMap.décorChangé[2][3] == true ) isBuisson6Cut = true;
         if ( CadrillageMap.décorChangé[9][7] == true ) isBuisson7Cut = true;
+
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",360,200);
+            isarbre1Created = true;
+        }
+        if ( isarbre2Created == false ) {
+            arbre2 = ClimatMontagneux.createBodyPerso("arbre", "static",420,200);
+            isarbre2Created = true;
+        }
+        if ( isarbre3Created == false ) {
+            arbre3 = ClimatMontagneux.createBodyPerso("arbre", "static",480,260);
+            isarbre3Created = true;
+        }
 	}
 
 	public static void destroyType() {

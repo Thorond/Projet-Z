@@ -29,6 +29,19 @@ public class SousMapB4 extends Sprite{
     public static boolean isBuisson7Cut = false;
 
 
+    public static Body cote1 ;
+    public static boolean isCote1Created;
+    public static Body cote2 ;
+    public static boolean isCote2Created;
+    public static Body cote3 ;
+    public static boolean isCote3Created;
+    public static Body cote4 ;
+    public static boolean isCote4Created;
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
+
+
     public static void sousMap(GameMain game, int x, int y){
 		
 		game.getBatch().draw(ClimatMontagneux.glace1, 0+ x, 0+ y);
@@ -228,6 +241,22 @@ public class SousMapB4 extends Sprite{
 		ismur1Created = false;
 		if ( ismur2Created) MainMenu.world.destroyBody(mur2);
 		ismur2Created = false;
+
+
+        if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+        isCote1Created = false;
+
+        if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+        isCote2Created = false;
+
+        if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+        isCote3Created = false;
+
+        if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+        isCote4Created = false;
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -260,6 +289,29 @@ public class SousMapB4 extends Sprite{
         if ( CadrillageMap.décorChangé[5][6] == true ) isBuisson5Cut = true;
         if ( CadrillageMap.décorChangé[7][6] == true ) isBuisson6Cut = true;
         if ( CadrillageMap.décorChangé[8][6] == true ) isBuisson7Cut = true;
+
+
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(60,170,120,100);
+            isCote1Created = true;
+        }
+        if ( isCote2Created == false ) {
+            cote2 = ClimatMontagneux.createBody(110,170,1,220);
+            isCote2Created = true;
+        }
+        if ( isCote3Created == false ) {
+            cote3 = ClimatMontagneux.createBody(290,70,120,160);
+            isCote3Created = true;
+        }
+        if ( isCote4Created == false ) {
+            cote4 = ClimatMontagneux.createBody(200,90,60,60);
+            isCote4Created = true;
+        }
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",0,300);
+            isarbre1Created = true;
+        }
 	}
 
 	public static void destroyType() {
