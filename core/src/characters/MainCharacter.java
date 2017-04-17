@@ -79,7 +79,7 @@ public class MainCharacter extends Characters {
 	}
 	
 //	==========================================================================
-//	cette fonction permet de créer le corp solide de notre personnage
+//	cette fonction permet de créer le corps solide de notre personnage
 //	à l'aide d'une fonction de libGDX
 //	==========================================================================
 	
