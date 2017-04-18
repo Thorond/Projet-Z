@@ -207,8 +207,14 @@ public class SousMapH4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 540+ x, 60+ y);
 		
 		
-//		
-		
+//
+
+        game.getBatch().draw(ClimatMontagneux.tree, 570+ x, -30+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 570+ x, -70+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 540+ x, -60+ y);
+
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 450+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 90+ x, 450+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 450+ y);
@@ -225,6 +231,8 @@ public class SousMapH4 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 390+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 370+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 370+ y);
+
+
 	}
 
 	public static void destroyBody() {

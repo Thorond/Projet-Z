@@ -167,8 +167,12 @@ public class SousMapI4 extends Sprite{
 
 		game.getBatch().draw(ClimatMontagneux.grossePierre, 0+ x, 120+ y);
 
+
         game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 10+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, -30+ x, -30+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 30+ x, -30+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 60+ x, -50+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, -30+ x, -70+ y);
 
         game.getBatch().draw(ClimatMontagneux.icebergWater, 150+ x, 50+ y);
         game.getBatch().draw(ClimatMontagneux.iceberg2, 150+ x, -50+ y);
