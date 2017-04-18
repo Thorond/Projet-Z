@@ -25,7 +25,7 @@ public class Arc extends Item{
 
     public static boolean isArcPris = false; // a sauvegarder
 
-    public static Texture texteArc = new Texture("texte/texteEpée.png");
+    public static Texture texteArc = new Texture("texte/texteArc.png");
 
     @Override
     public void utilisationItem( MainCharacter cha) {
