@@ -2,6 +2,7 @@ package map.zoneGlace;
 
 import com.mygdx.game.GameMain;
 
+import menus.Carte;
 import scenes.MainMenu;
 
 public class GestionDesMapsZoneGlace {
@@ -707,260 +708,314 @@ public class GestionDesMapsZoneGlace {
 //                  					  affichage de la sous carte
 //			=============================================================================================
 		if ( PlacementMainZoneGlace.positionSousMap.equals("A1")) {
+			if (! Carte.mapA1Découverte ) Carte.mapA1Découverte = true;
 			SousMapA1.createBodyAndType(MainMenu.world);
 			SousMapA1.sousMap(game, 0,0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("B1")) {
+			if (! Carte.mapB1Découverte ) Carte.mapB1Découverte = true;
 			SousMapB1.createBodyAndType(MainMenu.world);
 			SousMapB1.sousMap(game, 0,0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("C1")) {
+			if (! Carte.mapC1Découverte ) Carte.mapC1Découverte = true;
 			SousMapC1.createBodyAndType(MainMenu.world);
 			SousMapC1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("D1")) {
+			if (! Carte.mapD1Découverte ) Carte.mapD1Découverte = true;
 			SousMapD1.createBodyAndType(MainMenu.world);
 			SousMapD1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("E1")) {
+            if (! Carte.mapE1Découverte ) Carte.mapE1Découverte = true;
 			SousMapE1.createBodyAndType(MainMenu.world);
 			SousMapE1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("F1")) {
+            if (! Carte.mapF1Découverte ) Carte.mapF1Découverte = true;
 			SousMapF1.createBodyAndType(MainMenu.world);
 			SousMapF1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G1")) {
+            if (! Carte.mapG1Découverte ) Carte.mapG1Découverte = true;
 			SousMapG1.destroyBody();
 			SousMapG1.createBodyAndType(MainMenu.world);
 			SousMapG1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H1")) {
+            if (! Carte.mapH1Découverte ) Carte.mapH1Découverte = true;
 			SousMapH1.destroyBody();
 			SousMapH1.createBodyAndType(MainMenu.world);
 			SousMapH1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("I1")) {
+            if (! Carte.mapI1Découverte ) Carte.mapI1Découverte = true;
 			SousMapI1.destroyBody();
 			SousMapI1.createBodyAndType(MainMenu.world);
 			SousMapI1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("A2")){
+            if (! Carte.mapA2Découverte ) Carte.mapA2Découverte = true;
 			SousMapA2.createBodyAndType(MainMenu.world);
 			SousMapA2.sousMap(game, 0,0 );
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("B2")) {
+            if (! Carte.mapB2Découverte ) Carte.mapB2Découverte = true;
 			SousMapB2.destroyType();
 			SousMapB2.createBodyAndType(MainMenu.world);
 			SousMapB2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("C2")) {
+            if (! Carte.mapC2Découverte ) Carte.mapC2Découverte = true;
 			SousMapC2.destroyType();
 			SousMapC2.createBodyAndType(MainMenu.world);
 			SousMapC2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("D2")) {
+            if (! Carte.mapD2Découverte ) Carte.mapD2Découverte = true;
 			SousMapD2.destroyType();
 			SousMapD2.createBodyAndType(MainMenu.world);
 			SousMapD2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("E2")) {
+            if (! Carte.mapE2Découverte ) Carte.mapE2Découverte = true;
 			SousMapE2.destroyType();
 			SousMapE2.createBodyAndType(MainMenu.world);
 			SousMapE2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("F2")) {
+            if (! Carte.mapF2Découverte ) Carte.mapF2Découverte = true;
 			SousMapF2.destroyType();
 			SousMapF2.createBodyAndType(MainMenu.world);
 			SousMapF2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G2")) {
+            if (! Carte.mapG2Découverte ) Carte.mapG2Découverte = true;
 			SousMapG2.destroyType();
 			SousMapG2.createBodyAndType(MainMenu.world);
 			SousMapG2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H2")) {
+            if (! Carte.mapH2Découverte ) Carte.mapH2Découverte = true;
 			SousMapH2.destroyType();
 			SousMapH2.createBodyAndType(MainMenu.world);
 			SousMapH2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("I2")) {
+            if (! Carte.mapI2Découverte ) Carte.mapI2Découverte = true;
 			SousMapI2.destroyType();
 			SousMapI2.createBodyAndType(MainMenu.world);
 			SousMapI2.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("A3")){
+            if (! Carte.mapA3Découverte ) Carte.mapA3Découverte = true;
 			SousMapA3.createBodyAndType(MainMenu.world);
 			SousMapA3.sousMap(game, 0,0 );
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("B3")) {
+            if (! Carte.mapB3Découverte ) Carte.mapB3Découverte = true;
 			SousMapB3.destroyType();
 			SousMapB3.createBodyAndType(MainMenu.world);
 			SousMapB3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("C3")) {
+            if (! Carte.mapC3Découverte ) Carte.mapC3Découverte = true;
 			SousMapC3.destroyType();
 			SousMapC3.createBodyAndType(MainMenu.world);
 			SousMapC3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("D3")) {
+            if (! Carte.mapD3Découverte ) Carte.mapD3Découverte = true;
 			SousMapD3.destroyType();
 			SousMapD3.createBodyAndType(MainMenu.world);
 			SousMapD3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("E3")) {
+            if (! Carte.mapE3Découverte ) Carte.mapE3Découverte = true;
 			SousMapE3.destroyType();
 			SousMapE3.createBodyAndType(MainMenu.world);
 			SousMapE3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("F3")) {
+            if (! Carte.mapF3Découverte ) Carte.mapF3Découverte = true;
 			SousMapF3.destroyType();
 			SousMapF3.createBodyAndType(MainMenu.world);
 			SousMapF3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G3")) {
+            if (! Carte.mapG3Découverte ) Carte.mapG3Découverte = true;
 			SousMapG3.destroyType();
 			SousMapG3.createBodyAndType(MainMenu.world);
 			SousMapG3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H3")) {
+            if (! Carte.mapH3Découverte ) Carte.mapH3Découverte = true;
 			SousMapH3.destroyType();
 			SousMapH3.createBodyAndType(MainMenu.world);
 			SousMapH3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("I3")) {
+            if (! Carte.mapI3Découverte ) Carte.mapI3Découverte = true;
 			SousMapI3.destroyType();
 			SousMapI3.createBodyAndType(MainMenu.world);
 			SousMapI3.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("A4")){
+            if (! Carte.mapA4Découverte ) Carte.mapA4Découverte = true;
 			SousMapA4.createBodyAndType(MainMenu.world);
 			SousMapA4.sousMap(game, 0,0 );
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("B4")) {
+            if (! Carte.mapB4Découverte ) Carte.mapB4Découverte = true;
 			SousMapB4.destroyType();
 			SousMapB4.createBodyAndType(MainMenu.world);
 			SousMapB4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("C4")) {
+            if (! Carte.mapC4Découverte ) Carte.mapC4Découverte = true;
 			SousMapC4.destroyType();
 			SousMapC4.createBodyAndType(MainMenu.world);
 			SousMapC4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("D4")) {
+            if (! Carte.mapD4Découverte ) Carte.mapD4Découverte = true;
 			SousMapD4.destroyType();
 			SousMapD4.createBodyAndType(MainMenu.world);
 			SousMapD4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("E4")) {
+            if (! Carte.mapE4Découverte ) Carte.mapE4Découverte = true;
 			SousMapE4.destroyType();
 			SousMapE4.createBodyAndType(MainMenu.world);
 			SousMapE4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("F4")) {
+            if (! Carte.mapF4Découverte ) Carte.mapF4Découverte = true;
 			SousMapF4.destroyType();
 			SousMapF4.createBodyAndType(MainMenu.world);
 			SousMapF4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G4")) {
+            if (! Carte.mapG4Découverte ) Carte.mapG4Découverte = true;
 			SousMapG4.destroyType();
 			SousMapG4.createBodyAndType(MainMenu.world);
 			SousMapG4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H4")) {
+            if (! Carte.mapH4Découverte ) Carte.mapH4Découverte = true;
 			SousMapH4.destroyType();
 			SousMapH4.createBodyAndType(MainMenu.world);
 			SousMapH4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("I4")) {
+            if (! Carte.mapI4Découverte ) Carte.mapI4Découverte = true;
 			SousMapI4.destroyType();
 			SousMapI4.createBodyAndType(MainMenu.world);
 			SousMapI4.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("A5")){
+            if (! Carte.mapA5Découverte ) Carte.mapA5Découverte = true;
 			SousMapA5.createBodyAndType(MainMenu.world);
 			SousMapA5.sousMap(game, 0,0 );
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("B5")) {
+            if (! Carte.mapB5Découverte ) Carte.mapB5Découverte = true;
 			SousMapB5.destroyType();
 			SousMapB5.createBodyAndType(MainMenu.world);
 			SousMapB5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("C5")) {
+            if (! Carte.mapC5Découverte ) Carte.mapC5Découverte = true;
 			SousMapC5.destroyType();
 			SousMapC5.createBodyAndType(MainMenu.world);
 			SousMapC5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("D5")) {
+            if (! Carte.mapD5Découverte ) Carte.mapD5Découverte = true;
 			SousMapD5.destroyType();
 			SousMapD5.createBodyAndType(MainMenu.world);
 			SousMapD5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("E5")) {
+            if (! Carte.mapE5Découverte ) Carte.mapE5Découverte = true;
 			SousMapE5.destroyType();
 			SousMapE5.createBodyAndType(MainMenu.world);
 			SousMapE5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("F5")) {
+            if (! Carte.mapF5Découverte ) Carte.mapF5Découverte = true;
 			SousMapF5.destroyType();
 			SousMapF5.createBodyAndType(MainMenu.world);
 			SousMapF5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G5")) {
+            if (! Carte.mapG5Découverte ) Carte.mapG5Découverte = true;
 			SousMapG5.destroyType();
 			SousMapG5.createBodyAndType(MainMenu.world);
 			SousMapG5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H5")) {
+            if (! Carte.mapH5Découverte ) Carte.mapH5Découverte = true;
 			SousMapH5.destroyType();
 			SousMapH5.createBodyAndType(MainMenu.world);
 			SousMapH5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("I5")) {
+            if (! Carte.mapI5Découverte ) Carte.mapI5Découverte = true;
 			SousMapI5.destroyType();
 			SousMapI5.createBodyAndType(MainMenu.world);
 			SousMapI5.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("A6")){
+            if (! Carte.mapA6Découverte ) Carte.mapA6Découverte = true;
 			SousMapA6.createBodyAndType(MainMenu.world);
 			SousMapA6.sousMap(game, 0,0 );
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("B6")) {
+            if (! Carte.mapB6Découverte ) Carte.mapB6Découverte = true;
 			SousMapB6.destroyType();
 			SousMapB6.createBodyAndType(MainMenu.world);
 			SousMapB6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("C6")) {
+            if (! Carte.mapC6Découverte ) Carte.mapC6Découverte = true;
 			SousMapC6.destroyType();
 			SousMapC6.createBodyAndType(MainMenu.world);
 			SousMapC6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("D6")) {
+            if (! Carte.mapD6Découverte ) Carte.mapD6Découverte = true;
 			SousMapD6.destroyType();
 			SousMapD6.createBodyAndType(MainMenu.world);
 			SousMapD6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("E6")) {
+            if (! Carte.mapE6Découverte ) Carte.mapE6Découverte = true;
 			SousMapE6.destroyType();
 			SousMapE6.createBodyAndType(MainMenu.world);
 			SousMapE6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("F6")) {
+            if (! Carte.mapF6Découverte ) Carte.mapF6Découverte = true;
 			SousMapF6.destroyType();
 			SousMapF6.createBodyAndType(MainMenu.world);
 			SousMapF6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G6")) {
+            if (! Carte.mapG6Découverte ) Carte.mapG6Découverte = true;
 			SousMapG6.destroyType();
 			SousMapG6.createBodyAndType(MainMenu.world);
 			SousMapG6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H6")) {
+            if (! Carte.mapH6Découverte ) Carte.mapH6Découverte = true;
 			SousMapH6.destroyType();
 			SousMapH6.createBodyAndType(MainMenu.world);
 			SousMapH6.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("I6")) {
+            if (! Carte.mapI6Découverte ) Carte.mapI6Découverte = true;
 			SousMapI6.destroyType();
 			SousMapI6.createBodyAndType(MainMenu.world);
 			SousMapI6.sousMap(game, 0, 0);

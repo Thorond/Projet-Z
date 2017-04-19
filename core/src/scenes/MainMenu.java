@@ -106,6 +106,7 @@ public class MainMenu implements Screen{
 		Link.zone = sauvegarde.zone;
 		if ( Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = sauvegarde.getPosiSousMap();
 		else if ( Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = sauvegarde.getPosiSousMap();
+        Carte.récupérationInfoCarte(sauvegarde);
 
 //		à utiliser en cas de renouvellement de la sauvegarde
 
