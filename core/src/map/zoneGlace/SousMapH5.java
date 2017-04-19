@@ -167,6 +167,45 @@ public class SousMapH5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 480+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 540+ x, 0+ y);
 
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 00+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 60+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.cheminGlaceHori, 60+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 120+ x, 120+ y);
+        ClimatMontagneux.placerMurSombreGlacéCentre2( game, 60+ x, 120+ y );
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 120+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 180+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 180+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 240+ x, 300+ y);
+        ClimatMontagneux.placerMurSombreGlacéCentre2( game, 180+ x, 300+ y );
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 180+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 240+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 240+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 300+ x, 180+ y);
+        ClimatMontagneux.placerMurSombreGlacéCentre2( game, 240+ x, 180+ y );
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 300+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 360+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 360+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 420+ x, 360+ y);
+        ClimatMontagneux.placerMurSombreGlacéCentre2( game, 360+ x, 360+ y );
+
+        game.getBatch().draw(ClimatMontagneux.bordGlacéDroi, 360+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 420+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéSup, 420+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.bordGlacéGau, 480+ x, 240+ y);
+        ClimatMontagneux.placerMurSombreGlacéCentre2( game, 420+ x, 240+ y );
+
+
+//		buissons
+
+
+        game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 430+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 370+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 310+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 250+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 190+ y);
 
 		game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 20+ y);
@@ -178,89 +217,92 @@ public class SousMapH5 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, -60+ y);
 
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 420+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 410+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 380+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 350+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 320+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 290+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 260+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 230+ y);
-
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 200+ y);
 
+//
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 0+ x, 180+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 180+ x,120+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 0+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 130+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 360+ y);
 
 
-//		==================================================================
-		//		Placement des dessins des monstres
-		//==================================================================
-
-		if ( m1EstCrée && monstre1.isAlive() ) {
-			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
-		}
-		if ( m2EstCrée && monstre2.isAlive() ) {
-			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
-		}
-		if ( m3EstCrée && monstre3.isAlive() ) {
-			game.getBatch().draw(monstre3.getTexture(), monstre3.getX(), monstre3.getY());
-		}
-
-		if ( pm1EstCrée && petitMonstre1.isAlive() ) {
-			game.getBatch().draw(petitMonstre1,petitMonstre1.getX(), petitMonstre1.getY());
-		}
-		if ( pm2EstCrée && petitMonstre2.isAlive() ) {
-			game.getBatch().draw(petitMonstre2.getTexture(), petitMonstre2.getX(), petitMonstre2.getY());
-		}
-		if ( pm3EstCrée && petitMonstre3.isAlive() ) {
-			game.getBatch().draw(petitMonstre3.getTexture(), petitMonstre3.getX(), petitMonstre3.getY());
-		}
-		if ( pm4EstCrée && petitMonstre4.isAlive() ) {
-			game.getBatch().draw(petitMonstre4,petitMonstre4.getX(), petitMonstre4.getY());
-		}
-		if ( pm5EstCrée && petitMonstre5.isAlive() ) {
-			game.getBatch().draw(petitMonstre5.getTexture(), petitMonstre5.getX(), petitMonstre5.getY());
-		}
-		if ( pm6EstCrée && petitMonstre6.isAlive() ) {
-			game.getBatch().draw(petitMonstre6.getTexture(), petitMonstre6.getX(), petitMonstre6.getY());
-		}
-		//==================================================================
-		//		      			dégats des monstres
-		//==================================================================
-
-		if ( m1EstCrée && monstre1.isAlive() ) {
-			monstre1.infligéDégatLink();
-		}
-		if ( m2EstCrée && monstre2.isAlive() ) {
-			monstre2.infligéDégatLink();
-		}
-		if ( m3EstCrée && monstre3.isAlive() ) {
-			monstre3.infligéDégatLink();
-		}
-
-		if ( pm6EstCrée && petitMonstre6.isAlive() ) {
-			petitMonstre6.infligéDégatLink();
-		}
-		if ( pm1EstCrée && petitMonstre1.isAlive() ) {
-			petitMonstre1.infligéDégatLink();
-		}
-		if ( pm2EstCrée && petitMonstre2.isAlive() ) {
-			petitMonstre2.infligéDégatLink();
-		}
-		if ( pm3EstCrée && petitMonstre3.isAlive() ) {
-			petitMonstre3.infligéDégatLink();
-		}
-		if ( pm4EstCrée && petitMonstre4.isAlive() ) {
-			petitMonstre4.infligéDégatLink();
-		}
-		if ( pm5EstCrée && petitMonstre5.isAlive() ) {
-			petitMonstre5.infligéDégatLink();
-		}
+//
+//
+////		==================================================================
+//		//		Placement des dessins des monstres
+//		//==================================================================
+//
+//		if ( m1EstCrée && monstre1.isAlive() ) {
+//			game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
+//		}
+//		if ( m2EstCrée && monstre2.isAlive() ) {
+//			game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
+//		}
+//		if ( m3EstCrée && monstre3.isAlive() ) {
+//			game.getBatch().draw(monstre3.getTexture(), monstre3.getX(), monstre3.getY());
+//		}
+//
+//		if ( pm1EstCrée && petitMonstre1.isAlive() ) {
+//			game.getBatch().draw(petitMonstre1,petitMonstre1.getX(), petitMonstre1.getY());
+//		}
+//		if ( pm2EstCrée && petitMonstre2.isAlive() ) {
+//			game.getBatch().draw(petitMonstre2.getTexture(), petitMonstre2.getX(), petitMonstre2.getY());
+//		}
+//		if ( pm3EstCrée && petitMonstre3.isAlive() ) {
+//			game.getBatch().draw(petitMonstre3.getTexture(), petitMonstre3.getX(), petitMonstre3.getY());
+//		}
+//		if ( pm4EstCrée && petitMonstre4.isAlive() ) {
+//			game.getBatch().draw(petitMonstre4,petitMonstre4.getX(), petitMonstre4.getY());
+//		}
+//		if ( pm5EstCrée && petitMonstre5.isAlive() ) {
+//			game.getBatch().draw(petitMonstre5.getTexture(), petitMonstre5.getX(), petitMonstre5.getY());
+//		}
+//		if ( pm6EstCrée && petitMonstre6.isAlive() ) {
+//			game.getBatch().draw(petitMonstre6.getTexture(), petitMonstre6.getX(), petitMonstre6.getY());
+//		}
+//		//==================================================================
+//		//		      			dégats des monstres
+//		//==================================================================
+//
+//		if ( m1EstCrée && monstre1.isAlive() ) {
+//			monstre1.infligéDégatLink();
+//		}
+//		if ( m2EstCrée && monstre2.isAlive() ) {
+//			monstre2.infligéDégatLink();
+//		}
+//		if ( m3EstCrée && monstre3.isAlive() ) {
+//			monstre3.infligéDégatLink();
+//		}
+//
+//		if ( pm6EstCrée && petitMonstre6.isAlive() ) {
+//			petitMonstre6.infligéDégatLink();
+//		}
+//		if ( pm1EstCrée && petitMonstre1.isAlive() ) {
+//			petitMonstre1.infligéDégatLink();
+//		}
+//		if ( pm2EstCrée && petitMonstre2.isAlive() ) {
+//			petitMonstre2.infligéDégatLink();
+//		}
+//		if ( pm3EstCrée && petitMonstre3.isAlive() ) {
+//			petitMonstre3.infligéDégatLink();
+//		}
+//		if ( pm4EstCrée && petitMonstre4.isAlive() ) {
+//			petitMonstre4.infligéDégatLink();
+//		}
+//		if ( pm5EstCrée && petitMonstre5.isAlive() ) {
+//			petitMonstre5.infligéDégatLink();
+//		}
 
 	}
 

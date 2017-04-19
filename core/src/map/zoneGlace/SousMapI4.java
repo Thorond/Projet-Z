@@ -1,12 +1,20 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import scenes.MainMenu;
 
 public class SousMapI4 extends Sprite{
+
+
+    public static Body cote1 ;
+    public static boolean isCote1Created;
+    public static Body cote8 ;
+    public static boolean isCote8Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -182,12 +190,26 @@ public class SousMapI4 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+
+        if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+        isCote1Created = false;
+
+        if ( isCote8Created) MainMenu.world.destroyBody(cote8);
+        isCote8Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
-		
+
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(30,20,60,60);
+            isCote1Created = true;
+        }
+
+        if ( isCote8Created == false ) {
+            cote8 = ClimatMontagneux.createBody(20,240,60,240);
+            isCote8Created = true;
+        }
 	}
 
 	public static void destroyType() {

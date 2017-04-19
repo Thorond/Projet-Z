@@ -352,6 +352,10 @@ public class ClimatMontagneux {
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre,  x,  y);
 		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
 	}
+	public static void placerMurSombreGlacéCentre2(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre2,  x,  y);
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+	}
 	public static void placerMurSombreGlacéDroite(GameMain game, int x , int y ){
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite,  x,  y);
 		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
