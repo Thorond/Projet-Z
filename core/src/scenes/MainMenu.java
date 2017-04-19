@@ -47,6 +47,7 @@ import map.zoneGlace.SousMapF2;
 import map.zoneGlace.SousMapG5;
 import map.zoneGlace.SousMapH2;
 import map.zoneGlace.SousMapI5;
+import menus.Carte;
 import menus.MenuDémarrer;
 import menus.MenuGameover;
 import menus.MenuPause;
@@ -397,7 +398,7 @@ public class MainMenu implements Screen{
 						}
 
 //					mettre le jeu en pause et sauvegarder
-						if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+						if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
 							if (Link.zone.equals("zoneGlace"))
 								sauvegarde = new Sauvegarde(Link.getBody().getPosition().x, Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
 										"zoneGlace");
@@ -407,13 +408,21 @@ public class MainMenu implements Screen{
 
 							SendClass.sendClass(sauvegarde);
 						}
-						if (Gdx.input.isKeyPressed(Input.Keys.O)) {
+						if (Gdx.input.isKeyJustPressed(Input.Keys.O)) {
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
 //						 classe gestionDesMaps ?
 							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
 								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
 							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuPause.isPause = true;
+						}
+						if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la
+//						 classe gestionDesMaps ?
+							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
+								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
+							Carte.isAfficher = true;
 						}
 
 
@@ -581,6 +590,11 @@ public class MainMenu implements Screen{
 
 				updatePause(delta);
 				MenuPause.affichageMenuPause(game);
+			} else if ( Carte.isAfficher ) {
+
+				Carte.updateCarte(delta);
+				Carte.représentation(game);
+
 			} else {
 
 				if (MenuSac.isSacAffiché ) {
