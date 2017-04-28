@@ -427,7 +427,7 @@ public class MainMenu implements Screen{
 						}
 
 
-						//				intéraction avec l'environnement; lorsqu'il est dans un iglooil n'a pas le droit d'utiliser un item
+						//				intéraction avec l'environnement; lorsqu'il est dans un igloo il n'a pas le droit d'utiliser un item
 
 						if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé
 								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
