@@ -37,6 +37,8 @@ public class SousMapH4 extends Sprite{
     public static boolean isCote12Created;
     public static Body cote13 ;
     public static boolean isCote13Created;
+	public static Body cote14 ;
+	public static boolean isCote14Created;
 
     public static Body bosquet1 ;
     public static boolean isBosquet1Created;
@@ -305,6 +307,9 @@ public class SousMapH4 extends Sprite{
         if ( isCote13Created) MainMenu.world.destroyBody(cote13);
         isCote13Created = false;
 
+		if ( isCote14Created) MainMenu.world.destroyBody(cote14);
+		isCote14Created = false;
+
         if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
         isBosquet1Created = false;
 
@@ -366,6 +371,10 @@ public class SousMapH4 extends Sprite{
             cote13 = ClimatMontagneux.createBody(580,20,30,60);
             isCote13Created = true;
         }
+		if ( isCote14Created == false ) {
+			cote14 = ClimatMontagneux.createBody(560,-5,60,20);
+			isCote14Created = true;
+		}
 
         if ( isBosquet1Created == false ) {
             bosquet1 = ClimatMontagneux.createBody(170,450,360,60);
