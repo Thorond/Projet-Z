@@ -29,7 +29,8 @@ public class Plume extends Item {
 	}
 	
 	public void utilisationItem( MainCharacter cha) {
-		if ( cha.getDirection().equals("gauche")) { 
+//		***** pour developeur ****
+		if ( cha.getDirection().equals("gauche")) {
 			cha.getBody().setTransform(cha.getBody().getPosition().x - Math.min(70, cha.getBody().getPosition().x ), cha.getBody().getPosition().y , 0);
 		} else if ( cha.getDirection().equals("droite")) {
 			cha.getBody().setTransform(cha.getBody().getPosition().x + Math.min(70, 600 -cha.getBody().getPosition().x ), cha.getBody().getPosition().y , 0);
@@ -37,8 +38,27 @@ public class Plume extends Item {
 			cha.getBody().setTransform(cha.getBody().getPosition().x , cha.getBody().getPosition().y + Math.min(70, 480 -cha.getBody().getPosition().y ) , 0);
 		} else if ( cha.getDirection().equals("bas")) {
 			cha.getBody().setTransform(cha.getBody().getPosition().x , cha.getBody().getPosition().y - Math.min(70, cha.getBody().getPosition().y ), 0);
-		} 
-	}
-	
+		}
+
+//         **** pour joueur ****
+//        isPlumeUtilisée = true;
+//        timerPlume = System.currentTimeMillis();
+    }
+
+    public static boolean isPlumeUtilisée = false;
+    public static long timerPlume = System.currentTimeMillis();
+
+    public static void timerPlume(MainCharacter Link){
+        if ( System.currentTimeMillis() - timerPlume > 700 && isPlumeUtilisée ){
+            isPlumeUtilisée = false ;
+        } else {
+            if ( Link.getDirection().equals("gauche") || Link.getDirection().equals("droite")){
+                if ( Math.abs(Link.getBody().getLinearVelocity().x) < 30 ) isPlumeUtilisée = false;
+            }
+            if ( Link.getDirection().equals("haut") || Link.getDirection().equals("bas")){
+                if ( Math.abs(Link.getBody().getLinearVelocity().y) <30 ) isPlumeUtilisée = false;
+            }
+        }
+    }
 	
 }

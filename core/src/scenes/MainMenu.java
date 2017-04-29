@@ -340,6 +340,8 @@ public class MainMenu implements Screen{
 							if (System.currentTimeMillis() - Link.timerHit > 300) {
 								Link.isHit = false;
 							}
+						} else if ( Plume.isPlumeUtilisée ){
+							Plume.timerPlume(Link);
 						} else {
 
 							//					déplacement
@@ -536,8 +538,10 @@ public class MainMenu implements Screen{
 						}
 
 						PlacementMainZoneGlace.setDéplacement(Link);
-						PlacementMainZoneGlace.détectionTrou(Link);
-						PlacementMainZoneGlace.détectionEauP(Link);
+                        if ( ! Plume.isPlumeUtilisée ) {
+                            PlacementMainZoneGlace.détectionTrou(Link);
+                            PlacementMainZoneGlace.détectionEauP(Link);
+                        }
 						Flèches.déplacement(Link);
 //									Récuparation du réceptacle 
 						CoeurDeVie.détectionReceptable(Link);
@@ -660,6 +664,9 @@ public class MainMenu implements Screen{
 
 					//			dessin du joueur
 //				Link.setColor(0.8f,0.8f,0,1f);
+                    if ( Plume.isPlumeUtilisée ){
+                        game.getBatch().draw(Plume.plume, Link.getX()-5,Link.getY()-5);
+                    }
 					Link.draw(game.getBatch());
 				}
 
