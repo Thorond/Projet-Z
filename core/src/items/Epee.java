@@ -32,6 +32,7 @@ public class Epee extends Item{
 			//		**** récupération item grâce à épée ****
 			CoeurDeVie.détectionCoeurEpée(cha);
 			Essence.détectionEssenceEpée(cha);
+            Flèches.détectionFlèchesEpée(cha);
 
 			if (cha.getDirection().equals("bas")) {
 				if (((int) cha.getBody().getPosition().y * MainMenu.PPM / 60) - 1 >= 0 &&

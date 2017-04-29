@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import map.zoneGlace.GrotteF5Salle5;
 import map.zoneGlace.PlacementMainZoneGlace;
+import menus.MenuSac;
 import scenes.MainMenu;
 
 /**
@@ -18,17 +19,53 @@ public class Dompteuse {
 
     public static int etatScenario = 0; // à sauvegarder
 
-    public static Texture dompt = new Texture("monstres/dompteuse/dompteuseTriste.png");
+    public static Texture domptTriste = new Texture("monstres/dompteuse/dompteuseTriste.png");
+    public static boolean état = false;
+    public static long timerReprésentation = System.currentTimeMillis();
+    public static Texture dompteuseEtat1 = new Texture("monstres/dompteuse/dompteuseEtat1.png");
+    public static Texture dompteuseEtat2 = new Texture("monstres/dompteuse/dompteuseEtat2.png");
+    public static Texture dompteuseEtat3 = new Texture("monstres/dompteuse/dompteuseEtat3.png");
+    public static Texture dompteuseEtat4 = new Texture("monstres/dompteuse/dompteuseEtat4.png");
+
+    public static void représentation1(GameMain game, int x, int y){
+        if ( etatScenario == 0 || etatScenario == 1){
+            game.getBatch().draw(domptTriste,x,y);
+        } else if ( etatScenario == 2 ){
+            if ( état ) {
+                game.getBatch().draw(dompteuseEtat1,x,y);
+            } else {
+                game.getBatch().draw(dompteuseEtat2,x,y);
+            }
+            if ( System.currentTimeMillis() - timerReprésentation > 300 ) {
+                if ( état ) état = false;
+                else état = true;
+                timerReprésentation = System.currentTimeMillis();
+            }
+        } else if ( etatScenario == 3 ){
+            if ( état ) {
+                game.getBatch().draw(dompteuseEtat3,x,y);
+            } else {
+                game.getBatch().draw(dompteuseEtat4,x,y);
+            }
+            if ( System.currentTimeMillis() - timerReprésentation > 300 ) {
+                if ( état ) état = false;
+                else état = true;
+                timerReprésentation = System.currentTimeMillis();
+            }
+        }
+    }
 
     public static Texture texte1 = new Texture("texte/dompteuse/texte1.png");
     public static Texture texte2 = new Texture("texte/dompteuse/texte2.png");
 
     public static void affichageDompteuse(GameMain game, int x, int y){
         if ( etatScenario < 10 ) {
-            game.getBatch().draw(dompt,x,y);
-            if ( etatScenario == 1 ) game.getBatch().draw(texte1,100,10);
+            représentation1(game,x,y);
+            if ( etatScenario == 1 ) {
+                game.getBatch().draw(texte1,100,20);
+            }
             else if ( etatScenario == 2 ) {
-                game.getBatch().draw(texte2,100,10);
+                game.getBatch().draw(texte2,100,20);
             }
         }
     }
@@ -61,6 +98,7 @@ public class Dompteuse {
                 Tigre.destroyBody();
                 etatScenario = 3;
                 MainMenu.Link.annimationAward = true;
+                MenuSac.setItem(MainMenu.potion);
             }
         }
     }

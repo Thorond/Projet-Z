@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class SousMapH4 extends Sprite{
@@ -34,11 +35,21 @@ public class SousMapH4 extends Sprite{
 	public static boolean isCote11Created;
     public static Body cote12 ;
     public static boolean isCote12Created;
+    public static Body cote13 ;
+    public static boolean isCote13Created;
+	public static Body cote14 ;
+	public static boolean isCote14Created;
 
     public static Body bosquet1 ;
     public static boolean isBosquet1Created;
     public static Body bosquet2 ;
     public static boolean isBosquet2Created;
+
+
+
+    public static boolean isArbuste1Cut = false;
+    public static boolean isArbuste2Cut = false;
+    public static boolean isArbuste3Cut = false;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -180,7 +191,7 @@ public class SousMapH4 extends Sprite{
 
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 180+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroi, 180+ x, 120+ y);
-		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 180+ x, 0+ y);
+		game.getBatch().draw(ClimatMontagneux.murGlacéDroite, 180+ x, 0+ y);
 		game.getBatch().draw(ClimatMontagneux.murGlacéCentre, 180+ x, 60+ y);
 
 		game.getBatch().draw(ClimatMontagneux.bordGlacéInf, 240+ x, 180+ y);
@@ -207,8 +218,14 @@ public class SousMapH4 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.piedGlacéSup, 540+ x, 60+ y);
 		
 		
-//		
-		
+//
+
+        game.getBatch().draw(ClimatMontagneux.tree, 570+ x, -30+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 570+ x, -70+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 540+ x, -60+ y);
+
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 450+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 90+ x, 450+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 450+ y);
@@ -225,6 +242,28 @@ public class SousMapH4 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 390+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 370+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 370+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, 180+ x, -50+ y);
+
+        game.getBatch().draw(ClimatMontagneux.tree, -50+ x, 140+ y);
+
+
+        ClimatMontagneux.arbuste(isArbuste1Cut, game, 0+x,190+ y);
+        ClimatMontagneux.arbuste(isArbuste2Cut, game, 60+x,250+ y);
+        ClimatMontagneux.arbuste(isArbuste3Cut, game, 120+x,310+ y);
+
+
+//
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 0+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 60+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 120+ x, 360+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 180+ x,140+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 0+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 200+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 380+ y);
 	}
 
 	public static void destroyBody() {
@@ -265,6 +304,12 @@ public class SousMapH4 extends Sprite{
         if ( isCote12Created) MainMenu.world.destroyBody(cote12);
         isCote12Created = false;
 
+        if ( isCote13Created) MainMenu.world.destroyBody(cote13);
+        isCote13Created = false;
+
+		if ( isCote14Created) MainMenu.world.destroyBody(cote14);
+		isCote14Created = false;
+
         if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
         isBosquet1Created = false;
 
@@ -275,15 +320,15 @@ public class SousMapH4 extends Sprite{
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
         if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(10,120,60,120);
+            cote1 = ClimatMontagneux.createBody(10,140,60,160);
             isCote1Created = true;
         }
         if ( isCote2Created == false ) {
-            cote2 = ClimatMontagneux.createBody(70,180,60,120);
+            cote2 = ClimatMontagneux.createBody(70,200,60,160);
             isCote2Created = true;
         }
         if ( isCote3Created == false ) {
-            cote3 = ClimatMontagneux.createBody(130,240,60,120);
+            cote3 = ClimatMontagneux.createBody(130,260,60,160);
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
@@ -322,6 +367,14 @@ public class SousMapH4 extends Sprite{
             cote12 = ClimatMontagneux.createBody(0,30,1,60);
             isCote12Created = true;
         }
+        if ( isCote13Created == false ) {
+            cote13 = ClimatMontagneux.createBody(580,20,30,60);
+            isCote13Created = true;
+        }
+		if ( isCote14Created == false ) {
+			cote14 = ClimatMontagneux.createBody(560,-5,60,20);
+			isCote14Created = true;
+		}
 
         if ( isBosquet1Created == false ) {
             bosquet1 = ClimatMontagneux.createBody(170,450,360,60);
@@ -331,10 +384,22 @@ public class SousMapH4 extends Sprite{
             bosquet2 = ClimatMontagneux.createBody(530,420,120,90);
             isBosquet2Created = true;
         }
+
+
+
+        CadrillageMap.setTypeDeDécor(0,3,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(1,4,"HerbesHautes");
+        CadrillageMap.setTypeDeDécor(2,5,"HerbesHautes");
+        if ( CadrillageMap.décorChangé[0][3] == true ) isArbuste1Cut = true;
+        if ( CadrillageMap.décorChangé[1][4] == true ) isArbuste2Cut = true;
+        if ( CadrillageMap.décorChangé[2][5] == true ) isArbuste3Cut = true;
 	}
 
 	public static void destroyType() {
 		// TODO Auto-generated method stub
-		
+
+        isArbuste1Cut = false;
+        isArbuste2Cut = false;
+        isArbuste3Cut = false;
 	}
 }

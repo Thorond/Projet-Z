@@ -14,6 +14,7 @@ import com.mygdx.game.GameMain;
 import characters.MainCharacter;
 import characters.Pnj;
 import map.CadrillageMap;
+import map.zoneGlace.PlacementMainZoneGlace;
 import menus.MenuSac;
 import scenes.MainMenu;
 
@@ -66,6 +67,8 @@ public class Flèches extends Sprite {
         this.setPosition(this.getBody().getPosition().x *MainMenu.PPM , this.getBody().getPosition().y*MainMenu.PPM);
     }
     // ====================================================
+
+    public static Texture dropFlèchesT = new Texture("items/flèches/dropFlèches.png");
 
     public static Texture flècheHaut = new Texture("items/flèches/flècheHaut.png");
     public static Texture flècheBas = new Texture("items/flèches/flècheBas.png");
@@ -393,4 +396,153 @@ public class Flèches extends Sprite {
 
         }
     }
+
+//     *******************************************************************************
+//                                      drop des flèches
+//    **********************************************************************************
+
+    public boolean estPrésent =false;
+    public boolean clignotement = false;
+    public long start;
+    public long startClignotement;
+    public int xDrop;
+    public int yDrop;
+    public static Flèches[] dropFlèches = new Flèches[] { new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches(),
+            new Flèches(), new Flèches(), new Flèches(), new Flèches(), new Flèches()
+    };
+
+    public void déposerFlèches(int xDrop, int yDrop){
+        double tempo = Math.random();
+        if ( tempo < 0.25 ) {
+            this.xDrop = xDrop + (int) (30 * Math.random());
+            this.yDrop = yDrop + (int) (30 * Math.random());
+        }
+        else if (tempo > 0.25 && tempo < 0.5) {
+            this.xDrop = xDrop - (int) (30 * Math.random());
+            this.yDrop = yDrop + (int) (30 * Math.random());
+        }
+        else if (tempo > 0.5 && tempo < 0.75 ) {
+            this.xDrop = xDrop + (int) (30 * Math.random());
+            this.yDrop = yDrop - (int) (30 * Math.random());
+        }
+        else if (tempo > 0.75 ){
+            this.xDrop = xDrop - (int) (30 * Math.random());
+            this.yDrop = yDrop - (int) (30 * Math.random());
+        }
+    }
+
+    public void setEstPrésent(boolean boo){
+        estPrésent = boo;
+        if (boo == true) {
+            start = System.currentTimeMillis();
+            startClignotement = System.currentTimeMillis();
+        }
+    }
+
+    public void clignotementFlèches(){
+        if ( System.currentTimeMillis() - this.startClignotement > 300){
+            if ( clignotement == false ){
+                clignotement = true;
+            } else{
+                clignotement = false;
+            }
+            startClignotement = System.currentTimeMillis();
+
+        }
+    }
+
+    public static void remplirDropFlèches(int xDrop, int yDrop){
+        if ( Math.random() < 0.4 ){
+            for ( int i = 0 ; i < dropFlèches.length ; i++ ){
+                if ( dropFlèches[i].estPrésent == false ) {
+                    dropFlèches[i].setEstPrésent(true);
+                    dropFlèches[i].déposerFlèches(xDrop, yDrop);
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void détectionFlèches(MainCharacter Link){
+        for ( int i = 0 ; i < dropFlèches.length ; i ++){
+            if (dropFlèches[i].estPrésent ){
+                if ( (int) (Link.getBody().getPosition().x*MainMenu.PPM) -10 <= dropFlèches[i].xDrop
+                        && (int) (Link.getBody().getPosition().x*MainMenu.PPM) +40 >= dropFlèches[i].xDrop
+                        && (int) (Link.getBody().getPosition().y*MainMenu.PPM) -10 <= dropFlèches[i].yDrop
+                        && (int) (Link.getBody().getPosition().y*MainMenu.PPM) +40 >= dropFlèches[i].yDrop ){
+                    if ( nombreFlèche < 80 ) nombreFlèche += 3;
+                    if ( nombreFlèche > 80 ) nombreFlèche = 80;
+                    MainMenu.arc.setNombreItem(Flèches.nombreFlèche);
+                    dropFlèches[i].setEstPrésent(false);
+                }
+
+            }
+        }
+    }
+
+    public static void détectionFlèchesEpée(MainCharacter Link){
+        for ( int i = 0 ; i < dropFlèches.length ; i ++){
+            if (dropFlèches[i].estPrésent){
+                if (Link.getDirection().equals("droite")){
+                    if ( (int) Link.getBody().getPosition().x*MainMenu.PPM <=  dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >=  dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM -20 <=  dropFlèches[i].yDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >=  dropFlèches[i].yDrop ){
+                        if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+                        dropFlèches[i].setEstPrésent(false);
+                    }
+                } else if (Link.getDirection().equals("gauche")){
+                    if ( (int) Link.getBody().getPosition().x*MainMenu.PPM >= dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().x*MainMenu.PPM -60 <= dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM -20 <= dropFlèches[i].yDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >= dropFlèches[i].yDrop ){
+                        if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+                        dropFlèches[i].setEstPrésent(false);
+                    }
+                } else if (Link.getDirection().equals("haut")){
+                    if ( (int) Link.getBody().getPosition().x*MainMenu.PPM -20 <= dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >= dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM  <= dropFlèches[i].yDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM +60 >= dropFlèches[i].yDrop ){
+                        if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+                        dropFlèches[i].setEstPrésent(false);
+                    }
+                } else if (Link.getDirection().equals("bas")){
+                    if ( (int) Link.getBody().getPosition().x*MainMenu.PPM -20 <= dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().x*MainMenu.PPM + 60 >= dropFlèches[i].xDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM >= dropFlèches[i].yDrop
+                            && (int) Link.getBody().getPosition().y*MainMenu.PPM -60 <= dropFlèches[i].yDrop ){
+                        if (Link.getHealthMax() - Link.getHealth() >= 1 ) Link.setHealth(Link.getHealth() +1);
+                        dropFlèches[i].setEstPrésent(false);
+                    }
+                }
+
+            }
+        }
+    }
+
+//	=================================================================================================
+
+    public static void représentationFlèchesDrop(GameMain game){
+        for ( int i = 0; i< dropFlèches.length ; i++){
+            if ( System.currentTimeMillis() - dropFlèches[i].start > 10000) dropFlèches[i].setEstPrésent(false);
+            if ( dropFlèches[i].estPrésent
+                    && System.currentTimeMillis() - dropFlèches[i].start < 5000) game.getBatch().draw(dropFlèchesT, dropFlèches[i].xDrop , dropFlèches[i].yDrop);
+            else if ( dropFlèches[i].estPrésent
+                    && System.currentTimeMillis() - dropFlèches[i].start > 5000){
+                dropFlèches[i].clignotementFlèches();
+                if (dropFlèches[i].clignotement ) game.getBatch().draw(dropFlèchesT, dropFlèches[i].xDrop , dropFlèches[i].yDrop);
+            }
+        }
+    }
+
+    public static void réinitialisationDrop(){
+        for ( int i = 0 ; i < dropFlèches.length ; i++) dropFlèches[i].setEstPrésent(false);
+    }
+
+
+
+
 }

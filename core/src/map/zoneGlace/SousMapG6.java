@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import characters.Dompteuse;
 import decors.ClimatMontagneux;
+import items.Potion;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
@@ -284,6 +285,11 @@ public class SousMapG6 extends Sprite{
 
         Dompteuse.affichageDompteuse(game, 300+x,240+y);
         Dompteuse.détectionDompteuse(MainMenu.Link );
+
+        if ( MainMenu.Link.annimationAward ){
+            game.getBatch().draw(Potion.potionT, MainMenu.Link.getX() - 20, MainMenu.Link.getY() + 50);
+            game.getBatch().draw(Potion.textePotion, 100 + x, 60+y);
+        }
 
 	}
 

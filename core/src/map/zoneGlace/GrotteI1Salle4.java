@@ -188,7 +188,7 @@ public class GrotteI1Salle4 extends Sprite {
         if (Arc.isArcPris == false ) game.getBatch().draw(Arc.arcT, 300+ x, 300+ y);
         if ( MainMenu.Link.annimationAward ) {
             game.getBatch().draw(Arc.arcT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
-//            game.getBatch().draw(Arc.texteArc, 100 + x, 60+y);
+            game.getBatch().draw(Arc.texteArc, 100 + x, 60+y);
         }
 
     }

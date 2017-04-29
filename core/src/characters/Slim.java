@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class Slim extends Pnj{
@@ -25,31 +26,44 @@ public class Slim extends Pnj{
 	public Slim(World world,Texture text,  float x, float y, String direction) {
 		super(world,text, 8, 8, 2, x, y, direction);
 	}
-	
+
 //	déplacement aléatoire
 	@Override
 	public void déplacementAléa(){
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - startS > 2000) {
-			if ( tempo < 0.25 && this.getBody().getPosition().x > 90/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(-20000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("gauche");
+			if ( tempo < 0.25 && this.getBody().getPosition().x > 90/MainMenu.PPM ) {
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) - 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) - 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("EauProfonde")){
+					this.getBody().applyLinearImpulse(new Vector2(-20000f, 0), this.getBody().getWorldCenter(), true);
+					this.setDirection("gauche");
+				}
 			}
-			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 480/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(+20000f,0), this.getBody().getWorldCenter(), true);
-				this.setDirection("droite");
+			else if (tempo > 0.25 && tempo < 0.5 && this.getBody().getPosition().x < 480/MainMenu.PPM ) {
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) + 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) + 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) ].equals("EauProfonde")) {
+					this.getBody().applyLinearImpulse(new Vector2(+20000f, 0), this.getBody().getWorldCenter(), true);
+					this.setDirection("droite");
+
+				}
 			}
 			else if (tempo > 0.5 && tempo < 0.75 && this.getBody().getPosition().y > 90/MainMenu.PPM ){
-				this.getBody().applyLinearImpulse(new Vector2(0,-20000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("bas");
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) - 1].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) - 1].equals("EauProfonde")) {
+					this.getBody().applyLinearImpulse(new Vector2(0, -20000f), this.getBody().getWorldCenter(), true);
+					this.setDirection("bas");
+				}
 			}
 			else if (tempo > 0.75 && this.getBody().getPosition().y < 360/MainMenu.PPM){
-				this.getBody().applyLinearImpulse(new Vector2(0,+20000f), this.getBody().getWorldCenter(), true);
-				this.setDirection("haut");
+				if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("Trou")
+						&& !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) ][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("EauProfonde")) {
+					this.getBody().applyLinearImpulse(new Vector2(0, +20000f), this.getBody().getWorldCenter(), true);
+					this.setDirection("haut");
+				}
 			}
 			startS = System.currentTimeMillis();
 			arrét = false;
-		} 
+		}
 		if (System.currentTimeMillis() - startS > 1500 ) {
 //			ralentissement des pnjs
 			this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x / 100f, this.getBody().getLinearVelocity().y / 100f);

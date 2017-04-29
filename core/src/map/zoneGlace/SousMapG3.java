@@ -1,15 +1,45 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MonstreAquatique;
 import characters.Pnj;
 import decors.ClimatMontagneux;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 public class SousMapG3 extends Sprite{
+
+	public static Body cote1 ;
+	public static boolean isCote1Created;
+	public static Body cote2 ;
+	public static boolean isCote2Created;
+	public static Body cote3 ;
+	public static boolean isCote3Created;
+	public static Body cote4 ;
+	public static boolean isCote4Created;
+	public static Body cote5 ;
+	public static boolean isCote5Created;
+	public static Body cote6 ;
+	public static boolean isCote6Created;
+	public static Body cote7 ;
+	public static boolean isCote7Created;
+	public static Body cote8 ;
+	public static boolean isCote8Created;
+
+    public static Body arbre1;
+    public static boolean isarbre1Created;
+
+
+    public static boolean isArbuste1Cut = false;
+
+    public static Body arbuste1;
+    public static boolean isarbuste1Created;
+    public static Body arbuste2;
+    public static boolean isarbuste2Created;
 	
 	public static MonstreAquatique monstre1;
 	public static MonstreAquatique monstre2;
@@ -170,7 +200,7 @@ public class SousMapG3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 250+ x, 20+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 240+ x, -30+ y);
 		
-		game.getBatch().draw(ClimatMontagneux.tree, 450+ x, 60+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 450+ x, 50+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 50+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 30+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 20+ y);
@@ -183,7 +213,7 @@ public class SousMapG3 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 480+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 360+ x, 240+ y);
-		game.getBatch().draw(ClimatMontagneux.planteGelé2, 360+ x, 140+ y);
+        ClimatMontagneux.arbuste(isArbuste1Cut, game, 360+x,140+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 180+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x, 420+ y);
 		game.getBatch().draw(ClimatMontagneux.planteGelé2Cut, 180+ x, 360+ y);
@@ -228,6 +258,39 @@ public class SousMapG3 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
+		if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+		isCote1Created = false;
+
+		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+		isCote2Created = false;
+
+		if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+		isCote3Created = false;
+
+		if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+		isCote4Created = false;
+
+		if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+		isCote5Created = false;
+
+		if ( isCote6Created) MainMenu.world.destroyBody(cote6);
+		isCote6Created = false;
+
+		if ( isCote7Created) MainMenu.world.destroyBody(cote7);
+		isCote7Created = false;
+
+		if ( isCote8Created) MainMenu.world.destroyBody(cote8);
+		isCote8Created = false;
+
+        if ( isarbre1Created) MainMenu.world.destroyBody(arbre1);
+        isarbre1Created = false;
+
+        if ( isarbuste1Created) MainMenu.world.destroyBody(arbuste1);
+        isarbuste1Created = false;
+
+        if ( isarbuste2Created) MainMenu.world.destroyBody(arbuste2);
+        isarbuste2Created = false;
+
 //		destruction monstres
 		if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
 		if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
@@ -238,6 +301,60 @@ public class SousMapG3 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+
+//        haut droite frontière
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(590,400,60,60);
+            isCote1Created = true;
+        }
+        if ( isCote2Created == false ) {
+            cote2 = ClimatMontagneux.createBody(530,430,60,60);
+            isCote2Created = true;
+        }
+//        bas droite frontière
+        if ( isCote3Created == false ) {
+            cote3 = ClimatMontagneux.createBody(510,60,180,120);
+            isCote3Created = true;
+        }
+//         iceberg
+        if ( isCote4Created == false ) {
+            cote4 = ClimatMontagneux.createBody(150,180,120,120);
+            isCote4Created = true;
+        }
+        if ( isCote5Created == false ) {
+            cote5 = ClimatMontagneux.createBody(70,380,60,120);
+            isCote5Created = true;
+        }
+        if ( isCote6Created == false ) {
+            cote6 = ClimatMontagneux.createBody(490,450,60,60);
+            isCote6Created = true;
+        }
+        if ( isCote7Created == false ) {
+            cote7 = ClimatMontagneux.createBody(110,480,60,60);
+            isCote7Created = true;
+        }
+        if ( isCote8Created == false ) {
+            cote8 = ClimatMontagneux.createBody(440,480,60,60);
+            isCote8Created = true;
+        }
+
+        if ( isarbre1Created == false ) {
+            arbre1 = ClimatMontagneux.createBodyPerso("arbre", "static",90,260);
+            isarbre1Created = true;
+        }
+
+        CadrillageMap.setTypeDeDécor(6,2,"HerbesHautes");
+        if ( CadrillageMap.décorChangé[6][2] == true ) isArbuste1Cut = true;
+
+        if ( isarbuste1Created == false ) {
+            arbuste1 = ClimatMontagneux.createBodyPerso("tonneau", "static",360,140);
+            isarbuste1Created = true;
+        }
+        if ( isarbuste2Created == false ) {
+            arbuste2 = ClimatMontagneux.createBodyPerso("tonneau", "static",180,360);
+            isarbuste2Created = true;
+        }
+
 //		========================================================================================
 		//		Création des corps des montres
 		//========================================================================================

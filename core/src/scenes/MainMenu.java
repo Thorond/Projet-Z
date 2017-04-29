@@ -32,6 +32,7 @@ import items.Essence;
 import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
+import items.Potion;
 import map.CadrillageMap;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
@@ -45,6 +46,8 @@ import map.zoneGlace.SousMapF1;
 import map.zoneGlace.SousMapF2;
 import map.zoneGlace.SousMapG5;
 import map.zoneGlace.SousMapH2;
+import map.zoneGlace.SousMapI5;
+import menus.Carte;
 import menus.MenuDémarrer;
 import menus.MenuGameover;
 import menus.MenuPause;
@@ -64,8 +67,8 @@ public class MainMenu implements Screen{
 	public static Bouclier bouclier = new Bouclier();
 	public static Bombe bombe = new Bombe();
 	public static Arc arc = new Arc();
-	
-	Texture carte;
+	public static Potion potion = new Potion();
+
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
@@ -103,6 +106,7 @@ public class MainMenu implements Screen{
 		Link.zone = sauvegarde.zone;
 		if ( Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = sauvegarde.getPosiSousMap();
 		else if ( Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = sauvegarde.getPosiSousMap();
+        Carte.récupérationInfoCarte(sauvegarde);
 
 //		à utiliser en cas de renouvellement de la sauvegarde
 
@@ -115,6 +119,7 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bombe);
 		MenuSac.setItem(arc);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
+		MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
@@ -335,6 +340,8 @@ public class MainMenu implements Screen{
 							if (System.currentTimeMillis() - Link.timerHit > 300) {
 								Link.isHit = false;
 							}
+						} else if ( Plume.isPlumeUtilisée ){
+							Plume.timerPlume(Link);
 						} else {
 
 							//					déplacement
@@ -394,7 +401,7 @@ public class MainMenu implements Screen{
 						}
 
 //					mettre le jeu en pause et sauvegarder
-						if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+						if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
 							if (Link.zone.equals("zoneGlace"))
 								sauvegarde = new Sauvegarde(Link.getBody().getPosition().x, Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
 										"zoneGlace");
@@ -404,7 +411,7 @@ public class MainMenu implements Screen{
 
 							SendClass.sendClass(sauvegarde);
 						}
-						if (Gdx.input.isKeyPressed(Input.Keys.O)) {
+						if (Gdx.input.isKeyJustPressed(Input.Keys.O)) {
 //						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
 //						 classe gestionDesMaps ?
 							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
@@ -412,9 +419,17 @@ public class MainMenu implements Screen{
 							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuPause.isPause = true;
 						}
+						if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la
+//						 classe gestionDesMaps ?
+							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
+								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
+							Carte.isAfficher = true;
+						}
 
 
-						//				intéraction avec l'environnement; lorsqu'il est dans un iglooil n'a pas le droit d'utiliser un item
+						//				intéraction avec l'environnement; lorsqu'il est dans un igloo il n'a pas le droit d'utiliser un item
 
 						if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé
 								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
@@ -506,6 +521,11 @@ public class MainMenu implements Screen{
 									SousMapG5.ouvertureCoffre = true;
 								}
 							}
+							if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
+								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+									SousMapI5.ouvertureCoffre = true;
+								}
+							}
 							if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
 								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
 									SousMapD2.ouvertureCoffre = true;
@@ -518,12 +538,16 @@ public class MainMenu implements Screen{
 						}
 
 						PlacementMainZoneGlace.setDéplacement(Link);
-						PlacementMainZoneGlace.détectionTrou(Link);
-						PlacementMainZoneGlace.détectionEauP(Link);
+                        if ( ! Plume.isPlumeUtilisée ) {
+                            PlacementMainZoneGlace.détectionTrou(Link);
+                            PlacementMainZoneGlace.détectionEauP(Link);
+                        }
 						Flèches.déplacement(Link);
 //									Récuparation du réceptacle 
 						CoeurDeVie.détectionReceptable(Link);
 
+//                         récupération des flèches à terre
+                        Flèches.détectionFlèches(Link);
 						//				récupération de vie par les coeurs de vie
 						CoeurDeVie.détectionCoeur(Link);
 //					 récupération essences
@@ -573,6 +597,11 @@ public class MainMenu implements Screen{
 
 				updatePause(delta);
 				MenuPause.affichageMenuPause(game);
+			} else if ( Carte.isAfficher ) {
+
+				Carte.updateCarte(delta);
+				Carte.représentation(game);
+
 			} else {
 
 				if (MenuSac.isSacAffiché ) {
@@ -628,6 +657,7 @@ public class MainMenu implements Screen{
 					CoeurDeVie.représentationCoeur(game);
 					// dessiner les essences
 					Essence.représentationEssence(game);
+                    Flèches.représentationFlèchesDrop(game);
 
 					Flèches.représentationFlèches(game);
 					Bombe.représentationBombe(game);
@@ -637,6 +667,9 @@ public class MainMenu implements Screen{
 
 					//			dessin du joueur
 //				Link.setColor(0.8f,0.8f,0,1f);
+                    if ( Plume.isPlumeUtilisée ){
+                        game.getBatch().draw(Plume.plume, Link.getX()-5,Link.getY()-5);
+                    }
 					Link.draw(game.getBatch());
 				}
 
@@ -655,6 +688,7 @@ public class MainMenu implements Screen{
 				//		=============================================================================================
 				//     						  dessiner les items à la fois en jeu et dans menuSac
 				//		=============================================================================================
+				potion.affichageTemps();
 
 				if (MenuSac.itemKOccupé) MenuSac.affichageItemK(game);
 				if (MenuSac.itemLOccupé) MenuSac.affichageItemL(game);
@@ -714,7 +748,6 @@ public class MainMenu implements Screen{
 	public void dispose() {
 		// TODO Auto-generated method stub
 		Link.getTexture().dispose();
-		carte.dispose();
 	}
 
 }
