@@ -14,6 +14,7 @@ import scenes.MainMenu;
 public class Arc extends Item{
 
     public static Texture arcT = new Texture("items/arc/arc.png");
+    public static Texture carquois = new Texture("items/arc/carquois.png");
     public static Texture tombe = new Texture("items/arc/graveStone.png");
     public static Texture texte0 = new Texture("items/arc/texte0.png");
     public static Texture indiceArc1 = new Texture("items/arc/indiceArc1.png");

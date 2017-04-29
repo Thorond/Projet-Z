@@ -4,10 +4,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 
+import items.Arc;
 import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
 import items.Essence;
+import items.Flèches;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
@@ -126,7 +128,9 @@ public class Pnj extends Characters{
 	public void drop(){
 		CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
 		Essence.remplirEssences((int) this.getX() , (int) this.getY() );
-	}
+//		if (Arc.isArcPris )
+            Flèches.remplirDropFlèches((int) this.getX() , (int) this.getY());
+    }
 	
 //	subir dégats et mort
 	

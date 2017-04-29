@@ -36,6 +36,7 @@ public class PlacementMainZoneGlace {
 		CoeurDeVie.réinitialisation();
 		Essence.réinitialisation();
 		Bombe.réinitialisation();
+		Flèches.réinitialisationDrop();
 	}
 	
 	

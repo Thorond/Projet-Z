@@ -546,6 +546,8 @@ public class MainMenu implements Screen{
 //									Récuparation du réceptacle 
 						CoeurDeVie.détectionReceptable(Link);
 
+//                         récupération des flèches à terre
+                        Flèches.détectionFlèches(Link);
 						//				récupération de vie par les coeurs de vie
 						CoeurDeVie.détectionCoeur(Link);
 //					 récupération essences
@@ -655,6 +657,7 @@ public class MainMenu implements Screen{
 					CoeurDeVie.représentationCoeur(game);
 					// dessiner les essences
 					Essence.représentationEssence(game);
+                    Flèches.représentationFlèchesDrop(game);
 
 					Flèches.représentationFlèches(game);
 					Bombe.représentationBombe(game);
