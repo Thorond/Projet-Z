@@ -232,8 +232,8 @@ public class GestionDesMapsZoneGlace {
 					SousMapG2.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 					SousMapH2.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("I2") ) {
-					SousMapH2.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 					SousMapI2.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+					SousMapH2.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("A3") ) {
 				} else if ( PlacementMainZoneGlace.positionSousMap.equals("B3") ) {
 					SousMapA3.sousMap(game, 0- PlacementMainZoneGlace.x,0);

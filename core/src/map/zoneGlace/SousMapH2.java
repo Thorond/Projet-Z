@@ -179,7 +179,6 @@ public class SousMapH2 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.tree, 390+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 450+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.tree, 510+ x, 0+ y);
-        game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 0+ y);
 
         game.getBatch().draw(DonjonGlace.murVertical, 44 + x, 310 + y);
         game.getBatch().draw(DonjonGlace.murHorizontal, 64 + x, 310 + y);
