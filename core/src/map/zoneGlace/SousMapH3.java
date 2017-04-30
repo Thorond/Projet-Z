@@ -380,7 +380,7 @@ public class SousMapH3 extends Sprite{
             isarbre4Created = true;
         }
         if ( isarbre5Created == false ) {
-            arbre5 = ClimatMontagneux.createBodyPerso("arbre", "static",400,90);
+            arbre5 = ClimatMontagneux.createBodyPerso("arbre", "static",400,105);
             isarbre5Created = true;
         }
         if ( isarbre6Created == false ) {
