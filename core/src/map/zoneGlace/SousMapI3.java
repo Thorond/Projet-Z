@@ -1,6 +1,7 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
@@ -8,6 +9,7 @@ import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import items.Arc;
 import map.CadrillageMap;
+import scenes.MainMenu;
 
 public class SousMapI3 extends Sprite{
 
@@ -17,6 +19,32 @@ public class SousMapI3 extends Sprite{
     public static boolean isBuisson4Cut = false;
     public static boolean isBuisson5Cut = false;
     public static boolean isBuisson6Cut = false;
+
+    public static Body cote1 ;
+    public static boolean isCote1Created;
+    public static Body cote2 ;
+    public static boolean isCote2Created;
+    public static Body cote3 ;
+    public static boolean isCote3Created;
+    public static Body cote4 ;
+    public static boolean isCote4Created;
+    public static Body cote5 ;
+    public static boolean isCote5Created;
+    public static Body cote6 ;
+    public static boolean isCote6Created;
+    public static Body cote7 ;
+    public static boolean isCote7Created;
+    public static Body cote8 ;
+    public static boolean isCote8Created;
+
+    public static Body tombe;
+    public static boolean istombeCreated;
+    public static Body tombe2;
+    public static boolean istombe2Created;
+    public static Body tombe3;
+    public static boolean istombe3Created;
+    public static Body tombe4;
+    public static boolean istombe4Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -206,7 +234,44 @@ public class SousMapI3 extends Sprite{
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+
+
+        if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+        isCote1Created = false;
+
+        if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+        isCote2Created = false;
+
+        if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+        isCote3Created = false;
+
+        if ( isCote4Created) MainMenu.world.destroyBody(cote4);
+        isCote4Created = false;
+
+        if ( isCote5Created) MainMenu.world.destroyBody(cote5);
+        isCote5Created = false;
+
+        if ( isCote6Created) MainMenu.world.destroyBody(cote6);
+        isCote6Created = false;
+
+        if ( isCote7Created) MainMenu.world.destroyBody(cote7);
+        isCote7Created = false;
+
+        if ( isCote8Created) MainMenu.world.destroyBody(cote8);
+        isCote8Created = false;
+
+
+        if ( istombeCreated) MainMenu.world.destroyBody(tombe);
+        istombeCreated = false;
+
+        if ( istombe2Created) MainMenu.world.destroyBody(tombe2);
+        istombe2Created = false;
+
+        if ( istombe3Created) MainMenu.world.destroyBody(tombe3);
+        istombe3Created = false;
+
+        if ( istombe4Created) MainMenu.world.destroyBody(tombe4);
+        istombe4Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -225,6 +290,60 @@ public class SousMapI3 extends Sprite{
         if ( CadrillageMap.décorChangé[5][5] == true ) isBuisson4Cut = true;
         if ( CadrillageMap.décorChangé[6][3] == true ) isBuisson5Cut = true;
         if ( CadrillageMap.décorChangé[7][6] == true ) isBuisson6Cut = true;
+
+
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(500,240,60,480);
+            isCote1Created = true;
+        }
+        if ( isCote2Created == false ) {
+            cote2 = ClimatMontagneux.createBody(440,120,60,120);
+            isCote2Created = true;
+        }
+        if ( isCote3Created == false ) {
+            cote3 = ClimatMontagneux.createBody(340,60,120,120);
+            isCote3Created = true;
+        }
+        if ( isCote4Created == false ) {
+            cote4 = ClimatMontagneux.createBody(220,80,120,130);
+            isCote4Created = true;
+        }
+        if ( isCote5Created == false ) {
+            cote5 = ClimatMontagneux.createBodyPerso("arbre", "static",0,200);
+            isCote5Created = true;
+        }
+        if ( isCote6Created == false ) {
+            cote6 = ClimatMontagneux.createBody(70,120,180,180);
+            isCote6Created = true;
+        }
+        if ( isCote7Created == false ) {
+            cote7 = ClimatMontagneux.createBody(10,460,300,20);
+            isCote7Created = true;
+        }
+        if ( isCote8Created == false ) {
+            cote8 = ClimatMontagneux.createBody(-20,310,60,140);
+            isCote8Created = true;
+        }
+
+        if ( istombeCreated == false ) {
+            tombe = ClimatMontagneux.createBodyPerso("grossePierre", "static",240,240);
+            istombeCreated = true;
+        }
+
+        if ( istombe2Created == false ) {
+            tombe2 = ClimatMontagneux.createBodyPerso("grossePierre", "static",120,300);
+            istombe2Created = true;
+        }
+
+        if ( istombe3Created == false ) {
+            tombe3 = ClimatMontagneux.createBodyPerso("grossePierre", "static",360,300);
+            istombe3Created = true;
+        }
+
+        if ( istombe4Created == false ) {
+            tombe4 = ClimatMontagneux.createBodyPerso("grossePierre", "static",300,360);
+            istombe4Created = true;
+        }
 	}
 
 	public static void destroyType() {
