@@ -255,9 +255,9 @@ public class SousMapE2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, -60+ y);
 		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, -60+ y);
 
-		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 180+ y);
-		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.tree, 390+ x, 150+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 360+ x, 160+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 420+ x, 160+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 390+ x, 140+ y);
 		
 
 		game.getBatch().draw(ClimatMontagneux.arbreBasGauche, 540+ x, 120+ y);
