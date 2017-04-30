@@ -6,6 +6,7 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
+import items.Arc;
 
 public class SousMapI3 extends Sprite{
 	
@@ -143,8 +144,27 @@ public class SousMapI3 extends Sprite{
 
 //
 
+        game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 370+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 480+ x, 320+ y);
+
+		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 320+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, -30+ x, 260+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 200+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 0+ x, 140+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 60+ x, 140+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 140+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 120+ x, 80+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 80+ y);
+        game.getBatch().draw(ClimatMontagneux.tree, 240+ x, 80+ y);
+
 
 		game.getBatch().draw(ClimatMontagneux.tree, 0+ x, -30+ y);
+
+        game.getBatch().draw(Arc.tombe,240 + x , 240 + y);
+        game.getBatch().draw(Arc.tombe,120 + x , 300 + y);
+        game.getBatch().draw(Arc.tombe,360 + x , 300 + y);
+        game.getBatch().draw(Arc.tombe,300 + x , 360 + y);
 	}
 
 	public static void destroyBody() {

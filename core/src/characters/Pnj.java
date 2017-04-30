@@ -128,7 +128,7 @@ public class Pnj extends Characters{
 	public void drop(){
 		CoeurDeVie.remplirCoeurDeVies((int) this.getX() , (int) this.getY() );
 		Essence.remplirEssences((int) this.getX() , (int) this.getY() );
-//		if (Arc.isArcPris )
+		if (Arc.isArcPris )
             Flèches.remplirDropFlèches((int) this.getX() , (int) this.getY());
     }
 	
