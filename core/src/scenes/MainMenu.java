@@ -72,7 +72,7 @@ public class MainMenu implements Screen{
     public static Music music =  Gdx.audio.newMusic(Gdx.files.internal("musique/Lamabe.mp3"));
 
 	public static World world;
-	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
+	public static Sauvegarde sauvegarde  = AcceptClass.acceptClass();
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
 	
 	public static OrthographicCamera box2DCamera;
@@ -105,20 +105,14 @@ public class MainMenu implements Screen{
 
 		world = new World(new Vector2(0,0),true);
 
-//		lorsqu'une sauvegarde existe, on l'appelle
 
-		Link = new MainCharacter(world, 40, 39, 4, 0 , 0 , sauvegarde.getDirection());
-		Link.getBody().setTransform(sauvegarde.getCoordX(), sauvegarde.getCoordY(), 0);
-		Link.zone = sauvegarde.zone;
-		if ( Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = sauvegarde.getPosiSousMap();
-		else if ( Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = sauvegarde.getPosiSousMap();
-        Carte.récupérationInfoCarte(sauvegarde);
+        sauvegarde.chargerSauvegarde();
 
 //		à utiliser en cas de renouvellement de la sauvegarde
 
-//		Link = new MainCharacter(world,10,  10 , 4 , 200 , 200 , "bas");
-//		PlacementMainZoneGlace.positionSousMap = "I6";
-
+//		Link = new MainCharacter(world, 40, 39, 4 , 200 , 200 , "bas");
+//		PlacementMainZoneGlace.positionSousMap = "G6";
+//
 		MenuSac.setItem(plume);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(gantDeForce);
@@ -127,8 +121,17 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
-		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
-		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
+
+//		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
+//		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
+        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
+        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
+//        if ( Bombe.isBombeRécupéré ) {
+//            MenuSac.setItem(bombe);
+//            bombe.setNombreItem(sauvegarde.nombreBombe );
+//        }
+        if ( Arc.isArcPris) MenuSac.setItem(arc);
+        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
 
 		start = System.currentTimeMillis();
 
@@ -173,11 +176,9 @@ public class MainMenu implements Screen{
 			}
 			else if (MenuPause.choix == 3){
 				if ( Link.zone.equals("zoneGlace"))
-					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
-							"zoneGlace");
+					sauvegarde = new Sauvegarde(Link, PlacementMainZoneGlace.positionSousMap, "zoneGlace");
 				else
-					sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
-							"zoneDesert");
+					sauvegarde = new Sauvegarde(Link, PlacementMainZoneDesert.positionSousMap, "zoneDesert");
 				SendClass.sendClass(sauvegarde);
 //				affichage de quelques choses pour montrer que c'est sauvegarder
 			}
@@ -259,6 +260,10 @@ public class MainMenu implements Screen{
 		} else if ( Gdx.input.isKeyJustPressed(Input.Keys.K) ) {
 			if ( IglooC5.étatAchat == 2 ) {
 				if ( Essence.nombreEssence >= 50 ){
+                    if( Bombe.isBombeRécupéré == false ) {
+                        Bombe.isBombeRécupéré = true;
+                        MenuSac.setItem(bombe);
+                    }
 					bombe.setNombreItem(bombe.getNombreItem() + 10);
 					Essence.nombreEssence -= 50 ;
 					IglooC5.étatAchat = 7;
@@ -409,11 +414,9 @@ public class MainMenu implements Screen{
 //					mettre le jeu en pause et sauvegarder
 						if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
 							if (Link.zone.equals("zoneGlace"))
-								sauvegarde = new Sauvegarde(Link.getBody().getPosition().x, Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
-										"zoneGlace");
+								sauvegarde = new Sauvegarde(Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
 							else
-								sauvegarde = new Sauvegarde(Link.getBody().getPosition().x, Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
-										"zoneDesert");
+								sauvegarde = new Sauvegarde(Link, PlacementMainZoneDesert.positionSousMap, "zoneDesert");
 
 							SendClass.sendClass(sauvegarde);
 						}

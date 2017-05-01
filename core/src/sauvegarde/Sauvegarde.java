@@ -1,5 +1,6 @@
 package sauvegarde;
 
+import characters.Dompteuse;
 import characters.MainCharacter;
 import items.Arc;
 import items.Bombe;
@@ -8,7 +9,11 @@ import items.Epee;
 import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
+import items.Potion;
+import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.PlacementMainZoneGlace;
 import menus.Carte;
+import scenes.MainMenu;
 
 public class Sauvegarde implements java.io.Serializable{
 	
@@ -25,22 +30,30 @@ public class Sauvegarde implements java.io.Serializable{
 	public String zone;
 	public int HealthMax;
 	public int Health;
+
+//    items
 	public boolean isEpéePrise;
 	public boolean isArcPris;
 	public boolean isBombeRécupéré;
+    public int nombreBombe;
 	public boolean isBouclierPris;
 	public int nombreFlèche;
 	public boolean isGantDeForcePris ;
 	public boolean isPlumePrise;
+    public boolean isPotionRécupérer;
 //
+////     *********PNJ*******
 ////	 totem
 //	public  boolean jeuRésolu;
 ////	iceman
 //	public int étatTexte;
 ////	ghost
 //	public int etatScenario;
+////    dompteuse
+    public int etatScenarioDompteuse ;
 ////	grotteArc salle 3
 //	public boolean estPassé;
+
 	
 //	 ******************* carte ************************
 	public boolean mapA1Découverte = false; 
@@ -106,10 +119,10 @@ public class Sauvegarde implements java.io.Serializable{
 	public boolean mapI5Découverte = false; 
 	public boolean mapI6Découverte = false; 
 	 
-	  public Sauvegarde(MainCharacter Link, float x, float y, String direction, String posiSousMap, String zone){
-	    this.coordX = x;
-	    this.coordY = y;
-	    this.direction = direction;
+	  public Sauvegarde(MainCharacter Link, String posiSousMap, String zone){
+	    this.coordX = Link.getBody().getPosition().x;
+	    this.coordY = Link.getBody().getPosition().y;
+	    this.direction = Link.getDirection();
 	    this.posiSousMap = posiSousMap;
 		this.zone = zone;
 		  //
@@ -119,10 +132,17 @@ public class Sauvegarde implements java.io.Serializable{
           this.isEpéePrise = Epee.isEpéePrise ;
           this.isArcPris = Arc.isArcPris ;
           this.isBombeRécupéré = Bombe.isBombeRécupéré ;
+          this.nombreBombe = MainMenu.bombe.getNombreItem();
           this.isBouclierPris = Bouclier.isBouclierPris;
           this.nombreFlèche = Flèches.nombreFlèche;
           this.isGantDeForcePris = GantDeForce.isGantDeForcePris ;
           this.isPlumePrise = Plume.isPlumePrise ;
+          this.isPotionRécupérer = Potion.isPotionRécupérer ;
+
+          //        pnj
+
+          // dompteuse
+          this.etatScenarioDompteuse = Dompteuse.etatScenario ;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;
@@ -220,7 +240,34 @@ public class Sauvegarde implements java.io.Serializable{
 	public void setPosiSousMap(String posiSousMap) {
 		this.posiSousMap = posiSousMap;
 	}
-	 
+
+
+    public void chargerSauvegarde(){
+
+//		lorsqu'une sauvegarde existe, on l'appelle et on récupère les données
+
+        MainMenu.Link = new MainCharacter(MainMenu.world, 40, 39, 4, 0 , 0 , this.getDirection());
+        MainMenu.Link.getBody().setTransform(this.getCoordX(), this.getCoordY(), 0);
+        MainMenu.Link.zone = this.zone;
+        if ( MainMenu.Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = this.getPosiSousMap();
+        else if ( MainMenu.Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = this.getPosiSousMap();
+        MainMenu.Link.setHealthMax(this.HealthMax  ) ;
+        MainMenu.Link.setHealth(this.Health);
+        Epee.isEpéePrise  = this.isEpéePrise ;
+        Arc.isArcPris = this.isArcPris  ;
+        Bombe.isBombeRécupéré  = this.isBombeRécupéré ;
+        Bouclier.isBouclierPris = this.isBouclierPris ;
+        Flèches.nombreFlèche = this.nombreFlèche ;
+        GantDeForce.isGantDeForcePris = this.isGantDeForcePris ;
+        Plume.isPlumePrise = this.isPlumePrise ;
+        Potion.isPotionRécupérer = this.isPotionRécupérer;
+
+//        pnj
+//        dompteuse
+        Dompteuse.etatScenario = this.etatScenarioDompteuse;
+//         carte
+        Carte.récupérationInfoCarte(this);
+    }
 	
 	  
 }
