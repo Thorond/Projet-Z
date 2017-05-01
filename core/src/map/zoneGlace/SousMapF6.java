@@ -24,6 +24,13 @@ public class SousMapF6 extends Sprite{
 	public static Body cote2 ;
 	public static boolean isCote2Created;
 
+	public static Body bosquet1 ;
+	public static boolean isBosquet1Created;
+	public static Body bosquet2 ;
+	public static boolean isBosquet2Created;
+	public static Body bosquet3 ;
+	public static boolean isBosquet3Created;
+
 
     public static boolean isBuisson1Cut = false;
     public static boolean isBuisson2Cut = false;
@@ -272,6 +279,16 @@ public class SousMapF6 extends Sprite{
 
 		if ( isCote2Created) MainMenu.world.destroyBody(cote2);
 		isCote2Created = false;
+
+        if ( isBosquet1Created) MainMenu.world.destroyBody(bosquet1);
+        isBosquet1Created = false;
+
+        if ( isBosquet2Created) MainMenu.world.destroyBody(bosquet2);
+        isBosquet2Created = false;
+
+        if ( isBosquet3Created) MainMenu.world.destroyBody(bosquet3);
+        isBosquet3Created = false;
+
 	}
 
 	public static void createBodyAndType(World world) {
@@ -321,6 +338,19 @@ public class SousMapF6 extends Sprite{
         if ( CadrillageMap.décorChangé[8][3] == true ) isBuisson8Cut = true;
         if ( CadrillageMap.décorChangé[9][4] == true ) isBuisson9Cut = true;
         if ( CadrillageMap.décorChangé[9][3] == true ) isBuisson10Cut = true;
+
+        if ( isBosquet1Created == false ) {
+            bosquet1 = ClimatMontagneux.createBody(10,270,80,180);
+            isBosquet1Created = true;
+        }
+        if ( isBosquet2Created == false ) {
+            bosquet2 = ClimatMontagneux.createBodyPerso("arbre", "static",70,210);
+            isBosquet2Created = true;
+        }
+        if ( isBosquet3Created == false ) {
+            bosquet3 = ClimatMontagneux.createBody(200,390,60,120);
+            isBosquet3Created = true;
+        }
 	}
 
 	public static void destroyType() {
