@@ -10,7 +10,9 @@ import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
 import items.Potion;
+import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.GestionDesMapsZoneGlace;
 import map.zoneGlace.PlacementMainZoneGlace;
 import menus.Carte;
 import scenes.MainMenu;
@@ -246,10 +248,14 @@ public class Sauvegarde implements java.io.Serializable{
 
 //		lorsqu'une sauvegarde existe, on l'appelle et on récupère les données
 
-        MainMenu.Link = new MainCharacter(MainMenu.world, 40, 39, 4, 0 , 0 , this.getDirection());
+        MainMenu.Link.setDirection(this.getDirection());
         MainMenu.Link.getBody().setTransform(this.getCoordX(), this.getCoordY(), 0);
         MainMenu.Link.zone = this.zone;
-        if ( MainMenu.Link.zone.equals("zoneGlace"))	PlacementMainZoneGlace.positionSousMap = this.getPosiSousMap();
+        if ( MainMenu.Link.zone.equals("zoneGlace"))	{
+            PlacementMainZoneGlace.positionSousMap = this.getPosiSousMap();
+            PlacementMainZoneGlace.positionRelativeX = getCoordX();
+            PlacementMainZoneGlace.positionRelativeY = getCoordY();
+        }
         else if ( MainMenu.Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = this.getPosiSousMap();
         MainMenu.Link.setHealthMax(this.HealthMax  ) ;
         MainMenu.Link.setHealth(this.Health);
@@ -268,6 +274,23 @@ public class Sauvegarde implements java.io.Serializable{
 //         carte
         Carte.récupérationInfoCarte(this);
     }
-	
+
+    public static void créerSauvegarde(){
+
+//		nouvelle sauvegarde
+        GestionDesMapsZoneGlace.destructionDesCorps();
+
+        MainMenu.Link.setDirection("bas");
+        MainMenu.Link.getBody().setTransform(100, 100, 0);
+        PlacementMainZoneGlace.positionSousMap = "B2";
+        MainMenu.Link.zone = "zoneGlace";
+        PlacementMainZoneGlace.positionRelativeX = 100;
+        PlacementMainZoneGlace.positionRelativeY = 100;
+
+        MainMenu.Link.setHealthMax( 12 ) ;
+        MainMenu.Link.setHealth( 12 );
+        MainMenu.Link.setStrength(4);
+
+    }
 	  
 }

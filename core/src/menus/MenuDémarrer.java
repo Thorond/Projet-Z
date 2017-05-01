@@ -5,6 +5,9 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import sauvegarde.Sauvegarde;
+import scenes.MainMenu;
+
 public class MenuDémarrer extends Menu {
 
     public static Texture menuDémarrer= new Texture("menus/menuDémarrer/menuDémarrer.png");
@@ -62,19 +65,16 @@ public class MenuDémarrer extends Menu {
             if (choix == 0) choix =1;
             else if (choix == 1) {
                 isInGame = true;
-//                 ici il faudra recharger la sauvegarde et tout remettre comme à l'allumage
+                MainMenu.sauvegarde.chargerSauvegarde();
+                if ( MenuGameover.isGO ) MenuGameover.isGO = false;
+                if ( MenuPause.isPause ) MenuPause.isPause = false;
+            } else if (choix == 2) {
+                isInGame = true;
+                Sauvegarde.créerSauvegarde();
                 if ( MenuGameover.isGO ) MenuGameover.isGO = false;
                 if ( MenuPause.isPause ) MenuPause.isPause = false;
             }
-//            else if (MenuPause.choix == 3){
-//                if ( Link.zone.equals("zoneGlace"))
-//                    sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneGlace.positionSousMap,
-//                            "zoneGlace");
-//                else
-//                    sauvegarde = new Sauvegarde(Link.getBody().getPosition().x,Link.getBody().getPosition().y, Link.getDirection(), PlacementMainZoneDesert.positionSousMap,
-//                            "zoneDesert");
-//                SendClass.sendClass(sauvegarde);
-////				affichage de quelques choses pour montrer que c'est sauvegarder
+
 //            }
         }
     }

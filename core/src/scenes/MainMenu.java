@@ -57,7 +57,8 @@ import sauvegarde.Sauvegarde;
 import sauvegarde.SendClass;
 
 public class MainMenu implements Screen{
-	
+
+    public static World world;
 	private GameMain game;
 	public static MainCharacter Link;
 	
@@ -71,7 +72,6 @@ public class MainMenu implements Screen{
 
     public static Music music =  Gdx.audio.newMusic(Gdx.files.internal("musique/Lamabe.mp3"));
 
-	public static World world;
 	public static Sauvegarde sauvegarde  = AcceptClass.acceptClass();
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
 	
@@ -80,14 +80,15 @@ public class MainMenu implements Screen{
 	
 	public static long start;
 	
-	public static float PPM = 1.5f;
+	public static float PPM = 1.5f; // "vitesse" du joueur
 	
 	public static BitmapFont font ;
 
 	public MainMenu(GameMain game){
 
-//		fonction libGDX
-//        musique démarage
+//		fonctions libGDX
+
+//        musique démarrage
         music.play();
         music.setLooping(true);
         music.dispose();
@@ -105,13 +106,14 @@ public class MainMenu implements Screen{
 
 		world = new World(new Vector2(0,0),true);
 
+        Link = new MainCharacter(world, 4, 1, 4 , 30 ,30 , "bas");
 
         sauvegarde.chargerSauvegarde();
+        System.out.println(Link.getHealth());
 
 //		à utiliser en cas de renouvellement de la sauvegarde
 
-//		Link = new MainCharacter(world, 40, 39, 4 , 200 , 200 , "bas");
-//		PlacementMainZoneGlace.positionSousMap = "G6";
+
 //
 		MenuSac.setItem(plume);
 		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde

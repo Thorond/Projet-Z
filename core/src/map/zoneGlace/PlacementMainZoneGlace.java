@@ -18,7 +18,7 @@ public class PlacementMainZoneGlace {
 //	Repérage sur quelle sous map est Link
 	
 	
-	public static String positionSousMap = "";
+	public static String positionSousMap = "G5";
 	public static boolean défilement = false;
 	public static long start;
 	public static int x; 
