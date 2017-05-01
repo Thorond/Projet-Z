@@ -1,7 +1,11 @@
 package sauvegarde;
 
 import characters.Dompteuse;
+import characters.Ghost;
 import characters.MainCharacter;
+import characters.SnowMan;
+import characters.Tigre;
+import decors.Totem;
 import items.Arc;
 import items.Bombe;
 import items.Bouclier;
@@ -44,15 +48,21 @@ public class Sauvegarde implements java.io.Serializable{
 	public boolean isPlumePrise;
     public boolean isPotionRécupérer;
 //
-////     *********PNJ*******
-////	 totem
-//	public  boolean jeuRésolu;
-////	iceman
-//	public int étatTexte;
-////	ghost
-//	public int etatScenario;
-////    dompteuse
+//     *********PNJ*******
+//	 totem
+	public  boolean jeuRésoluTotem;
+//	iceman
+	public int étatTexteBonhomme;
+//	ghost
+	public int etatScenarioGhost;
+//    dompteuse
     public int etatScenarioDompteuse ;
+//    tigre
+    public boolean tigreRamené ;
+
+
+//         *********élément des cartes**********
+
 ////	grotteArc salle 3
 //	public boolean estPassé;
 
@@ -142,7 +152,14 @@ public class Sauvegarde implements java.io.Serializable{
           this.isPotionRécupérer = Potion.isPotionRécupérer ;
 
           //        pnj
-
+          //    totem
+          jeuRésoluTotem = Totem.jeuRésolu;
+          //	iceman
+          étatTexteBonhomme = SnowMan.étatTexte ;
+          //	ghost
+          etatScenarioGhost = Ghost.etatScenario ;
+          //    tigre
+          tigreRamené = Tigre.tigreRamené;
           // dompteuse
           this.etatScenarioDompteuse = Dompteuse.etatScenario ;
 
@@ -269,6 +286,14 @@ public class Sauvegarde implements java.io.Serializable{
         Potion.isPotionRécupérer = this.isPotionRécupérer;
 
 //        pnj
+        //    totem
+        Totem.jeuRésolu = this.jeuRésoluTotem ;
+        //	iceman
+        SnowMan.étatTexte = this.étatTexteBonhomme  ;
+        //	ghost
+        Ghost.etatScenario = this.etatScenarioGhost ;
+        //    tigre
+        Tigre.tigreRamené = this.tigreRamené ;
 //        dompteuse
         Dompteuse.etatScenario = this.etatScenarioDompteuse;
 //         carte
@@ -279,6 +304,7 @@ public class Sauvegarde implements java.io.Serializable{
 
 //		nouvelle sauvegarde
         GestionDesMapsZoneGlace.destructionDesCorps();
+        // détruire les types ( décors )
 
         MainMenu.Link.setDirection("bas");
         MainMenu.Link.getBody().setTransform(100, 100, 0);
@@ -290,6 +316,13 @@ public class Sauvegarde implements java.io.Serializable{
         MainMenu.Link.setHealthMax( 12 ) ;
         MainMenu.Link.setHealth( 12 );
         MainMenu.Link.setStrength(4);
+
+        // mettre les items
+
+
+        MainMenu.sauvegarde = new Sauvegarde(MainMenu.Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
+        SendClass.sendClass(MainMenu.sauvegarde);
+        MainMenu.sauvegarde.chargerSauvegarde();
 
     }
 	  
