@@ -303,7 +303,7 @@ public class SousMapI1 extends Sprite{
 
 
         if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(120,90,220,180);
+            cote1 = ClimatMontagneux.createBody(100,90,260,180);
             isCote1Created = true;
         }
         if ( isCote2Created == false ) {
