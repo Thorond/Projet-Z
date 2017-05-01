@@ -20,6 +20,9 @@ public class SousMapG6 extends Sprite{
 	public static boolean ismur2Created;
 
 
+    public static Body dompteuse;
+    public static boolean isdompteuseCreated;
+
 
     public static boolean isBuisson1Cut = false;
     public static boolean isBuisson2Cut = false;
@@ -301,6 +304,9 @@ public class SousMapG6 extends Sprite{
 		if ( ismur2Created) MainMenu.world.destroyBody(mur2);
 		ismur2Created = false;
 
+        if ( isdompteuseCreated) MainMenu.world.destroyBody(dompteuse);
+        isdompteuseCreated = false;
+
 
         if ( isarbuste1Created) MainMenu.world.destroyBody(arbuste1);
         isarbuste1Created = false;
@@ -335,6 +341,11 @@ public class SousMapG6 extends Sprite{
 			mur2 = ClimatMontagneux.createBody(300,450,600,60);
 			ismur2Created = true;
 		}
+
+        if ( isdompteuseCreated == false ) {
+            dompteuse = ClimatMontagneux.createBody(300,255,35,50);
+            isdompteuseCreated = true;
+        }
 
 
         CadrillageMap.setTypeDeDécor(1,6,"HerbesHautes");

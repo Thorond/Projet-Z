@@ -1,6 +1,25 @@
 package sauvegarde;
 
+import characters.Dompteuse;
+import characters.Ghost;
+import characters.MainCharacter;
+import characters.SnowMan;
+import characters.Tigre;
+import decors.Totem;
+import items.Arc;
+import items.Bombe;
+import items.Bouclier;
+import items.Epee;
+import items.Flèches;
+import items.GantDeForce;
+import items.Plume;
+import items.Potion;
+import map.zoneDesert.GestionDesMapsZoneDesert;
+import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.GestionDesMapsZoneGlace;
+import map.zoneGlace.PlacementMainZoneGlace;
 import menus.Carte;
+import scenes.MainMenu;
 
 public class Sauvegarde implements java.io.Serializable{
 	
@@ -15,24 +34,38 @@ public class Sauvegarde implements java.io.Serializable{
 	public String direction;
 	public String posiSousMap;
 	public String zone;
-//	public int HealthMax;
-//	public int Health;
-//	public boolean isEpéePrise;
-//	public boolean isArcPris;
-//	public boolean isBombeRécupéré;
-//	public boolean isBouclierPris;
-//	public int nombreFlèche;
-//	public boolean isGantDeForcePris ;
-//	public boolean isPlumePrise;
+	public int HealthMax;
+	public int Health;
+
+//    items
+	public boolean isEpéePrise;
+	public boolean isArcPris;
+	public boolean isBombeRécupéré;
+    public int nombreBombe;
+	public boolean isBouclierPris;
+	public int nombreFlèche;
+	public boolean isGantDeForcePris ;
+	public boolean isPlumePrise;
+    public boolean isPotionRécupérer;
 //
-////	 totem
-//	public  boolean jeuRésolu;
-////	iceman
-//	public int étatTexte;
-////	ghost
-//	public int etatScenario;
+//     *********PNJ*******
+//	 totem
+	public  boolean jeuRésoluTotem;
+//	iceman
+	public int étatTexteBonhomme;
+//	ghost
+	public int etatScenarioGhost;
+//    dompteuse
+    public int etatScenarioDompteuse ;
+//    tigre
+    public boolean tigreRamené ;
+
+
+//         *********élément des cartes**********
+
 ////	grotteArc salle 3
 //	public boolean estPassé;
+
 	
 //	 ******************* carte ************************
 	public boolean mapA1Découverte = false; 
@@ -98,12 +131,37 @@ public class Sauvegarde implements java.io.Serializable{
 	public boolean mapI5Découverte = false; 
 	public boolean mapI6Découverte = false; 
 	 
-	  public Sauvegarde(float x, float y, String direction, String posiSousMap, String zone){
-	    this.coordX = x;
-	    this.coordY = y;
-	    this.direction = direction;
+	  public Sauvegarde(MainCharacter Link, String posiSousMap, String zone){
+	    this.coordX = Link.getBody().getPosition().x;
+	    this.coordY = Link.getBody().getPosition().y;
+	    this.direction = Link.getDirection();
 	    this.posiSousMap = posiSousMap;
 		this.zone = zone;
+		  //
+
+          this.HealthMax = Link.getHealthMax();
+          this.Health = Link.getHealth();
+          this.isEpéePrise = Epee.isEpéePrise ;
+          this.isArcPris = Arc.isArcPris ;
+          this.isBombeRécupéré = Bombe.isBombeRécupéré ;
+          this.nombreBombe = MainMenu.bombe.getNombreItem();
+          this.isBouclierPris = Bouclier.isBouclierPris;
+          this.nombreFlèche = Flèches.nombreFlèche;
+          this.isGantDeForcePris = GantDeForce.isGantDeForcePris ;
+          this.isPlumePrise = Plume.isPlumePrise ;
+          this.isPotionRécupérer = Potion.isPotionRécupérer ;
+
+          //        pnj
+          //    totem
+          jeuRésoluTotem = Totem.jeuRésolu;
+          //	iceman
+          étatTexteBonhomme = SnowMan.étatTexte ;
+          //	ghost
+          etatScenarioGhost = Ghost.etatScenario ;
+          //    tigre
+          tigreRamené = Tigre.tigreRamené;
+          // dompteuse
+          this.etatScenarioDompteuse = Dompteuse.etatScenario ;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;
@@ -201,7 +259,71 @@ public class Sauvegarde implements java.io.Serializable{
 	public void setPosiSousMap(String posiSousMap) {
 		this.posiSousMap = posiSousMap;
 	}
-	 
-	
+
+
+    public void chargerSauvegarde(){
+
+//		lorsqu'une sauvegarde existe, on l'appelle et on récupère les données
+
+        MainMenu.Link.setDirection(this.getDirection());
+        MainMenu.Link.getBody().setTransform(this.getCoordX(), this.getCoordY(), 0);
+        MainMenu.Link.zone = this.zone;
+        if ( MainMenu.Link.zone.equals("zoneGlace"))	{
+            PlacementMainZoneGlace.positionSousMap = this.getPosiSousMap();
+            PlacementMainZoneGlace.positionRelativeX = getCoordX();
+            PlacementMainZoneGlace.positionRelativeY = getCoordY();
+        }
+        else if ( MainMenu.Link.zone.equals("zoneDesert"))	PlacementMainZoneDesert.positionSousMap = this.getPosiSousMap();
+        MainMenu.Link.setHealthMax(this.HealthMax  ) ;
+        MainMenu.Link.setHealth(this.Health);
+        Epee.isEpéePrise  = this.isEpéePrise ;
+        Arc.isArcPris = this.isArcPris  ;
+        Bombe.isBombeRécupéré  = this.isBombeRécupéré ;
+        Bouclier.isBouclierPris = this.isBouclierPris ;
+        Flèches.nombreFlèche = this.nombreFlèche ;
+        GantDeForce.isGantDeForcePris = this.isGantDeForcePris ;
+        Plume.isPlumePrise = this.isPlumePrise ;
+        Potion.isPotionRécupérer = this.isPotionRécupérer;
+
+//        pnj
+        //    totem
+        Totem.jeuRésolu = this.jeuRésoluTotem ;
+        //	iceman
+        SnowMan.étatTexte = this.étatTexteBonhomme  ;
+        //	ghost
+        Ghost.etatScenario = this.etatScenarioGhost ;
+        //    tigre
+        Tigre.tigreRamené = this.tigreRamené ;
+//        dompteuse
+        Dompteuse.etatScenario = this.etatScenarioDompteuse;
+//         carte
+        Carte.récupérationInfoCarte(this);
+    }
+
+    public static void créerSauvegarde(){
+
+//		nouvelle sauvegarde
+        GestionDesMapsZoneGlace.destructionDesCorps();
+        // détruire les types ( décors )
+
+        MainMenu.Link.setDirection("bas");
+        MainMenu.Link.getBody().setTransform(100, 100, 0);
+        PlacementMainZoneGlace.positionSousMap = "B2";
+        MainMenu.Link.zone = "zoneGlace";
+        PlacementMainZoneGlace.positionRelativeX = 100;
+        PlacementMainZoneGlace.positionRelativeY = 100;
+
+        MainMenu.Link.setHealthMax( 12 ) ;
+        MainMenu.Link.setHealth( 12 );
+        MainMenu.Link.setStrength(4);
+
+        // mettre les items
+
+
+        MainMenu.sauvegarde = new Sauvegarde(MainMenu.Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
+        SendClass.sendClass(MainMenu.sauvegarde);
+        MainMenu.sauvegarde.chargerSauvegarde();
+
+    }
 	  
 }

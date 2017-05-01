@@ -18,7 +18,7 @@ public class PlacementMainZoneGlace {
 //	Repérage sur quelle sous map est Link
 	
 	
-	public static String positionSousMap = "";
+	public static String positionSousMap = "G5";
 	public static boolean défilement = false;
 	public static long start;
 	public static int x; 
@@ -856,7 +856,28 @@ public class PlacementMainZoneGlace {
 
 			réinitialisation();
 		}
-		
+
+        //      accès au donjon
+        else if (positionSousMap.equals("H2")
+                && perso.getDirection().equals("haut")
+                && perso.getBody().getPosition().x > 480/MainMenu.PPM &&  perso.getBody().getPosition().x < 600/MainMenu.PPM
+                && perso.getBody().getPosition().y > 250/MainMenu.PPM && perso.getBody().getPosition().y < 310/MainMenu.PPM ){
+            MainMenu.Link.getBody().setTransform(300/MainMenu.PPM, 10, 0);
+            SousMapH2.destroyBody();
+            positionSousMap = "DonjonSalle1";
+
+            réinitialisation();
+        } else if (positionSousMap.equals("DonjonSalle1")
+                && perso.getDirection().equals("bas")
+                && perso.getBody().getPosition().x > 230/MainMenu.PPM &&  perso.getBody().getPosition().x < 330/MainMenu.PPM
+                && perso.getBody().getPosition().y > 00 && perso.getBody().getPosition().y < 30 ){
+            MainMenu.Link.getBody().setTransform(510/MainMenu.PPM, 230/MainMenu.PPM, 0);
+            map.zoneGlace.DonjonSalle1.destroyBody();
+            positionSousMap = "H2";
+
+            réinitialisation();
+        }
+
 	}
 	
 	

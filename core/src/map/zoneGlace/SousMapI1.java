@@ -255,7 +255,10 @@ public class SousMapI1 extends Sprite{
 
 
         if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 60 + x, 230 + y);
-        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+			game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+		}
 
 
 
@@ -303,7 +306,7 @@ public class SousMapI1 extends Sprite{
 
 
         if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(120,90,220,180);
+            cote1 = ClimatMontagneux.createBody(100,90,260,180);
             isCote1Created = true;
         }
         if ( isCote2Created == false ) {

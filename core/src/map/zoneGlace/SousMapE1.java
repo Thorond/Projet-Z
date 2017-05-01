@@ -152,7 +152,10 @@ public class SousMapE1 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.morceauGlaceDroite, 420+ x, 360+ y);
 
         if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 335+ x, 360+ y);
-        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+            game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+        }
 
 		
 	}

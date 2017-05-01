@@ -1088,6 +1088,12 @@ public class GestionDesMapsZoneGlace {
 			GrotteF5Salle5.createBodyAndType(MainMenu.world);
 			GrotteF5Salle5.sousMap(game, 0, 0);
 		}
+
+		else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")) {
+            DonjonSalle1.destroyType();
+            DonjonSalle1.createBodyAndType(MainMenu.world);
+            DonjonSalle1.sousMap(game, 0, 0);
+		}
 	}
 	
 //	 ===========================================================================================================
@@ -1168,6 +1174,9 @@ public class GestionDesMapsZoneGlace {
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle3")) GrotteF5Salle3.destroyBody();
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle4")) GrotteF5Salle4.destroyBody();
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle5")) GrotteF5Salle5.destroyBody();
+
+
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")) DonjonSalle1.destroyBody();
 	}
 	
 }

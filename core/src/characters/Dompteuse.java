@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import items.Potion;
 import map.zoneGlace.GrotteF5Salle5;
 import map.zoneGlace.PlacementMainZoneGlace;
 import menus.MenuSac;
@@ -99,6 +100,7 @@ public class Dompteuse {
                 etatScenario = 3;
                 MainMenu.Link.annimationAward = true;
                 MenuSac.setItem(MainMenu.potion);
+                if ( ! Potion.isPotionRécupérer ) Potion.isPotionRécupérer = true;
             }
         }
     }
