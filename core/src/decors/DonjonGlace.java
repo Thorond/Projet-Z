@@ -71,7 +71,7 @@ public class DonjonGlace {
 
     public static boolean transitionGrille = true;
 
-    public static int ouvertureGrille = -1; // à sauvegarder
+    public static int ouvertureGrille = 4; // à sauvegarder ( -1 à la base )
     public static long changementOuvertureGrille = System.currentTimeMillis();
 
     public static void annimationOuvertureGrille(GameMain game, int x, int y){
