@@ -512,11 +512,7 @@ public class MainMenu implements Screen{
 									SousMapF2.ouvertureCoffre = true;
 								}
 							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-									SousMapD5.ouvertureCoffre = true;
-								}
-							}
+
 							if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
 								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
 									SousMapH2.ouvertureCoffre = true;

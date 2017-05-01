@@ -255,7 +255,10 @@ public class SousMapI1 extends Sprite{
 
 
         if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 60 + x, 230 + y);
-        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+        else if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+			game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+		}
 
 
 

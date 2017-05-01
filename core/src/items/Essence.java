@@ -17,6 +17,10 @@ public class Essence {
 	public static Texture essenceOrange = new Texture("Divers/essence/essenceOrange.png");
 	public static Texture essenceRouge = new Texture("Divers/essence/essenceRouge.png");
 	public static Texture essenceNombre = new Texture("Divers/essence/essenceNombre.png");
+
+	public static Texture texteEssence10 = new Texture("texte/divers/texteEssence10.png");
+    public static Texture texteEssence25 = new Texture("texte/divers/texteEssence25.png");
+
 	protected boolean estPrésent =false;
 	protected boolean clignotement = false;
 	protected long start;

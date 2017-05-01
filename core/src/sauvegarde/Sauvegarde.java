@@ -1,5 +1,13 @@
 package sauvegarde;
 
+import characters.MainCharacter;
+import items.Arc;
+import items.Bombe;
+import items.Bouclier;
+import items.Epee;
+import items.Flèches;
+import items.GantDeForce;
+import items.Plume;
 import menus.Carte;
 
 public class Sauvegarde implements java.io.Serializable{
@@ -15,15 +23,15 @@ public class Sauvegarde implements java.io.Serializable{
 	public String direction;
 	public String posiSousMap;
 	public String zone;
-//	public int HealthMax;
-//	public int Health;
-//	public boolean isEpéePrise;
-//	public boolean isArcPris;
-//	public boolean isBombeRécupéré;
-//	public boolean isBouclierPris;
-//	public int nombreFlèche;
-//	public boolean isGantDeForcePris ;
-//	public boolean isPlumePrise;
+	public int HealthMax;
+	public int Health;
+	public boolean isEpéePrise;
+	public boolean isArcPris;
+	public boolean isBombeRécupéré;
+	public boolean isBouclierPris;
+	public int nombreFlèche;
+	public boolean isGantDeForcePris ;
+	public boolean isPlumePrise;
 //
 ////	 totem
 //	public  boolean jeuRésolu;
@@ -98,12 +106,23 @@ public class Sauvegarde implements java.io.Serializable{
 	public boolean mapI5Découverte = false; 
 	public boolean mapI6Découverte = false; 
 	 
-	  public Sauvegarde(float x, float y, String direction, String posiSousMap, String zone){
+	  public Sauvegarde(MainCharacter Link, float x, float y, String direction, String posiSousMap, String zone){
 	    this.coordX = x;
 	    this.coordY = y;
 	    this.direction = direction;
 	    this.posiSousMap = posiSousMap;
 		this.zone = zone;
+		  //
+
+          this.HealthMax = Link.getHealthMax();
+          this.Health = Link.getHealth();
+          this.isEpéePrise = Epee.isEpéePrise ;
+          this.isArcPris = Arc.isArcPris ;
+          this.isBombeRécupéré = Bombe.isBombeRécupéré ;
+          this.isBouclierPris = Bouclier.isBouclierPris;
+          this.nombreFlèche = Flèches.nombreFlèche;
+          this.isGantDeForcePris = GantDeForce.isGantDeForcePris ;
+          this.isPlumePrise = Plume.isPlumePrise ;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;

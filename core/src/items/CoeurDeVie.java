@@ -266,6 +266,9 @@ public class CoeurDeVie {
 	public static Texture receptacleInfGau= new Texture("Divers/receptacle/receptacleInfGau.png");
 	public static Texture receptacleSupDroi= new Texture("Divers/receptacle/receptacleSupDroi.png");
 	public static Texture receptacleSupGauche= new Texture("Divers/receptacle/receptacleSupGauche.png");
+
+
+    public static Texture texteRéceptacle = new Texture("texte/divers/texteRéceptacle.png");
 	
 	public static int nbrDeReceptacle = 0; // à sauvegarder 
 	
