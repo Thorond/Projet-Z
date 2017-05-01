@@ -3,9 +3,9 @@ package scenes;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -69,6 +69,8 @@ public class MainMenu implements Screen{
 	public static Arc arc = new Arc();
 	public static Potion potion = new Potion();
 
+    public static Music music =  Gdx.audio.newMusic(Gdx.files.internal("musique/Lamabe.mp3"));
+
 	public static World world;
 	public static Sauvegarde sauvegarde = AcceptClass.acceptClass() ;
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
@@ -85,8 +87,12 @@ public class MainMenu implements Screen{
 	public MainMenu(GameMain game){
 
 //		fonction libGDX
+//        musique démarage
+        music.play();
+        music.setLooping(true);
+        music.dispose();
 
-		this.game = game;
+        this.game = game;
 
 		box2DCamera = new OrthographicCamera();
 		box2DCamera.setToOrtho(false, 600 / MainMenu.PPM, 480 /MainMenu.PPM);

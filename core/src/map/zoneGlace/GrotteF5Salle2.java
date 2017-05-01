@@ -165,7 +165,6 @@ public class GrotteF5Salle2 extends Sprite {
             game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 0+ y);
             game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 0+ y);
 
-            game.getBatch().draw(ClimatMontagneux.emplacementBombe, 240+ x, 60+ y);
         }
 
     }
