@@ -122,6 +122,7 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
+        Flèches.nombreFlèche = 30;
 
 //		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 //		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
@@ -677,8 +678,6 @@ public class MainMenu implements Screen{
                         game.getBatch().draw(Plume.plume, Link.getX()-5,Link.getY()-5);
                     }
 					Link.draw(game.getBatch());
-//                    game.getBatch().draw(DonjonGlace.ombreGlobale, Link.getX() -643 , Link.getY() - 465);
-//                    game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, Link.getX() -643 , Link.getY() - 465);
 				}
 
 //			 texte de la map totem

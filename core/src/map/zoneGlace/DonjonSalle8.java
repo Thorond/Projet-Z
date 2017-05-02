@@ -151,6 +151,9 @@ public class DonjonSalle8 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+//                    game.getBatch().draw(DonjonGlace.ombreGlobale, Link.getX() -643 , Link.getY() - 465);
+//                    game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, Link.getX() -643 , Link.getY() - 465);
+
 
     }
 

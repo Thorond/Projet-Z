@@ -173,6 +173,10 @@ public class DonjonSalle7 extends Sprite {
 
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
+
+//                    game.getBatch().draw(DonjonGlace.ombreGlobale, Link.getX() -643 , Link.getY() - 465);
+//                    game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, Link.getX() -643 , Link.getY() - 465);
+
     }
 
     public static void createBodyAndType(World world) {

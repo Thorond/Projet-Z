@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Ape;
+import characters.Pnj;
 import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
@@ -26,6 +28,9 @@ public class DonjonSalle5 extends Sprite {
     public static boolean isCote5Created;
     public static Body cote6 ;
     public static boolean isCote6Created;
+
+    public static Ape ape;
+    public static boolean apeEstCrée = false ;
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -173,6 +178,14 @@ public class DonjonSalle5 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+//         placement ape
+        if ( apeEstCrée && ape.isAlive() ) {
+            game.getBatch().draw(ape,ape.getX(), ape.getY());
+
+            if ( ape.laserPrésent ) {
+                game.getBatch().draw(Ape.laser, ape.getX()-260,ape.getY());
+            }
+        }
 
     }
 
@@ -195,16 +208,20 @@ public class DonjonSalle5 extends Sprite {
 
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
+
+//
+
+        Pnj.nbrDeMonstres = 0 ;
     }
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
         if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(20,240,60,480);
+            cote1 = ClimatMontagneux.createBody(20,330,60,180);
             isCote1Created = true;
         }
         if ( isCote2Created == false ) {
-            cote2 = ClimatMontagneux.createBody(560,240,60,480);
+            cote2 = ClimatMontagneux.createBody(20,80,60,180);
             isCote2Created = true;
         }
         if ( isCote3Created == false ) {
@@ -216,12 +233,26 @@ public class DonjonSalle5 extends Sprite {
             isCote4Created = true;
         }
         if ( isCote5Created == false ) {
-            cote5 = ClimatMontagneux.createBody(280,20,240,60);
+            cote5 = ClimatMontagneux.createBody(340,20,360,60);
             isCote5Created = true;
         }
         if ( isCote6Created == false ) {
-            cote6 = ClimatMontagneux.createBody(280,440,240,60);
+            cote6 = ClimatMontagneux.createBody(340,440,360,60);
             isCote6Created = true;
+        }
+
+//        création du singe
+
+        if ( apeEstCrée == false ) {
+            ape = new Ape(world ,Ape.apeBas1, 430 , 300 , "bas") ;
+            Pnj.monstres[0] = ape;
+            Pnj.nbrDeMonstres = 1 ;
+            apeEstCrée = true;
+        } else {
+            ape.attaque();
+            ape.déplacement();
+            ape.représentation();
+            ape.updateBody();
         }
     }
 

@@ -199,11 +199,11 @@ public class DonjonSalle4 extends Sprite {
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
         if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(20,240,60,480);
+            cote1 = ClimatMontagneux.createBody(80,240,60,480);
             isCote1Created = true;
         }
         if ( isCote2Created == false ) {
-            cote2 = ClimatMontagneux.createBody(560,240,60,480);
+            cote2 = ClimatMontagneux.createBody(560,80,60,180);
             isCote2Created = true;
         }
         if ( isCote3Created == false ) {
@@ -211,7 +211,7 @@ public class DonjonSalle4 extends Sprite {
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
-            cote4 = ClimatMontagneux.createBody(100,440,240,60);
+            cote4 = ClimatMontagneux.createBody(560,330,60,180);
             isCote4Created = true;
         }
         if ( isCote5Created == false ) {
