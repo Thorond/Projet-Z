@@ -176,6 +176,21 @@ public class GestionDesMapsZoneGlace {
 					GrotteF5Salle5.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
 					GrotteF5Salle4.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
 				}
+                // 		******************** GrotteF5 *******************************
+                else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")){
+                    DonjonSalle1.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+                    DonjonSalle2.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+                } else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")){
+                    DonjonSalle3.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+                    DonjonSalle9.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+                } else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")){
+                    DonjonSalle5.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+                    DonjonSalle4.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+                } else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3")){
+                    DonjonSalle7.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+                    DonjonSalle3.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+                }
+
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
 					PlacementMainZoneGlace.x+=15;
@@ -351,6 +366,20 @@ public class GestionDesMapsZoneGlace {
 					GrotteF5Salle4.sousMap(game, 0- PlacementMainZoneGlace.x,0);
 					GrotteF5Salle5.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
 				}
+                // 		******************** donjon*******************************
+                else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1") ) {
+                    DonjonSalle2.sousMap(game, 0- PlacementMainZoneGlace.x,0);
+                    DonjonSalle1.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3") ) {
+                    DonjonSalle9.sousMap(game, 0- PlacementMainZoneGlace.x,0);
+                    DonjonSalle3.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5") ) {
+                    DonjonSalle4.sousMap(game, 0- PlacementMainZoneGlace.x,0);
+                    DonjonSalle5.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7") ) {
+                    DonjonSalle3.sousMap(game, 0- PlacementMainZoneGlace.x,0);
+                    DonjonSalle7.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
+                }
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
 					PlacementMainZoneGlace.x+=15;
@@ -517,6 +546,27 @@ public class GestionDesMapsZoneGlace {
 					GrotteF5Salle2.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
 					GrotteF5Salle4.sousMap(game, 0, PlacementMainZoneGlace.y);
 				}
+// 		******************** donjon*******************************
+                else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1") ) {
+                    DonjonSalle1.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                    DonjonSalle3.sousMap(game, 0, PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3") ) {
+                    DonjonSalle3.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                    DonjonSalle4.sousMap(game, 0, PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5") ) {
+                    DonjonSalle5.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                    DonjonSalle6.sousMap(game, 0, PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7") ) {
+                    DonjonSalle7.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                    DonjonSalle5.sousMap(game, 0, PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8") ) {
+                    DonjonSalle8.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                    DonjonSalle7.sousMap(game, 0, PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9") ) {
+                    DonjonSalle9.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                    DonjonSalle10.sousMap(game, 0, PlacementMainZoneGlace.y);
+                }
+
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
 					PlacementMainZoneGlace.y+=15;
@@ -675,6 +725,27 @@ public class GestionDesMapsZoneGlace {
 					GrotteF5Salle2.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
 					GrotteF5Salle4.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
 				}
+// 		******************** Donjon*******************************
+                else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3") ) {
+                    DonjonSalle1.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle3.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4") ) {
+                    DonjonSalle3.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle4.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6") ) {
+                    DonjonSalle5.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle6.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5") ) {
+                    DonjonSalle7.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle5.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7") ) {
+                    DonjonSalle8.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle7.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10") ) {
+                    DonjonSalle9.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle10.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                }
+
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
 					PlacementMainZoneGlace.y+=15;
@@ -1094,6 +1165,51 @@ public class GestionDesMapsZoneGlace {
             DonjonSalle1.createBodyAndType(MainMenu.world);
             DonjonSalle1.sousMap(game, 0, 0);
 		}
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")) {
+            DonjonSalle2.destroyType();
+            DonjonSalle2.createBodyAndType(MainMenu.world);
+            DonjonSalle2.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3")) {
+            DonjonSalle3.destroyType();
+            DonjonSalle3.createBodyAndType(MainMenu.world);
+            DonjonSalle3.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")) {
+            DonjonSalle4.destroyType();
+            DonjonSalle4.createBodyAndType(MainMenu.world);
+            DonjonSalle4.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5")) {
+            DonjonSalle5.destroyType();
+            DonjonSalle5.createBodyAndType(MainMenu.world);
+            DonjonSalle5.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")) {
+            DonjonSalle6.destroyType();
+            DonjonSalle6.createBodyAndType(MainMenu.world);
+            DonjonSalle6.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")) {
+            DonjonSalle7.destroyType();
+            DonjonSalle7.createBodyAndType(MainMenu.world);
+            DonjonSalle7.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")) {
+            DonjonSalle8.destroyType();
+            DonjonSalle8.createBodyAndType(MainMenu.world);
+            DonjonSalle8.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")) {
+            DonjonSalle9.destroyType();
+            DonjonSalle9.createBodyAndType(MainMenu.world);
+            DonjonSalle9.sousMap(game, 0, 0);
+        }
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")) {
+            DonjonSalle10.destroyType();
+            DonjonSalle10.createBodyAndType(MainMenu.world);
+            DonjonSalle10.sousMap(game, 0, 0);
+        }
 	}
 	
 //	 ===========================================================================================================
@@ -1177,6 +1293,15 @@ public class GestionDesMapsZoneGlace {
 
 
         else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")) DonjonSalle1.destroyBody();
 	}
 	
 }

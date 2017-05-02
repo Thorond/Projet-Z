@@ -178,33 +178,6 @@ public class PlacementMainZoneGlace {
 			} else if ( positionSousMap.equals("I5")  ){
 				SousMapI5.destroyBody();
 				positionSousMap = "I6";
-			} else if ( positionSousMap.equals("A6") ){
-				SousMapA6.destroyBody();
-				positionSousMap = "A7";
-			} else if ( positionSousMap.equals("B6")  ){
-				SousMapB6.destroyBody();
-				positionSousMap = "B7";
-			} else if ( positionSousMap.equals("C6")  ){
-				SousMapC6.destroyBody();
-				positionSousMap = "C7";
-			} else if ( positionSousMap.equals("D6")  ){
-				SousMapD6.destroyBody();
-				positionSousMap = "D7";
-			} else if ( positionSousMap.equals("E6")  ){
-				SousMapE6.destroyBody();
-				positionSousMap = "E7";
-			} else if ( positionSousMap.equals("F6")  ){
-				SousMapF6.destroyBody();
-				positionSousMap = "F7";
-			} else if ( positionSousMap.equals("G6")  ){
-				SousMapG6.destroyBody();
-				positionSousMap = "G7";
-			} else if ( positionSousMap.equals("H6")  ){
-				SousMapH6.destroyBody();
-				positionSousMap = "H7";
-			} else if ( positionSousMap.equals("I6")  ){
-				SousMapI6.destroyBody();
-				positionSousMap = "I7";
 			}
 // 		******************** GrotteI1 *******************************
 			else if ( positionSousMap.equals("GrotteI1Salle2")  ){
@@ -219,6 +192,26 @@ public class PlacementMainZoneGlace {
 				map.zoneGlace.GrotteF5Salle2.destroyBody();
 				positionSousMap = "GrotteF5Salle3";
 			}
+// 		******************** donjon *******************************
+            else if ( positionSousMap.equals("DonjonSalle3")  ){
+                map.zoneGlace.DonjonSalle3.destroyBody();
+                positionSousMap = "DonjonSalle1";
+            } else if ( positionSousMap.equals("DonjonSalle4")  ){
+                map.zoneGlace.DonjonSalle4.destroyBody();
+                positionSousMap = "DonjonSalle3";
+            } else if ( positionSousMap.equals("DonjonSalle6")  ){
+                map.zoneGlace.DonjonSalle6.destroyBody();
+                positionSousMap = "DonjonSalle5";
+            } else if ( positionSousMap.equals("DonjonSalle5")  ){
+                map.zoneGlace.DonjonSalle5.destroyBody();
+                positionSousMap = "DonjonSalle7";
+            } else if ( positionSousMap.equals("DonjonSalle7")  ){
+                map.zoneGlace.DonjonSalle7.destroyBody();
+                positionSousMap = "DonjonSalle8";
+            } else if ( positionSousMap.equals("DonjonSalle10")  ){
+                map.zoneGlace.DonjonSalle10.destroyBody();
+                positionSousMap = "DonjonSalle9";
+            }
 			
 			défilement = true;
 			start = System.currentTimeMillis();
@@ -387,6 +380,27 @@ public class PlacementMainZoneGlace {
 				map.zoneGlace.GrotteF5Salle2.destroyBody();
 				positionSousMap = "GrotteF5Salle4";
 			}
+// 		******************** donjon *******************************
+            else if ( positionSousMap.equals("DonjonSalle1") ){
+                map.zoneGlace.DonjonSalle1.destroyBody();
+                positionSousMap = "DonjonSalle3";
+            } else if ( positionSousMap.equals("DonjonSalle3") ){
+                map.zoneGlace.DonjonSalle3.destroyBody();
+                positionSousMap = "DonjonSalle4";
+            } else if ( positionSousMap.equals("DonjonSalle5") ){
+                map.zoneGlace.DonjonSalle5.destroyBody();
+                positionSousMap = "DonjonSalle6";
+            } else if ( positionSousMap.equals("DonjonSalle7") ){
+                map.zoneGlace.DonjonSalle7.destroyBody();
+                positionSousMap = "DonjonSalle5";
+            } else if ( positionSousMap.equals("DonjonSalle8") ){
+                map.zoneGlace.DonjonSalle8.destroyBody();
+                positionSousMap = "DonjonSalle7";
+            } else if ( positionSousMap.equals("DonjonSalle9") ){
+                map.zoneGlace.DonjonSalle9.destroyBody();
+                positionSousMap = "DonjonSalle10";
+            }
+
 			
 			défilement = true;
 			start = System.currentTimeMillis();
@@ -563,6 +577,21 @@ public class PlacementMainZoneGlace {
 				GrotteF5Salle1.destroyBody();
 				positionSousMap = "GrotteF5Salle2";
 			}
+            // 		******************** Donjon *******************************
+            else if ( positionSousMap.equals("DonjonSalle1")  ){
+                map.zoneGlace.DonjonSalle1.destroyBody();
+                positionSousMap = "DonjonSalle2";
+            } else if ( positionSousMap.equals("DonjonSalle3")  ){
+                map.zoneGlace.DonjonSalle3.destroyBody();
+                positionSousMap = "DonjonSalle9";
+            } else if ( positionSousMap.equals("DonjonSalle5")  ){
+                map.zoneGlace.DonjonSalle5.destroyBody();
+                positionSousMap = "DonjonSalle4";
+            } else if ( positionSousMap.equals("DonjonSalle7")  ){
+                map.zoneGlace.DonjonSalle7.destroyBody();
+                positionSousMap = "DonjonSalle3";
+            }
+
 			
 			défilement = true;
 			start = System.currentTimeMillis();
@@ -742,6 +771,20 @@ public class PlacementMainZoneGlace {
 				map.zoneGlace.GrotteF5Salle4.destroyBody();
 				positionSousMap = "GrotteF5Salle5";
 			}
+            // 		******************** Donjon *******************************
+            else if ( positionSousMap.equals("DonjonSalle2")  ){
+                map.zoneGlace.DonjonSalle2.destroyBody();
+                positionSousMap = "DonjonSalle1";
+            } else if ( positionSousMap.equals("DonjonSalle9")  ){
+                map.zoneGlace.DonjonSalle9.destroyBody();
+                positionSousMap = "DonjonSalle3";
+            } else if ( positionSousMap.equals("DonjonSalle4")  ){
+                map.zoneGlace.DonjonSalle4.destroyBody();
+                positionSousMap = "DonjonSalle5";
+            } else if ( positionSousMap.equals("DonjonSalle3")  ){
+                map.zoneGlace.DonjonSalle3.destroyBody();
+                positionSousMap = "DonjonSalle7";
+            }
 
 			if ( changementDeZone == false ) défilement = true;
 			changementDeZone = false;
