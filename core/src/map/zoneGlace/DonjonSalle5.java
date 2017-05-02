@@ -181,10 +181,7 @@ public class DonjonSalle5 extends Sprite {
 //         placement ape
         if ( apeEstCrée && ape.isAlive() ) {
             game.getBatch().draw(ape,ape.getX(), ape.getY());
-
-            if ( ape.laserPrésent ) {
-                game.getBatch().draw(Ape.laser, ape.getX()-260,ape.getY());
-            }
+            ape.représentationlaser(game);
         }
 
     }

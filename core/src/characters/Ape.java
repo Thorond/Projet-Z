@@ -1,8 +1,10 @@
 package characters;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.GameMain;
 
 import scenes.MainMenu;
 
@@ -27,7 +29,8 @@ public class Ape extends Pnj{
     
     public static Texture apeDead = new Texture("monstres/ape/apeDead.png");
     
-    public static Texture laser = new Texture("monstres/ape/laser.png");
+    public static Texture laserT = new Texture("monstres/ape/laser.png");
+    public static Sprite laser = new Sprite(laserT);
 
     public Ape(World world, Texture text, float x, float y, String direction) {
         super(world,text, 30, 30, 5, x, y, direction);
@@ -59,7 +62,7 @@ public class Ape extends Pnj{
     public boolean isAtta = false;
     public boolean laserPrésent = false;
     public void attaque(){
-        if (this.getY() - MainMenu.Link.getY() < -20 && this.getY() - MainMenu.Link.getY() > -60) {
+        if (this.getY() - MainMenu.Link.getY() < -20 && this.getY() - MainMenu.Link.getY() > -30) {
             if ( ! isAtta ) {
                 isAtta = true;
                 timerAtta = System.currentTimeMillis();
@@ -68,14 +71,14 @@ public class Ape extends Pnj{
             this.setDirection("gauche");
             if ( ! laserPrésent ) {
                 textGauche1 = 0;
+                xLaser = 0;
+                DxLaser = 10;
             }
         }
 
-        if ( System.currentTimeMillis() - timerAtta > 1000) isAtta = false;
+        if ( System.currentTimeMillis() - timerAtta > 1000) isAtta = false; // il réitère l'attaque au bout d'un certain temps
 
-        if ( System.currentTimeMillis() - timerAtta > 200) {
-
-
+        if ( System.currentTimeMillis() - timerAtta > 200) { // début de l'attaque du laser
             if ( isAtta ){
                 if ( ! laserPrésent ) {
                     laserPrésent = true;
@@ -84,6 +87,23 @@ public class Ape extends Pnj{
                 laserPrésent = false;
             }
 
+        }
+    }
+
+    public int xLaser = 0;
+    public int DxLaser = 10;
+    public void représentationlaser(GameMain game){
+        int xMax = 360;
+        int DxMax = 360;
+        if ( this.laserPrésent ) {
+
+            laser.setSize(DxLaser,laser.getHeight());
+            laser.setX(this.getX()-xLaser);
+            laser.setY(this.getY());
+            laser.draw(game.getBatch());
+
+            if ( xLaser < xMax ) xLaser +=20;
+            if ( DxLaser < DxMax ) DxLaser +=20 ;
         }
     }
 
@@ -120,6 +140,5 @@ public class Ape extends Pnj{
         }
 
 
-//        this.setSize(this.getWidth(),this.getHeight()); ça marche pas ..
     }
 }
