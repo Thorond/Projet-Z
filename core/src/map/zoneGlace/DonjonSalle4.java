@@ -135,9 +135,31 @@ public class DonjonSalle4 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 0+ y);
 
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 60+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 120+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 180+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 240+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 300+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 360+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 360+ y);
+
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 420+ y);
@@ -145,7 +167,6 @@ public class DonjonSalle4 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 60+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 120+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 180+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);

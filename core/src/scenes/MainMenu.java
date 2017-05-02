@@ -109,7 +109,6 @@ public class MainMenu implements Screen{
         Link = new MainCharacter(world, 4, 1, 4 , 30 ,30 , "bas");
 
         sauvegarde.chargerSauvegarde();
-        System.out.println(Link.getHealth());
 
 //		à utiliser en cas de renouvellement de la sauvegarde
 
@@ -678,6 +677,8 @@ public class MainMenu implements Screen{
                         game.getBatch().draw(Plume.plume, Link.getX()-5,Link.getY()-5);
                     }
 					Link.draw(game.getBatch());
+//                    game.getBatch().draw(DonjonGlace.ombreGlobale, Link.getX() -643 , Link.getY() - 465);
+//                    game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, Link.getX() -643 , Link.getY() - 465);
 				}
 
 //			 texte de la map totem
