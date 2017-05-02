@@ -109,7 +109,6 @@ public class MainMenu implements Screen{
         Link = new MainCharacter(world, 4, 1, 4 , 30 ,30 , "bas");
 
         sauvegarde.chargerSauvegarde();
-        System.out.println(Link.getHealth());
 
 //		à utiliser en cas de renouvellement de la sauvegarde
 
@@ -123,6 +122,7 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
 		MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
+        Flèches.nombreFlèche = 30;
 
 //		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 //		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);

@@ -99,6 +99,8 @@ public class DonjonGlace {
     }
 //
 
+	public static Texture  ombreGlobale = new Texture("donjon/donjonGlace/ombreGlobale.png");
+	public static Texture  ombreGlobaleDiminué = new Texture("donjon/donjonGlace/ombreGlobaleDiminué.png");
 
     public static Texture  flag1 = new Texture("donjon/donjonGlace/flag/flag1.png");
     public static Texture  flag2 = new Texture("donjon/donjonGlace/flag/flag2.png");

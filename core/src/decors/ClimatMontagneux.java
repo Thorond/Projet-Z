@@ -364,6 +364,28 @@ public class ClimatMontagneux {
 		game.getBatch().draw(ClimatMontagneux.murSombreGlacéDroite3,  x,  y);
 		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
 	}
+
+	public static Texture murSombre3GlacéCentre= new Texture("climatMontagneux/murSombre3GlacéCentre.png");
+    public static Texture murSombre3GlacéCentre2= new Texture("climatMontagneux/murSombre3GlacéCentre2.png");
+	public static Texture murSombre3GlacéDroite= new Texture("climatMontagneux/murSombre3GlacéDroite2.png");
+	public static Texture murSombre3GlacéGauche= new Texture("climatMontagneux/murSombre3GlacéGauche2.png");
+
+	public static void placerMurSombre3GlacéCentre(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.murSombre3GlacéCentre,  x,  y);
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+	}
+	public static void placerMurSombre3GlacéCentre2(GameMain game, int x , int y ){
+		game.getBatch().draw(ClimatMontagneux.murSombre3GlacéCentre2,  x,  y);
+		if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+	}
+    public static void placerMurSombre3GlacéDroite(GameMain game, int x , int y ){
+        game.getBatch().draw(ClimatMontagneux.murSombre3GlacéDroite,  x,  y);
+        if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+    }
+    public static void placerMurSombre3GlacéGauche(GameMain game, int x , int y ){
+        game.getBatch().draw(ClimatMontagneux.murSombre3GlacéGauche,  x,  y);
+        if ( PlacementMainZoneGlace.défilement == false ) CadrillageMap.setTypeDeDécor(x/60, y/60, "Trou");
+    }
 	
 	public static Texture cheminGlace = new Texture("climatMontagneux/cheminGlace.png");
 	public static Texture cheminGlaceHori = new Texture("climatMontagneux/cheminGlaceHori.png");
