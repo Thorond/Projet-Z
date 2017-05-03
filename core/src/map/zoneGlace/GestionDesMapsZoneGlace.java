@@ -1293,15 +1293,15 @@ public class GestionDesMapsZoneGlace {
 
 
         else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")) DonjonSalle1.destroyBody();
-        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")) DonjonSalle1.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")) DonjonSalle2.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3")) DonjonSalle3.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")) DonjonSalle4.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5")) DonjonSalle5.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")) DonjonSalle6.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")) DonjonSalle7.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")) DonjonSalle8.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")) DonjonSalle9.destroyBody();
+        else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")) DonjonSalle10.destroyBody();
 	}
 	
 }

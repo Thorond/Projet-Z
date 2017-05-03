@@ -70,6 +70,11 @@ public class DonjonSalle6 extends Sprite {
     public static Body Tonneau10;
     public static boolean isTonneau10Created;
 
+    public static Body torche1;
+    public static boolean istorche1Created;
+    public static Body torche2;
+    public static boolean istorche2Created;
+
     public static void sousMap(GameMain game, int x, int y){
 
         game.getBatch().draw(ClimatMontagneux.glaceSombre3, 0+ x, 0+ y);
@@ -310,6 +315,12 @@ public class DonjonSalle6 extends Sprite {
 
         if ( isTonneau10Created) MainMenu.world.destroyBody(Tonneau10);
         isTonneau10Created = false;
+
+
+        if ( istorche1Created) MainMenu.world.destroyBody(torche1);
+        istorche1Created = false;
+        if ( istorche2Created) MainMenu.world.destroyBody(torche2);
+        istorche2Created = false;
     }
 
     public static void createBodyAndType(World world) {
@@ -349,7 +360,7 @@ public class DonjonSalle6 extends Sprite {
             isCote2Created = true;
         }
         if ( isCote3Created == false) {
-            cote3 = ClimatMontagneux.createBody(40,20,120,60);
+            cote3 = ClimatMontagneux.createBody(40,50,120,100);
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
@@ -423,6 +434,15 @@ public class DonjonSalle6 extends Sprite {
         if ( isTonneau10Created == false && ! isTonneau10Cut) {
             Tonneau10 = ClimatMontagneux.createBodyPerso("tonneau", "static",360,360);
             isTonneau10Created = true;
+        }
+
+        if ( istorche1Created == false ) {
+            torche1 = ClimatMontagneux.createBody( 8*60 +15 ,1*60 +15 ,60,60);
+            istorche1Created = true;
+        }
+        if ( istorche2Created == false ) {
+            torche2 = ClimatMontagneux.createBody( 1*60 +15 ,6*60 +15 ,60,60);
+            istorche2Created = true;
         }
     }
 
