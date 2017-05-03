@@ -6,6 +6,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
+import items.Torche;
 import scenes.MainMenu;
 
 /**
@@ -151,6 +153,10 @@ public class DonjonSalle7 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+//
+//        if ( ! Torche.isTorcheUtilisée )  game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
+//        else game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
+
 
     }
 
@@ -174,8 +180,6 @@ public class DonjonSalle7 extends Sprite {
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
 
-//                    game.getBatch().draw(DonjonGlace.ombreGlobale, Link.getX() -643 , Link.getY() - 465);
-//                    game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, Link.getX() -643 , Link.getY() - 465);
 
     }
 

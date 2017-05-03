@@ -273,7 +273,7 @@ public class DonjonSalle5 extends Sprite {
 
         if ( apeEstCrée == false ) {
             if ( ! apeEstMort ) ape = new Ape(world ,Ape.apeBas1, 430 , 300 , "bas") ;
-            else ape = new Ape(world ,Ape.apeDead, 500 , 300 , "bas") ;
+            else ape = new Ape(world ,Ape.apeDead, 480 , 300 , "bas") ;
             Pnj.monstres[0] = ape;
             Pnj.nbrDeMonstres = 1 ;
             apeEstCrée = true;

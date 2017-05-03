@@ -33,6 +33,7 @@ import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
 import items.Potion;
+import items.Torche;
 import map.CadrillageMap;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
@@ -69,6 +70,7 @@ public class MainMenu implements Screen{
 	public static Bombe bombe = new Bombe();
 	public static Arc arc = new Arc();
 	public static Potion potion = new Potion();
+    public static Torche torche = new Torche();
 
     public static Music music =  Gdx.audio.newMusic(Gdx.files.internal("musique/Lamabe.mp3"));
 
@@ -120,20 +122,22 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bombe);
 		MenuSac.setItem(arc);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
-		MenuSac.setItem(potion);
+        MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
         Flèches.nombreFlèche = 30;
+        MenuSac.setItem(torche);
 
 //		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 //		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
-        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
-        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
+//        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
+//        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
 //        if ( Bombe.isBombeRécupéré ) {
 //            MenuSac.setItem(bombe);
 //            bombe.setNombreItem(sauvegarde.nombreBombe );
 //        }
         if ( Arc.isArcPris) MenuSac.setItem(arc);
         if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
+        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
 
 		start = System.currentTimeMillis();
 
