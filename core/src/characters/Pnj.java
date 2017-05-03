@@ -224,8 +224,6 @@ public class Pnj extends Characters{
 // infligé des dégats 
 
     public long timerSubirDégat = System.currentTimeMillis();
-
-	
 	public void infligéDégatLink(){
 
         if ( System.currentTimeMillis() - timerSubirDégat > 250 ) {

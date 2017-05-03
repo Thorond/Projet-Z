@@ -28,9 +28,12 @@ public class DonjonSalle5 extends Sprite {
     public static boolean isCote5Created;
     public static Body cote6 ;
     public static boolean isCote6Created;
+    public static Body cote7 ;
+    public static boolean isCote7Created;
 
     public static Ape ape;
     public static boolean apeEstCrée = false ;
+    public static boolean apeEstMort = false;
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -180,8 +183,20 @@ public class DonjonSalle5 extends Sprite {
 
 //         placement ape
         if ( apeEstCrée && ape.isAlive() ) {
-            game.getBatch().draw(ape,ape.getX(), ape.getY());
-            ape.représentationlaser(game);
+
+            if ( ! apeEstMort ) game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 120+ x, 420+ y);
+
+            game.getBatch().draw(ape,ape.getX() + x , ape.getY() + y);
+            ape.représentationlaser(game, x , y);
+
+            ape.infligéDégatLink();
+        }
+
+        if ( apeEstCrée && ! ape.isAlive() ){
+            if ( ! apeEstMort ) {
+                apeEstMort = true;
+                destroyBody();
+            }
         }
 
     }
@@ -206,7 +221,12 @@ public class DonjonSalle5 extends Sprite {
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
 
+        if ( isCote7Created) MainMenu.world.destroyBody(cote7);
+        isCote7Created = false;
+
 //
+        if ( apeEstCrée )MainMenu.world.destroyBody(ape.getBody());
+        apeEstCrée = false;
 
         Pnj.nbrDeMonstres = 0 ;
     }
@@ -225,10 +245,7 @@ public class DonjonSalle5 extends Sprite {
             cote3 = ClimatMontagneux.createBody(40,20,120,60);
             isCote3Created = true;
         }
-        if ( isCote4Created == false ) {
-            cote4 = ClimatMontagneux.createBody(40,440,120,60);
-            isCote4Created = true;
-        }
+
         if ( isCote5Created == false ) {
             cote5 = ClimatMontagneux.createBody(340,20,360,60);
             isCote5Created = true;
@@ -237,19 +254,36 @@ public class DonjonSalle5 extends Sprite {
             cote6 = ClimatMontagneux.createBody(340,440,360,60);
             isCote6Created = true;
         }
-
+        if (isCote7Created == false) {
+            cote7 = ClimatMontagneux.createBody(520, 240, 60, 480);
+            isCote7Created = true;
+        }
+        if ( ! apeEstMort) {
+            if ( isCote4Created == false ) {
+                cote4 = ClimatMontagneux.createBody(100,440,180,60);
+                isCote4Created = true;
+            }
+        } else {
+            if ( isCote4Created == false ) {
+                cote4 = ClimatMontagneux.createBody(40,440,120,60);
+                isCote4Created = true;
+            }
+        }
 //        création du singe
 
         if ( apeEstCrée == false ) {
-            ape = new Ape(world ,Ape.apeBas1, 430 , 300 , "bas") ;
+            if ( ! apeEstMort ) ape = new Ape(world ,Ape.apeBas1, 430 , 300 , "bas") ;
+            else ape = new Ape(world ,Ape.apeDead, 500 , 300 , "bas") ;
             Pnj.monstres[0] = ape;
             Pnj.nbrDeMonstres = 1 ;
             apeEstCrée = true;
         } else {
-            ape.attaque();
-            ape.déplacement();
-            ape.représentation();
-            ape.updateBody();
+            if ( !apeEstMort) {
+                ape.attaque();
+                ape.déplacement();
+                ape.représentation();
+                ape.updateBody();
+            }
         }
     }
 
