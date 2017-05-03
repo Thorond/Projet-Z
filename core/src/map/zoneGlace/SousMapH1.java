@@ -240,6 +240,9 @@ public class SousMapH1 extends Sprite{
         ClimatMontagneux.buisson(isBuisson4Cut,game, 240+x, 120+y);
         ClimatMontagneux.buisson(isBuisson5Cut,game, 180+x, 60+y);
 
+
+        PlacementMainZoneGlace.détectionEscalier(MainMenu.Link);
+
 	}
 
 	public static void destroyBody() {
@@ -274,6 +277,7 @@ public class SousMapH1 extends Sprite{
         if ( CadrillageMap.décorChangé[3][3] == true ) isBuisson3Cut = true;
         if ( CadrillageMap.décorChangé[4][2] == true ) isBuisson4Cut = true;
         if ( CadrillageMap.décorChangé[3][1] == true ) isBuisson5Cut = true;
+		CadrillageMap.setTypeDeDécor(7,5,"Escalier");
 
 
         if ( isCote1Created == false ) {

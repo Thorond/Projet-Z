@@ -153,6 +153,7 @@ public class DonjonSalle7 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+
 //
 //        if ( ! Torche.isTorcheUtilisée )  game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
 //        else game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
