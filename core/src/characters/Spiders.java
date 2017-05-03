@@ -1,7 +1,11 @@
 package characters;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
+
+import items.Torche;
+import scenes.MainMenu;
 
 /**
  * Created by arnOo on 02/05/2017.
@@ -102,6 +106,39 @@ public class Spiders extends Pnj{
                     this.start = System.currentTimeMillis();
                 }
             }
+        }
+    }
+
+    @Override
+    public void déplacement(){
+        if ( ! Torche.isTorcheUtilisée ) this.déplacementVersJoueur();
+        else {
+            if ( this.getX() - MainMenu.Link.getX() > 30  ){
+                this.getBody().setLinearVelocity(new Vector2(100f,0));
+                this.setDirection("gauche");
+            }
+            else if (this.getX() - MainMenu.Link.getX() < -50   ){
+                this.getBody().setLinearVelocity(new Vector2(-100f,0));
+                this.setDirection("droite");
+            } else {
+                this.getBody().setLinearVelocity( new Vector2(0,this.getBody().getLinearVelocity().y));
+            }
+            if (this.getY() - MainMenu.Link.getY() > 30  ){
+                this.getBody().setLinearVelocity(new Vector2(0,+100f));
+                this.setDirection("bas");
+            }
+            else if (this.getY() - MainMenu.Link.getY() < -50  ){
+                this.getBody().setLinearVelocity(new Vector2(0,-100f));
+                this.setDirection("haut");
+            }  else {
+                this.getBody().setLinearVelocity( new Vector2(this.getBody().getLinearVelocity().x,0));
+            }
+
+            if ( this.getX() > 540 || this.getX() < 60
+                    || this.getY() > 420 || this.getY() < 60  )
+                this.getBody().setLinearVelocity( 0,0);
+            if ( this.getBody().getLinearVelocity().x == 0 && this.getBody().getLinearVelocity().y == 0 ) arrét = true;
+            else arrét = false;
         }
     }
 

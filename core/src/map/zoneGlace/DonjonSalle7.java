@@ -8,6 +8,8 @@ import com.mygdx.game.GameMain;
 import characters.Pnj;
 import characters.Spiders;
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
+import items.Torche;
 import scenes.MainMenu;
 
 /**
@@ -22,6 +24,18 @@ public class DonjonSalle7 extends Sprite {
     public static boolean m1EstCrée = false ;
     public static boolean m2EstCrée = false ;
     public static boolean m3EstCrée = false ;
+    public static Spiders monstre4;
+    public static Spiders monstre5;
+    public static Spiders monstre6;
+    public static boolean m4EstCrée = false ;
+    public static boolean m5EstCrée = false ;
+    public static boolean m6EstCrée = false ;
+    public static Spiders monstre7;
+    public static Spiders monstre8;
+    public static Spiders monstre9;
+    public static boolean m7EstCrée = false ;
+    public static boolean m8EstCrée = false ;
+    public static boolean m9EstCrée = false ;
 
     public static Body cote1 ;
     public static boolean isCote1Created;
@@ -178,6 +192,24 @@ public class DonjonSalle7 extends Sprite {
         if ( m3EstCrée && monstre3.isAlive() ) {
             game.getBatch().draw(monstre3.getTexture(), monstre3.getX(), monstre3.getY());
         }
+        if ( m4EstCrée && monstre4.isAlive() ) {
+            game.getBatch().draw(monstre4,monstre4.getX(), monstre4.getY());
+        }
+        if ( m5EstCrée && monstre5.isAlive() ) {
+            game.getBatch().draw(monstre5.getTexture(), monstre5.getX(), monstre5.getY());
+        }
+        if ( m6EstCrée && monstre6.isAlive() ) {
+            game.getBatch().draw(monstre6.getTexture(), monstre6.getX(), monstre6.getY());
+        }
+        if ( m7EstCrée && monstre7.isAlive() ) {
+            game.getBatch().draw(monstre7,monstre7.getX(), monstre7.getY());
+        }
+        if ( m8EstCrée && monstre8.isAlive() ) {
+            game.getBatch().draw(monstre8.getTexture(), monstre8.getX(), monstre8.getY());
+        }
+        if ( m9EstCrée && monstre9.isAlive() ) {
+            game.getBatch().draw(monstre9.getTexture(), monstre9.getX(), monstre9.getY());
+        }
         //==================================================================
         //		      			dégats des monstres
         //==================================================================
@@ -191,10 +223,28 @@ public class DonjonSalle7 extends Sprite {
         if ( m3EstCrée && monstre3.isAlive() ) {
             monstre3.infligéDégatLink();
         }
+        if ( m4EstCrée && monstre4.isAlive() ) {
+            monstre4.infligéDégatLink();
+        }
+        if ( m5EstCrée && monstre5.isAlive() ) {
+            monstre5.infligéDégatLink();
+        }
+        if ( m6EstCrée && monstre6.isAlive() ) {
+            monstre6.infligéDégatLink();
+        }
+        if ( m7EstCrée && monstre7.isAlive() ) {
+            monstre7.infligéDégatLink();
+        }
+        if ( m8EstCrée && monstre8.isAlive() ) {
+            monstre8.infligéDégatLink();
+        }
+        if ( m9EstCrée && monstre9.isAlive() ) {
+            monstre9.infligéDégatLink();
+        }
 
 
-//        if ( ! Torche.isTorcheUtilisée )  game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
-//        else game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
+        if ( ! Torche.isTorcheUtilisée )  game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
+        else game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
 
 
     }
@@ -209,6 +259,18 @@ public class DonjonSalle7 extends Sprite {
         m1EstCrée = false;
         m2EstCrée = false;
         m3EstCrée = false;
+        if ( m4EstCrée )MainMenu.world.destroyBody(monstre4.getBody());
+        if ( m5EstCrée )MainMenu.world.destroyBody(monstre5.getBody());
+        if ( m6EstCrée )MainMenu.world.destroyBody(monstre6.getBody());
+        m4EstCrée = false;
+        m5EstCrée = false;
+        m6EstCrée = false;
+        if ( m7EstCrée )MainMenu.world.destroyBody(monstre7.getBody());
+        if ( m8EstCrée )MainMenu.world.destroyBody(monstre8.getBody());
+        if ( m9EstCrée )MainMenu.world.destroyBody(monstre9.getBody());
+        m7EstCrée = false;
+        m8EstCrée = false;
+        m9EstCrée = false;
         Pnj.nbrDeMonstres = 0;
         
         if ( isCote1Created) MainMenu.world.destroyBody(cote1);
@@ -298,12 +360,71 @@ public class DonjonSalle7 extends Sprite {
         if ( m3EstCrée == false ) {
             monstre3 = new Spiders(world ,Spiders.spiderDroite2, 230 , 380 , "droite") ;
             Pnj.monstres[2] = monstre3;
-            Pnj.nbrDeMonstres = 3;
             m3EstCrée = true;
         } else {
             monstre3.déplacement();
             monstre3.représentation();
             monstre3.updateBody();
+        }
+        if ( m4EstCrée == false ) {
+            monstre4 = new Spiders(world ,Spiders.spiderBas2 , 300 , 300 , "bas") ;
+            Pnj.monstres[3] = monstre4;
+            Pnj.nbrDeMonstres = 4;
+            m4EstCrée = true;
+        } else {
+            monstre4.déplacement();
+            monstre4.représentation();
+            monstre4.updateBody();
+        }
+        if ( m5EstCrée == false ) {
+            monstre5 = new Spiders(world ,Spiders.spiderBas2 , 300 , 120 , "bas") ;
+            Pnj.monstres[4] = monstre5;
+            Pnj.nbrDeMonstres = 5;
+            m5EstCrée = true;
+        } else {
+            monstre5.déplacement();
+            monstre5.représentation();
+            monstre5.updateBody();
+        }
+        if ( m6EstCrée == false ) {
+            monstre6 = new Spiders(world ,Spiders.spiderBas2 , 120 , 120 , "bas") ;
+            Pnj.monstres[5] = monstre6;
+            Pnj.nbrDeMonstres = 6;
+            m6EstCrée = true;
+        } else {
+            monstre6.déplacement();
+            monstre6.représentation();
+            monstre6.updateBody();
+        }
+        if ( m7EstCrée == false ) {
+            monstre7 = new Spiders(world ,Spiders.spiderBas2 , 480 , 120 , "bas") ;
+            Pnj.monstres[6] = monstre7;
+            Pnj.nbrDeMonstres = 7;
+            m7EstCrée = true;
+        } else {
+            monstre7.déplacement();
+            monstre7.représentation();
+            monstre7.updateBody();
+        }
+        if ( m8EstCrée == false ) {
+            monstre8 = new Spiders(world ,Spiders.spiderBas2 , 420 , 300 , "bas") ;
+            Pnj.monstres[7] = monstre8;
+            Pnj.nbrDeMonstres = 8;
+            m8EstCrée = true;
+        } else {
+            monstre8.déplacement();
+            monstre8.représentation();
+            monstre8.updateBody();
+        }
+        if ( m9EstCrée == false ) {
+            monstre9 = new Spiders(world ,Spiders.spiderBas2 , 480 , 360 , "bas") ;
+            Pnj.monstres[8] = monstre9;
+            Pnj.nbrDeMonstres = 9;
+            m9EstCrée = true;
+        } else {
+            monstre9.déplacement();
+            monstre9.représentation();
+            monstre9.updateBody();
         }
     }
 
