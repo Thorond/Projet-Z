@@ -25,11 +25,11 @@ public class Torche extends Item {
 
     public static void récupérationTorche(){
         if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6") && MainMenu.Link.getDirection().equals("haut") && !(Torche.isTorchePrise)
-                && MainMenu.Link.getX() >260 && MainMenu.Link.getX() < 280
-                && MainMenu.Link.getY()>360 ) {
-            Plume.isPlumePrise = true;
+                && MainMenu.Link.getX() > 220 && MainMenu.Link.getX() < 260
+                && MainMenu.Link.getY() > 280 && MainMenu.Link.getY() < 320) {
+            Torche.isTorchePrise = true;
             MainMenu.Link.annimationAward = true;
-            MenuSac.setItem(MainMenu.plume);
+            MenuSac.setItem(MainMenu.torche);
         };
     }
 

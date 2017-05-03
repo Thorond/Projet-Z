@@ -505,6 +505,7 @@ public class MainMenu implements Screen{
 							}
 							;
 							Arc.détection(Link);
+                            Torche.récupérationTorche();
 							if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5"))
 								IglooC5.détectionItem(Link);
 							Plume.récupérationPlume();

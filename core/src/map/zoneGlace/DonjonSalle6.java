@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Torche;
 import scenes.MainMenu;
 
 /**
@@ -185,6 +186,11 @@ public class DonjonSalle6 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfGauSombre2, 180+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.bordGlacéInfDroiSombre2, 300+ x, 240+ y);
 
+        if (Torche.isTorchePrise == false ) game.getBatch().draw(Torche.torcheT, 240+ x, 300+ y);
+        if ( MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(Torche.torcheT, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
+            game.getBatch().draw(Torche.texteTorche, 100 + x, 60+y);
+        }
 
     }
 
