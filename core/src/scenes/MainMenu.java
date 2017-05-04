@@ -113,7 +113,6 @@ public class MainMenu implements Screen{
 
         sauvegarde.chargerSauvegarde();
 
-//		à utiliser en cas de renouvellement de la sauvegarde
 
 
 //
@@ -136,9 +135,9 @@ public class MainMenu implements Screen{
 //            MenuSac.setItem(bombe);
 //            bombe.setNombreItem(sauvegarde.nombreBombe );
 //        }
-        if ( Arc.isArcPris) MenuSac.setItem(arc);
-        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
-        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
+//        if ( Arc.isArcPris) MenuSac.setItem(arc);
+//        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
+//        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
 
 		start = System.currentTimeMillis();
 

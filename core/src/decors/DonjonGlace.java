@@ -92,9 +92,9 @@ public class DonjonGlace {
 	public static Texture  murGlacéPorte3 = new Texture("donjon/donjonGlace/murGlacéPorte3.png");
 	public static Texture  murGlacéPorte4 = new Texture("donjon/donjonGlace/murGlacéPorte4.png");
 
-    public static boolean transitionGrille = true;
+    public static boolean transitionGrille = false; //
 
-    public static int ouvertureGrille = 4; // à sauvegarder ( -1 à la base )
+    public static int ouvertureGrille = -1; // à sauvegarder ( -1 à la base , 4 si on veut que ça soit déjà ouvert)
     public static long changementOuvertureGrille = System.currentTimeMillis();
 
     public static void annimationOuvertureGrille(GameMain game, int x, int y){

@@ -5,6 +5,7 @@ import characters.Ghost;
 import characters.MainCharacter;
 import characters.SnowMan;
 import characters.Tigre;
+import decors.DonjonGlace;
 import decors.Totem;
 import items.Arc;
 import items.Bombe;
@@ -14,6 +15,7 @@ import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
 import items.Potion;
+import items.Torche;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
 import map.zoneGlace.GestionDesMapsZoneGlace;
@@ -37,7 +39,7 @@ public class Sauvegarde implements java.io.Serializable{
 	public int HealthMax;
 	public int Health;
 
-//    items
+//  *********   items ***********
 	public boolean isEpéePrise;
 	public boolean isArcPris;
 	public boolean isBombeRécupéré;
@@ -47,6 +49,11 @@ public class Sauvegarde implements java.io.Serializable{
 	public boolean isGantDeForcePris ;
 	public boolean isPlumePrise;
     public boolean isPotionRécupérer;
+    public boolean isTorchePrise;
+
+//    ********réceptacle et cofres ***********
+
+
 //
 //     *********PNJ*******
 //	 totem
@@ -59,6 +66,15 @@ public class Sauvegarde implements java.io.Serializable{
     public int etatScenarioDompteuse ;
 //    tigre
     public boolean tigreRamené ;
+
+//    ***************Donjon*************
+    public  boolean isCléBossRécupérée;
+    public boolean ouverturePorteBoss;
+    public int ouvertureGrille ;
+    public boolean transitionGate;
+    public boolean isCléBasseTrouvé;
+    public boolean isCléHauteTrouvé;
+    public boolean isCléMilieuTrouvé ;
 
 
 //         *********élément des cartes**********
@@ -150,6 +166,7 @@ public class Sauvegarde implements java.io.Serializable{
           this.isGantDeForcePris = GantDeForce.isGantDeForcePris ;
           this.isPlumePrise = Plume.isPlumePrise ;
           this.isPotionRécupérer = Potion.isPotionRécupérer ;
+          this.isTorchePrise = Torche.isTorchePrise;
 
           //        pnj
           //    totem
@@ -162,6 +179,15 @@ public class Sauvegarde implements java.io.Serializable{
           tigreRamené = Tigre.tigreRamené;
           // dompteuse
           this.etatScenarioDompteuse = Dompteuse.etatScenario ;
+
+          //    ***************Donjon*************
+          isCléBossRécupérée = DonjonGlace.isCléBossRécupérée;
+          ouverturePorteBoss = DonjonGlace.ouverturePorteBoss;
+          ouvertureGrille = DonjonGlace.ouvertureGrille;
+          transitionGate = DonjonGlace.transitionGate ;
+          isCléBasseTrouvé = DonjonGlace.isCléBasseTrouvé;
+          isCléHauteTrouvé = DonjonGlace.isCléHauteTrouvé;
+          isCléMilieuTrouvé = DonjonGlace.isCléMilieuTrouvé;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;
@@ -284,6 +310,7 @@ public class Sauvegarde implements java.io.Serializable{
         GantDeForce.isGantDeForcePris = this.isGantDeForcePris ;
         Plume.isPlumePrise = this.isPlumePrise ;
         Potion.isPotionRécupérer = this.isPotionRécupérer;
+        Torche.isTorchePrise = this.isTorchePrise ;
 
 //        pnj
         //    totem
@@ -296,6 +323,17 @@ public class Sauvegarde implements java.io.Serializable{
         Tigre.tigreRamené = this.tigreRamené ;
 //        dompteuse
         Dompteuse.etatScenario = this.etatScenarioDompteuse;
+
+        //    ***************Donjon*************
+        DonjonGlace.isCléBossRécupérée = isCléBossRécupérée ;
+        DonjonGlace.ouverturePorteBoss = ouverturePorteBoss ;
+        DonjonGlace.ouvertureGrille = ouvertureGrille;
+        DonjonGlace.transitionGate  = transitionGate ;
+        DonjonGlace.isCléBasseTrouvé = isCléBasseTrouvé;
+        DonjonGlace.isCléHauteTrouvé = isCléHauteTrouvé;
+        DonjonGlace.isCléMilieuTrouvé = isCléMilieuTrouvé ;
+
+
 //         carte
         Carte.récupérationInfoCarte(this);
     }
@@ -323,6 +361,15 @@ public class Sauvegarde implements java.io.Serializable{
         MainMenu.sauvegarde = new Sauvegarde(MainMenu.Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
         SendClass.sendClass(MainMenu.sauvegarde);
         MainMenu.sauvegarde.chargerSauvegarde();
+
+        //    ***************Donjon*************
+        DonjonGlace.isCléBossRécupérée = false ;
+        DonjonGlace.ouverturePorteBoss = false ;
+        DonjonGlace.ouvertureGrille = -1 ;
+        DonjonGlace.transitionGate  = false ;
+        DonjonGlace.isCléBasseTrouvé = false;
+        DonjonGlace.isCléHauteTrouvé = false;
+        DonjonGlace.isCléMilieuTrouvé = false ;
 
     }
 	  
