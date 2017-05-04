@@ -6,6 +6,7 @@ import characters.MainCharacter;
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import map.CadrillageMap;
+import map.zoneGlace.DonjonSalle2;
 import map.zoneGlace.PlacementMainZoneGlace;
 import map.zoneGlace.SousMapD2;
 import map.zoneGlace.SousMapF2;
@@ -71,6 +72,12 @@ public class Coffre {
             if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
                 SousMapD2.ouvertureCoffre = true;
                 DonjonGlace.isCléHauteTrouvé = true;
+            }
+        }
+        if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+                DonjonSalle2.ouvertureCoffre = true;
+                DonjonGlace.carteTrouvé = true;
             }
         }
 	}

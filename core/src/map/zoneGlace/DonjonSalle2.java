@@ -11,6 +11,7 @@ import characters.SlimPetit;
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import items.Coffre;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 /**
@@ -281,24 +282,24 @@ public class DonjonSalle2 extends Sprite {
             if ( yClé > yCléFinal ) {
                 yClé -= 5 ;
             }
-            if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 420+ x, yClé + y);
+            if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 450+ x, yClé + y);
             else {
                 if ( coffreOuvert == false ) {
                     if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
                         coffreOuvert = true;
                     }
-                    Coffre.annimationCoffreBleu(game, 420, yCléFinal);
+                    Coffre.annimationCoffreBleu(game, 450, yCléFinal);
 
                 } else {
-                    game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 420+ x, yCléFinal + y);
+                    game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 450+ x, yCléFinal + y);
                 }
 
             }
         }
 //
         if ( MainMenu.Link.annimationAward ) {
-            game.getBatch().draw(DonjonGlace.scroll, MainMenu.Link.getX() - 45, MainMenu.Link.getY() +50);
-//            game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
+            game.getBatch().draw(DonjonGlace.scroll, MainMenu.Link.getX() , MainMenu.Link.getY() +50);
+            game.getBatch().draw(DonjonGlace.texteScroll, 100 + x, 10+y);
         }
     }
 
@@ -359,6 +360,8 @@ public class DonjonSalle2 extends Sprite {
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
+        CadrillageMap.setTypeDeDécor(7,5, "coffreBleu");
+
         if ( isCote1Created == false ) {
             cote1 = ClimatMontagneux.createBody(20,240,60,480);
             isCote1Created = true;
