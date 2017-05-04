@@ -202,4 +202,9 @@ public class DonjonGlace {
 	public static Texture  murVertical = new Texture("donjon/donjonGlace/murVertical.png");
 	public static Texture  murHorizontal = new Texture("donjon/donjonGlace/murHorizontal.png");
 
+//    *********carte**********
+
+    public static Texture  scroll = new Texture("donjon/donjonGlace/scroll.png");
+    public static Texture  carteDonjon = new Texture("donjon/donjonGlace/carteDonjon.png");
+
 }
