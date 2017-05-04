@@ -51,6 +51,10 @@ public class DonjonSalle7 extends Sprite {
     public static boolean isCote6Created;
     public static Body cote7 ;
     public static boolean isCote7Created;
+    public static Body cote8 ;
+    public static boolean isCote8Created;
+    public static Body cote9 ;
+    public static boolean isCote9Created;
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -166,6 +170,10 @@ public class DonjonSalle7 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 420+ y);
 
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 120+ y);
+
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 60+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 120+ y);
@@ -177,6 +185,8 @@ public class DonjonSalle7 extends Sprite {
 
 
 //
+        game.getBatch().draw(Spiders.toileSupDroi, 420+ x, 300+ y);
+
         
 //        
         //		==================================================================
@@ -294,6 +304,12 @@ public class DonjonSalle7 extends Sprite {
         if ( isCote7Created) MainMenu.world.destroyBody(cote7);
         isCote7Created = false;
 
+        if ( isCote8Created) MainMenu.world.destroyBody(cote8);
+        isCote8Created = false;
+
+        if ( isCote9Created) MainMenu.world.destroyBody(cote9);
+        isCote9Created = false;
+
 
     }
 
@@ -326,6 +342,14 @@ public class DonjonSalle7 extends Sprite {
         if ( isCote7Created == false ) {
             cote7 = ClimatMontagneux.createBody(20,390,60,180);
             isCote7Created = true;
+        }
+        if ( isCote8Created == false ) {
+            cote8 = ClimatMontagneux.createBody(440,80,60,60);
+            isCote8Created = true;
+        }
+        if ( isCote9Created == false ) {
+            cote9 = ClimatMontagneux.createBody(500,140,60,60);
+            isCote9Created = true;
         }
 
 
@@ -397,7 +421,7 @@ public class DonjonSalle7 extends Sprite {
             monstre6.updateBody();
         }
         if ( m7EstCrée == false ) {
-            monstre7 = new Spiders(world ,Spiders.spiderBas2 , 480 , 120 , "bas") ;
+            monstre7 = new Spiders(world ,Spiders.spiderBas2 , 420 , 180 , "bas") ;
             Pnj.monstres[6] = monstre7;
             Pnj.nbrDeMonstres = 7;
             m7EstCrée = true;

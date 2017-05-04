@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
+import map.zoneGlace.DonjonSalle3;
 import map.zoneGlace.SousMapH2;
 import scenes.MainMenu;
 import sun.applet.Main;
@@ -63,6 +64,26 @@ public class DonjonGlace {
                     && isCléMilieuTrouvé && Link.getDirection().equals("haut")) ouvertureGrille = 0;
         }
     }
+
+//	clé du boss
+
+	public static boolean isCléBossRécupérée = false ; // à sauvegarder
+	public static Texture cléBoss = new Texture("donjon/donjonGlace/cléBoss.png");
+    public static Texture texteCléBoss = new Texture("donjon/donjonGlace/texteCléBoss.png");
+    public static boolean ouverturePorteBoss = false; // à sauvegarder
+
+    public static void détectionSerrureBoss(MainCharacter Link){
+        if ( ! ouverturePorteBoss && Link.getBody().getPosition().x * MainMenu.PPM < 70
+                && Link.getBody().getPosition().y * MainMenu.PPM < 300
+                && Link.getBody().getPosition().y * MainMenu.PPM > 180){
+            if ( isCléBossRécupérée && Link.getDirection().equals("gauche")) {
+                ouverturePorteBoss = true;
+                DonjonSalle3.destroyBody();
+            }
+        }
+    }
+
+
 
 	public static Texture  murGlacéPorte1 = new Texture("donjon/donjonGlace/murGlacéPorte1.png");
 	public static Texture  murGlacéPorte2 = new Texture("donjon/donjonGlace/murGlacéPorte2.png");
