@@ -255,7 +255,6 @@ public class SousMapD5 extends Sprite{
         else if ( étatTexteTombe == 3 ) game.getBatch().draw(Arc.indiceArc2, 100+ x, 10+ y);
 
 //
-        détectionCoffre(MainMenu.Link, MainMenu.PPM);
 
 		if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 20+ x, 300+ y);
 		else {
@@ -277,15 +276,6 @@ public class SousMapD5 extends Sprite{
 
 	}
 
-    public static void détectionCoffre(MainCharacter Link, float PPM){
-        if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
-            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-                SousMapD5.ouvertureCoffre = true;
-                Essence.nombreEssence += 10;
-                if ( Essence.nombreEssence > Essence.essenceMax ) Essence.nombreEssence = 999;
-            }
-        }
-    }
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub

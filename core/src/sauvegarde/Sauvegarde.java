@@ -373,6 +373,7 @@ public class Sauvegarde implements java.io.Serializable{
 
 //		nouvelle sauvegarde
         GestionDesMapsZoneGlace.destructionDesCorps();
+        PlacementMainZoneGlace.réinitialisation();
         // détruire les types ( décors )
 
         MainMenu.Link.setDirection("bas");

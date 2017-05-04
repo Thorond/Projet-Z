@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 import items.Coffre;
+import items.Essence;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
@@ -263,8 +264,8 @@ public class SousMapG5 extends Sprite{
 
         }
         if ( MainMenu.Link.annimationAward ) {
-//			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
-//			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
+			game.getBatch().draw(Essence.essenceOrange, MainMenu.Link.getX() +5, MainMenu.Link.getY() +50);
+			game.getBatch().draw(Essence.texteEssence25, 100 + x, 10+y);
         }
 		
 	}

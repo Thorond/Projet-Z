@@ -328,12 +328,9 @@ public class SousMapB3 extends Sprite{
 			ClimatMontagneux.eauProfondeGlacée(game,360+ x, 240+y);
 			ClimatMontagneux.eauProfondeGlacée(game,420+ x, 240+y);
 			
-			
+
 			if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 480+ x, 120+ y);
-			else if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
-				game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
-                game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
-            }
+
 		}
 		
 		game.getBatch().draw(ClimatMontagneux.tree, 180+ x, 60+ y);
@@ -366,7 +363,10 @@ public class SousMapB3 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 180+ y);
         game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 420+ y);
 
-
+		if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+			game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+		}
 		
 	}
 
