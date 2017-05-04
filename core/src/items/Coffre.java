@@ -2,7 +2,16 @@ package items;
 
 import com.mygdx.game.GameMain;
 
+import characters.MainCharacter;
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
+import map.CadrillageMap;
+import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapD2;
+import map.zoneGlace.SousMapF2;
+import map.zoneGlace.SousMapG5;
+import map.zoneGlace.SousMapH2;
+import map.zoneGlace.SousMapI5;
 import scenes.MainMenu;
 
 public class Coffre {
@@ -33,7 +42,36 @@ public class Coffre {
 				ouvert2=false;
 		}
 	}
-	
 
 
+	public static void détectionCoffres(MainCharacter Link, float PPM) {
+        if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+                SousMapF2.ouvertureCoffre = true;
+            }
+        }
+
+        if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+                SousMapH2.ouvertureCoffre = true;
+                DonjonGlace.isCléBossRécupérée = true;
+            }
+        }
+        if (PlacementMainZoneGlace.positionSousMap.equals("G5")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+                SousMapG5.ouvertureCoffre = true;
+            }
+        }
+        if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+                SousMapI5.ouvertureCoffre = true;
+            }
+        }
+        if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+                SousMapD2.ouvertureCoffre = true;
+                DonjonGlace.isCléHauteTrouvé = true;
+            }
+        }
+	}
 }

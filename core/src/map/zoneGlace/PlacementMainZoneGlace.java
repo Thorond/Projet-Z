@@ -938,6 +938,18 @@ public class PlacementMainZoneGlace {
                 PlacementMainZoneGlace.positionSousMap = "DonjonSalle6";
                 PlacementMainZoneGlace.réinitialisation();
                 Link.getBody().setTransform(60 / MainMenu.PPM ,300 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")){
+                DonjonSalle8.destroyBody();
+                DonjonSalle8.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "H2";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(250 / MainMenu.PPM ,70 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("H2")){
+                SousMapH2.destroyBody();
+                SousMapH2.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "DonjonSalle8";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(430 / MainMenu.PPM ,80 / MainMenu.PPM ,0);
             }
         }
     }

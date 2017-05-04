@@ -27,6 +27,7 @@ import items.Arc;
 import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
+import items.Coffre;
 import items.Epee;
 import items.Essence;
 import items.Flèches;
@@ -517,36 +518,10 @@ public class MainMenu implements Screen{
 								Link.getBody().setLinearVelocity(0, 0);
 
 							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-									SousMapF2.ouvertureCoffre = true;
-								}
-							}
 
-							if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-									SousMapH2.ouvertureCoffre = true;
-								}
-							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("G5")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-									SousMapG5.ouvertureCoffre = true;
-								}
-							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-									SousMapI5.ouvertureCoffre = true;
-								}
-							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-									SousMapD2.ouvertureCoffre = true;
-									DonjonGlace.isCléHauteTrouvé = true;
-								}
-							}
+                            Coffre.détectionCoffres( Link, PPM );
 							SnowMan.détection(Link);
 						} else if (Link.zone.equals("zoneDesert")) {
-
 						}
 
 						PlacementMainZoneGlace.setDéplacement(Link);
@@ -555,12 +530,11 @@ public class MainMenu implements Screen{
                             PlacementMainZoneGlace.détectionEauP(Link);
                         }
 						Flèches.déplacement(Link);
-//									Récuparation du réceptacle 
+//						Récuparation du réceptacle
 						CoeurDeVie.détectionReceptable(Link);
-
-//                         récupération des flèches à terre
+//                      Récupération des flèches à terre
                         Flèches.détectionFlèches(Link);
-						//				récupération de vie par les coeurs de vie
+//						récupération de vie par les coeurs de vie
 						CoeurDeVie.détectionCoeur(Link);
 //					 récupération essences
 						Essence.détectionEssence(Link);

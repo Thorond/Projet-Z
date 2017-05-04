@@ -11,6 +11,7 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import map.zoneGlace.DonjonSalle3;
+import map.zoneGlace.PlacementMainZoneGlace;
 import map.zoneGlace.SousMapH2;
 import scenes.MainMenu;
 import sun.applet.Main;
@@ -73,7 +74,8 @@ public class DonjonGlace {
     public static boolean ouverturePorteBoss = false; // à sauvegarder
 
     public static void détectionSerrureBoss(MainCharacter Link){
-        if ( ! ouverturePorteBoss && Link.getBody().getPosition().x * MainMenu.PPM < 70
+        if ( ! PlacementMainZoneGlace.défilement && ! ouverturePorteBoss
+                && Link.getBody().getPosition().x * MainMenu.PPM < 70
                 && Link.getBody().getPosition().y * MainMenu.PPM < 300
                 && Link.getBody().getPosition().y * MainMenu.PPM > 180){
             if ( isCléBossRécupérée && Link.getDirection().equals("gauche")) {
