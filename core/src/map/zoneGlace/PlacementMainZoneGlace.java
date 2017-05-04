@@ -922,7 +922,37 @@ public class PlacementMainZoneGlace {
         }
 
 	}
-	
+
+
+    public static void détectionEscalier(MainCharacter Link){
+        if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *MainMenu.PPM/60 )][(int) (Link.getBody().getPosition().y *MainMenu.PPM/ 60 )].equals("Escalier")) {
+            if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")){
+                DonjonSalle6.destroyBody();
+                DonjonSalle6.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "H1";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(430 / MainMenu.PPM ,240 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("H1")){
+                SousMapH1.destroyBody();
+                SousMapH1.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "DonjonSalle6";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(60 / MainMenu.PPM ,300 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")){
+                DonjonSalle8.destroyBody();
+                DonjonSalle8.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "H2";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(250 / MainMenu.PPM ,70 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("H2")){
+                SousMapH2.destroyBody();
+                SousMapH2.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "DonjonSalle8";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(430 / MainMenu.PPM ,80 / MainMenu.PPM ,0);
+            }
+        }
+    }
 	
 	
 //	================================================================================

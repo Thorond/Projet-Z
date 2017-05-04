@@ -11,7 +11,9 @@ import com.mygdx.game.GameMain;
 
 import characters.MainCharacter;
 import map.CadrillageMap;
+import map.zoneGlace.DonjonSalle6;
 import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapH1;
 import scenes.MainMenu;
 
 public class ClimatMontagneux {
@@ -80,6 +82,13 @@ public class ClimatMontagneux {
 	
 	public static Texture emplacementBombe = new Texture("climatMontagneux/emplacementBombe.png");
 	public static Texture crate = new Texture("climatMontagneux/Crate.png");
+    public static void tonneau(boolean isCut,GameMain game, int x, int y ){
+        if ( isCut == false) game.getBatch().draw(ClimatMontagneux.tonneau, x, y);
+    }
+    public static void crate(boolean isCut,GameMain game, int x, int y ){
+        if ( isCut == false) game.getBatch().draw(ClimatMontagneux.crate, x, y);
+    }
+
 	public static Texture igloo = new Texture("climatMontagneux/Igloo.png");
 	public static Texture tree = new Texture("climatMontagneux/Tree.png");
 	public static Texture planteGelé = new Texture("climatMontagneux/planteGelé.png");
@@ -181,6 +190,7 @@ public class ClimatMontagneux {
 
 	public static Texture escalierBas = new Texture("climatMontagneux/escalierBas.png");
 	public static Texture escalier = new Texture("climatMontagneux/escalier.png");
+
 
 	public static Texture tonneauIgloo = new Texture("climatMontagneux/BarrelIgloo.png");
 	public static Texture caisseIgloo = new Texture("climatMontagneux/CrateIgloo.png");

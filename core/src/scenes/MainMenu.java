@@ -27,12 +27,14 @@ import items.Arc;
 import items.Bombe;
 import items.Bouclier;
 import items.CoeurDeVie;
+import items.Coffre;
 import items.Epee;
 import items.Essence;
 import items.Flèches;
 import items.GantDeForce;
 import items.Plume;
 import items.Potion;
+import items.Torche;
 import map.CadrillageMap;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
@@ -69,6 +71,7 @@ public class MainMenu implements Screen{
 	public static Bombe bombe = new Bombe();
 	public static Arc arc = new Arc();
 	public static Potion potion = new Potion();
+    public static Torche torche = new Torche();
 
     public static Music music =  Gdx.audio.newMusic(Gdx.files.internal("musique/Lamabe.mp3"));
 
@@ -110,7 +113,6 @@ public class MainMenu implements Screen{
 
         sauvegarde.chargerSauvegarde();
 
-//		à utiliser en cas de renouvellement de la sauvegarde
 
 
 //
@@ -120,20 +122,22 @@ public class MainMenu implements Screen{
 		MenuSac.setItem(bombe);
 		MenuSac.setItem(arc);
 		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
-		MenuSac.setItem(potion);
+        MenuSac.setItem(potion);
 		bombe.setNombreItem(40);
         Flèches.nombreFlèche = 30;
+        MenuSac.setItem(torche);
 
 //		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 //		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
-        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
-        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
+//        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
+//        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
 //        if ( Bombe.isBombeRécupéré ) {
 //            MenuSac.setItem(bombe);
 //            bombe.setNombreItem(sauvegarde.nombreBombe );
 //        }
-        if ( Arc.isArcPris) MenuSac.setItem(arc);
-        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
+//        if ( Arc.isArcPris) MenuSac.setItem(arc);
+//        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
+//        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
 
 		start = System.currentTimeMillis();
 
@@ -501,6 +505,7 @@ public class MainMenu implements Screen{
 							}
 							;
 							Arc.détection(Link);
+                            Torche.récupérationTorche();
 							if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5"))
 								IglooC5.détectionItem(Link);
 							Plume.récupérationPlume();
@@ -512,36 +517,10 @@ public class MainMenu implements Screen{
 								Link.getBody().setLinearVelocity(0, 0);
 
 							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-									SousMapF2.ouvertureCoffre = true;
-								}
-							}
 
-							if (PlacementMainZoneGlace.positionSousMap.equals("H2")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-									SousMapH2.ouvertureCoffre = true;
-								}
-							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("G5")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-									SousMapG5.ouvertureCoffre = true;
-								}
-							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-									SousMapI5.ouvertureCoffre = true;
-								}
-							}
-							if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
-								if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
-									SousMapD2.ouvertureCoffre = true;
-									DonjonGlace.isCléHauteTrouvé = true;
-								}
-							}
+                            Coffre.détectionCoffres( Link, PPM );
 							SnowMan.détection(Link);
 						} else if (Link.zone.equals("zoneDesert")) {
-
 						}
 
 						PlacementMainZoneGlace.setDéplacement(Link);
@@ -550,12 +529,11 @@ public class MainMenu implements Screen{
                             PlacementMainZoneGlace.détectionEauP(Link);
                         }
 						Flèches.déplacement(Link);
-//									Récuparation du réceptacle 
+//						Récuparation du réceptacle
 						CoeurDeVie.détectionReceptable(Link);
-
-//                         récupération des flèches à terre
+//                      Récupération des flèches à terre
                         Flèches.détectionFlèches(Link);
-						//				récupération de vie par les coeurs de vie
+//						récupération de vie par les coeurs de vie
 						CoeurDeVie.détectionCoeur(Link);
 //					 récupération essences
 						Essence.détectionEssence(Link);

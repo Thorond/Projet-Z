@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
 import scenes.MainMenu;
 
 /**
@@ -16,8 +17,7 @@ public class DonjonSalle3 extends Sprite {
 
     public static Body cote1 ;
     public static boolean isCote1Created;
-    public static Body cote2 ;
-    public static boolean isCote2Created;
+
     public static Body cote3 ;
     public static boolean isCote3Created;
     public static Body cote4 ;
@@ -180,16 +180,21 @@ public class DonjonSalle3 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+//
+        DonjonGlace.détectionSerrureBoss(MainMenu.Link);
 
+        if ( ! DonjonGlace.ouverturePorteBoss ) {
+            game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 0 + x, 180 + y);
+            game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 0 + x, 240 + y);
+            game.getBatch().draw(DonjonGlace.serrure, 10 + x, 210 + y);
+        }
     }
 
     public static void destroyBody() {
         // TODO Auto-generated method stub
+
         if ( isCote1Created) MainMenu.world.destroyBody(cote1);
         isCote1Created = false;
-
-        if ( isCote2Created) MainMenu.world.destroyBody(cote2);
-        isCote2Created = false;
 
         if ( isCote3Created) MainMenu.world.destroyBody(cote3);
         isCote3Created = false;
@@ -206,28 +211,27 @@ public class DonjonSalle3 extends Sprite {
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
-        if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(20,240,60,480);
-            isCote1Created = true;
+        if ( ! DonjonGlace.ouverturePorteBoss ){
+            if ( isCote1Created == false ) {
+                cote1 = ClimatMontagneux.createBody(20,240,60,120);
+                isCote1Created = true;
+            }
         }
-        if ( isCote2Created == false ) {
-            cote2 = ClimatMontagneux.createBody(560,240,60,480);
-            isCote2Created = true;
-        }
+
         if ( isCote3Created == false ) {
-            cote3 = ClimatMontagneux.createBody(100,20,240,60);
+            cote3 = ClimatMontagneux.createBody(100,80,240,180);
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
-            cote4 = ClimatMontagneux.createBody(100,440,240,60);
+            cote4 = ClimatMontagneux.createBody(100,390,240,180);
             isCote4Created = true;
         }
         if ( isCote5Created == false ) {
-            cote5 = ClimatMontagneux.createBody(460,20,240,60);
+            cote5 = ClimatMontagneux.createBody(460,80,240,180);
             isCote5Created = true;
         }
         if ( isCote6Created == false ) {
-            cote6 = ClimatMontagneux.createBody(460,440,240,60);
+            cote6 = ClimatMontagneux.createBody(460,390,240,180);
             isCote6Created = true;
         }
     }

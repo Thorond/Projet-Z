@@ -6,6 +6,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 /**
@@ -151,9 +153,12 @@ public class DonjonSalle8 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+        game.getBatch().draw(ClimatMontagneux.escalier , 480 + x , 60 + y);
+
 //                    game.getBatch().draw(DonjonGlace.ombreGlobale, Link.getX() -643 , Link.getY() - 465);
 //                    game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, Link.getX() -643 , Link.getY() - 465);
 
+        PlacementMainZoneGlace.détectionEscalier(MainMenu.Link);
 
     }
 
@@ -180,6 +185,8 @@ public class DonjonSalle8 extends Sprite {
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
+        CadrillageMap.setTypeDeDécor(8,1,"Escalier");
+
         if ( isCote1Created == false ) {
             cote1 = ClimatMontagneux.createBody(20,240,60,480);
             isCote1Created = true;

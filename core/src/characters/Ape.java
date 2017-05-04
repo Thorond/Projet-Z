@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import items.Bouclier;
 import scenes.MainMenu;
 
 /**
@@ -33,7 +34,7 @@ public class Ape extends Pnj{
     public static Sprite laser = new Sprite(laserT);
 
     public Ape(World world, Texture text, float x, float y, String direction) {
-        super(world,text, 30, 30, 5, x, y, direction);
+        super(world,text, 30, 30, 3, x, y, direction);
         // TODO Auto-generated constructor stub
     }
 
@@ -41,10 +42,10 @@ public class Ape extends Pnj{
     public void déplacement(){
         if ( this.isAlive() && ! isAtta ){
             if ( System.currentTimeMillis() - timerDépla > 1000 ) {
-                if (this.getY() - MainMenu.Link.getY() > 30) {
+                if (this.getY() - MainMenu.Link.getY() > -20) {
                     this.getBody().setLinearVelocity(new Vector2(0, -100f));
                     this.setDirection("bas");
-                } else if (this.getY() - MainMenu.Link.getY() < -50) {
+                } else if (this.getY() - MainMenu.Link.getY() < -30) {
                     this.getBody().setLinearVelocity(new Vector2(0, +100f));
                     this.setDirection("haut");
                 } else {
@@ -90,16 +91,46 @@ public class Ape extends Pnj{
         }
     }
 
+    @Override
+    public void infligéDégatLink(){
+        if ( laserPrésent && xLaser >= 260 ) {
+            if (System.currentTimeMillis() - timerSubirDégat > 250) {
+
+                if (MainMenu.Link.getY() +20 >= this.getY()
+                        && this.getY() +30 > MainMenu.Link.getY() ) {
+                    MainMenu.Link.isHit = true;
+                    MainMenu.Link.timerHit = System.currentTimeMillis();
+                    MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0, -600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
+                    if (MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé) { // utilisation du bouclier
+
+                    } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+                } else if (this.getY() - MainMenu.Link.getY() < 0
+                        && MainMenu.Link.getY() <= this.getY() + this.getHeight() / 2 + 15) {
+                    MainMenu.Link.isHit = true;
+                    MainMenu.Link.timerHit = System.currentTimeMillis();
+                    MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0, +600000), MainMenu.Link.getBody().getWorldCenter(), true);
+
+                    if (MainMenu.Link.getDirection().equals("droite") && Bouclier.isBouclierUtilisé) { // utilisation du bouclier
+
+                    } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - this.getStrength());
+                }
+
+                timerSubirDégat = System.currentTimeMillis();
+            }
+        }
+    }
+
     public int xLaser = 0;
     public int DxLaser = 10;
-    public void représentationlaser(GameMain game){
+    public void représentationlaser(GameMain game, int x , int y){
         int xMax = 360;
         int DxMax = 360;
         if ( this.laserPrésent ) {
 
             laser.setSize(DxLaser,laser.getHeight());
-            laser.setX(this.getX()-xLaser);
-            laser.setY(this.getY());
+            laser.setX(this.getX()-xLaser + x );
+            laser.setY(this.getY() + y);
             laser.draw(game.getBatch());
 
             if ( xLaser < xMax ) xLaser +=20;

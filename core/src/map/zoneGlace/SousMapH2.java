@@ -197,24 +197,6 @@ public class SousMapH2 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.tree, 180 + x, 80 + y);
         game.getBatch().draw(ClimatMontagneux.escalierBas, 250 + x, 10 + y);
 
-//
-        if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 270+ x, 100+ y);
-        else {
-            if ( coffreOuvert == false ) {
-                if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
-                    coffreOuvert = true;
-                }
-                Coffre.annimationCoffreBleu(game, 270, 100);
-
-            } else {
-                game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 270+ x, 100+ y);
-            }
-
-        }
-        if ( MainMenu.Link.annimationAward ) {
-//			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
-//			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
-        }
 
 //
 
@@ -269,6 +251,27 @@ public class SousMapH2 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.planteGelé3, 420+ x, 180+ y);
 
 
+//
+        if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 270+ x, 100+ y);
+        else {
+            if ( coffreOuvert == false ) {
+                if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
+                    coffreOuvert = true;
+                }
+                Coffre.annimationCoffreBleu(game, 270, 100);
+
+            } else {
+                game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 270+ x, 100+ y);
+            }
+
+        }
+        if ( MainMenu.Link.annimationAward ) {
+			game.getBatch().draw(DonjonGlace.cléBoss, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +30);
+			game.getBatch().draw(DonjonGlace.texteCléBoss, 100 + x, 150+y);
+        }
+
+        PlacementMainZoneGlace.détectionEscalier(MainMenu.Link);
+
     }
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
@@ -309,6 +312,8 @@ public class SousMapH2 extends Sprite{
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
+
+        CadrillageMap.setTypeDeDécor(4,0, "Escalier");
 
         CadrillageMap.setTypeDeDécor(4,1, "coffreBleu");
         if ( ismurCoffreCreated == false ) {

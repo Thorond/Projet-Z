@@ -5,7 +5,10 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import decors.DonjonGlace;
+import map.zoneGlace.PlacementMainZoneGlace;
 import sauvegarde.Sauvegarde;
+import scenes.MainMenu;
 
 /**
  * Created by arnOo on 19/04/2017.
@@ -21,72 +24,86 @@ public class Carte {
     public static Texture cacheNoir = new Texture("menus/carte/cacheNoir.png");
 
     public static void représentation(GameMain game ){
-        game.getBatch().draw(carteTotale, - variationX * 100 ,0);
+        if ( (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle3")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle5")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")
+                || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10") )
+                && DonjonGlace.carteTrouvé ) {
+            game.getBatch().draw(DonjonGlace.carteDonjon,0,0);
+        } else {
+            game.getBatch().draw(carteTotale, -variationX * 100, 0);
 
 
-        if (  ! mapA1Découverte ) game.getBatch().draw(cacheNoir , 1 - variationX * 100 , 405);
-        if (  ! mapA2Découverte ) game.getBatch().draw(cacheNoir , 1 - variationX * 100 , 324);
-        if (  ! mapA3Découverte ) game.getBatch().draw(cacheNoir , 1 - variationX * 100 , 244);
-        if (  ! mapA4Découverte ) game.getBatch().draw(cacheNoir , 1 - variationX * 100 , 163);
-        if (  ! mapA5Découverte ) game.getBatch().draw(cacheNoir , 1 - variationX * 100 , 82);
-        if (  ! mapA6Découverte ) game.getBatch().draw(cacheNoir , 1 - variationX * 100 , 0);
+            if (!mapA1Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 405);
+            if (!mapA2Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 324);
+            if (!mapA3Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 244);
+            if (!mapA4Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 163);
+            if (!mapA5Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 82);
+            if (!mapA6Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 0);
 
 
-        if (  ! mapB1Découverte ) game.getBatch().draw(cacheNoir , 101 - variationX * 100 , 405);
-        if (  ! mapB2Découverte ) game.getBatch().draw(cacheNoir , 101 - variationX * 100 , 324);
-        if (  ! mapB3Découverte ) game.getBatch().draw(cacheNoir , 101 - variationX * 100 , 244);
-        if (  ! mapB4Découverte ) game.getBatch().draw(cacheNoir , 101 - variationX * 100 , 163);
-        if (  ! mapB5Découverte ) game.getBatch().draw(cacheNoir , 101 - variationX * 100 , 82);
-        if (  ! mapB6Découverte ) game.getBatch().draw(cacheNoir , 101 - variationX * 100 , 0);
+            if (!mapB1Découverte) game.getBatch().draw(cacheNoir, 101 - variationX * 100, 405);
+            if (!mapB2Découverte) game.getBatch().draw(cacheNoir, 101 - variationX * 100, 324);
+            if (!mapB3Découverte) game.getBatch().draw(cacheNoir, 101 - variationX * 100, 244);
+            if (!mapB4Découverte) game.getBatch().draw(cacheNoir, 101 - variationX * 100, 163);
+            if (!mapB5Découverte) game.getBatch().draw(cacheNoir, 101 - variationX * 100, 82);
+            if (!mapB6Découverte) game.getBatch().draw(cacheNoir, 101 - variationX * 100, 0);
 
-        if (  ! mapC1Découverte ) game.getBatch().draw(cacheNoir , 201 - variationX * 100 , 405);
-        if (  ! mapC2Découverte ) game.getBatch().draw(cacheNoir , 201 - variationX * 100 , 324);
-        if (  ! mapC3Découverte ) game.getBatch().draw(cacheNoir , 201 - variationX * 100 , 244);
-        if (  ! mapC4Découverte ) game.getBatch().draw(cacheNoir , 201 - variationX * 100 , 163);
-        if (  ! mapC5Découverte ) game.getBatch().draw(cacheNoir , 201 - variationX * 100 , 82);
-        if (  ! mapC6Découverte ) game.getBatch().draw(cacheNoir , 201 - variationX * 100 , 0);
+            if (!mapC1Découverte) game.getBatch().draw(cacheNoir, 201 - variationX * 100, 405);
+            if (!mapC2Découverte) game.getBatch().draw(cacheNoir, 201 - variationX * 100, 324);
+            if (!mapC3Découverte) game.getBatch().draw(cacheNoir, 201 - variationX * 100, 244);
+            if (!mapC4Découverte) game.getBatch().draw(cacheNoir, 201 - variationX * 100, 163);
+            if (!mapC5Découverte) game.getBatch().draw(cacheNoir, 201 - variationX * 100, 82);
+            if (!mapC6Découverte) game.getBatch().draw(cacheNoir, 201 - variationX * 100, 0);
 
-        if (  ! mapD1Découverte ) game.getBatch().draw(cacheNoir , 301 - variationX * 100 , 405);
-        if (  ! mapD2Découverte ) game.getBatch().draw(cacheNoir , 301 - variationX * 100 , 324);
-        if (  ! mapD3Découverte ) game.getBatch().draw(cacheNoir , 301 - variationX * 100 , 244);
-        if (  ! mapD4Découverte ) game.getBatch().draw(cacheNoir , 301 - variationX * 100 , 163);
-        if (  ! mapD5Découverte ) game.getBatch().draw(cacheNoir , 301 - variationX * 100 , 82);
-        if (  ! mapD6Découverte ) game.getBatch().draw(cacheNoir , 301 - variationX * 100 , 0);
+            if (!mapD1Découverte) game.getBatch().draw(cacheNoir, 301 - variationX * 100, 405);
+            if (!mapD2Découverte) game.getBatch().draw(cacheNoir, 301 - variationX * 100, 324);
+            if (!mapD3Découverte) game.getBatch().draw(cacheNoir, 301 - variationX * 100, 244);
+            if (!mapD4Découverte) game.getBatch().draw(cacheNoir, 301 - variationX * 100, 163);
+            if (!mapD5Découverte) game.getBatch().draw(cacheNoir, 301 - variationX * 100, 82);
+            if (!mapD6Découverte) game.getBatch().draw(cacheNoir, 301 - variationX * 100, 0);
 
-        if (  ! mapE1Découverte ) game.getBatch().draw(cacheNoir , 401 - variationX * 100 , 405);
-        if (  ! mapE2Découverte ) game.getBatch().draw(cacheNoir , 401 - variationX * 100 , 324);
-        if (  ! mapE3Découverte ) game.getBatch().draw(cacheNoir , 401 - variationX * 100 , 244);
-        if (  ! mapE4Découverte ) game.getBatch().draw(cacheNoir , 401 - variationX * 100 , 163);
-        if (  ! mapE5Découverte ) game.getBatch().draw(cacheNoir , 401 - variationX * 100 , 82);
-        if (  ! mapE6Découverte ) game.getBatch().draw(cacheNoir , 401 - variationX * 100 , 0);
+            if (!mapE1Découverte) game.getBatch().draw(cacheNoir, 401 - variationX * 100, 405);
+            if (!mapE2Découverte) game.getBatch().draw(cacheNoir, 401 - variationX * 100, 324);
+            if (!mapE3Découverte) game.getBatch().draw(cacheNoir, 401 - variationX * 100, 244);
+            if (!mapE4Découverte) game.getBatch().draw(cacheNoir, 401 - variationX * 100, 163);
+            if (!mapE5Découverte) game.getBatch().draw(cacheNoir, 401 - variationX * 100, 82);
+            if (!mapE6Découverte) game.getBatch().draw(cacheNoir, 401 - variationX * 100, 0);
 
-        if (  ! mapF1Découverte ) game.getBatch().draw(cacheNoir , 501 - variationX * 100 , 405);
-        if (  ! mapF2Découverte ) game.getBatch().draw(cacheNoir , 501 - variationX * 100 , 324);
-        if (  ! mapF3Découverte ) game.getBatch().draw(cacheNoir , 501 - variationX * 100 , 244);
-        if (  ! mapF4Découverte ) game.getBatch().draw(cacheNoir , 501 - variationX * 100 , 163);
-        if (  ! mapF5Découverte ) game.getBatch().draw(cacheNoir , 501 - variationX * 100 , 82);
-        if (  ! mapF6Découverte ) game.getBatch().draw(cacheNoir , 501 - variationX * 100 , 0);
+            if (!mapF1Découverte) game.getBatch().draw(cacheNoir, 501 - variationX * 100, 405);
+            if (!mapF2Découverte) game.getBatch().draw(cacheNoir, 501 - variationX * 100, 324);
+            if (!mapF3Découverte) game.getBatch().draw(cacheNoir, 501 - variationX * 100, 244);
+            if (!mapF4Découverte) game.getBatch().draw(cacheNoir, 501 - variationX * 100, 163);
+            if (!mapF5Découverte) game.getBatch().draw(cacheNoir, 501 - variationX * 100, 82);
+            if (!mapF6Découverte) game.getBatch().draw(cacheNoir, 501 - variationX * 100, 0);
 
-        if (  ! mapG1Découverte ) game.getBatch().draw(cacheNoir , 601 - variationX * 100 , 405);
-        if (  ! mapG2Découverte ) game.getBatch().draw(cacheNoir , 601 - variationX * 100 , 324);
-        if (  ! mapG3Découverte ) game.getBatch().draw(cacheNoir , 601 - variationX * 100 , 244);
-        if (  ! mapG4Découverte ) game.getBatch().draw(cacheNoir , 601 - variationX * 100 , 163);
-        if (  ! mapG5Découverte ) game.getBatch().draw(cacheNoir , 601 - variationX * 100 , 82);
-        if (  ! mapG6Découverte ) game.getBatch().draw(cacheNoir , 601 - variationX * 100 , 0);
+            if (!mapG1Découverte) game.getBatch().draw(cacheNoir, 601 - variationX * 100, 405);
+            if (!mapG2Découverte) game.getBatch().draw(cacheNoir, 601 - variationX * 100, 324);
+            if (!mapG3Découverte) game.getBatch().draw(cacheNoir, 601 - variationX * 100, 244);
+            if (!mapG4Découverte) game.getBatch().draw(cacheNoir, 601 - variationX * 100, 163);
+            if (!mapG5Découverte) game.getBatch().draw(cacheNoir, 601 - variationX * 100, 82);
+            if (!mapG6Découverte) game.getBatch().draw(cacheNoir, 601 - variationX * 100, 0);
 
-        if (  ! mapH1Découverte ) game.getBatch().draw(cacheNoir , 701 - variationX * 100 , 405);
-        if (  ! mapH2Découverte ) game.getBatch().draw(cacheNoir , 701 - variationX * 100 , 324);
-        if (  ! mapH3Découverte ) game.getBatch().draw(cacheNoir , 701 - variationX * 100 , 244);
-        if (  ! mapH4Découverte ) game.getBatch().draw(cacheNoir , 701 - variationX * 100 , 163);
-        if (  ! mapH5Découverte ) game.getBatch().draw(cacheNoir , 701 - variationX * 100 , 82);
-        if (  ! mapH6Découverte ) game.getBatch().draw(cacheNoir , 701 - variationX * 100 , 0);
+            if (!mapH1Découverte) game.getBatch().draw(cacheNoir, 701 - variationX * 100, 405);
+            if (!mapH2Découverte) game.getBatch().draw(cacheNoir, 701 - variationX * 100, 324);
+            if (!mapH3Découverte) game.getBatch().draw(cacheNoir, 701 - variationX * 100, 244);
+            if (!mapH4Découverte) game.getBatch().draw(cacheNoir, 701 - variationX * 100, 163);
+            if (!mapH5Découverte) game.getBatch().draw(cacheNoir, 701 - variationX * 100, 82);
+            if (!mapH6Découverte) game.getBatch().draw(cacheNoir, 701 - variationX * 100, 0);
 
-        if (  ! mapI1Découverte ) game.getBatch().draw(cacheNoir , 801 - variationX * 100 , 405);
-        if (  ! mapI2Découverte ) game.getBatch().draw(cacheNoir , 801 - variationX * 100 , 324);
-        if (  ! mapI3Découverte ) game.getBatch().draw(cacheNoir , 801 - variationX * 100 , 244);
-        if (  ! mapI4Découverte ) game.getBatch().draw(cacheNoir , 801 - variationX * 100 , 163);
-        if (  ! mapI5Découverte ) game.getBatch().draw(cacheNoir , 801 - variationX * 100 , 82);
-        if (  ! mapI6Découverte ) game.getBatch().draw(cacheNoir , 801 - variationX * 100 , 0);
+            if (!mapI1Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 405);
+            if (!mapI2Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 324);
+            if (!mapI3Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 244);
+            if (!mapI4Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 163);
+            if (!mapI5Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 82);
+            if (!mapI6Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 0);
+        }
     }
 
     public static void updateCarte( float dt){
