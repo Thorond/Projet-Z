@@ -25,6 +25,9 @@ public class DonjonSalle2 extends Sprite {
     public static boolean ouvertureCoffre = false; // à sauvegarder
     public static boolean coffreOuvert = false; // à sauvegarder
 
+    public static Body murCoffre;
+    public static boolean ismurCoffreCreated;
+
 //
 
     public static Body cote1 ;
@@ -305,6 +308,10 @@ public class DonjonSalle2 extends Sprite {
 
     public static void destroyBody() {
         // TODO Auto-generated method stub
+
+        if ( ismurCoffreCreated) MainMenu.world.destroyBody(murCoffre);
+        ismurCoffreCreated = false;
+
         if ( isCote1Created) MainMenu.world.destroyBody(cote1);
         isCote1Created = false;
 
@@ -361,6 +368,11 @@ public class DonjonSalle2 extends Sprite {
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
         CadrillageMap.setTypeDeDécor(7,5, "coffreBleu");
+        if ( nbrTuéPetitSlim == 6 && ismurCoffreCreated == false ) {
+            murCoffre = ClimatMontagneux.createBody(450,360,30,30);
+            ismurCoffreCreated = true;
+        }
+
 
         if ( isCote1Created == false ) {
             cote1 = ClimatMontagneux.createBody(20,240,60,480);

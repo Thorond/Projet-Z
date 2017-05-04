@@ -118,6 +118,8 @@ public class MenuSac extends Menu{
 		
 
 		if ( ClimatMontagneux.isCarottesPrise ) game.getBatch().draw(ClimatMontagneux.carottes, 440 , 80);
+		if ( DonjonGlace.isCléBossRécupérée ) game.getBatch().draw(DonjonGlace.cléBoss,480,80);
+        if ( DonjonGlace.carteTrouvé ) game.getBatch().draw(DonjonGlace.scroll,440,140);
 	}
 	
 //	

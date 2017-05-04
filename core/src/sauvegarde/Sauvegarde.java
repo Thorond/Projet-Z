@@ -10,6 +10,7 @@ import decors.Totem;
 import items.Arc;
 import items.Bombe;
 import items.Bouclier;
+import items.CoeurDeVie;
 import items.Epee;
 import items.Flèches;
 import items.GantDeForce;
@@ -18,8 +19,13 @@ import items.Potion;
 import items.Torche;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.SousMapB3;
 import map.zoneGlace.GestionDesMapsZoneGlace;
+import map.zoneGlace.GrotteF5Salle3;
 import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapE1;
+import map.zoneGlace.SousMapF4;
+import map.zoneGlace.SousMapI1;
 import menus.Carte;
 import scenes.MainMenu;
 
@@ -52,9 +58,14 @@ public class Sauvegarde implements java.io.Serializable{
     public boolean isTorchePrise;
 
 //    ********réceptacle et cofres ***********
+    public int nbrDeReceptacle;
+    public boolean isReceptaclePrisB3 ;
+    public boolean isReceptaclePrisF4 ;
+    public boolean isReceptaclePrisI1 ;
+    public boolean isReceptaclePrisE1 ;
+    public boolean isReceptaclePrisGrotteF5Salle3 ;
 
-
-//
+    //
 //     *********PNJ*******
 //	 totem
 	public  boolean jeuRésoluTotem;
@@ -75,6 +86,7 @@ public class Sauvegarde implements java.io.Serializable{
     public boolean isCléBasseTrouvé;
     public boolean isCléHauteTrouvé;
     public boolean isCléMilieuTrouvé ;
+    public boolean carteTrouvé;
 
 
 //         *********élément des cartes**********
@@ -168,6 +180,15 @@ public class Sauvegarde implements java.io.Serializable{
           this.isPotionRécupérer = Potion.isPotionRécupérer ;
           this.isTorchePrise = Torche.isTorchePrise;
 
+
+        //    ********réceptacle et cofres ***********
+          nbrDeReceptacle = CoeurDeVie.nbrDeReceptacle;
+          isReceptaclePrisB3 = SousMapB3.isReceptaclePris;
+          isReceptaclePrisF4 = SousMapF4.isReceptaclePris;
+          isReceptaclePrisI1 = SousMapI1.isReceptaclePris;
+          isReceptaclePrisE1 = SousMapE1.isReceptaclePris;
+          isReceptaclePrisGrotteF5Salle3 = GrotteF5Salle3.isReceptaclePris;
+
           //        pnj
           //    totem
           jeuRésoluTotem = Totem.jeuRésolu;
@@ -188,6 +209,7 @@ public class Sauvegarde implements java.io.Serializable{
           isCléBasseTrouvé = DonjonGlace.isCléBasseTrouvé;
           isCléHauteTrouvé = DonjonGlace.isCléHauteTrouvé;
           isCléMilieuTrouvé = DonjonGlace.isCléMilieuTrouvé;
+          carteTrouvé = DonjonGlace.carteTrouvé;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;
@@ -312,6 +334,14 @@ public class Sauvegarde implements java.io.Serializable{
         Potion.isPotionRécupérer = this.isPotionRécupérer;
         Torche.isTorchePrise = this.isTorchePrise ;
 
+        //    ********réceptacle et cofres ***********
+        CoeurDeVie.nbrDeReceptacle = nbrDeReceptacle ;
+        SousMapB3.isReceptaclePris = isReceptaclePrisB3 ;
+        SousMapF4.isReceptaclePris = isReceptaclePrisF4 ;
+        SousMapI1.isReceptaclePris = isReceptaclePrisI1 ;
+        SousMapE1.isReceptaclePris = isReceptaclePrisE1 ;
+        GrotteF5Salle3.isReceptaclePris = isReceptaclePrisGrotteF5Salle3 ;
+
 //        pnj
         //    totem
         Totem.jeuRésolu = this.jeuRésoluTotem ;
@@ -332,6 +362,7 @@ public class Sauvegarde implements java.io.Serializable{
         DonjonGlace.isCléBasseTrouvé = isCléBasseTrouvé;
         DonjonGlace.isCléHauteTrouvé = isCléHauteTrouvé;
         DonjonGlace.isCléMilieuTrouvé = isCléMilieuTrouvé ;
+        DonjonGlace.carteTrouvé = carteTrouvé;
 
 
 //         carte
@@ -355,12 +386,38 @@ public class Sauvegarde implements java.io.Serializable{
         MainMenu.Link.setHealth( 12 );
         MainMenu.Link.setStrength(4);
 
-        // mettre les items
+        // items
+        Epee.isEpéePrise  = false ;
+        Arc.isArcPris = false  ;
+        Bombe.isBombeRécupéré  = false;
+        Bouclier.isBouclierPris = false ;
+        Flèches.nombreFlèche = 0 ;
+        GantDeForce.isGantDeForcePris = false ;
+        Plume.isPlumePrise = false ;
+        Potion.isPotionRécupérer = false;
+        Torche.isTorchePrise = false ;
 
 
-        MainMenu.sauvegarde = new Sauvegarde(MainMenu.Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
-        SendClass.sendClass(MainMenu.sauvegarde);
-        MainMenu.sauvegarde.chargerSauvegarde();
+        //    ********réceptacle et cofres ***********
+        CoeurDeVie.nbrDeReceptacle = 0 ;
+        SousMapB3.isReceptaclePris = false ;
+        SousMapF4.isReceptaclePris = false ;
+        SousMapI1.isReceptaclePris = false ;
+        SousMapE1.isReceptaclePris = false ;
+        GrotteF5Salle3.isReceptaclePris = false ;
+
+//        pnj
+        //    totem
+        Totem.jeuRésolu = false ;
+        //	iceman
+        SnowMan.étatTexte = 0  ;
+        //	ghost
+        Ghost.etatScenario = 0 ;
+        //    tigre
+        Tigre.tigreRamené = false;
+//        dompteuse
+        Dompteuse.etatScenario = 0;
+
 
         //    ***************Donjon*************
         DonjonGlace.isCléBossRécupérée = false ;
@@ -370,6 +427,14 @@ public class Sauvegarde implements java.io.Serializable{
         DonjonGlace.isCléBasseTrouvé = false;
         DonjonGlace.isCléHauteTrouvé = false;
         DonjonGlace.isCléMilieuTrouvé = false ;
+        DonjonGlace.carteTrouvé = false;
+
+//        *******
+
+
+        MainMenu.sauvegarde = new Sauvegarde(MainMenu.Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
+        SendClass.sendClass(MainMenu.sauvegarde);
+        MainMenu.sauvegarde.chargerSauvegarde();
 
     }
 	  
