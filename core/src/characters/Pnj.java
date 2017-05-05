@@ -226,7 +226,7 @@ public class Pnj extends Characters{
     public long timerSubirDégat = System.currentTimeMillis();
 	public void infligéDégatLink(){
 
-        if ( System.currentTimeMillis() - timerSubirDégat > 250 ) {
+        if ( System.currentTimeMillis() - timerSubirDégat > 700 ) {
 
             if (MainMenu.Link.getX() + MainMenu.Link.getWidth() / 2 >= this.getX() - 20
                     && MainMenu.Link.getX() <= this.getX()
