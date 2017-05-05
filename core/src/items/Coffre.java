@@ -9,6 +9,7 @@ import map.CadrillageMap;
 import map.zoneGlace.DonjonSalle2;
 import map.zoneGlace.PlacementMainZoneGlace;
 import map.zoneGlace.SousMapD2;
+import map.zoneGlace.SousMapD5;
 import map.zoneGlace.SousMapF2;
 import map.zoneGlace.SousMapG5;
 import map.zoneGlace.SousMapH2;
@@ -48,6 +49,7 @@ public class Coffre {
 	public static void détectionCoffres(MainCharacter Link, float PPM) {
         if (PlacementMainZoneGlace.positionSousMap.equals("F2")) {
             if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+                if (! SousMapF2.ouvertureCoffre) MainMenu.bombe.setNombreItem(MainMenu.bombe.getNombreItem() + 20);
                 SousMapF2.ouvertureCoffre = true;
             }
         }
@@ -60,7 +62,18 @@ public class Coffre {
         }
         if (PlacementMainZoneGlace.positionSousMap.equals("G5")) {
             if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+                if (! SousMapG5.ouvertureCoffre) {
+                    Essence.nombreEssence += 25;
+                    if ( Essence.nombreEssence > Essence.essenceMax ) Essence.nombreEssence = 999;
+                }
                 SousMapG5.ouvertureCoffre = true;
+            }
+        }
+        if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
+            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+                SousMapD5.ouvertureCoffre = true;
+                Essence.nombreEssence += 10;
+                if ( Essence.nombreEssence > Essence.essenceMax ) Essence.nombreEssence = 999;
             }
         }
         if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {

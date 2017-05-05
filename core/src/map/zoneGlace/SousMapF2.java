@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.Bombe;
 import items.Coffre;
 import map.CadrillageMap;
 import scenes.MainMenu;
@@ -255,7 +256,7 @@ public class SousMapF2 extends Sprite{
 			
 		}
 		if ( MainMenu.Link.annimationAward ) {
-//			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
+			game.getBatch().draw(Bombe.bombeT, MainMenu.Link.getX() - 15, MainMenu.Link.getY() +60);
 //			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
 		}
 		

@@ -164,33 +164,6 @@ public class MainMenu implements Screen{
 		}
 	}
 	
-	void updatePause(float dt){
-		if (Gdx.input.isKeyJustPressed(Input.Keys.S) ){
-			if ( MenuPause.choix == 1) MenuPause.choix = 2;
-			else if ( MenuPause.choix == 2) MenuPause.choix =3;	
-			else if ( MenuPause.choix == 3) MenuPause.choix =1;
-		} else if (Gdx.input.isKeyJustPressed(Input.Keys.Z)){
-			if ( MenuPause.choix == 1) MenuPause.choix = 3;
-			else if ( MenuPause.choix == 2) MenuPause.choix =1;	
-			else if ( MenuPause.choix == 3) MenuPause.choix =2;
-		}
-		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
-			if (MenuPause.choix == 1) MenuPause.isPause = false;
-			else if (MenuPause.choix == 2){
-				MenuDémarrer.isInGame = false;
-				MenuDémarrer.choix=0;
-			}
-			else if (MenuPause.choix == 3){
-				if ( Link.zone.equals("zoneGlace"))
-					sauvegarde = new Sauvegarde(Link, PlacementMainZoneGlace.positionSousMap, "zoneGlace");
-				else
-					sauvegarde = new Sauvegarde(Link, PlacementMainZoneDesert.positionSousMap, "zoneDesert");
-				SendClass.sendClass(sauvegarde);
-//				affichage de quelques choses pour montrer que c'est sauvegarder
-			}
-		}
-	}
-	
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
@@ -580,7 +553,7 @@ public class MainMenu implements Screen{
 				updateGO(delta);
 			} else if (MenuPause.isPause ) {
 
-				updatePause(delta);
+				MenuPause.updatePause(delta);
 				MenuPause.affichageMenuPause(game);
 			} else if ( Carte.isAfficher ) {
 
@@ -695,6 +668,10 @@ public class MainMenu implements Screen{
 				MenuGameover.GameOver(game);
 			}
 		}
+
+        // affichage de la sauvegarde
+        MenuPause.affichageSauvegarde(game);
+
 		game.getBatch().end();
 		
 		
