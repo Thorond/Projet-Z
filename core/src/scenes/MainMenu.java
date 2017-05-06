@@ -632,7 +632,8 @@ public class MainMenu implements Screen{
 
                     // cache noir quand joueur dans donjon
                     if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")
-                            || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8") ) {
+                            || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")
+                            || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9") ) {
                         if (!Torche.isTorcheUtilisée)
                             game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() - 643, MainMenu.Link.getY() - 465);
                         else
