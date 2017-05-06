@@ -3,6 +3,7 @@ package map.zoneGlace;
 import characters.Ghost;
 import characters.MainCharacter;
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
 import decors.Totem;
 import items.Bombe;
 import items.CoeurDeVie;
@@ -212,6 +213,13 @@ public class PlacementMainZoneGlace {
                 map.zoneGlace.DonjonSalle10.destroyBody();
                 positionSousMap = "DonjonSalle9";
             }
+
+            else if ( positionSousMap.equals("DonjonSalle9") ){
+                map.zoneGlace.DonjonSalle9.destroyBody();
+                if ( DonjonSalle9.salle == 0 || DonjonSalle9.salle == 1) DonjonSalle9.salle = 2;
+                else if ( DonjonSalle9.salle == 5 ) DonjonSalle9.salle = 6;
+                else DonjonSalle9.salle = 0 ;
+            }
 			
 			défilement = true;
 			start = System.currentTimeMillis();
@@ -396,9 +404,15 @@ public class PlacementMainZoneGlace {
             } else if ( positionSousMap.equals("DonjonSalle8") ){
                 map.zoneGlace.DonjonSalle8.destroyBody();
                 positionSousMap = "DonjonSalle7";
-            } else if ( positionSousMap.equals("DonjonSalle9") ){
+            } else if ( positionSousMap.equals("DonjonSalle9") && DonjonSalle9.salle == 6){
                 map.zoneGlace.DonjonSalle9.destroyBody();
                 positionSousMap = "DonjonSalle10";
+            }
+
+            else if ( positionSousMap.equals("DonjonSalle9") ){
+                map.zoneGlace.DonjonSalle9.destroyBody();
+                if ( DonjonSalle9.salle == 3) DonjonSalle9.salle = 4;
+                else DonjonSalle9.salle = 0 ;
             }
 
 			
@@ -583,6 +597,7 @@ public class PlacementMainZoneGlace {
                 positionSousMap = "DonjonSalle2";
             } else if ( positionSousMap.equals("DonjonSalle3")  ){
                 map.zoneGlace.DonjonSalle3.destroyBody();
+                DonjonSalle9.salle = 1;
                 positionSousMap = "DonjonSalle9";
             } else if ( positionSousMap.equals("DonjonSalle5")  ){
                 map.zoneGlace.DonjonSalle5.destroyBody();
@@ -592,8 +607,16 @@ public class PlacementMainZoneGlace {
                 positionSousMap = "DonjonSalle3";
             }
 
-			
-			défilement = true;
+            else if ( positionSousMap.equals("DonjonSalle9") ){
+                map.zoneGlace.DonjonSalle9.destroyBody();
+                if ( DonjonSalle9.salle == 1 ) DonjonSalle9.salle = 0;
+                else if ( DonjonSalle9.salle == 2) DonjonSalle9.salle = 3;
+                else if ( DonjonSalle9.salle == 4 ) DonjonSalle9.salle = 5;
+                else DonjonSalle9.salle = 0 ;
+            }
+
+
+            défilement = true;
 			start = System.currentTimeMillis();
 			x = 60;
 			y = 0;

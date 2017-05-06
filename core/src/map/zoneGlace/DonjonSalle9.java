@@ -14,6 +14,8 @@ import scenes.MainMenu;
 
 public class DonjonSalle9 extends Sprite {
 
+    public static int salle = 0 ; 
+
     public static Body cote1 ;
     public static boolean isCote1Created;
     public static Body cote2 ;
@@ -26,6 +28,10 @@ public class DonjonSalle9 extends Sprite {
     public static boolean isCote5Created;
     public static Body cote6 ;
     public static boolean isCote6Created;
+    public static Body cote7 ;
+    public static boolean isCote7Created;
+    public static Body cote8 ;
+    public static boolean isCote8Created;
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -122,8 +128,6 @@ public class DonjonSalle9 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 60+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 120+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 420+ y);
@@ -145,8 +149,6 @@ public class DonjonSalle9 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 60+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 120+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
@@ -173,16 +175,22 @@ public class DonjonSalle9 extends Sprite {
 
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
+
+        if ( isCote7Created) MainMenu.world.destroyBody(cote7);
+        isCote7Created = false;
+
+        if ( isCote8Created) MainMenu.world.destroyBody(cote8);
+        isCote8Created = false;
     }
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
         if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(20,240,60,480);
+            cote1 = ClimatMontagneux.createBody(20,80,60,180);
             isCote1Created = true;
         }
         if ( isCote2Created == false ) {
-            cote2 = ClimatMontagneux.createBody(560,240,60,480);
+            cote2 = ClimatMontagneux.createBody(560,80,60,180);
             isCote2Created = true;
         }
         if ( isCote3Created == false ) {
@@ -200,6 +208,14 @@ public class DonjonSalle9 extends Sprite {
         if ( isCote6Created == false ) {
             cote6 = ClimatMontagneux.createBody(460,440,240,60);
             isCote6Created = true;
+        }
+        if ( isCote7Created == false ) {
+            cote7 = ClimatMontagneux.createBody(20,390,60,180);
+            isCote7Created = true;
+        }
+        if ( isCote8Created == false ) {
+            cote8 = ClimatMontagneux.createBody(560,390,60,180);
+            isCote8Created = true;
         }
     }
 
