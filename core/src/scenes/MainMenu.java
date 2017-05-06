@@ -629,7 +629,16 @@ public class MainMenu implements Screen{
                         game.getBatch().draw(Plume.plume, Link.getX()-5,Link.getY()-5);
                     }
 					Link.draw(game.getBatch());
-				}
+
+                    // cache noir quand joueur dans donjon
+                    if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")
+                            || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8") ) {
+                        if (!Torche.isTorcheUtilisée)
+                            game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() - 643, MainMenu.Link.getY() - 465);
+                        else
+                            game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() - 643, MainMenu.Link.getY() - 465);
+                    }
+                }
 
 //			 texte de la map totem
 				if (Totem.étatTexte > 0) Totem.représentationTexte(game);

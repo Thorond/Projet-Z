@@ -141,6 +141,8 @@ public class DonjonSalle8 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 0+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 0+ y);
@@ -163,6 +165,12 @@ public class DonjonSalle8 extends Sprite {
 
         
         if (  miniBossEstMort ) game.getBatch().draw(ClimatMontagneux.escalier , 480 + x , 60 + y);
+        else {
+            if ( MainMenu.Link.getBody().getPosition().y * MainMenu.PPM < 420 ) {
+                game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240 + x, 420 + y);
+                game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300 + x, 420 + y);
+            }
+        }
 
         if ( miniBossEstCrée && miniBoss.isAlive() ) game.getBatch().draw(miniBoss,miniBoss.getX() + x , miniBoss.getY() + y);
         
@@ -170,8 +178,6 @@ public class DonjonSalle8 extends Sprite {
             miniBoss.infligéDégatLink();
         }
 
-        if ( ! Torche.isTorcheUtilisée )  game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
-        else game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
 
         PlacementMainZoneGlace.détectionEscalier(MainMenu.Link);
 
@@ -203,18 +209,21 @@ public class DonjonSalle8 extends Sprite {
 
 
 //
-        if ( miniBossEstCrée )MainMenu.world.destroyBody(miniBoss.getBody());
-        miniBossEstCrée = false;
+        if ( MainMenu.Link.getBody().getPosition().y * MainMenu.PPM > 420) {
+            if (miniBossEstCrée) MainMenu.world.destroyBody(miniBoss.getBody());
+            miniBossEstCrée = false;
 
-        Pnj.nbrDeMonstres = 0 ;
+            Pnj.nbrDeMonstres = 0;
+        }
     }
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
-        if (  miniBossEstMort) {
+        destroyBody();
+        if (  miniBossEstMort || MainMenu.Link.getBody().getPosition().y * MainMenu.PPM > 420) {
             CadrillageMap.setTypeDeDécor(8,1,"Escalier");
 
-            if ( isCote4Created == false ) {
+            if ( isCote4Created == false  ) {
                 cote4 = ClimatMontagneux.createBody(100,440,240,60);
                 isCote4Created = true;
             }
@@ -250,16 +259,18 @@ public class DonjonSalle8 extends Sprite {
 
         //        création du singe
 
-        if ( miniBossEstCrée == false && ! miniBossEstMort  ) {
-            miniBoss = new MiniBoss(world ,MiniBoss.miniBossBas1, 430 , 300 , "bas") ;
-            Pnj.monstres[0] = miniBoss;
-            Pnj.nbrDeMonstres = 1 ;
-            miniBossEstCrée = true;
-        } else {
-            if ( !miniBossEstMort) {
-                miniBoss.déplacement();
-                miniBoss.représentation();
-                miniBoss.updateBody();
+        if ( MainMenu.Link.getBody().getPosition().y * MainMenu.PPM < 420) {
+            if (miniBossEstCrée == false && !miniBossEstMort) {
+                miniBoss = new MiniBoss(world, MiniBoss.miniBossBas1, 430, 300, "bas");
+                Pnj.monstres[0] = miniBoss;
+                Pnj.nbrDeMonstres = 1;
+                miniBossEstCrée = true;
+            } else {
+                if (!miniBossEstMort) {
+                    miniBoss.déplacement();
+                    miniBoss.représentation();
+                    miniBoss.updateBody();
+                }
             }
         }
     }
