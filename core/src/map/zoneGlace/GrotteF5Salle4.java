@@ -27,7 +27,7 @@ public class GrotteF5Salle4 extends Sprite {
     public static int nbrTué = 0; // à sauvegarder
     public static long timerApparition;
 
-    public static int yClé = 480;
+    public static int yClé = 480; // à sauvegarder
 
     public static int yCléFinal = 240;
 
