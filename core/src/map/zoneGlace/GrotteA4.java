@@ -9,6 +9,7 @@ import com.mygdx.game.GameMain;
 import characters.Marchand;
 import characters.Pnj;
 import decors.ClimatMontagneux;
+import items.GantDeForce;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
@@ -192,6 +193,9 @@ public class GrotteA4 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.escalier, 480 +x , 60 + y );
 
         PlacementMainZoneGlace.détectionEscalier(MainMenu.Link);
+
+        if (Marchand.etatScenario != 0 ) Marchand.représentationTexte(game);
+        if ( MainMenu.Link.annimationAward ) game.getBatch().draw(GantDeForce.gantDeForce, MainMenu.Link.getX() - 10, MainMenu.Link.getY() + 50);
     }
 
     public static void destroyBody() {

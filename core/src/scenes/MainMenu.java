@@ -15,6 +15,7 @@ import com.mygdx.game.GameMain;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
+import characters.Marchand;
 import characters.Pnj;
 import characters.SnowMan;
 import characters.Tigre;
@@ -228,44 +229,6 @@ public class MainMenu implements Screen{
 		AlphabetEtAcquisition.acquisitionTouche();
 	}
 
-//	lorsque le joueur achète quelque chose 
-	void updateAchat(float dt){
-		if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
-			if ( IglooC5.étatAchat == 1 ) IglooC5.étatAchat = 2;
-			else if ( IglooC5.étatAchat == 4 ) IglooC5.étatAchat = 5;
-			else if ( ! (IglooC5.étatAchat == 2)  && ! (IglooC5.étatAchat == 5) ){
-				IglooC5.étatAchat = 10;
-			}
-		} else if ( Gdx.input.isKeyJustPressed(Input.Keys.K) ) {
-			if ( IglooC5.étatAchat == 2 ) {
-				if ( Essence.nombreEssence >= 50 ){
-                    if( Bombe.isBombeRécupéré == false ) {
-                        Bombe.isBombeRécupéré = true;
-                        MenuSac.setItem(bombe);
-                    }
-					bombe.setNombreItem(bombe.getNombreItem() + 10);
-					Essence.nombreEssence -= 50 ;
-					IglooC5.étatAchat = 7;
-				} else {
-					IglooC5.étatAchat = 8;
-				}
-				
-			}
-			else if ( IglooC5.étatAchat == 5 ) {
-				if ( Essence.nombreEssence >= 20 ){
-					if ( !ClimatMontagneux.isCarottesPrise ) ClimatMontagneux.isCarottesPrise = true;
-					Essence.nombreEssence -= 20 ;
-					IglooC5.étatAchat = 7;
-				} else {
-					IglooC5.étatAchat = 8;
-				}
-			}
-		}else if ( Gdx.input.isKeyJustPressed(Input.Keys.L) ) {
-			if( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5  ){
-				IglooC5.étatAchat = 9;
-			}
-		}
-	}
 
 //	 ********************************************************************
 	
@@ -576,10 +539,11 @@ public class MainMenu implements Screen{
 					if (Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14)
 						updateSc1Ghost(delta);
 					else if (AlphabetEtAcquisition.isAlphabetUtilisé) updateAlEtAc(delta);
-					else if (IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) updateAchat(delta);
+					else if (IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) VieuxMarchand.updateAchat(delta);
 					else if (SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11) SnowMan.update(delta);
 					else if (SousMapD5.étatTexteTombe > 0) SousMapD5.updateTombe(delta);
 					else if (Dompteuse.etatScenario != 0 && Dompteuse.etatScenario != 3 ) Dompteuse.updateDompteuse(delta);
+                    else if (Marchand.etatScenario != 0 && Marchand.etatScenario < 7 ) Marchand.updateMarchand(delta);
 					else updateInGame(delta);
 
 					Link.updatePlayer();

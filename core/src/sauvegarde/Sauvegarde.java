@@ -3,6 +3,7 @@ package sauvegarde;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
+import characters.Marchand;
 import characters.SnowMan;
 import characters.Tigre;
 import decors.DonjonGlace;
@@ -77,6 +78,8 @@ public class Sauvegarde implements java.io.Serializable{
     public int etatScenarioDompteuse ;
 //    tigre
     public boolean tigreRamené ;
+//    Marchand
+    public int etatScenarioMarchand;
 
 //    ***************Donjon*************
     public  boolean isCléBossRécupérée;
@@ -200,6 +203,8 @@ public class Sauvegarde implements java.io.Serializable{
           tigreRamené = Tigre.tigreRamené;
           // dompteuse
           this.etatScenarioDompteuse = Dompteuse.etatScenario ;
+          // marchand
+          this.etatScenarioMarchand = Marchand.etatScenario;
 
           //    ***************Donjon*************
           isCléBossRécupérée = DonjonGlace.isCléBossRécupérée;
@@ -351,8 +356,10 @@ public class Sauvegarde implements java.io.Serializable{
         Ghost.etatScenario = this.etatScenarioGhost ;
         //    tigre
         Tigre.tigreRamené = this.tigreRamené ;
-//        dompteuse
+        //    dompteuse
         Dompteuse.etatScenario = this.etatScenarioDompteuse;
+        //    marchand
+        Marchand.etatScenario = this.etatScenarioMarchand ;
 
         //    ***************Donjon*************
         DonjonGlace.isCléBossRécupérée = isCléBossRécupérée ;
@@ -418,6 +425,8 @@ public class Sauvegarde implements java.io.Serializable{
         Tigre.tigreRamené = false;
 //        dompteuse
         Dompteuse.etatScenario = 0;
+        //    marchand
+        Marchand.etatScenario = 0;
 
 
         //    ***************Donjon*************
