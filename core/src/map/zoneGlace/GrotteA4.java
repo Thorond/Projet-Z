@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Marchand;
 import characters.Pnj;
 import decors.ClimatMontagneux;
 import map.CadrillageMap;
@@ -17,6 +18,9 @@ import scenes.MainMenu;
 
 public class GrotteA4 extends Sprite {
 
+
+    public static Marchand marchand;
+    public static boolean marchandEstCrée = false ;
 
 
     public static Body cote1 ;
@@ -161,6 +165,29 @@ public class GrotteA4 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+        ClimatMontagneux.eauProfonde(game, 120 + x , 180 + y);
+        ClimatMontagneux.eauProfonde(game, 120 + x , 240 + y);
+        ClimatMontagneux.eauProfonde(game, 120 + x , 300 + y);
+        ClimatMontagneux.eauProfonde(game, 60 + x , 240 + y);
+        ClimatMontagneux.eauProfonde(game, 180 + x , 300 + y);
+        ClimatMontagneux.eauProfonde(game, 180 + x , 180 + y);
+        ClimatMontagneux.eauProfonde(game, 240 + x , 300 + y);
+        ClimatMontagneux.eauProfonde(game, 300 + x , 300 + y);
+        ClimatMontagneux.eauProfonde(game, 360 + x , 300 + y);
+        ClimatMontagneux.eauProfonde(game, 360 + x , 180 + y);
+        ClimatMontagneux.eauProfonde(game, 420 + x , 240 + y);
+        ClimatMontagneux.eauProfonde(game, 420 + x , 180 + y);
+        ClimatMontagneux.eauProfonde(game, 420 + x , 300 + y);
+        ClimatMontagneux.eauProfonde(game, 480 + x , 240 + y);
+
+
+// marchand
+
+        if ( marchandEstCrée && marchand.isAlive() ) {
+            game.getBatch().draw(marchand,marchand.getX(), marchand.getY());
+        }
+
+
 
         game.getBatch().draw(ClimatMontagneux.escalier, 480 +x , 60 + y );
 
@@ -189,6 +216,9 @@ public class GrotteA4 extends Sprite {
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
 
+        //		destruction marchand
+        if ( marchandEstCrée )MainMenu.world.destroyBody(marchand.getBody());
+        marchandEstCrée = false;
 
     }
 
@@ -222,6 +252,21 @@ public class GrotteA4 extends Sprite {
 //            cote6 = ClimatMontagneux.createBody(460,440,240,60);
 //            isCote6Created = true;
 //        }
+
+        //		========================================================================================
+        //		Création du corps du marchand
+        //========================================================================================
+
+
+
+        if ( marchandEstCrée == false ) {
+            marchand = new Marchand(world ,marchand.marchandDroite1, 190 , 250 , "droite") ;
+            marchandEstCrée = true;
+        } else {
+            marchand.déplacement();
+            marchand.représentation();
+            marchand.updateBody();
+        }
 
 
     }
