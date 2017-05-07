@@ -973,6 +973,18 @@ public class PlacementMainZoneGlace {
                 PlacementMainZoneGlace.positionSousMap = "DonjonSalle8";
                 PlacementMainZoneGlace.réinitialisation();
                 Link.getBody().setTransform(430 / MainMenu.PPM ,80 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteA4")){
+                GrotteA4.destroyBody();
+                GrotteA4.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "A4";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(550 / MainMenu.PPM ,240 / MainMenu.PPM ,0);
+            } else if ( PlacementMainZoneGlace.positionSousMap.equals("A4")){
+                SousMapA4.destroyBody();
+                SousMapA4.destroyType();
+                PlacementMainZoneGlace.positionSousMap = "GrotteA4";
+                PlacementMainZoneGlace.réinitialisation();
+                Link.getBody().setTransform(430 / MainMenu.PPM ,80 / MainMenu.PPM ,0);
             }
         }
     }
