@@ -16,20 +16,18 @@ import scenes.MainMenu;
 public class PlacementMainZoneGlace {
 	
 	
-//	Repérage sur quelle sous map est Link
-	
-	
-	public static String positionSousMap = "G5";
-	public static boolean défilement = false;
-	public static long start;
-	public static int x; 
-	public static int y;
-	public static String direction;
-	public static float positionRelativeX = MainMenu.Link.getBody().getPosition().x;
-	public static float positionRelativeY = MainMenu.Link.getBody().getPosition().y;
+	public static String positionSousMap = "B2"; //	Repérage sur quelle sous map est le joueur
+	public static boolean défilement = false; // pour savoir si le joueur passe d'une map à une autre
+	public static long start; // timer de défilement
+	public static int x; // défilement de la carte horizontalement
+	public static int y; // défilement de la carte verticalement
+	public static String direction; // mémoriser la direction du joueur à l'entrée d'une sous map
+	public static float positionRelativeX = MainMenu.Link.getBody().getPosition().x; // ces variables retiennent la position
+	public static float positionRelativeY = MainMenu.Link.getBody().getPosition().y; // du joueur quand il entre dans une sous map
 
-	public static boolean changementDeZone = false;
-	
+	public static boolean changementDeZone = false; // pour le changement entre la zone glace et la zone désert
+
+//	réinitialisation lors du changement de sous carte
 	public static void réinitialisation(){
 		CadrillageMap.setTypeDeDécor();
 		CadrillageMap.setDécoChangéFaux();
@@ -40,7 +38,8 @@ public class PlacementMainZoneGlace {
 		Flèches.réinitialisationDrop();
 	}
 	
-	
+
+//    changement de zone
 	public static void posiSousMap(MainCharacter perso){
 		if (perso.getBody().getPosition().x > -10 && perso.getBody().getPosition().y < 0  ){
 			if ( positionSousMap.equals("A1")  ){
@@ -946,7 +945,7 @@ public class PlacementMainZoneGlace {
 
 	}
 
-
+//  permet de savoir si le joueur se trouve sur un escalier
     public static void détectionEscalier(MainCharacter Link){
         if ( CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x *MainMenu.PPM/60 )][(int) (Link.getBody().getPosition().y *MainMenu.PPM/ 60 )].equals("Escalier")) {
             if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle6")){
