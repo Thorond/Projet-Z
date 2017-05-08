@@ -3,8 +3,10 @@ package sauvegarde;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
+import characters.Marchand;
 import characters.SnowMan;
 import characters.Tigre;
+import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import decors.Totem;
 import items.Arc;
@@ -19,6 +21,10 @@ import items.Potion;
 import items.Torche;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.GrotteF5Salle1;
+import map.zoneGlace.GrotteF5Salle2;
+import map.zoneGlace.GrotteF5Salle4;
+import map.zoneGlace.GrotteF5Salle5;
 import map.zoneGlace.SousMapB3;
 import map.zoneGlace.GestionDesMapsZoneGlace;
 import map.zoneGlace.GrotteF5Salle3;
@@ -71,12 +77,16 @@ public class Sauvegarde implements java.io.Serializable{
 	public  boolean jeuRésoluTotem;
 //	iceman
 	public int étatTexteBonhomme;
+    public boolean isCarottesPrise;
+    public boolean noseFound;
 //	ghost
 	public int etatScenarioGhost;
 //    dompteuse
     public int etatScenarioDompteuse ;
 //    tigre
     public boolean tigreRamené ;
+//    Marchand
+    public int etatScenarioMarchand;
 
 //    ***************Donjon*************
     public  boolean isCléBossRécupérée;
@@ -90,6 +100,20 @@ public class Sauvegarde implements java.io.Serializable{
 
 
 //         *********élément des cartes**********
+
+//    B3
+    public boolean pontCasse;
+    public int annimation ;
+//    grotteF5
+    public boolean porteGaucheGrotteF5Salle1;
+    public boolean porteHautGrotteF5Salle2;
+    public boolean porteBasGrotteF5Salle2;
+    public boolean porteGaucheGrotteF5Salle4 ;
+    public boolean porteDroiteGrotteF5Salle4 ;
+    public boolean premièreApparition ;
+    public int nbrTué ;
+    public int yClé ;
+    public boolean glacierCassé;
 
 ////	grotteArc salle 3
 //	public boolean estPassé;
@@ -194,12 +218,16 @@ public class Sauvegarde implements java.io.Serializable{
           jeuRésoluTotem = Totem.jeuRésolu;
           //	iceman
           étatTexteBonhomme = SnowMan.étatTexte ;
+          this.isCarottesPrise = ClimatMontagneux.isCarottesPrise ;
+          this.noseFound = ClimatMontagneux.noseFound;
           //	ghost
           etatScenarioGhost = Ghost.etatScenario ;
           //    tigre
           tigreRamené = Tigre.tigreRamené;
           // dompteuse
           this.etatScenarioDompteuse = Dompteuse.etatScenario ;
+          // marchand
+          this.etatScenarioMarchand = Marchand.etatScenario;
 
           //    ***************Donjon*************
           isCléBossRécupérée = DonjonGlace.isCléBossRécupérée;
@@ -210,6 +238,21 @@ public class Sauvegarde implements java.io.Serializable{
           isCléHauteTrouvé = DonjonGlace.isCléHauteTrouvé;
           isCléMilieuTrouvé = DonjonGlace.isCléMilieuTrouvé;
           carteTrouvé = DonjonGlace.carteTrouvé;
+
+          // B3
+          this.pontCasse = SousMapB3.pontCasse ;
+          this.annimation = SousMapB3.annimation;
+
+          //    grotteF5
+          porteGaucheGrotteF5Salle1 = GrotteF5Salle1.porteGauche;
+          porteHautGrotteF5Salle2 = GrotteF5Salle2.porteHaut;
+          porteBasGrotteF5Salle2 = GrotteF5Salle2.porteBas;
+          porteGaucheGrotteF5Salle4 = GrotteF5Salle4.porteGauche;
+          porteDroiteGrotteF5Salle4 = GrotteF5Salle4.porteDroite;
+          premièreApparition = GrotteF5Salle4.premièreApparition;
+          nbrTué = GrotteF5Salle4.nbrTué;
+          yClé = GrotteF5Salle4.yClé;
+          glacierCassé = GrotteF5Salle5.glacierCassé;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;
@@ -347,12 +390,16 @@ public class Sauvegarde implements java.io.Serializable{
         Totem.jeuRésolu = this.jeuRésoluTotem ;
         //	iceman
         SnowMan.étatTexte = this.étatTexteBonhomme  ;
+        ClimatMontagneux.isCarottesPrise = this.isCarottesPrise  ;
+        ClimatMontagneux.noseFound = this.noseFound ;
         //	ghost
         Ghost.etatScenario = this.etatScenarioGhost ;
         //    tigre
         Tigre.tigreRamené = this.tigreRamené ;
-//        dompteuse
+        //    dompteuse
         Dompteuse.etatScenario = this.etatScenarioDompteuse;
+        //    marchand
+        Marchand.etatScenario = this.etatScenarioMarchand ;
 
         //    ***************Donjon*************
         DonjonGlace.isCléBossRécupérée = isCléBossRécupérée ;
@@ -364,6 +411,20 @@ public class Sauvegarde implements java.io.Serializable{
         DonjonGlace.isCléMilieuTrouvé = isCléMilieuTrouvé ;
         DonjonGlace.carteTrouvé = carteTrouvé;
 
+        // B3
+        SousMapB3.pontCasse  = this.pontCasse;
+        SousMapB3.annimation = this.annimation ;
+
+        //    grotteF5
+        GrotteF5Salle1.porteGauche = porteGaucheGrotteF5Salle1 ;
+        GrotteF5Salle2.porteHaut =  porteHautGrotteF5Salle2 ;
+        GrotteF5Salle2.porteBas = porteBasGrotteF5Salle2 ;
+        GrotteF5Salle4.porteGauche = porteGaucheGrotteF5Salle4 ;
+        GrotteF5Salle4.porteDroite = porteDroiteGrotteF5Salle4 ;
+        GrotteF5Salle4.premièreApparition = premièreApparition ;
+        GrotteF5Salle4.nbrTué = nbrTué ;
+        GrotteF5Salle4.yClé = yClé ;
+        GrotteF5Salle5.glacierCassé = glacierCassé ;
 
 //         carte
         Carte.récupérationInfoCarte(this);
@@ -412,12 +473,16 @@ public class Sauvegarde implements java.io.Serializable{
         Totem.jeuRésolu = false ;
         //	iceman
         SnowMan.étatTexte = 0  ;
+        ClimatMontagneux.isCarottesPrise = false  ;
+        ClimatMontagneux.noseFound = false ;
         //	ghost
         Ghost.etatScenario = 0 ;
         //    tigre
         Tigre.tigreRamené = false;
 //        dompteuse
         Dompteuse.etatScenario = 0;
+        //    marchand
+        Marchand.etatScenario = 0;
 
 
         //    ***************Donjon*************
@@ -429,6 +494,23 @@ public class Sauvegarde implements java.io.Serializable{
         DonjonGlace.isCléHauteTrouvé = false;
         DonjonGlace.isCléMilieuTrouvé = false ;
         DonjonGlace.carteTrouvé = false;
+
+
+
+        // B3
+        SousMapB3.pontCasse  = false ;
+        SousMapB3.annimation = 0 ;
+
+        //    grotteF5
+        GrotteF5Salle1.porteGauche = false;
+        GrotteF5Salle2.porteHaut =  false ;
+        GrotteF5Salle2.porteBas = false ;
+        GrotteF5Salle4.porteGauche = false ;
+        GrotteF5Salle4.porteDroite = false ;
+        GrotteF5Salle4.premièreApparition = true ;
+        GrotteF5Salle4.nbrTué = 0 ;
+        GrotteF5Salle4.yClé = 480 ;
+        GrotteF5Salle5.glacierCassé = false ;
 
 //        *******
 

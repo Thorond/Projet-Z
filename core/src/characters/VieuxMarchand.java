@@ -1,9 +1,16 @@
 package characters;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import decors.ClimatMontagneux;
+import items.Bombe;
+import items.Essence;
 import map.zoneGlace.IglooC5;
+import menus.MenuSac;
+import scenes.MainMenu;
 
 public class VieuxMarchand {
 
@@ -37,5 +44,45 @@ public class VieuxMarchand {
 		else if ( IglooC5.étatAchat == 8 ) game.getBatch().draw(texte3,100,60);
 		else if ( IglooC5.étatAchat == 9 ) game.getBatch().draw(texte5,100,60);
 	}
+
+
+    //	lorsque le joueur achète quelque chose
+    public static void updateAchat(float dt){
+        if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
+            if ( IglooC5.étatAchat == 1 ) IglooC5.étatAchat = 2;
+            else if ( IglooC5.étatAchat == 4 ) IglooC5.étatAchat = 5;
+            else if ( ! (IglooC5.étatAchat == 2)  && ! (IglooC5.étatAchat == 5) ){
+                IglooC5.étatAchat = 10;
+            }
+        } else if ( Gdx.input.isKeyJustPressed(Input.Keys.K) ) {
+            if ( IglooC5.étatAchat == 2 ) {
+                if ( Essence.nombreEssence >= 50 ){
+                    if( Bombe.isBombeRécupéré == false ) {
+                        Bombe.isBombeRécupéré = true;
+                        MenuSac.setItem(MainMenu.bombe);
+                    }
+                    MainMenu.bombe.setNombreItem(MainMenu.bombe.getNombreItem() + 10);
+                    Essence.nombreEssence -= 50 ;
+                    IglooC5.étatAchat = 7;
+                } else {
+                    IglooC5.étatAchat = 8;
+                }
+
+            }
+            else if ( IglooC5.étatAchat == 5 ) {
+                if ( Essence.nombreEssence >= 20 ){
+                    if ( !ClimatMontagneux.isCarottesPrise ) ClimatMontagneux.isCarottesPrise = true;
+                    Essence.nombreEssence -= 20 ;
+                    IglooC5.étatAchat = 7;
+                } else {
+                    IglooC5.étatAchat = 8;
+                }
+            }
+        }else if ( Gdx.input.isKeyJustPressed(Input.Keys.L) ) {
+            if( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5  ){
+                IglooC5.étatAchat = 9;
+            }
+        }
+    }
 	
 }

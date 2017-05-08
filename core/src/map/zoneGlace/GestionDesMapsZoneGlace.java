@@ -176,13 +176,18 @@ public class GestionDesMapsZoneGlace {
 					GrotteF5Salle5.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
 					GrotteF5Salle4.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
 				}
-                // 		******************** GrotteF5 *******************************
+                // 		******************** Donjon *******************************
                 else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle2")){
                     DonjonSalle1.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
                     DonjonSalle2.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
                 } else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9")){
-                    DonjonSalle3.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
-                    DonjonSalle9.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
+                    if ( DonjonSalle9.salle == 1 ) {
+                        DonjonSalle3.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+                        DonjonSalle9.sousMap(game, -600 + PlacementMainZoneGlace.x, 0);
+                    } else  {
+                        DonjonSalle9.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
+                        DonjonSalle9.sousMap(game, -600 + PlacementMainZoneGlace.x, 0);
+                    }
                 } else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle4")){
                     DonjonSalle5.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
                     DonjonSalle4.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
@@ -190,6 +195,8 @@ public class GestionDesMapsZoneGlace {
                     DonjonSalle7.sousMap(game, 0 + PlacementMainZoneGlace.x, 0);
                     DonjonSalle3.sousMap(game, -600 + PlacementMainZoneGlace.x,0);
                 }
+
+
 
 
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
@@ -381,6 +388,9 @@ public class GestionDesMapsZoneGlace {
                     DonjonSalle7.sousMap(game, 600- PlacementMainZoneGlace.x, 0);
                 }
 
+
+
+
 				if ( System.currentTimeMillis() - PlacementMainZoneGlace.start > 10) {
 					PlacementMainZoneGlace.x+=15;
 					PlacementMainZoneGlace.start = System.currentTimeMillis();
@@ -563,8 +573,13 @@ public class GestionDesMapsZoneGlace {
                     DonjonSalle8.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
                     DonjonSalle7.sousMap(game, 0, PlacementMainZoneGlace.y);
                 } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9") ) {
-                    DonjonSalle9.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
-                    DonjonSalle10.sousMap(game, 0, PlacementMainZoneGlace.y);
+                    if ( DonjonSalle9.salle == 6) {
+                        DonjonSalle9.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                        DonjonSalle10.sousMap(game, 0, PlacementMainZoneGlace.y);
+                    } else {
+                        DonjonSalle9.sousMap(game, 0, -480 + PlacementMainZoneGlace.y);
+                        DonjonSalle9.sousMap(game, 0, PlacementMainZoneGlace.y);
+                    }
                 }
 
 
@@ -741,9 +756,14 @@ public class GestionDesMapsZoneGlace {
                 } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7") ) {
                     DonjonSalle8.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
                     DonjonSalle7.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
-                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10") ) {
+                } else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")  ) {
                     DonjonSalle9.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
                     DonjonSalle10.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
+                }
+
+                else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9") ) {
+                    DonjonSalle9.sousMap(game, 0, 0- PlacementMainZoneGlace.y);
+                    DonjonSalle9.sousMap(game, 0, 480- PlacementMainZoneGlace.y);
                 }
 
 
@@ -777,7 +797,7 @@ public class GestionDesMapsZoneGlace {
 	public static void affichageDeSousCarte(GameMain game){
 //		=============================================================================================
 //                  					  affichage de la sous carte
-//			=============================================================================================
+//		=============================================================================================
 		if ( PlacementMainZoneGlace.positionSousMap.equals("A1")) {
 			if (! Carte.mapA1Découverte ) Carte.mapA1Découverte = true;
 			SousMapA1.createBodyAndType(MainMenu.world);
@@ -1160,6 +1180,12 @@ public class GestionDesMapsZoneGlace {
 			GrotteF5Salle5.sousMap(game, 0, 0);
 		}
 
+        else if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteA4")) {
+            GrotteA4.destroyType();
+            GrotteA4.createBodyAndType(MainMenu.world);
+            GrotteA4.sousMap(game, 0, 0);
+        }
+
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")) {
             DonjonSalle1.destroyType();
             DonjonSalle1.createBodyAndType(MainMenu.world);
@@ -1290,6 +1316,8 @@ public class GestionDesMapsZoneGlace {
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle3")) GrotteF5Salle3.destroyBody();
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle4")) GrotteF5Salle4.destroyBody();
 		else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteF5Salle5")) GrotteF5Salle5.destroyBody();
+
+        else if (PlacementMainZoneGlace.positionSousMap.equals("GrotteA4")) GrotteA4.destroyBody();
 
 
         else if (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")) DonjonSalle1.destroyBody();

@@ -253,8 +253,6 @@ public class DonjonSalle7 extends Sprite {
         }
 
 
-        if ( ! Torche.isTorcheUtilisée )  game.getBatch().draw(DonjonGlace.ombreGlobale, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
-        else game.getBatch().draw(DonjonGlace.ombreGlobaleDiminué, MainMenu.Link.getX() -643 , MainMenu.Link.getY() - 465);
 
 
     }
