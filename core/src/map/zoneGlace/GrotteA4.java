@@ -182,6 +182,8 @@ public class GrotteA4 extends Sprite {
         ClimatMontagneux.eauProfonde(game, 480 + x , 240 + y);
 
 
+        ClimatMontagneux.annimationTorche(game, 60+ x , 360 + y );
+        ClimatMontagneux.annimationTorche(game, 480+ x , 360 + y );
 // marchand
 
         if ( marchandEstCrée && marchand.isAlive() ) {
@@ -248,10 +250,10 @@ public class GrotteA4 extends Sprite {
             cote4 = ClimatMontagneux.createBody(300,440,600,60);
             isCote4Created = true;
         }
-//        if ( isCote5Created == false ) {
-//            cote5 = ClimatMontagneux.createBody(560,390,60,180);
-//            isCote5Created = true;
-//        }
+        if ( isCote5Created == false ) {
+            cote5 = ClimatMontagneux.createBody(300,240,600,1);
+            isCote5Created = true;
+        }
 //        if ( isCote6Created == false ) {
 //            cote6 = ClimatMontagneux.createBody(460,440,240,60);
 //            isCote6Created = true;
