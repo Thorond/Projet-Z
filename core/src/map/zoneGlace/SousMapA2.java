@@ -6,16 +6,27 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.CoeurDeVie;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
 
 public class SousMapA2 extends Sprite{
+
+
+    public static boolean isReceptaclePris = false; // à sauvegarder
 		
 //	murs gauches
 	
 	public static Body bodyMurGauche2;	
 	public static boolean isBodyMurGauche2Created;
+
+
+	public static boolean isTonneau1Cut = false;
+
+
+	public static Body Tonneau1;
+	public static boolean isTonneau1Created;
 	
 	
 	public static void sousMap(GameMain game, int x, int y){
@@ -129,7 +140,6 @@ public class SousMapA2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.petitMorceauGlaceGauche,180+x,300+y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSupGau,240+x,300+y);
 		game.getBatch().draw(ClimatMontagneux.bordMerGlacéSup,300+x,300+y);
-		game.getBatch().draw(ClimatMontagneux.crate,300+x,300+y);
 		game.getBatch().draw(ClimatMontagneux.bordMerGlacéSup,360+x,300+y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,420+x,300+y);
 		game.getBatch().draw(ClimatMontagneux.bordGlacéSup,480+x,300+y);
@@ -164,13 +174,31 @@ public class SousMapA2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.morceauGlacéInf,420+x,60+y);
 		game.getBatch().draw(ClimatMontagneux.morceauGlacéInf,480+x,60+y);
 		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentéeBasGauche,540+x,60+y);
-		
-		
+
+        ClimatMontagneux.crate(isTonneau1Cut ,  game , 300 + x , 300 + y);
+
+        if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+            game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+        }
 	
 	}
 	
 	public static void createBodyAndType(World world){
 
+
+        if ( CadrillageMap.décorChangé[5][5] == true ) isTonneau1Cut = true;
+
+        CadrillageMap.setTypeDeDécor(5,5,"HerbesHautes");
+
+        if ( isTonneau1Cut && !(isReceptaclePris)) CadrillageMap.setTypeDeDécor(5, 5, "receptacleDeCoeur");
+
+        destroyBody();
+
+        if ( isTonneau1Created == false && ! isTonneau1Cut) {
+            Tonneau1 = ClimatMontagneux.createBodyPerso("tonneau", "static",300,300);
+            isTonneau1Created = true;
+        }
 		
 //		murs gauches
 		
@@ -189,7 +217,11 @@ public class SousMapA2 extends Sprite{
 		
 		if ( isBodyMurGauche2Created)MainMenu.world.destroyBody(bodyMurGauche2);
 		isBodyMurGauche2Created = false;
+
+        if ( isTonneau1Created) MainMenu.world.destroyBody(Tonneau1);
+        isTonneau1Created = false;
 	}
+
 	
 	
 }
