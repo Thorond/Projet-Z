@@ -26,7 +26,7 @@ public class SlimPetit extends Pnj{
 	public static Texture slimPetitDroite3 = new Texture("monstres/Slim/slimPetitDroite3.png");
 
 	public SlimPetit(World world,  float x, float y) {
-		super(world,slimPetitHaut1, 4, 4, 3, x, y, "bas");
+		super(world,slimPetitHaut1, 12, 12, 3, x, y, "bas");
 	}
 	
 //	déplacement aléatoire

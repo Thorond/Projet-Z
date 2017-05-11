@@ -460,7 +460,9 @@ public class MainMenu implements Screen{
 						}
 
 						PlacementMainZoneGlace.setDéplacement(Link);
-                        if ( ! Plume.isPlumeUtilisée ) {
+                        if ( ! Plume.isPlumeUtilisée
+								&& Link.getBody().getPosition().x > 0 && Link.getBody().getPosition().x * PPM < 600
+                                && Link.getBody().getPosition().y > 0 && Link.getBody().getPosition().y * PPM < 480) {
                             PlacementMainZoneGlace.détectionTrou(Link);
                             PlacementMainZoneGlace.détectionEauP(Link);
                         }

@@ -29,10 +29,9 @@ public class MiniBoss extends Pnj{
     public static Texture miniBossDroite2 = new Texture("monstres/miniBoss/miniBossDroite2.png");
 
 
-    public static Texture toileSupDroi = new Texture("monstres/spider/toileSupDroi.png");
 
     public MiniBoss(World world, Texture text, float x, float y, String direction) {
-        super(world,text, 20, 20, 1, x, y, direction);
+        super(world,text, 20, 20, 4, x, y, direction);
         // TODO Auto-generated constructor stub
     }
 
@@ -112,7 +111,7 @@ public class MiniBoss extends Pnj{
 
     @Override
     public void déplacementVersJoueur(){
-        if ( System.currentTimeMillis() - timerAttaque < 2000 ) {
+        if ( System.currentTimeMillis() - timerAttaque < 1000 ) {
             if ( ! estPlacé  ) {
                 this.getBody().setLinearVelocity(0,0);
                 double choix = Math.random();
@@ -158,7 +157,7 @@ public class MiniBoss extends Pnj{
     }
 
     @Override
-    public void subirDégats( int cha, String direction){}
+    public void subirDégats( int cha, String direction){} // il ne peut subir de dégâts autre que la bombe
 
     @Override
     public void infligéDégatLink(){

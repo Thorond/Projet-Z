@@ -20,7 +20,8 @@ public class ClimatMontagneux {
 	
 	public static World world = MainMenu.world;
 	public static Body body;
-	
+
+//	 fonction permettant de creer les corps, recopier sur internet
 	public static Body createBody(float x, float y,  int largeur, int taille){
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.type = BodyDef.BodyType.StaticBody;

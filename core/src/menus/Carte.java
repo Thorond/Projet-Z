@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameMain;
 
+import characters.MainCharacter;
 import decors.DonjonGlace;
 import map.zoneGlace.PlacementMainZoneGlace;
 import sauvegarde.Sauvegarde;
@@ -22,6 +23,7 @@ public class Carte {
 
     public static Texture carteTotale = new Texture("menus/carte/carteTotale.png");
     public static Texture cacheNoir = new Texture("menus/carte/cacheNoir.png");
+    public static Texture tête = new Texture("menus/carte/tête.png");
 
     public static void représentation(GameMain game ){
         if ( (PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle1")
@@ -38,6 +40,8 @@ public class Carte {
             game.getBatch().draw(DonjonGlace.carteDonjon,0,0);
         } else {
             game.getBatch().draw(carteTotale, -variationX * 100, 0);
+
+            placementTête(PlacementMainZoneGlace.positionSousMap, variationX , game);
 
 
             if (!mapA1Découverte) game.getBatch().draw(cacheNoir, 1 - variationX * 100, 405);
@@ -104,6 +108,71 @@ public class Carte {
             if (!mapI5Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 82);
             if (!mapI6Découverte) game.getBatch().draw(cacheNoir, 801 - variationX * 100, 0);
         }
+    }
+
+    private static void placementTête(String position , int x, GameMain game) {
+        if ( position.equals("A1") ) game.getBatch().draw(tête, 41 - variationX * 100 , 425);
+        else if ( position.equals("A2") ) game.getBatch().draw(tête, 41 - variationX * 100 , 345);
+        else if ( position.equals("A3") ) game.getBatch().draw(tête, 41 - variationX * 100 , 265);
+        else if ( position.equals("A4") ) game.getBatch().draw(tête, 41 - variationX * 100 , 185);
+        else if ( position.equals("A5") ) game.getBatch().draw(tête, 41 - variationX * 100 , 105);
+        else if ( position.equals("A6") ) game.getBatch().draw(tête, 41 - variationX * 100 , 25);
+
+        else if ( position.equals("B1") ) game.getBatch().draw(tête, 141 - variationX * 100 , 425);
+        else if ( position.equals("B2") ) game.getBatch().draw(tête, 141 - variationX * 100 , 345);
+        else if ( position.equals("B3") ) game.getBatch().draw(tête, 141 - variationX * 100 , 265);
+        else if ( position.equals("B4") ) game.getBatch().draw(tête, 141 - variationX * 100 , 185);
+        else if ( position.equals("B5") ) game.getBatch().draw(tête, 141 - variationX * 100 , 105);
+        else if ( position.equals("B6") ) game.getBatch().draw(tête, 141 - variationX * 100 , 25);
+
+        else if ( position.equals("C1") ) game.getBatch().draw(tête, 241 - variationX * 100 , 425);
+        else if ( position.equals("C2") ) game.getBatch().draw(tête, 241 - variationX * 100 , 345);
+        else if ( position.equals("C3") ) game.getBatch().draw(tête, 241 - variationX * 100 , 265);
+        else if ( position.equals("C4") ) game.getBatch().draw(tête, 241 - variationX * 100 , 185);
+        else if ( position.equals("C5") ) game.getBatch().draw(tête, 241 - variationX * 100 , 105);
+        else if ( position.equals("C6") ) game.getBatch().draw(tête, 241 - variationX * 100 , 25);
+
+        else if ( position.equals("D1") ) game.getBatch().draw(tête, 341 - variationX * 100 , 425);
+        else if ( position.equals("D2") ) game.getBatch().draw(tête, 341 - variationX * 100 , 345);
+        else if ( position.equals("D3") ) game.getBatch().draw(tête, 341 - variationX * 100 , 265);
+        else if ( position.equals("D4") ) game.getBatch().draw(tête, 341 - variationX * 100 , 185);
+        else if ( position.equals("D5") ) game.getBatch().draw(tête, 341 - variationX * 100 , 105);
+        else if ( position.equals("D6") ) game.getBatch().draw(tête, 341 - variationX * 100 , 25);
+
+        else if ( position.equals("E1") ) game.getBatch().draw(tête, 441 - variationX * 100 , 425);
+        else if ( position.equals("E2") ) game.getBatch().draw(tête, 441 - variationX * 100 , 345);
+        else if ( position.equals("E3") ) game.getBatch().draw(tête, 441 - variationX * 100 , 265);
+        else if ( position.equals("E4") ) game.getBatch().draw(tête, 441 - variationX * 100 , 185);
+        else if ( position.equals("E5") ) game.getBatch().draw(tête, 441 - variationX * 100 , 105);
+        else if ( position.equals("E6") ) game.getBatch().draw(tête, 441 - variationX * 100 , 25);
+
+        else if ( position.equals("F1") ) game.getBatch().draw(tête, 541 - variationX * 100 , 425);
+        else if ( position.equals("F2") ) game.getBatch().draw(tête, 541 - variationX * 100 , 345);
+        else if ( position.equals("F3") ) game.getBatch().draw(tête, 541 - variationX * 100 , 265);
+        else if ( position.equals("F4") ) game.getBatch().draw(tête, 541 - variationX * 100 , 185);
+        else if ( position.equals("F5") ) game.getBatch().draw(tête, 541 - variationX * 100 , 105);
+        else if ( position.equals("F6") ) game.getBatch().draw(tête, 541 - variationX * 100 , 25);
+
+        else if ( position.equals("G1") ) game.getBatch().draw(tête, 641 - variationX * 100 , 425);
+        else if ( position.equals("G2") ) game.getBatch().draw(tête, 641 - variationX * 100 , 345);
+        else if ( position.equals("G3") ) game.getBatch().draw(tête, 641 - variationX * 100 , 265);
+        else if ( position.equals("G4") ) game.getBatch().draw(tête, 641 - variationX * 100 , 185);
+        else if ( position.equals("G5") ) game.getBatch().draw(tête, 641 - variationX * 100 , 105);
+        else if ( position.equals("G6") ) game.getBatch().draw(tête, 641 - variationX * 100 , 25);
+
+        else if ( position.equals("H1") ) game.getBatch().draw(tête, 741 - variationX * 100 , 425);
+        else if ( position.equals("H2") ) game.getBatch().draw(tête, 741 - variationX * 100 , 345);
+        else if ( position.equals("H3") ) game.getBatch().draw(tête, 741 - variationX * 100 , 265);
+        else if ( position.equals("H4") ) game.getBatch().draw(tête, 741 - variationX * 100 , 185);
+        else if ( position.equals("H5") ) game.getBatch().draw(tête, 741 - variationX * 100 , 105);
+        else if ( position.equals("H6") ) game.getBatch().draw(tête, 741 - variationX * 100 , 25);
+
+        else if ( position.equals("I1") ) game.getBatch().draw(tête, 841 - variationX * 100 , 425);
+        else if ( position.equals("I2") ) game.getBatch().draw(tête, 841 - variationX * 100 , 345);
+        else if ( position.equals("I3") ) game.getBatch().draw(tête, 841 - variationX * 100 , 265);
+        else if ( position.equals("I4") ) game.getBatch().draw(tête, 841 - variationX * 100 , 185);
+        else if ( position.equals("I5") ) game.getBatch().draw(tête, 841 - variationX * 100 , 105);
+        else if ( position.equals("I6") ) game.getBatch().draw(tête, 841 - variationX * 100 , 25);
     }
 
     public static void updateCarte( float dt){
