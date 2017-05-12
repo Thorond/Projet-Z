@@ -317,6 +317,28 @@ public class Flèches extends Sprite {
                                 } else MainMenu.Link.setHealth(MainMenu.Link.getHealth() - 4);
                             }
                         }
+
+                        // corde grotte
+
+                        if ( PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle1")){
+                            //		 effet sur les décors
+                            if ( CadrillageMap.typeDeDécor[(int) ( (flèches[i].getX() + 45 )/ 60 )][(int) ((flèches[i].getY()) / 60 )].equals("destructible") ){
+                                CadrillageMap.setTypeDeDécor((int) ( (flèches[i].getX() + 45 )/ 60 ),(int) ((flèches[i].getY()) / 60 ), "détruit");
+
+                            } else if ( CadrillageMap.typeDeDécor[(int) (( flèches[i].getX() ) / 60 )][(int) ((flèches[i].getY()+ 45 )/ 60 )].equals("destructible") ){
+                                CadrillageMap.setTypeDeDécor((int) ( (flèches[i].getX()  )/ 60 ),(int) ((flèches[i].getY() + 45) / 60 ), "détruit");
+
+                            } else if ( CadrillageMap.typeDeDécor[(int) ( flèches[i].getX()  / 60 )][(int) ((flèches[i].getY()- 45 )/ 60 )].equals("destructible") ){
+                                CadrillageMap.setTypeDeDécor((int) ( (flèches[i].getX()  )/ 60 ),(int) ((flèches[i].getY() - 45) / 60 ), "détruit");
+
+                            } else if ( CadrillageMap.typeDeDécor[(int) ( (flèches[i].getX() - 45) / 60 )][(int) (flèches[i].getY() / 60 )].equals("destructible") ){
+                                CadrillageMap.setTypeDeDécor((int) ( (flèches[i].getX() - 45 )/ 60 ),(int) ((flèches[i].getY()) / 60 ), "détruit");
+
+                            } else if ( CadrillageMap.typeDeDécor[(int) ( flèches[i].getX()  / 60 )][(int) (flèches[i].getY() / 60 )].equals("destructible") ){
+                                CadrillageMap.setTypeDeDécor((int) ( (flèches[i].getX()  )/ 60 ),(int) ((flèches[i].getY()) / 60 ), "détruit");
+
+                            }
+                        }
                     }
                 }
             }
