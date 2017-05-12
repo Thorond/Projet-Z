@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Pnj;
+import characters.Squelette;
 import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import items.Arc;
@@ -45,6 +47,12 @@ public class SousMapI3 extends Sprite{
     public static boolean istombe3Created;
     public static Body tombe4;
     public static boolean istombe4Created;
+
+
+    public static Squelette monstre1;
+    public static Squelette monstre2;
+    public static boolean m1EstCrée = false ;
+    public static boolean m2EstCrée = false ;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -230,6 +238,27 @@ public class SousMapI3 extends Sprite{
         ClimatMontagneux.buisson(isBuisson5Cut,game, 360+x, 180+y);
         ClimatMontagneux.buisson(isBuisson6Cut,game, 420+x, 360+y);
 
+        //		==================================================================
+        //		Placement des dessins des monstres
+        //==================================================================
+
+        if ( m1EstCrée && monstre1.isAlive() ) {
+            game.getBatch().draw(monstre1,monstre1.getX(), monstre1.getY());
+        }
+        if ( m2EstCrée && monstre2.isAlive() ) {
+            game.getBatch().draw(monstre2.getTexture(), monstre2.getX(), monstre2.getY());
+        }
+        //==================================================================
+        //		      			dégats des monstres
+        //==================================================================
+
+        if ( m1EstCrée && monstre1.isAlive() ) {
+            monstre1.infligéDégatLink();
+        }
+        if ( m2EstCrée && monstre2.isAlive() ) {
+            monstre2.infligéDégatLink();
+        }
+
 	}
 
 	public static void destroyBody() {
@@ -272,6 +301,15 @@ public class SousMapI3 extends Sprite{
 
         if ( istombe4Created) MainMenu.world.destroyBody(tombe4);
         istombe4Created = false;
+
+
+        //		destruction monstres
+        if ( m1EstCrée )MainMenu.world.destroyBody(monstre1.getBody());
+        if ( m2EstCrée )MainMenu.world.destroyBody(monstre2.getBody());
+        m1EstCrée = false;
+        m2EstCrée = false;
+
+        Pnj.nbrDeMonstres = 0 ;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -343,6 +381,35 @@ public class SousMapI3 extends Sprite{
         if ( istombe4Created == false ) {
             tombe4 = ClimatMontagneux.createBodyPerso("grossePierre", "static",300,360);
             istombe4Created = true;
+        }
+
+
+//		========================================================================================
+        //		Création des corps des montres
+        //========================================================================================
+
+
+        if ( m1EstCrée == false ) {
+            monstre1 = new Squelette(world ,Squelette.squeletteBas2 , 200 , 360 , "bas") ;
+            Pnj.monstres[0] = monstre1;
+            m1EstCrée = true;
+        } else {
+            monstre1.déplacement();
+            monstre1.représentation();
+            monstre1.attaque(MainMenu.Link);
+            monstre1.updateBody();
+        }
+
+        if ( m2EstCrée == false ) {
+            monstre2 = new Squelette(world ,Squelette.squeletteDroite2, 400 , 200 , "droite") ;
+            Pnj.monstres[1] = monstre2;
+            Pnj.nbrDeMonstres = 2 ;
+            m2EstCrée = true;
+        } else {
+            monstre2.déplacement();
+            monstre2.représentation();
+            monstre2.attaque(MainMenu.Link);
+            monstre2.updateBody();
         }
 	}
 
