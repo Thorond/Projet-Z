@@ -71,9 +71,11 @@ public class Coffre {
         }
         if (PlacementMainZoneGlace.positionSousMap.equals("D5")) {
             if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
+                if (! SousMapD5.ouvertureCoffre) {
+                    Essence.nombreEssence += 10;
+                    if ( Essence.nombreEssence > Essence.essenceMax ) Essence.nombreEssence = 999;
+                }
                 SousMapD5.ouvertureCoffre = true;
-                Essence.nombreEssence += 10;
-                if ( Essence.nombreEssence > Essence.essenceMax ) Essence.nombreEssence = 999;
             }
         }
         if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
