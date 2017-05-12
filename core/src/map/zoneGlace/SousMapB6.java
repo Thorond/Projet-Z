@@ -13,6 +13,9 @@ public class SousMapB6 extends Sprite{
 	
 	public static Body mur1;
 	public static boolean ismur1Created;
+
+    public static Body mur2;
+    public static boolean ismur2Created;
 	
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -183,6 +186,14 @@ public class SousMapB6 extends Sprite{
 		
 		
 		ClimatMontagneux.annimationCascadeMoy(game, 300+x, 35+y);
+
+
+		game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 340+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 310+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 290+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 260+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 570+ x, 230+ y);
+		game.getBatch().draw(ClimatMontagneux.tree, 540+ x, 200+ y);
 		
 	}
 
@@ -190,6 +201,9 @@ public class SousMapB6 extends Sprite{
 		// TODO Auto-generated method stub
 		if ( ismur1Created) MainMenu.world.destroyBody(mur1);
 		ismur1Created = false;
+
+        if ( ismur2Created) MainMenu.world.destroyBody(mur2);
+        ismur2Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
@@ -219,6 +233,12 @@ public class SousMapB6 extends Sprite{
 			mur1 = ClimatMontagneux.createBody(300,180,600,1);
 			ismur1Created = true;
 		}
+
+
+        if ( ismur2Created == false ) {
+            mur2 = ClimatMontagneux.createBody(570,350,60,120);
+            ismur2Created = true;
+        }
 	}
 
 	public static void destroyType() {

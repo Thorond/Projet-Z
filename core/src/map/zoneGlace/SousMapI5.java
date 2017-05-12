@@ -1,10 +1,12 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import decors.DonjonGlace;
 import items.Coffre;
 import map.CadrillageMap;
 import scenes.MainMenu;
@@ -14,6 +16,17 @@ public class SousMapI5 extends Sprite{
 
     public static boolean ouvertureCoffre = false; // à sauvegarder
     public static boolean coffreOuvert = false; // à sauvegarder
+
+
+	public static Body murCoffre;
+	public static boolean ismurCoffreCreated;
+
+    public static Body cote1 ;
+    public static boolean isCote1Created;
+    public static Body cote2 ;
+    public static boolean isCote2Created;
+    public static Body cote3 ;
+    public static boolean isCote3Created;
 
 	public static void sousMap(GameMain game, int x, int y){
 		
@@ -178,35 +191,68 @@ public class SousMapI5 extends Sprite{
         game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 20+ y);
 
 
-        if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 250+ x, 80+ y);
-        else {
-            if ( coffreOuvert == false ) {
-                if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
-                    coffreOuvert = true;
-                }
-                Coffre.annimationCoffreBleu(game, 250+ x, 80+ y);
-
-            } else {
-                game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 250+ x, 80+ y);
-            }
-
-        }
-        if ( MainMenu.Link.annimationAward ) {
-//			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
-//			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
-        }
+//        if ( ouvertureCoffre == false ) game.getBatch().draw(ClimatMontagneux.coffreBleuFermé, 250+ x, 80+ y);
+//        else {
+//            if ( coffreOuvert == false ) {
+//                if ( Coffre.ouvert1 == true && Coffre.ouvert2 == true ){
+//                    coffreOuvert = true;
+//                }
+//                Coffre.annimationCoffreBleu(game, 250+ x, 80+ y);
+//
+//            } else {
+//                game.getBatch().draw(ClimatMontagneux.coffreBleuOuvert3, 250+ x, 80+ y);
+//            }
+//
+//        }
+//        if ( MainMenu.Link.annimationAward ) {
+////			game.getBatch().draw(DonjonGlace.CléHaute, MainMenu.Link.getX() - 10, MainMenu.Link.getY() +10);
+////			game.getBatch().draw(DonjonGlace.texteClé, 100 + x, 10+y);
+//        }
 
 	}
 
 	public static void destroyBody() {
 		// TODO Auto-generated method stub
-		
+
+        if ( ismurCoffreCreated) MainMenu.world.destroyBody(murCoffre);
+        ismurCoffreCreated = false;
+
+        if ( isCote1Created) MainMenu.world.destroyBody(cote1);
+        isCote1Created = false;
+
+        if ( isCote2Created) MainMenu.world.destroyBody(cote2);
+        isCote2Created = false;
+
+        if ( isCote3Created) MainMenu.world.destroyBody(cote3);
+        isCote3Created = false;
 	}
 
 	public static void createBodyAndType(World world) {
 		// TODO Auto-generated method stub
 
-        CadrillageMap.setTypeDeDécor(4,1, "coffreBleu");
+//        CadrillageMap.setTypeDeDécor(4,1, "coffreBleu");
+
+        if ( ismurCoffreCreated == false ) {
+            murCoffre = ClimatMontagneux.createBody(270,100,30,30);
+            ismurCoffreCreated = true;
+        }
+
+
+        if ( isCote1Created == false ) {
+            cote1 = ClimatMontagneux.createBody(120,330,260,240);
+            isCote1Created = true;
+        }
+
+        if ( isCote2Created == false ) {
+            cote2 = ClimatMontagneux.createBody(110,50,220,140);
+            isCote2Created = true;
+        }
+
+
+        if ( isCote3Created == false ) {
+            cote3 = ClimatMontagneux.createBody(50,150,1,120);
+            isCote3Created = true;
+        }
 	}
 
 	public static void destroyType() {

@@ -175,6 +175,20 @@ public class SousMapA2 extends Sprite{
 		game.getBatch().draw(ClimatMontagneux.morceauGlacéInf,480+x,60+y);
 		game.getBatch().draw(ClimatMontagneux.bordGlaceFragmentéeBasGauche,540+x,60+y);
 
+//
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 240+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 540+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 240+ x, 180+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 300+ x,240+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé3, 420+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 420+ x, 300+ y);
+
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 480+ x, 240+ y);
+        game.getBatch().draw(ClimatMontagneux.planteGelé, 540+ x, 120+ y);
+//
+
         ClimatMontagneux.crate(isTonneau1Cut ,  game , 300 + x , 300 + y);
 
         if ( isReceptaclePris && MainMenu.Link.annimationAward ) {

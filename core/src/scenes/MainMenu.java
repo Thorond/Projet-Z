@@ -110,8 +110,9 @@ public class MainMenu implements Screen{
 
 		world = new World(new Vector2(0,0),true);
 
-        Link = new MainCharacter(world, 4, 1, 4 , 30 ,30 , "bas");
+//        Link = new MainCharacter(world, 4, 1, 4 , 400 , 200 , "bas");
 
+        Link = new MainCharacter(world, 4, 1, 4 , -50 , -50 , "bas");
         sauvegarde.chargerSauvegarde();
 
 

@@ -6,6 +6,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
+import items.CoeurDeVie;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 /**
@@ -13,6 +15,9 @@ import scenes.MainMenu;
  */
 
 public class GrotteI1Salle1 extends Sprite {
+
+    public static boolean ropeCut = false; // à sauvegarder
+    public static boolean isReceptaclePris = false; // à sauvegarder
 
     public static Body cote1 ;
     public static boolean isCote1Created;
@@ -26,6 +31,12 @@ public class GrotteI1Salle1 extends Sprite {
     public static boolean isCote5Created;
     public static Body cote6 ;
     public static boolean isCote6Created;
+
+//
+
+
+    public static int yClé = 300; // à sauvegarder
+    public static int yCléFinal = 240;
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -123,10 +134,32 @@ public class GrotteI1Salle1 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 60+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 120+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 180+ y);
-        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 240+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 300+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 0+ x, 420+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 360+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 360+ y);
+
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 60+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 120+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 180+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 300+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 360+ y);
+
+
+        ClimatMontagneux.placerMurSombre3GlacéCentre2(game,60+x,240+y);
+        ClimatMontagneux.placerMurSombre3GlacéCentre2(game,120+x,240+y);
+        ClimatMontagneux.placerMurSombre3GlacéCentre2(game,180+x,240+y);
 
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 0+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 0+ y);
@@ -151,6 +184,27 @@ public class GrotteI1Salle1 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 360+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
+        if ( ! ropeCut ) {
+            game.getBatch().draw(ClimatMontagneux.rope , 0 + x , 240 + y );
+            game.getBatch().draw(CoeurDeVie.receptacleDeCoeur , 420 + x , 300 + y );
+            game.getBatch().draw(ClimatMontagneux.rope , 413 + x , 312 + y );
+
+        } else {
+            if ( yClé > yCléFinal ) {
+                yClé -= 5 ;
+            }
+            if ( ! (isReceptaclePris) ) game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 420+ x, yClé+ y);
+
+
+        }
+
+
+
+
+        if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
+            game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+        }
 
     }
 
@@ -177,20 +231,32 @@ public class GrotteI1Salle1 extends Sprite {
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
-        if ( isCote1Created == false ) {
-            cote1 = ClimatMontagneux.createBody(20,240,60,480);
-            isCote1Created = true;
+
+        if ( ropeCut == false ){
+
+            if (CadrillageMap.typeDeDécor[0][4].equals("détruit")) {
+                ropeCut = true;
+            }
+            CadrillageMap.setTypeDeDécor(0,4,"destructible");
+
+        } else {
+            if ( !(isReceptaclePris)) CadrillageMap.setTypeDeDécor(7, 4, "receptacleDeCoeur");
         }
+
+//        if ( isCote1Created == false ) {
+//            cote1 = ClimatMontagneux.createBody(20,240,60,480);
+//            isCote1Created = true;
+//        }
         if ( isCote2Created == false ) {
             cote2 = ClimatMontagneux.createBody(560,240,60,480);
             isCote2Created = true;
         }
         if ( isCote3Created == false ) {
-            cote3 = ClimatMontagneux.createBody(100,20,240,60);
+            cote3 = ClimatMontagneux.createBody(100,120,240,240);
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
-            cote4 = ClimatMontagneux.createBody(100,440,240,60);
+            cote4 = ClimatMontagneux.createBody(100,380,240,180);
             isCote4Created = true;
         }
         if ( isCote5Created == false ) {

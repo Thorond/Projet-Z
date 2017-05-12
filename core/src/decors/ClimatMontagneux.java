@@ -192,6 +192,7 @@ public class ClimatMontagneux {
 	public static Texture escalierBas = new Texture("climatMontagneux/escalierBas.png");
 	public static Texture escalier = new Texture("climatMontagneux/escalier.png");
 
+	public static Texture rope = new Texture("climatMontagneux/rope.png");
 
 	public static Texture tonneauIgloo = new Texture("climatMontagneux/BarrelIgloo.png");
 	public static Texture caisseIgloo = new Texture("climatMontagneux/CrateIgloo.png");

@@ -50,8 +50,7 @@ public class DonjonSalle2 extends Sprite {
     public static int nbrTuéSlim = 0; // à sauvegarder
     public static int nbrTuéPetitSlim = 0; // à sauvegarder
 
-    public static int yClé = 480;
-
+    public static int yClé = 480; // à sauvegarder
     public static int yCléFinal = 360;
 
     public static Slim monstre1;
