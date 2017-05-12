@@ -21,16 +21,25 @@ import items.Potion;
 import items.Torche;
 import map.zoneDesert.GestionDesMapsZoneDesert;
 import map.zoneDesert.PlacementMainZoneDesert;
+import map.zoneGlace.DonjonSalle2;
 import map.zoneGlace.GrotteF5Salle1;
 import map.zoneGlace.GrotteF5Salle2;
 import map.zoneGlace.GrotteF5Salle4;
 import map.zoneGlace.GrotteF5Salle5;
+import map.zoneGlace.GrotteI1Salle1;
+import map.zoneGlace.GrotteI1Salle3;
+import map.zoneGlace.SousMapA2;
 import map.zoneGlace.SousMapB3;
 import map.zoneGlace.GestionDesMapsZoneGlace;
 import map.zoneGlace.GrotteF5Salle3;
 import map.zoneGlace.PlacementMainZoneGlace;
+import map.zoneGlace.SousMapD2;
+import map.zoneGlace.SousMapD5;
 import map.zoneGlace.SousMapE1;
+import map.zoneGlace.SousMapF2;
 import map.zoneGlace.SousMapF4;
+import map.zoneGlace.SousMapG5;
+import map.zoneGlace.SousMapH2;
 import map.zoneGlace.SousMapI1;
 import menus.Carte;
 import scenes.MainMenu;
@@ -65,12 +74,26 @@ public class Sauvegarde implements java.io.Serializable{
 
 //    ********réceptacle et cofres ***********
     public int nbrDeReceptacle;
+    public boolean isReceptaclePrisGrotteI1Salle1 ;
+    public boolean isReceptaclePrisA2 ;
     public boolean isReceptaclePrisB3 ;
     public boolean isReceptaclePrisF4 ;
     public boolean isReceptaclePrisI1 ;
     public boolean isReceptaclePrisE1 ;
     public boolean isReceptaclePrisGrotteF5Salle3 ;
 
+    public boolean ouvertureCoffreF2 ;
+    public boolean coffreOuvertF2 ;
+    public boolean ouvertureCoffreH2 ;
+    public boolean coffreOuvertH2 ;
+    public boolean ouvertureCoffreG5 ;
+    public boolean coffreOuvertG5 ;
+    public boolean ouvertureCoffreD5 ;
+    public boolean coffreOuvertD5 ;
+    public boolean ouvertureCoffreD2 ;
+    public boolean coffreOuvertD2 ;
+    public boolean ouvertureCoffreDonjonSalle2 ;
+    public boolean coffreOuvertDonjonSalle2 ;
     //
 //     *********PNJ*******
 //	 totem
@@ -98,6 +121,10 @@ public class Sauvegarde implements java.io.Serializable{
     public boolean isCléMilieuTrouvé ;
     public boolean carteTrouvé;
 
+    public int nbrTuéSlim ;
+    public int nbrTuéPetitSlim ;
+    public int yCléDonjon ;
+
 
 //         *********élément des cartes**********
 
@@ -115,8 +142,10 @@ public class Sauvegarde implements java.io.Serializable{
     public int yClé ;
     public boolean glacierCassé;
 
-////	grotteArc salle 3
-//	public boolean estPassé;
+//	grotte I1
+    public boolean ropeCut ;
+    public int yCléI1 ;
+	public boolean estPassé;
 
 	
 //	 ******************* carte ************************
@@ -207,11 +236,26 @@ public class Sauvegarde implements java.io.Serializable{
 
         //    ********réceptacle et cofres ***********
           nbrDeReceptacle = CoeurDeVie.nbrDeReceptacle;
+          isReceptaclePrisGrotteI1Salle1 = GrotteI1Salle1.isReceptaclePris ;
+          isReceptaclePrisA2 = SousMapA2.isReceptaclePris ;
           isReceptaclePrisB3 = SousMapB3.isReceptaclePris;
           isReceptaclePrisF4 = SousMapF4.isReceptaclePris;
           isReceptaclePrisI1 = SousMapI1.isReceptaclePris;
           isReceptaclePrisE1 = SousMapE1.isReceptaclePris;
           isReceptaclePrisGrotteF5Salle3 = GrotteF5Salle3.isReceptaclePris;
+
+          ouvertureCoffreF2 = SousMapF2.ouvertureCoffre ;
+          coffreOuvertF2 = SousMapF2.coffreOuvert ;
+          ouvertureCoffreH2 = SousMapH2.ouvertureCoffre ;
+          coffreOuvertH2 = SousMapH2.coffreOuvert ;
+          ouvertureCoffreG5 = SousMapG5.ouvertureCoffre ;
+          coffreOuvertG5 = SousMapG5.coffreOuvert ;
+          ouvertureCoffreD5 = SousMapD5.ouvertureCoffre ;
+          coffreOuvertD5 = SousMapD5.coffreOuvert ;
+          ouvertureCoffreD2 = SousMapD2.ouvertureCoffre;
+          coffreOuvertD2 = SousMapD2.coffreOuvert ;
+          ouvertureCoffreDonjonSalle2 = DonjonSalle2.ouvertureCoffre ;
+          coffreOuvertDonjonSalle2 = DonjonSalle2.coffreOuvert ;
 
           //        pnj
           //    totem
@@ -239,6 +283,10 @@ public class Sauvegarde implements java.io.Serializable{
           isCléMilieuTrouvé = DonjonGlace.isCléMilieuTrouvé;
           carteTrouvé = DonjonGlace.carteTrouvé;
 
+          nbrTuéSlim = DonjonSalle2.nbrTuéSlim ;
+          nbrTuéPetitSlim = DonjonSalle2.nbrTuéPetitSlim ;
+          yCléDonjon = DonjonSalle2.yClé ;
+
           // B3
           this.pontCasse = SousMapB3.pontCasse ;
           this.annimation = SousMapB3.annimation;
@@ -253,6 +301,11 @@ public class Sauvegarde implements java.io.Serializable{
           nbrTué = GrotteF5Salle4.nbrTué;
           yClé = GrotteF5Salle4.yClé;
           glacierCassé = GrotteF5Salle5.glacierCassé;
+
+          //	grotte I1
+          ropeCut = GrotteI1Salle1.ropeCut ;
+          yCléI1 = GrotteI1Salle1.yClé ;
+          estPassé = GrotteI1Salle3.estPassé;
 
           //	 ******************* carte ************************
            mapA1Découverte = Carte.mapA1Découverte ;
@@ -378,12 +431,27 @@ public class Sauvegarde implements java.io.Serializable{
         Torche.isTorchePrise = this.isTorchePrise ;
 
         //    ********réceptacle et cofres ***********
+        GrotteI1Salle1.isReceptaclePris = isReceptaclePrisGrotteI1Salle1 ;
+        SousMapA2.isReceptaclePris = isReceptaclePrisA2;
         CoeurDeVie.nbrDeReceptacle = nbrDeReceptacle ;
         SousMapB3.isReceptaclePris = isReceptaclePrisB3 ;
         SousMapF4.isReceptaclePris = isReceptaclePrisF4 ;
         SousMapI1.isReceptaclePris = isReceptaclePrisI1 ;
         SousMapE1.isReceptaclePris = isReceptaclePrisE1 ;
         GrotteF5Salle3.isReceptaclePris = isReceptaclePrisGrotteF5Salle3 ;
+
+        SousMapF2.ouvertureCoffre  = ouvertureCoffreF2 ;
+        SousMapF2.coffreOuvert  = coffreOuvertF2 ;
+        SousMapH2.ouvertureCoffre  = ouvertureCoffreH2;
+        SousMapH2.coffreOuvert  = coffreOuvertH2;
+        SousMapG5.ouvertureCoffre  = ouvertureCoffreG5 ;
+        SousMapG5.coffreOuvert = coffreOuvertG5;
+        SousMapD5.ouvertureCoffre  = ouvertureCoffreD5;
+        SousMapD5.coffreOuvert = coffreOuvertD5 ;
+        SousMapD2.ouvertureCoffre = ouvertureCoffreD2 ;
+        SousMapD2.coffreOuvert  = coffreOuvertD2;
+        DonjonSalle2.ouvertureCoffre = ouvertureCoffreDonjonSalle2 ;
+        DonjonSalle2.coffreOuvert = coffreOuvertDonjonSalle2 ;
 
 //        pnj
         //    totem
@@ -411,6 +479,10 @@ public class Sauvegarde implements java.io.Serializable{
         DonjonGlace.isCléMilieuTrouvé = isCléMilieuTrouvé ;
         DonjonGlace.carteTrouvé = carteTrouvé;
 
+        DonjonSalle2.nbrTuéSlim  = nbrTuéSlim ;
+        DonjonSalle2.nbrTuéPetitSlim  = nbrTuéPetitSlim ;
+        DonjonSalle2.yClé = yCléDonjon ;
+
         // B3
         SousMapB3.pontCasse  = this.pontCasse;
         SousMapB3.annimation = this.annimation ;
@@ -426,6 +498,12 @@ public class Sauvegarde implements java.io.Serializable{
         GrotteF5Salle4.yClé = yClé ;
         GrotteF5Salle5.glacierCassé = glacierCassé ;
 
+
+        //	grotte I1
+        GrotteI1Salle1.ropeCut  = ropeCut ;
+        GrotteI1Salle1.yClé  = yCléI1 ;
+        GrotteI1Salle3.estPassé = estPassé ;
+
 //         carte
         Carte.récupérationInfoCarte(this);
     }
@@ -438,8 +516,8 @@ public class Sauvegarde implements java.io.Serializable{
         // détruire les types ( décors )
 
         MainMenu.Link.setDirection("bas");
-        MainMenu.Link.getBody().setTransform(100, 100, 0);
-        PlacementMainZoneGlace.positionSousMap = "B2";
+        MainMenu.Link.getBody().setTransform(400 / MainMenu.PPM , 240 / MainMenu.PPM, 0);
+        PlacementMainZoneGlace.positionSousMap = "A2";
         MainMenu.Link.zone = "zoneGlace";
         PlacementMainZoneGlace.positionRelativeX = 100;
         PlacementMainZoneGlace.positionRelativeY = 100;
@@ -462,11 +540,26 @@ public class Sauvegarde implements java.io.Serializable{
 
         //    ********réceptacle et cofres ***********
         CoeurDeVie.nbrDeReceptacle = 0 ;
+        GrotteI1Salle1.isReceptaclePris = false ;
+        SousMapA2.isReceptaclePris = false;
         SousMapB3.isReceptaclePris = false ;
         SousMapF4.isReceptaclePris = false ;
         SousMapI1.isReceptaclePris = false ;
         SousMapE1.isReceptaclePris = false ;
         GrotteF5Salle3.isReceptaclePris = false ;
+
+        SousMapF2.ouvertureCoffre  = false ;
+        SousMapF2.coffreOuvert  = false ;
+        SousMapH2.ouvertureCoffre  = false;
+        SousMapH2.coffreOuvert  = false;
+        SousMapG5.ouvertureCoffre  = false ;
+        SousMapG5.coffreOuvert = false;
+        SousMapD5.ouvertureCoffre  = false;
+        SousMapD5.coffreOuvert = false ;
+        SousMapD2.ouvertureCoffre = false ;
+        SousMapD2.coffreOuvert  = false;
+        DonjonSalle2.ouvertureCoffre = false ;
+        DonjonSalle2.coffreOuvert = false ;
 
 //        pnj
         //    totem
@@ -495,6 +588,9 @@ public class Sauvegarde implements java.io.Serializable{
         DonjonGlace.isCléMilieuTrouvé = false ;
         DonjonGlace.carteTrouvé = false;
 
+        DonjonSalle2.nbrTuéSlim  = 0;
+        DonjonSalle2.nbrTuéPetitSlim  = 0;
+        DonjonSalle2.yClé = 480 ;
 
 
         // B3
@@ -511,6 +607,12 @@ public class Sauvegarde implements java.io.Serializable{
         GrotteF5Salle4.nbrTué = 0 ;
         GrotteF5Salle4.yClé = 480 ;
         GrotteF5Salle5.glacierCassé = false ;
+
+
+        //	grotte I1
+        GrotteI1Salle1.ropeCut  = false ;
+        GrotteI1Salle1.yClé  = 300 ;
+        GrotteI1Salle3.estPassé = false;
 
 //        *******
 

@@ -78,11 +78,11 @@ public class Coffre {
                 SousMapD5.ouvertureCoffre = true;
             }
         }
-        if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
-            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
-                SousMapI5.ouvertureCoffre = true;
-            }
-        }
+//        if (PlacementMainZoneGlace.positionSousMap.equals("I5")) {
+//            if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("coffreBleu")) {
+//                SousMapI5.ouvertureCoffre = true;
+//            }
+//        }
         if (PlacementMainZoneGlace.positionSousMap.equals("D2")) {
             if (CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60) + 1].equals("coffreBleu")) {
                 SousMapD2.ouvertureCoffre = true;

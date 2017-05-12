@@ -16,7 +16,7 @@ import scenes.MainMenu;
 public class PlacementMainZoneGlace {
 	
 	
-	public static String positionSousMap = "B2"; //	Repérage sur quelle sous map est le joueur
+	public static String positionSousMap = "A2"; //	Repérage sur quelle sous map est le joueur
 	public static boolean défilement = false; // pour savoir si le joueur passe d'une map à une autre
 	public static long start; // timer de défilement
 	public static int x; // défilement de la carte horizontalement
