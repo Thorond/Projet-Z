@@ -200,14 +200,37 @@ public class SousMapA2 extends Sprite{
 
         if (MainCharacter.etatScenario >= 0 && MainCharacter.etatScenario <= 5 ) {
             game.getBatch().draw(MainCharacter.zeldaGauche , 240 +x , 200 + y);
+            if ( MainCharacter.etatScenario == 0 ) game.getBatch().draw(Boss.texte1,100,60);
+            else if ( MainCharacter.etatScenario == 1 ) game.getBatch().draw(Boss.texte2,100,60);
+            else if ( MainCharacter.etatScenario == 2 ) game.getBatch().draw(Boss.texte3,100,60);
+            else if ( MainCharacter.etatScenario == 3 ) game.getBatch().draw(Boss.texte4,100,60);
+            else if ( MainCharacter.etatScenario == 4 ) game.getBatch().draw(Boss.texte5,100,60);
             if ( MainCharacter.etatScenario == 5 ) {
                 game.getBatch().draw(MainCharacter.exclamation , 280 + x , 220 + y );
                 game.getBatch().draw(Boss.boss1Bas1 ,
                         MainMenu.Link.getX() , MainMenu.Link.getY() +10);
+                game.getBatch().draw(Boss.texte6,100,60);
             }
         } else if ( MainCharacter.etatScenario == 6  ) {
             game.getBatch().draw(Boss.boss1Droite1 ,260+x, 200+ y );
             game.getBatch().draw(MainCharacter.zeldaKidna ,260+x, 260+ y );
+            game.getBatch().draw(Boss.texte7,100,60);
+        } else if ( MainCharacter.etatScenario == 7 )  {
+            Boss.transformation(game, 260 + x , 200 + y );
+            game.getBatch().draw(MainCharacter.zeldaKidna ,260+x, 260+ y );
+            game.getBatch().draw(Boss.texte8,100,60);
+        } else if ( MainCharacter.etatScenario == 8 ) {
+            if ( MainCharacter.opacité <1 ){
+                MainCharacter.cacheNoir.setAlpha(MainCharacter.opacité);
+                MainCharacter.cacheNoir.draw(game.getBatch());
+                MainCharacter.opacité+=0.005f;
+            } else {
+                MainCharacter.etatScenario = 9 ;
+                MainMenu.Link.setTexture(MainCharacter.linkBasRepos);
+                MainCharacter.opacité = 0;
+            }
+        } else if ( MainCharacter.etatScenario == 9) {
+            game.getBatch().draw(Boss.texte9,100,60);
         }
 	
 	}

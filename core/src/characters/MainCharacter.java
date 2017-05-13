@@ -3,6 +3,7 @@ package characters;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -243,6 +244,9 @@ public class MainCharacter extends Characters {
 
 //     histoire
 
+    public static Texture cacheNoirT = new Texture("Divers/cacheNoirGrand.png");
+    public static Sprite cacheNoir = new Sprite(cacheNoirT);
+    public static float opacité = 0f;
 
     public static int etatScenario = -1 ;
 
@@ -254,10 +258,11 @@ public class MainCharacter extends Characters {
 
     public static void updateJoueur(float dt ){
         if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
-            if ( etatScenario >= 0 ) etatScenario ++ ;
+            if ( etatScenario >= 0 && etatScenario != 7 && etatScenario != 8) etatScenario ++ ;
             if ( etatScenario == 5 ) {
                 MainMenu.Link.setTexture(MainCharacter.linkTombé);
             }
+
 
         }
     }

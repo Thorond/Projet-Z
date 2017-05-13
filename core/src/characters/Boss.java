@@ -2,6 +2,7 @@ package characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.GameMain;
 
 /**
  * Created by arnOo on 02/05/2017.
@@ -26,12 +27,6 @@ public class Boss extends Pnj {
     public static Texture boss1Droite1 = new Texture("monstres/boss/boss1Droite1.png");
     public static Texture boss1Droite2 = new Texture("monstres/boss/boss1Droite2.png");
 
-
-    public static Texture transformation1 = new Texture("monstres/boss/transformation1.png");
-    public static Texture transformation2 = new Texture("monstres/boss/transformation2.png");
-    public static Texture transformation3 = new Texture("monstres/boss/transformation3.png");
-    public static Texture transformation4 = new Texture("monstres/boss/transformation4.png");
-    public static Texture transformation5 = new Texture("monstres/boss/transformation5.png");
 
 
     public Boss(World world, Texture text, float x, float y, String direction) {
@@ -95,4 +90,45 @@ public class Boss extends Pnj {
 //            }
 //        }
 //    }
+
+
+
+    public static Texture texte1 = new Texture("monstres/boss/texte/texte1.png");
+    public static Texture texte2 = new Texture("monstres/boss/texte/texte2.png");
+    public static Texture texte3 = new Texture("monstres/boss/texte/texte3.png");
+    public static Texture texte4 = new Texture("monstres/boss/texte/texte4.png");
+    public static Texture texte5 = new Texture("monstres/boss/texte/texte5.png");
+    public static Texture texte6 = new Texture("monstres/boss/texte/texte6.png");
+    public static Texture texte7 = new Texture("monstres/boss/texte/texte7.png");
+    public static Texture texte8 = new Texture("monstres/boss/texte/texte8.png");
+    public static Texture texte9 = new Texture("monstres/boss/texte/texte9.png");
+
+    public static int etatTransformation = 0;
+    public static long timerTransformation = System.currentTimeMillis();
+
+    public static Texture transformation1 = new Texture("monstres/boss/transformation1.png");
+    public static Texture transformation2 = new Texture("monstres/boss/transformation2.png");
+    public static Texture transformation3 = new Texture("monstres/boss/transformation3.png");
+    public static Texture transformation4 = new Texture("monstres/boss/transformation4.png");
+    public static Texture transformation5 = new Texture("monstres/boss/transformation5.png");
+
+    public static void transformation(GameMain game, int x, int y){
+        if ( etatTransformation == 0 ) game.getBatch().draw(transformation1, x, y);
+        else if ( etatTransformation == 1 ) game.getBatch().draw(transformation2, x, y);
+        else if ( etatTransformation == 2 ) game.getBatch().draw(transformation3, x, y);
+        else if ( etatTransformation == 3 ) game.getBatch().draw(transformation4, x, y);
+        else if ( etatTransformation == 4 ) {
+            game.getBatch().draw(transformation5, x, y);
+            if ( MainCharacter.etatScenario == 7 )  MainCharacter.etatScenario = 8 ;
+        }
+
+        if  ( System.currentTimeMillis() - timerTransformation > 800 ) {
+            if (etatTransformation == 0 ) etatTransformation = 1 ;
+            else if (etatTransformation == 1 ) etatTransformation = 2 ;
+            else if (etatTransformation == 2 ) etatTransformation = 3 ;
+            else if (etatTransformation == 3 ) etatTransformation = 4 ;
+            else if (etatTransformation == 4 ) etatTransformation = 5 ;
+            timerTransformation = System.currentTimeMillis();
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package sauvegarde;
 
+import characters.Boss;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
@@ -518,9 +519,11 @@ public class Sauvegarde implements java.io.Serializable{
 
 //        histoire
         MainCharacter.etatScenario = 0 ;
+        Boss.etatTransformation = 0;
 
         MainMenu.Link.setDirection("gauche");
         MainMenu.Link.getBody().setTransform(250 / MainMenu.PPM , 290 / MainMenu.PPM, 0);
+        MainMenu.Link.getBody().setLinearVelocity(0,0);
         PlacementMainZoneGlace.positionSousMap = "A2";
         MainMenu.Link.zone = "zoneGlace";
         PlacementMainZoneGlace.positionRelativeX = 100;
