@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Boss;
+import characters.MainCharacter;
 import decors.ClimatMontagneux;
 import items.CoeurDeVie;
 import map.CadrillageMap;
@@ -194,6 +196,18 @@ public class SousMapA2 extends Sprite{
         if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
             game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() - 7+ x, MainMenu.Link.getY() + 50+ y);
             game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+        }
+
+        if (MainCharacter.etatScenario >= 0 && MainCharacter.etatScenario <= 5 ) {
+            game.getBatch().draw(MainCharacter.zeldaGauche , 240 +x , 200 + y);
+            if ( MainCharacter.etatScenario == 5 ) {
+                game.getBatch().draw(MainCharacter.exclamation , 280 + x , 220 + y );
+                game.getBatch().draw(Boss.boss1Bas1 ,
+                        MainMenu.Link.getX() , MainMenu.Link.getY() +10);
+            }
+        } else if ( MainCharacter.etatScenario == 6  ) {
+            game.getBatch().draw(Boss.boss1Droite1 ,260+x, 200+ y );
+            game.getBatch().draw(MainCharacter.zeldaKidna ,260+x, 260+ y );
         }
 	
 	}

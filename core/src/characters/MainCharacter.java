@@ -1,5 +1,7 @@
 package characters;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -57,7 +59,8 @@ public class MainCharacter extends Characters {
 	public static Texture linkDroite1Bouclier = new Texture("Personnage/link8Bouclier.png");
 	public static Texture linkDroite2Bouclier = new Texture("Personnage/link6Bouclier.png");
 
-	public String zone = "zoneGlace"; // à sauvegarder
+
+    public String zone = "zoneGlace"; // à sauvegarder
 
 
 	
@@ -237,7 +240,27 @@ public class MainCharacter extends Characters {
 		}
 		
 	}
-	
+
+//     histoire
+
+
+    public static int etatScenario = -1 ;
+
+    public static Texture zeldaGauche = new Texture("Personnage/zelda/zeldaGauche.png");
+    public static Texture zeldaKidna = new Texture("Personnage/zelda/zeldaKidna.png");
+    public static Texture zeldaBas1 = new Texture("Personnage/zelda/zeldaBas1.png");
+    public static Texture zeldaBas2 = new Texture("Personnage/zelda/zeldaBas2.png");
+    public static Texture exclamation = new Texture("Personnage/zelda/exclamation.png");
+
+    public static void updateJoueur(float dt ){
+        if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+            if ( etatScenario >= 0 ) etatScenario ++ ;
+            if ( etatScenario == 5 ) {
+                MainMenu.Link.setTexture(MainCharacter.linkTombé);
+            }
+
+        }
+    }
 	
 
 }
