@@ -242,7 +242,7 @@ public class MainCharacter extends Characters {
 		
 	}
 
-//     histoire
+//     histoire et zelda
 
     public static Texture cacheNoirT = new Texture("Divers/cacheNoirGrand.png");
     public static Sprite cacheNoir = new Sprite(cacheNoirT);

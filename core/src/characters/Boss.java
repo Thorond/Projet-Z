@@ -10,86 +10,152 @@ import com.mygdx.game.GameMain;
 
 public class Boss extends Pnj {
 
+
     public long start = System.currentTimeMillis();
 
     public boolean textBas1 = true;
     public static Texture boss1Bas1 = new Texture("monstres/boss/boss1Bas1.png");
     public static Texture boss1Bas2 = new Texture("monstres/boss/boss1Bas2.png");
     public static Texture boss1Bas3 = new Texture("monstres/boss/boss1Bas3.png");
+    public static Texture boss2Bas1 = new Texture("monstres/boss/boss2Bas1.png");
+    public static Texture boss2Bas2 = new Texture("monstres/boss/boss2Bas2.png");
     public boolean textGauche1 = true;
     public static Texture boss1Gauche1 = new Texture("monstres/boss/boss1Gauche1.png");
     public static Texture boss1Gauche2 = new Texture("monstres/boss/boss1Gauche2.png");
+    public static Texture boss2Gauche1 = new Texture("monstres/boss/boss2Gauche1.png");
+    public static Texture boss2Gauche2 = new Texture("monstres/boss/boss2Gauche2.png");
     public boolean textHaut1 = true;
     public static Texture boss1Haut1 = new Texture("monstres/boss/boss1Haut1.png");
     public static Texture boss1Haut2 = new Texture("monstres/boss/boss1Haut2.png");
     public static Texture boss1Haut3 = new Texture("monstres/boss/boss1Haut3.png");
+    public static Texture boss2Haut1 = new Texture("monstres/boss/boss2Haut1.png");
+    public static Texture boss2Haut2 = new Texture("monstres/boss/boss2Haut2.png");
     public boolean textDroite1 = true;
     public static Texture boss1Droite1 = new Texture("monstres/boss/boss1Droite1.png");
     public static Texture boss1Droite2 = new Texture("monstres/boss/boss1Droite2.png");
+    public static Texture boss2Droite1 = new Texture("monstres/boss/boss2Droite1.png");
+    public static Texture boss2Droite2 = new Texture("monstres/boss/boss2Droite2.png");
 
 
 
     public Boss(World world, Texture text, float x, float y, String direction) {
-        super(world, text, 20, 20, 4, x, y, direction);
+        super(world, text, 60, 60, 4, x, y, direction);
         // TODO Auto-generated constructor stub
     }
 
-//    public void représentation() {
-//        if (this.getDirection().equals("gauche")) {
-//            if (System.currentTimeMillis() - this.start > 500) {
-//
-//                if (this.textGauche1 == true) {
-//                    this.setTexture(miniBossGauche2);
-//                    this.textGauche1 = false;
-//                } else {
-//                    this.setTexture(miniBossGauche1);
-//                    this.textGauche1 = true;
-//                }
-//                this.start = System.currentTimeMillis();
-//
-//
-//            }
-//        } else if (this.getDirection().equals("droite")) {
-//            if (System.currentTimeMillis() - this.start > 500) {
-//
-//                if (this.textDroite1 == true) {
-//                    this.setTexture(miniBossDroite2);
-//                    this.textDroite1 = false;
-//                } else {
-//                    this.setTexture(miniBossDroite1);
-//                    this.textDroite1 = true;
-//                }
-//                this.start = System.currentTimeMillis();
-//
-//            }
-//        } else if (this.getDirection().equals("haut")) {
-//            if (System.currentTimeMillis() - this.start > 500) {
-//
-//                if (this.textHaut1 == true) {
-//                    this.setTexture(miniBossHaut2);
-//                    this.textHaut1 = false;
-//                } else {
-//                    this.setTexture(miniBossHaut1);
-//                    this.textHaut1 = true;
-//                }
-//                this.start = System.currentTimeMillis();
-//
-//            }
-//        } else if (this.getDirection().equals("bas")) {
-//            if (System.currentTimeMillis() - this.start > 500) {
-//
-//                if (this.textHaut1 == true) {
-//                    this.setTexture(miniBossBas2);
-//                    this.textHaut1 = false;
-//                } else {
-//                    this.setTexture(miniBossBas1);
-//                    this.textHaut1 = true;
-//                }
-//                this.start = System.currentTimeMillis();
-//
-//            }
-//        }
-//    }
+    public void représentation() {
+        if ( this.getHealth() > 40 ) {
+            if (this.getDirection().equals("gauche")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textGauche1 == true) {
+                        this.setTexture(boss1Gauche2);
+                        this.textGauche1 = false;
+                    } else {
+                        this.setTexture(boss1Gauche1);
+                        this.textGauche1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+
+                }
+            } else if (this.getDirection().equals("droite")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textDroite1 == true) {
+                        this.setTexture(boss1Droite2);
+                        this.textDroite1 = false;
+                    } else {
+                        this.setTexture(boss1Droite1);
+                        this.textDroite1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+                }
+            } else if (this.getDirection().equals("haut")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textHaut1 == true) {
+                        this.setTexture(boss1Haut2);
+                        this.textHaut1 = false;
+                    } else {
+                        this.setTexture(boss1Haut1);
+                        this.textHaut1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+                }
+            } else if (this.getDirection().equals("bas")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textHaut1 == true) {
+                        this.setTexture(boss1Bas2);
+                        this.textHaut1 = false;
+                    } else {
+                        this.setTexture(boss1Bas1);
+                        this.textHaut1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+                }
+            }
+        } else if ( this.getHealth() > 0 ) {
+            if (this.getDirection().equals("gauche")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textGauche1 == true) {
+                        this.setTexture(boss2Gauche2);
+                        this.textGauche1 = false;
+                    } else {
+                        this.setTexture(boss2Gauche1);
+                        this.textGauche1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+
+                }
+            } else if (this.getDirection().equals("droite")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textDroite1 == true) {
+                        this.setTexture(boss2Droite2);
+                        this.textDroite1 = false;
+                    } else {
+                        this.setTexture(boss2Droite1);
+                        this.textDroite1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+                }
+            } else if (this.getDirection().equals("haut")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textHaut1 == true) {
+                        this.setTexture(boss2Haut2);
+                        this.textHaut1 = false;
+                    } else {
+                        this.setTexture(boss2Haut1);
+                        this.textHaut1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+                }
+            } else if (this.getDirection().equals("bas")) {
+                if (System.currentTimeMillis() - this.start > 500) {
+
+                    if (this.textHaut1 == true) {
+                        this.setTexture(boss2Bas2);
+                        this.textHaut1 = false;
+                    } else {
+                        this.setTexture(boss2Bas1);
+                        this.textHaut1 = true;
+                    }
+                    this.start = System.currentTimeMillis();
+
+                }
+            }
+        }
+    }
 
 
 
@@ -129,6 +195,23 @@ public class Boss extends Pnj {
             else if (etatTransformation == 3 ) etatTransformation = 4 ;
             else if (etatTransformation == 4 ) etatTransformation = 5 ;
             timerTransformation = System.currentTimeMillis();
+        }
+    }
+
+    public static int etatRésidu = 0;
+    public static long timerRésidu = System.currentTimeMillis() ;
+
+    public static Texture résidu1 = new Texture("monstres/boss/résidu1.png");
+    public static Texture résidu2 = new Texture("monstres/boss/résidu2.png");
+
+    public static void résidu(GameMain game , int x , int y ) {
+        if ( etatRésidu == 0 ) game.getBatch().draw(résidu1,x,y);
+        else if ( etatRésidu == 1 ) game.getBatch().draw(résidu2,x,y);
+
+        if ( System.currentTimeMillis() - timerRésidu > 300 ){
+            if ( etatRésidu == 0 ) etatRésidu = 1 ;
+            else if ( etatRésidu == 1 ) etatRésidu = 0;
+            timerRésidu = System.currentTimeMillis() ;
         }
     }
 }

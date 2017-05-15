@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Boss;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
