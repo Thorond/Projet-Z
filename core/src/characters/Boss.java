@@ -1,8 +1,12 @@
 package characters;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
+
+import map.CadrillageMap;
+import scenes.MainMenu;
 
 /**
  * Created by arnOo on 02/05/2017.
@@ -11,7 +15,7 @@ import com.mygdx.game.GameMain;
 public class Boss extends Pnj {
 
 
-    public long start = System.currentTimeMillis();
+    public long startD = System.currentTimeMillis();
 
     public boolean textBas1 = true;
     public static Texture boss1Bas1 = new Texture("monstres/boss/boss1Bas1.png");
@@ -46,7 +50,7 @@ public class Boss extends Pnj {
     public void représentation() {
         if ( this.getHealth() > 40 ) {
             if (this.getDirection().equals("gauche")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textGauche1 == true) {
                         this.setTexture(boss1Gauche2);
@@ -55,12 +59,12 @@ public class Boss extends Pnj {
                         this.setTexture(boss1Gauche1);
                         this.textGauche1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
 
                 }
             } else if (this.getDirection().equals("droite")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textDroite1 == true) {
                         this.setTexture(boss1Droite2);
@@ -69,11 +73,11 @@ public class Boss extends Pnj {
                         this.setTexture(boss1Droite1);
                         this.textDroite1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
                 }
             } else if (this.getDirection().equals("haut")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textHaut1 == true) {
                         this.setTexture(boss1Haut2);
@@ -82,11 +86,11 @@ public class Boss extends Pnj {
                         this.setTexture(boss1Haut1);
                         this.textHaut1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
                 }
             } else if (this.getDirection().equals("bas")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textHaut1 == true) {
                         this.setTexture(boss1Bas2);
@@ -95,13 +99,13 @@ public class Boss extends Pnj {
                         this.setTexture(boss1Bas1);
                         this.textHaut1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
                 }
             }
         } else if ( this.getHealth() > 0 ) {
             if (this.getDirection().equals("gauche")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textGauche1 == true) {
                         this.setTexture(boss2Gauche2);
@@ -110,12 +114,12 @@ public class Boss extends Pnj {
                         this.setTexture(boss2Gauche1);
                         this.textGauche1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
 
                 }
             } else if (this.getDirection().equals("droite")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textDroite1 == true) {
                         this.setTexture(boss2Droite2);
@@ -124,11 +128,11 @@ public class Boss extends Pnj {
                         this.setTexture(boss2Droite1);
                         this.textDroite1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
                 }
             } else if (this.getDirection().equals("haut")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textHaut1 == true) {
                         this.setTexture(boss2Haut2);
@@ -137,11 +141,11 @@ public class Boss extends Pnj {
                         this.setTexture(boss2Haut1);
                         this.textHaut1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
                 }
             } else if (this.getDirection().equals("bas")) {
-                if (System.currentTimeMillis() - this.start > 500) {
+                if (System.currentTimeMillis() - this.startD > 500) {
 
                     if (this.textHaut1 == true) {
                         this.setTexture(boss2Bas2);
@@ -150,7 +154,7 @@ public class Boss extends Pnj {
                         this.setTexture(boss2Bas1);
                         this.textHaut1 = true;
                     }
-                    this.start = System.currentTimeMillis();
+                    this.startD = System.currentTimeMillis();
 
                 }
             }
@@ -214,4 +218,60 @@ public class Boss extends Pnj {
             timerRésidu = System.currentTimeMillis() ;
         }
     }
+
+
+
+//	déplacement aléatoire
+
+    @Override
+    public void déplacementAléa(){
+        double tempo = Math.random();
+        double tempo2 = Math.random() ;
+        if ( System.currentTimeMillis() - start > 2000 || this.getBody().getLinearVelocity().x == 0
+                || this.getBody().getLinearVelocity().y == 0 ) {
+            if (tempo < 0.5 && this.getBody().getPosition().x > 90 / MainMenu.PPM) {
+                if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) - 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60)].equals("Trou")
+                        && !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) - 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60)].equals("EauProfonde")) {
+                    this.getBody().applyLinearImpulse(new Vector2(-2000000f, 0), this.getBody().getWorldCenter(), true);
+                    this.setDirection("gauche");
+                }
+            } else if (tempo > 0.5 && this.getBody().getPosition().x < 480 / MainMenu.PPM) {
+                if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) + 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60)].equals("Trou")
+                        && !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60) + 1][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60)].equals("EauProfonde")) {
+                    this.getBody().applyLinearImpulse(new Vector2(+2000000f, 0), this.getBody().getWorldCenter(), true);
+                    this.setDirection("droite");
+
+                }
+            }
+
+            if (tempo2 < 0.5 && this.getBody().getPosition().y > 90 / MainMenu.PPM) {
+                if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60)][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) - 1].equals("Trou")
+                        && !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60)][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) - 1].equals("EauProfonde")) {
+                    this.getBody().applyLinearImpulse(new Vector2(0, -2000000f), this.getBody().getWorldCenter(), true);
+                    this.setDirection("bas");
+                }
+            } else if (tempo2 > 0.5 && this.getBody().getPosition().y < 360 / MainMenu.PPM) {
+                if (!CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60)][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("Trou")
+                        && !CadrillageMap.typeDeDécor[(int) (this.getBody().getPosition().x * MainMenu.PPM / 60)][(int) (this.getBody().getPosition().y * MainMenu.PPM / 60) + 1].equals("EauProfonde")) {
+                    this.getBody().applyLinearImpulse(new Vector2(0, +2000000f), this.getBody().getWorldCenter(), true);
+                    this.setDirection("haut");
+                }
+            }
+            start = System.currentTimeMillis();
+        }
+    }
+
+
+//	déplacement global
+
+    @Override
+    public void déplacement(){
+        if ( this.getHealth() > 40 ){
+
+        }else if ( this.getHealth() > 0){
+            this.déplacementAléa();
+        }
+    }
+
+
 }

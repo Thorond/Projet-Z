@@ -5,6 +5,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Boss;
+import characters.Pnj;
 import decors.ClimatMontagneux;
 import scenes.MainMenu;
 
@@ -26,6 +28,11 @@ public class DonjonSalle10 extends Sprite {
     public static boolean isCote5Created;
     public static Body cote6 ;
     public static boolean isCote6Created;
+
+
+    public static Boss boss;
+    public static boolean bossEstCrée = false ;
+    public static boolean bossEstMort = false; // à sauvegarder
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -152,6 +159,23 @@ public class DonjonSalle10 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
 
+
+
+//         placement boss
+        if ( bossEstCrée && boss.isAlive() ) {
+            boss.setSize(boss.getTexture().getWidth(), boss.getTexture().getHeight());
+            boss.draw(game.getBatch());
+
+            boss.infligéDégatLink();
+        }
+
+        if ( bossEstCrée && ! boss.isAlive() ){
+            if ( ! bossEstMort ) {
+                bossEstMort = true;
+                destroyBody();
+            }
+        }
+        
     }
 
     public static void destroyBody() {
@@ -173,6 +197,13 @@ public class DonjonSalle10 extends Sprite {
 
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
+
+
+//
+        if ( bossEstCrée )MainMenu.world.destroyBody(boss.getBody());
+        bossEstCrée = false;
+
+        Pnj.nbrDeMonstres = 0 ;
     }
 
     public static void createBodyAndType(World world) {
@@ -200,6 +231,21 @@ public class DonjonSalle10 extends Sprite {
         if ( isCote6Created == false ) {
             cote6 = ClimatMontagneux.createBody(460,440,240,60);
             isCote6Created = true;
+        }
+
+        //        création du boss
+
+        if ( bossEstCrée == false ) {
+            if ( ! bossEstMort ) boss = new Boss(world ,Boss.boss1Bas1, 430 , 300 , "bas") ;
+            Pnj.monstres[0] = boss;
+            Pnj.nbrDeMonstres = 1 ;
+            bossEstCrée = true;
+        } else {
+            if ( !bossEstMort) {
+                boss.déplacement();
+                boss.représentation();
+                boss.updateBody();
+            }
         }
     }
 
