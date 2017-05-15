@@ -166,10 +166,12 @@ public class DonjonSalle10 extends Sprite {
 
 //         placement boss
         if ( bossEstCrée && boss.isAlive() ) {
+
+            if ( boss.getHealth() > 40 ) Boss.résidu(game, boss.xRésidu, boss.yRésidu );
+
             boss.setSize(boss.getTexture().getWidth(), boss.getTexture().getHeight());
             boss.draw(game.getBatch());
 
-            Boss.résidu(game, boss.xRésidu, boss.yRésidu );
 
             boss.infligéDégatLink();
         }
@@ -214,7 +216,8 @@ public class DonjonSalle10 extends Sprite {
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
 
-        CadrillageMap.setTypeDeDécor(boss.xRésidu / 60 , boss.yRésidu / 60 , "Résidu");
+        if ( bossEstCrée && boss.xRésidu > 0 && boss.yRésidu > 0 )
+            CadrillageMap.setTypeDeDécor(boss.xRésidu / 60 , boss.yRésidu / 60 , "Résidu");
 
         if ( isCote1Created == false ) {
             cote1 = ClimatMontagneux.createBody(20,240,60,480);
@@ -244,7 +247,7 @@ public class DonjonSalle10 extends Sprite {
         //        création du boss
 
         if ( bossEstCrée == false ) {
-            if ( ! bossEstMort ) boss = new Boss(world ,Boss.boss1Bas1, 430 , 300 , "bas") ;
+            if ( ! bossEstMort ) boss = new Boss(world ,Boss.boss1Bas1, 300 , 240 , "bas") ;
             Pnj.monstres[0] = boss;
             Pnj.nbrDeMonstres = 1 ;
             bossEstCrée = true;

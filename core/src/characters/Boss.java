@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import items.Bombe;
 import map.CadrillageMap;
 import scenes.MainMenu;
 
@@ -304,6 +305,8 @@ public class Boss extends Pnj {
                 yRésidu = (int) ( this.getBody().getPosition().y *MainMenu.PPM );
                 CadrillageMap.setTypeDeDécor();
 
+                this.getBody().setLinearVelocity(0,0);
+
                 double xtemp = Math.random() ;
                 double ytemp = Math.random() ;
                 int xtemp2 = (int) (( 1 + xtemp * ( 8 - 1) ) * 60 / MainMenu.PPM ) ;
@@ -367,5 +370,20 @@ public class Boss extends Pnj {
         }
     }
 
+
+
+//	 subir dégàt par bombe
+
+    @Override
+    public void subirDégatsBombe(Bombe cha, int x, int y ){
+        if ( this.getHealth() > 0 && this.getHealth() - cha.getDégàts() <= 0 ) {
+            this.drop();
+            this.isAttacked = false;
+            this.getBody().setTransform(-500, -500, 0); //	est ce la meilleure solution? oui a priori..
+        } else {
+            this.isHit = true;
+        }
+        this.setHealth(this.getHealth() - cha.getDégàts());
+    }
 
 }
