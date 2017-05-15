@@ -8,6 +8,7 @@ import com.mygdx.game.GameMain;
 import characters.Boss;
 import characters.Pnj;
 import decors.ClimatMontagneux;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 /**
@@ -145,6 +146,8 @@ public class DonjonSalle10 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 420+ y);
@@ -165,6 +168,8 @@ public class DonjonSalle10 extends Sprite {
         if ( bossEstCrée && boss.isAlive() ) {
             boss.setSize(boss.getTexture().getWidth(), boss.getTexture().getHeight());
             boss.draw(game.getBatch());
+
+            Boss.résidu(game, boss.xRésidu, boss.yRésidu );
 
             boss.infligéDégatLink();
         }
@@ -208,6 +213,9 @@ public class DonjonSalle10 extends Sprite {
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
+
+        CadrillageMap.setTypeDeDécor(boss.xRésidu / 60 , boss.yRésidu / 60 , "Résidu");
+
         if ( isCote1Created == false ) {
             cote1 = ClimatMontagneux.createBody(20,240,60,480);
             isCote1Created = true;
@@ -221,17 +229,17 @@ public class DonjonSalle10 extends Sprite {
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
-            cote4 = ClimatMontagneux.createBody(100,440,240,60);
+            cote4 = ClimatMontagneux.createBody(300,440,600,60);
             isCote4Created = true;
         }
         if ( isCote5Created == false ) {
             cote5 = ClimatMontagneux.createBody(460,20,240,60);
             isCote5Created = true;
         }
-        if ( isCote6Created == false ) {
-            cote6 = ClimatMontagneux.createBody(460,440,240,60);
-            isCote6Created = true;
-        }
+//        if ( isCote6Created == false ) {
+//            cote6 = ClimatMontagneux.createBody(460,440,240,60);
+//            isCote6Created = true;
+//        }
 
         //        création du boss
 

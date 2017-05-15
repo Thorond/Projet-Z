@@ -49,58 +49,62 @@ public class Boss extends Pnj {
 
     public void représentation() {
         if ( this.getHealth() > 40 ) {
-            if (this.getDirection().equals("gauche")) {
-                if (System.currentTimeMillis() - this.startD > 500) {
+            if ( enTransformation ) {
+                transformation();
+            } else {
+                if (this.getDirection().equals("gauche")) {
+                    if (System.currentTimeMillis() - this.startD > 500) {
 
-                    if (this.textGauche1 == true) {
-                        this.setTexture(boss1Gauche2);
-                        this.textGauche1 = false;
-                    } else {
-                        this.setTexture(boss1Gauche1);
-                        this.textGauche1 = true;
+                        if (this.textGauche1 == true) {
+                            this.setTexture(boss1Gauche2);
+                            this.textGauche1 = false;
+                        } else {
+                            this.setTexture(boss1Gauche1);
+                            this.textGauche1 = true;
+                        }
+                        this.startD = System.currentTimeMillis();
+
+
                     }
-                    this.startD = System.currentTimeMillis();
+                } else if (this.getDirection().equals("droite")) {
+                    if (System.currentTimeMillis() - this.startD > 500) {
 
+                        if (this.textDroite1 == true) {
+                            this.setTexture(boss1Droite2);
+                            this.textDroite1 = false;
+                        } else {
+                            this.setTexture(boss1Droite1);
+                            this.textDroite1 = true;
+                        }
+                        this.startD = System.currentTimeMillis();
 
-                }
-            } else if (this.getDirection().equals("droite")) {
-                if (System.currentTimeMillis() - this.startD > 500) {
-
-                    if (this.textDroite1 == true) {
-                        this.setTexture(boss1Droite2);
-                        this.textDroite1 = false;
-                    } else {
-                        this.setTexture(boss1Droite1);
-                        this.textDroite1 = true;
                     }
-                    this.startD = System.currentTimeMillis();
+                } else if (this.getDirection().equals("haut")) {
+                    if (System.currentTimeMillis() - this.startD > 500) {
 
-                }
-            } else if (this.getDirection().equals("haut")) {
-                if (System.currentTimeMillis() - this.startD > 500) {
+                        if (this.textHaut1 == true) {
+                            this.setTexture(boss1Haut2);
+                            this.textHaut1 = false;
+                        } else {
+                            this.setTexture(boss1Haut1);
+                            this.textHaut1 = true;
+                        }
+                        this.startD = System.currentTimeMillis();
 
-                    if (this.textHaut1 == true) {
-                        this.setTexture(boss1Haut2);
-                        this.textHaut1 = false;
-                    } else {
-                        this.setTexture(boss1Haut1);
-                        this.textHaut1 = true;
                     }
-                    this.startD = System.currentTimeMillis();
+                } else if (this.getDirection().equals("bas")) {
+                    if (System.currentTimeMillis() - this.startD > 500) {
 
-                }
-            } else if (this.getDirection().equals("bas")) {
-                if (System.currentTimeMillis() - this.startD > 500) {
+                        if (this.textHaut1 == true) {
+                            this.setTexture(boss1Bas2);
+                            this.textHaut1 = false;
+                        } else {
+                            this.setTexture(boss1Bas1);
+                            this.textHaut1 = true;
+                        }
+                        this.startD = System.currentTimeMillis();
 
-                    if (this.textHaut1 == true) {
-                        this.setTexture(boss1Bas2);
-                        this.textHaut1 = false;
-                    } else {
-                        this.setTexture(boss1Bas1);
-                        this.textHaut1 = true;
                     }
-                    this.startD = System.currentTimeMillis();
-
                 }
             }
         } else if ( this.getHealth() > 0 ) {
@@ -202,6 +206,25 @@ public class Boss extends Pnj {
         }
     }
 
+    public void transformation(){
+        if ( etatTransformation == 0 ) this.setTexture(transformation1);
+        else if ( etatTransformation == 1 ) this.setTexture(transformation2);
+        else if ( etatTransformation == 2 ) this.setTexture(transformation3);
+        else if ( etatTransformation == 3 ) this.setTexture(transformation4);
+        else if ( etatTransformation == 4 ) {
+            this.setTexture(transformation5);
+        }
+
+        if  ( System.currentTimeMillis() - timerTransformation > 300 ) {
+            if (etatTransformation == 0 ) etatTransformation = 1 ;
+            else if (etatTransformation == 1 ) etatTransformation = 2 ;
+            else if (etatTransformation == 2 ) etatTransformation = 3 ;
+            else if (etatTransformation == 3 ) etatTransformation = 4 ;
+            else if (etatTransformation == 4 ) etatTransformation = 0 ;
+            timerTransformation = System.currentTimeMillis();
+        }
+    }
+
     public static int etatRésidu = 0;
     public static long timerRésidu = System.currentTimeMillis() ;
 
@@ -261,15 +284,86 @@ public class Boss extends Pnj {
         }
     }
 
+    public int xRésidu = -120;
+    public int yRésidu = -120;
+    public long timerDéplacement = System.currentTimeMillis() ;
+    public boolean enTransformation = false ;
+
+    public void déplacementTéléportation(){
+        if ( (System.currentTimeMillis() - timerDéplacement > 5000
+                || this.isHit ) && enTransformation == false ){
+            this.isHit =false;
+            timerDéplacement = System.currentTimeMillis() ;
+            enTransformation = true;
+            etatTransformation = 0 ;
+
+        }
+        if ( enTransformation ) {
+            if ( etatTransformation == 4 ) {
+                xRésidu = (int) ( this.getBody().getPosition().x *MainMenu.PPM );
+                yRésidu = (int) ( this.getBody().getPosition().y *MainMenu.PPM );
+                CadrillageMap.setTypeDeDécor();
+
+                double xtemp = Math.random() ;
+                double ytemp = Math.random() ;
+                int xtemp2 = (int) (( 1 + xtemp * ( 8 - 1) ) * 60 / MainMenu.PPM ) ;
+                int ytemp2 = (int) (( 1 + ytemp * ( 6 - 1) ) * 60 / MainMenu.PPM );
+                this.getBody().setTransform(xtemp2, ytemp2 , 0);
+                enTransformation = false ;
+            }
+        }
+    }
+
 
 //	déplacement global
 
     @Override
     public void déplacement(){
         if ( this.getHealth() > 40 ){
-
+            déplacementTéléportation();
         }else if ( this.getHealth() > 0){
             this.déplacementAléa();
+        }
+    }
+
+
+//	subir dégats et mort
+
+    @Override
+    public void subirDégats( int cha, String direction){
+        if ( this.getHealth() <= 40 ) {
+            if (this.getHealth() > 0 && this.getHealth() - cha <= 0) {
+                this.drop();
+//			est ce la meilleure solution?
+                this.isAttacked = false;
+                this.getBody().setTransform(-500, -500, 0);
+            } else {
+                if (direction.equals("droite")) {
+                    this.isHit = true;
+                    this.timerHit = System.currentTimeMillis();
+                    this.getBody().applyLinearImpulse(new Vector2(+600000, 0), this.getBody().getWorldCenter(), true);
+
+                } else if (direction.equals("gauche")) {
+                    this.isHit = true;
+                    this.timerHit = System.currentTimeMillis();
+                    this.getBody().applyLinearImpulse(new Vector2(-600000, 0), this.getBody().getWorldCenter(), true);
+
+                } else if (direction.equals("haut")) {
+                    this.isHit = true;
+                    this.timerHit = System.currentTimeMillis();
+                    this.getBody().applyLinearImpulse(new Vector2(0, +600000), this.getBody().getWorldCenter(), true);
+
+                } else if (direction.equals("bas")) {
+                    this.isHit = true;
+                    this.timerHit = System.currentTimeMillis();
+                    this.getBody().applyLinearImpulse(new Vector2(0, -600000), this.getBody().getWorldCenter(), true);
+
+                }
+                this.isAttacked = true;
+            }
+            this.setHealth(this.getHealth() - cha);
+        } else if ( this.getHealth() > 40 ){
+            this.isHit = true;
         }
     }
 
