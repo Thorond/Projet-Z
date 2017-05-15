@@ -1,11 +1,18 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import javax.sound.midi.SysexMessage;
+
+import characters.Boss;
+import characters.MainCharacter;
+import characters.Pnj;
 import decors.ClimatMontagneux;
+import map.CadrillageMap;
 import scenes.MainMenu;
 
 /**
@@ -26,6 +33,11 @@ public class DonjonSalle10 extends Sprite {
     public static boolean isCote5Created;
     public static Body cote6 ;
     public static boolean isCote6Created;
+
+
+    public static Boss boss;
+    public static boolean bossEstCrée = false ;
+    public static boolean bossEstMort = false; // à sauvegarder
 
     public static void sousMap(GameMain game, int x, int y){
 
@@ -138,6 +150,8 @@ public class DonjonSalle10 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 60+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 120+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 180+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240+ x, 420+ y);
+        game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 360+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 420+ x, 420+ y);
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 480+ x, 420+ y);
@@ -152,6 +166,46 @@ public class DonjonSalle10 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
 
+
+
+//         placement boss
+        if ( bossEstCrée && boss.isAlive() ) {
+
+            if ( boss.getHealth() > 40 ) Boss.résidu(game, boss.xRésidu, boss.yRésidu );
+
+            boss.setSize(boss.getTexture().getWidth(), boss.getTexture().getHeight());
+            boss.draw(game.getBatch());
+
+
+            boss.infligéDégatLink();
+        }
+
+        if ( bossEstCrée && ! boss.isAlive() ){
+            if ( ! bossEstMort ) {
+                bossEstMort = true;
+                MainCharacter.etatScenario = 14 ;
+                destroyBody();
+            }
+        }
+
+        if ( MainCharacter.etatScenario > 11 && MainCharacter.etatScenario < 14) {
+
+            game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 240,0);
+            game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 300,0);
+        }
+
+        if ( MainCharacter.etatScenario == 11 ) game.getBatch().draw(Boss.texte11,100,60);
+        else if ( MainCharacter.etatScenario == 12 ) game.getBatch().draw(Boss.texte12,100,60);
+        else if ( MainCharacter.etatScenario == 14 ) game.getBatch().draw(Boss.texte14,100,60);
+        else if ( MainCharacter.etatScenario == 15 ) {
+            game.getBatch().draw(MainCharacter.zeldaBas1,MainMenu.Link.getBody().getPosition().x * MainMenu.PPM ,MainMenu.Link.getBody().getPosition().y * MainMenu.PPM  + 60);
+            game.getBatch().draw(Boss.texte15,100,60);
+        }
+        else if ( MainCharacter.etatScenario == 16 ) {
+            game.getBatch().draw(MainCharacter.zeldaBas1,MainMenu.Link.getBody().getPosition().x * MainMenu.PPM ,MainMenu.Link.getBody().getPosition().y * MainMenu.PPM  + 60);
+            game.getBatch().draw(Boss.texte16,100,60);
+        }
+        
     }
 
     public static void destroyBody() {
@@ -173,10 +227,21 @@ public class DonjonSalle10 extends Sprite {
 
         if ( isCote6Created) MainMenu.world.destroyBody(cote6);
         isCote6Created = false;
+
+
+//
+        if ( bossEstCrée )MainMenu.world.destroyBody(boss.getBody());
+        bossEstCrée = false;
+
+        Pnj.nbrDeMonstres = 0 ;
     }
 
     public static void createBodyAndType(World world) {
         // TODO Auto-generated method stub
+
+        if ( bossEstCrée && boss.xRésidu > 0 && boss.yRésidu > 0 )
+            CadrillageMap.setTypeDeDécor(boss.xRésidu / 60 , boss.yRésidu / 60 , "Résidu");
+
         if ( isCote1Created == false ) {
             cote1 = ClimatMontagneux.createBody(20,240,60,480);
             isCote1Created = true;
@@ -190,16 +255,46 @@ public class DonjonSalle10 extends Sprite {
             isCote3Created = true;
         }
         if ( isCote4Created == false ) {
-            cote4 = ClimatMontagneux.createBody(100,440,240,60);
+            cote4 = ClimatMontagneux.createBody(300,440,600,60);
             isCote4Created = true;
         }
         if ( isCote5Created == false ) {
             cote5 = ClimatMontagneux.createBody(460,20,240,60);
             isCote5Created = true;
         }
-        if ( isCote6Created == false ) {
-            cote6 = ClimatMontagneux.createBody(460,440,240,60);
-            isCote6Created = true;
+        if ( MainCharacter.etatScenario > 11 && MainCharacter.etatScenario < 14) {
+            if ( isCote6Created == false ) {
+                cote6 = ClimatMontagneux.createBody(300,20,600,60);
+                isCote6Created = true;
+            }
+        }
+
+
+        //        création du boss
+
+        if ( bossEstCrée == false ) {
+            if ( ! bossEstMort ) {
+                boss = new Boss(world ,Boss.boss1Bas1, 300 , 240 , "bas") ;
+                Pnj.monstres[0] = boss;
+                Pnj.nbrDeMonstres = 1 ;
+                bossEstCrée = true;
+            }
+        } else {
+            if (MainCharacter.etatScenario > 12  ) {
+                if (!bossEstMort) {
+                    boss.déplacement();
+                    boss.représentation();
+                    boss.updateBody();
+                }
+            } else if ( MainCharacter.etatScenario == 11) {
+                MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0f, +100), MainMenu.Link.getBody().getWorldCenter(), true);
+                MainMenu.Link.représentationLink(MainMenu.Link);
+                if ( MainMenu.Link.getBody().getPosition().y * MainMenu.PPM > 70 ) {
+                    MainCharacter.etatScenario = 12;
+                    MainMenu.Link.getBody().setLinearVelocity(0,0);
+                }
+
+            }
         }
     }
 

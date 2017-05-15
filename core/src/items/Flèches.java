@@ -375,7 +375,7 @@ public class Flèches extends Sprite {
     public void explosionFlèche( ){
 
         //		vérification que des monstres sont présents
-        if ( Pnj.nbrDeMonstres > 0){
+        if ( Pnj.nbrDeMonstres > 0 && ! PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")){
             for ( int i = 0; i < Pnj.nbrDeMonstres ; i++){
                 //				vérification qu'ils soient vivants
                 if ( Pnj.monstres[i].isAlive() ){

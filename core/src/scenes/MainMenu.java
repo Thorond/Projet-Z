@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import characters.Boss;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
@@ -539,7 +540,10 @@ public class MainMenu implements Screen{
 				} else {
 
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
-					if (Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14)
+                    if ( MainCharacter.etatScenario != -1 && MainCharacter.etatScenario != 10
+                            && MainCharacter.etatScenario != 13 && MainCharacter.etatScenario != 17 )
+                        MainCharacter.updateJoueur(delta);
+                    else if (Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14)
 						updateSc1Ghost(delta);
 					else if (AlphabetEtAcquisition.isAlphabetUtilisé) updateAlEtAc(delta);
 					else if (IglooC5.étatAchat > 0 && IglooC5.étatAchat < 10) VieuxMarchand.updateAchat(delta);

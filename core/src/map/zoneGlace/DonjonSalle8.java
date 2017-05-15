@@ -167,8 +167,8 @@ public class DonjonSalle8 extends Sprite {
         if (  miniBossEstMort ) game.getBatch().draw(ClimatMontagneux.escalier , 480 + x , 60 + y);
         else {
             if ( MainMenu.Link.getBody().getPosition().y * MainMenu.PPM < 420 ) {
-                game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 240 + x, 420 + y);
-                game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 300 + x, 420 + y);
+                game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 240 + x, 420 + y);
+                game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 300 + x, 420 + y);
             }
         }
 

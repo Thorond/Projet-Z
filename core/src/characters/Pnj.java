@@ -175,9 +175,8 @@ public class Pnj extends Characters{
 	public void subirDégatsBombe( Bombe cha, int x, int y ){
 		if ( this.getHealth() > 0 && this.getHealth() - cha.getDégàts() <= 0 ) {
 			this.drop();
-//			est ce la meilleure solution?
 			this.isAttacked = false;
-			this.getBody().setTransform(-500, -500, 0);
+			this.getBody().setTransform(-500, -500, 0); //	est ce la meilleure solution? oui a priori..
 		} else {
 			if ( x + this.getWidth() / 2 >= (int) this.getBody().getPosition().x * MainMenu.PPM  -60 
 					&& x <= (int) this.getBody().getPosition().x * MainMenu.PPM  

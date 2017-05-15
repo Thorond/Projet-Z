@@ -33,7 +33,7 @@ public class DonjonSalle5 extends Sprite {
 
     public static Ape ape;
     public static boolean apeEstCrée = false ;
-    public static boolean apeEstMort = false;
+    public static boolean apeEstMort = false;  // à sauvegarder
 
     public static void sousMap(GameMain game, int x, int y){
 

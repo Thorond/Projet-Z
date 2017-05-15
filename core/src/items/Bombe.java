@@ -130,18 +130,24 @@ public class Bombe extends Item {
 	
 	//		vérification que des monstres sont présents
 		if ( Pnj.nbrDeMonstres > 0){
-			for ( int i = 0; i < Pnj.nbrDeMonstres ; i++){
-	//				vérification qu'ils soient vivants
-				if ( Pnj.monstres[i].isAlive() ){
-					if ( (int) this.getX() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM 
-							&& (int) this.getX() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM  
-							&& (int) this.getY() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM 
-							&& (int) this.getY() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM ){
-						
-						Pnj.monstres[i].subirDégatsBombe(this, (int) this.getX(), (int) this.getY());
-					}
-				}
-				
+			// vérification qu'il ne s'agisse pas du boss du donjon
+            if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle10")){
+                if ( CadrillageMap.typeDeDécor[(int) this.getX() / 60][(int) this.getY() / 60].equals("Résidu")){
+                    Pnj.monstres[0].subirDégatsBombe(this, (int) this.getX(), (int) this.getY());
+                }
+            } else {
+                for ( int i = 0; i < Pnj.nbrDeMonstres ; i++) {
+                    //				vérification qu'ils soient vivants
+                    if (Pnj.monstres[i].isAlive()) {
+                        if ((int) this.getX() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
+                                && (int) this.getX() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().x * MainMenu.PPM
+                                && (int) this.getY() + 80 >= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM
+                                && (int) this.getY() - 80 <= (int) Pnj.monstres[i].getBody().getPosition().y * MainMenu.PPM) {
+
+                            Pnj.monstres[i].subirDégatsBombe(this, (int) this.getX(), (int) this.getY());
+                        }
+                    }
+                }
 			}	
 		}
 //		dégàt sur le joueur

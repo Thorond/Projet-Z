@@ -1,5 +1,6 @@
 package sauvegarde;
 
+import characters.Boss;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
@@ -43,6 +44,7 @@ import map.zoneGlace.SousMapH2;
 import map.zoneGlace.SousMapI1;
 import menus.Carte;
 import scenes.MainMenu;
+import sun.applet.Main;
 
 public class Sauvegarde implements java.io.Serializable{
 	
@@ -515,8 +517,13 @@ public class Sauvegarde implements java.io.Serializable{
         PlacementMainZoneGlace.réinitialisation();
         // détruire les types ( décors )
 
-        MainMenu.Link.setDirection("bas");
-        MainMenu.Link.getBody().setTransform(400 / MainMenu.PPM , 240 / MainMenu.PPM, 0);
+//        histoire
+        MainCharacter.etatScenario = 0 ;
+        Boss.etatTransformation = 0;
+
+        MainMenu.Link.setDirection("gauche");
+        MainMenu.Link.getBody().setTransform(250 / MainMenu.PPM , 290 / MainMenu.PPM, 0);
+        MainMenu.Link.getBody().setLinearVelocity(0,0);
         PlacementMainZoneGlace.positionSousMap = "A2";
         MainMenu.Link.zone = "zoneGlace";
         PlacementMainZoneGlace.positionRelativeX = 100;
