@@ -1,11 +1,15 @@
 package map.zoneGlace;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
+import javax.sound.midi.SysexMessage;
+
 import characters.Boss;
+import characters.MainCharacter;
 import characters.Pnj;
 import decors.ClimatMontagneux;
 import map.CadrillageMap;
@@ -179,8 +183,27 @@ public class DonjonSalle10 extends Sprite {
         if ( bossEstCrée && ! boss.isAlive() ){
             if ( ! bossEstMort ) {
                 bossEstMort = true;
+                MainCharacter.etatScenario = 14 ;
                 destroyBody();
             }
+        }
+
+        if ( MainCharacter.etatScenario > 11 && MainCharacter.etatScenario < 14) {
+
+            game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 240,0);
+            game.getBatch().draw(ClimatMontagneux.murSombre2GlacéCentre, 300,0);
+        }
+
+        if ( MainCharacter.etatScenario == 11 ) game.getBatch().draw(Boss.texte11,100,60);
+        else if ( MainCharacter.etatScenario == 12 ) game.getBatch().draw(Boss.texte12,100,60);
+        else if ( MainCharacter.etatScenario == 14 ) game.getBatch().draw(Boss.texte14,100,60);
+        else if ( MainCharacter.etatScenario == 15 ) {
+            game.getBatch().draw(MainCharacter.zeldaBas1,MainMenu.Link.getBody().getPosition().x * MainMenu.PPM ,MainMenu.Link.getBody().getPosition().y * MainMenu.PPM  + 60);
+            game.getBatch().draw(Boss.texte15,100,60);
+        }
+        else if ( MainCharacter.etatScenario == 16 ) {
+            game.getBatch().draw(MainCharacter.zeldaBas1,MainMenu.Link.getBody().getPosition().x * MainMenu.PPM ,MainMenu.Link.getBody().getPosition().y * MainMenu.PPM  + 60);
+            game.getBatch().draw(Boss.texte16,100,60);
         }
         
     }
@@ -239,23 +262,38 @@ public class DonjonSalle10 extends Sprite {
             cote5 = ClimatMontagneux.createBody(460,20,240,60);
             isCote5Created = true;
         }
-//        if ( isCote6Created == false ) {
-//            cote6 = ClimatMontagneux.createBody(460,440,240,60);
-//            isCote6Created = true;
-//        }
+        if ( MainCharacter.etatScenario > 11 && MainCharacter.etatScenario < 14) {
+            if ( isCote6Created == false ) {
+                cote6 = ClimatMontagneux.createBody(300,20,600,60);
+                isCote6Created = true;
+            }
+        }
+
 
         //        création du boss
 
         if ( bossEstCrée == false ) {
-            if ( ! bossEstMort ) boss = new Boss(world ,Boss.boss1Bas1, 300 , 240 , "bas") ;
-            Pnj.monstres[0] = boss;
-            Pnj.nbrDeMonstres = 1 ;
-            bossEstCrée = true;
+            if ( ! bossEstMort ) {
+                boss = new Boss(world ,Boss.boss1Bas1, 300 , 240 , "bas") ;
+                Pnj.monstres[0] = boss;
+                Pnj.nbrDeMonstres = 1 ;
+                bossEstCrée = true;
+            }
         } else {
-            if ( !bossEstMort) {
-                boss.déplacement();
-                boss.représentation();
-                boss.updateBody();
+            if (MainCharacter.etatScenario > 12  ) {
+                if (!bossEstMort) {
+                    boss.déplacement();
+                    boss.représentation();
+                    boss.updateBody();
+                }
+            } else if ( MainCharacter.etatScenario == 11) {
+                MainMenu.Link.getBody().applyLinearImpulse(new Vector2(0f, +100), MainMenu.Link.getBody().getWorldCenter(), true);
+                MainMenu.Link.représentationLink(MainMenu.Link);
+                if ( MainMenu.Link.getBody().getPosition().y * MainMenu.PPM > 70 ) {
+                    MainCharacter.etatScenario = 12;
+                    MainMenu.Link.getBody().setLinearVelocity(0,0);
+                }
+
             }
         }
     }

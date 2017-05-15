@@ -248,7 +248,7 @@ public class MainCharacter extends Characters {
     public static Sprite cacheNoir = new Sprite(cacheNoirT);
     public static float opacité = 0f;
 
-    public static int etatScenario = -1 ;
+    public static int etatScenario = 10 ; // à sauvegarder -1 à la base
 
     public static Texture zeldaGauche = new Texture("Personnage/zelda/zeldaGauche.png");
     public static Texture zeldaKidna = new Texture("Personnage/zelda/zeldaKidna.png");
@@ -258,10 +258,12 @@ public class MainCharacter extends Characters {
 
     public static void updateJoueur(float dt ){
         if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
-            if ( etatScenario >= 0 && etatScenario != 7 && etatScenario != 8) etatScenario ++ ;
+            if ( etatScenario >= 0 && etatScenario != 7 && etatScenario != 8 && etatScenario < 10) etatScenario ++ ;
             if ( etatScenario == 5 ) {
                 MainMenu.Link.setTexture(MainCharacter.linkTombé);
             }
+            if ( etatScenario > 11 && MainCharacter.etatScenario != 13 && MainCharacter.etatScenario < 17)
+                etatScenario ++ ;
 
 
         }

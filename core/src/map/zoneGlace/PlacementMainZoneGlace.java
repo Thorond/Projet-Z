@@ -405,6 +405,7 @@ public class PlacementMainZoneGlace {
                 positionSousMap = "DonjonSalle7";
             } else if ( positionSousMap.equals("DonjonSalle9") && DonjonSalle9.salle == 6){
                 map.zoneGlace.DonjonSalle9.destroyBody();
+				if ( MainCharacter.etatScenario == 10 ) MainCharacter.etatScenario = 11 ;
                 positionSousMap = "DonjonSalle10";
             }
 

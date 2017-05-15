@@ -540,7 +540,9 @@ public class MainMenu implements Screen{
 				} else {
 
 //				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
-                    if ( MainCharacter.etatScenario != -1 && MainCharacter.etatScenario != 10 ) MainCharacter.updateJoueur(delta);
+                    if ( MainCharacter.etatScenario != -1 && MainCharacter.etatScenario != 10
+                            && MainCharacter.etatScenario != 13 && MainCharacter.etatScenario != 17 )
+                        MainCharacter.updateJoueur(delta);
                     else if (Ghost.etatScenario != 0 && Ghost.etatScenario != 9 && Ghost.etatScenario < 14)
 						updateSc1Ghost(delta);
 					else if (AlphabetEtAcquisition.isAlphabetUtilisé) updateAlEtAc(delta);

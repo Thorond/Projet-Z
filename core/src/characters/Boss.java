@@ -177,6 +177,11 @@ public class Boss extends Pnj {
     public static Texture texte7 = new Texture("monstres/boss/texte/texte7.png");
     public static Texture texte8 = new Texture("monstres/boss/texte/texte8.png");
     public static Texture texte9 = new Texture("monstres/boss/texte/texte9.png");
+    public static Texture texte11 = new Texture("monstres/boss/texte/texte11.png");
+    public static Texture texte12 = new Texture("monstres/boss/texte/texte12.png");
+    public static Texture texte14 = new Texture("monstres/boss/texte/texte14.png");
+    public static Texture texte15 = new Texture("monstres/boss/texte/texte15.png");
+    public static Texture texte16 = new Texture("monstres/boss/texte/texte16.png");
 
     public static int etatTransformation = 0;
     public static long timerTransformation = System.currentTimeMillis();
