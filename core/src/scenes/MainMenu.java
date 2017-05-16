@@ -57,8 +57,13 @@ public class MainMenu implements Screen{
 
     public static World world;
 	private GameMain game;
+
+    // définition du personnage principal
 	public static MainCharacter Link;
-	
+
+	/*
+	définition des items
+    */
 	public static Epee épée = new Epee();
 	public static Plume plume = new Plume();
 	public static GantDeForce gantDeForce = new GantDeForce();
@@ -68,11 +73,14 @@ public class MainMenu implements Screen{
 	public static Potion potion = new Potion();
     public static Torche torche = new Torche();
 
+    // définition de la musique ( même si pas utiliser au final )
     public static Music music =  Gdx.audio.newMusic(Gdx.files.internal("musique/Lamabe.mp3"));
 
+    // définition de la classe sauvegarde
 	public static Sauvegarde sauvegarde  = AcceptClass.acceptClass();
 //	= AcceptClass.acceptClass() à utiliser en cas de nouvelle class sauvegarde
-	
+
+    // ces deux fonctions aident à voir les corps en jeu
 	public static OrthographicCamera box2DCamera;
 	private Box2DDebugRenderer debugRenderer;
 	
@@ -99,30 +107,33 @@ public class MainMenu implements Screen{
 
 		this.debugRenderer = new Box2DDebugRenderer();
 
+        // permet d'écrire en jeu
 		font = new BitmapFont();
-//		font.setColor(0, 0, 0, 1);
 
+        // défini les propriétés du jeu, fonction libgdx
 		world = new World(new Vector2(0,0),true);
 
+        //Caractérisation du personnage principal
 //        Link = new MainCharacter(world, 4, 1, 4 , 400 , 200 , "bas");
-
         Link = new MainCharacter(world, 4, 1, 4 , -50 , -50 , "bas");
+
+        // récupération des données de la sauvegarde
         sauvegarde.chargerSauvegarde();
 
 
-
-//
+//      // Utile pour développer, au lieu d'aller chercher les items on les a déjà
 //		MenuSac.setItem(plume);
-//		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
+//		MenuSac.setItem(épée);
 //		MenuSac.setItem(gantDeForce);
 //		MenuSac.setItem(bombe);
 //		MenuSac.setItem(arc);
-//		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
+//		MenuSac.setItem(bouclier);
 //        MenuSac.setItem(potion);
 //		bombe.setNombreItem(40);
 //        Flèches.nombreFlèche = 30;
 //        MenuSac.setItem(torche);
 
+        // placement des items récupérés dans le sac quand le joueur ouvre de nouveau le jeu
 		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
 		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
         if ( Plume.isPlumePrise) MenuSac.setItem(plume);
@@ -142,7 +153,8 @@ public class MainMenu implements Screen{
 
 
 	}
-	
+
+    // acquisition des choix du joueur pour le game over
 	void updateGO(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.S) ){
 			if ( MenuGameover.choix == 1) MenuGameover.choix++;	
@@ -159,7 +171,8 @@ public class MainMenu implements Screen{
 			}
 		}
 	}
-	
+
+    // acquisition des choix du joueur quand il est dans le sac
 	void updateSac(float dt){
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Q) && MenuSac.itemSelect > 1){
 			MenuSac.itemSelect--;		
@@ -226,7 +239,10 @@ public class MainMenu implements Screen{
 
 
 //	 ********************************************************************
-	
+
+    // update principale, elle permet toutes les acquisitions des touches en jeu et aussi
+    // permet l'intéraction du personnage principale avec les décors et items et objets
+
 	void updateInGame(float dt){
 		if ( Link.isAlive){
 			if ( Link.annimationAward){
@@ -348,26 +364,23 @@ public class MainMenu implements Screen{
 
 						}
 
-//					mettre le jeu en pause et sauvegarder
-						if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
-							if (Link.zone.equals("zoneGlace"))
-								sauvegarde = new Sauvegarde(Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
-							else
-								sauvegarde = new Sauvegarde(Link, PlacementMainZoneDesert.positionSousMap, "zoneDesert");
+//                        //	mettre le jeu en pause et sauvegarder pour le développeur
+//						if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
+//							if (Link.zone.equals("zoneGlace"))
+//								sauvegarde = new Sauvegarde(Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
+//							else
+//								sauvegarde = new Sauvegarde(Link, PlacementMainZoneDesert.positionSousMap, "zoneDesert");
+//
+//							SendClass.sendClass(sauvegarde);
+//						}
 
-							SendClass.sendClass(sauvegarde);
-						}
 						if (Gdx.input.isKeyJustPressed(Input.Keys.O)) {
-//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
-//						 classe gestionDesMaps ?
 							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
-								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
+								Pnj.monstres[l].getBody().setLinearVelocity(0, 0); // stopper le mouvement des monstres
 							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuPause.isPause = true;
 						}
 						if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
-//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la
-//						 classe gestionDesMaps ?
 							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
 								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
 							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
@@ -375,8 +388,8 @@ public class MainMenu implements Screen{
 						}
 
 
-						//				intéraction avec l'environnement; lorsqu'il est dans un igloo il n'a pas le droit d'utiliser un item
-
+						//				intéraction avec l'environnement;
+                        //  lorsqu'il est dans un igloo il n'a pas le droit d'utiliser un item
 						if (Gdx.input.isKeyJustPressed(Input.Keys.K) && MenuSac.itemKOccupé
 								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC1")
 								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooD3")
@@ -388,14 +401,14 @@ public class MainMenu implements Screen{
 								&& !PlacementMainZoneGlace.positionSousMap.equals("IglooC5")) {
 							MenuSac.itemsKL[1].utilisationItem(Link);
 						} else if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
-//						 permettant de stopper l'avancer des monstres lorsque l'on regarde dans son sac, à mettre dans une autres fonction dans la 
-//						 classe gestionDesMaps ?
 							for (int l = 0; l < Pnj.nbrDeMonstres; l++)
 								Pnj.monstres[l].getBody().setLinearVelocity(0, 0);
 							Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 100f, Link.getBody().getLinearVelocity().y / 100f);
 							MenuSac.isSacAffiché = true;
 						}
-//					 cas particulier du bouclier , en effet, il faut que le joueur garde le doigt appuyer pour garder le bouclier actif
+                        // cas particulier du bouclier et de l'épée pour la seconde attaque
+                        // en effet, il faut que le joueur garde
+                        // le doigt appuyé pour garder le bouclier actif ou lancer la seconde attaque
 						if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.K)) {
 							MenuSac.itemsKL[0].utilisationItem(Link);
 						} else if (Bouclier.isBouclierUtilisé && Gdx.input.isKeyPressed(Input.Keys.L)) {
@@ -414,7 +427,9 @@ public class MainMenu implements Screen{
 
 							}
 						}
-//********************************** première zone *******************
+
+                        //********************************** première zone *******************
+                        // acquisition de la part du personnage principale des éléments apparessant sur le décors
 						if (Link.zone.equals("zoneGlace")) {
 							if (Link.getDirection().equals("haut")
 									&& CadrillageMap.typeDeDécor[(int) (Link.getBody().getPosition().x * PPM / 60)][(int) (Link.getBody().getPosition().y * PPM / 60)].equals("épée")
@@ -440,7 +455,7 @@ public class MainMenu implements Screen{
 							if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5"))
 								IglooC5.détectionItem(Link);
 							Plume.récupérationPlume();
-//					 démarage scenario 1
+                            //	 démarage scenario 1
 							if (Ghost.etatScenario == 0 && PlacementMainZoneGlace.positionSousMap.equals("IglooD3") && Link.getDirection().equals("haut")
 									&& Link.getBody().getPosition().x > 190 / PPM && Link.getBody().getPosition().x < 410 / PPM
 									&& Link.getBody().getPosition().y > 200 / PPM) {
@@ -455,6 +470,8 @@ public class MainMenu implements Screen{
 						}
 
 						PlacementMainZoneGlace.setDéplacement(Link);
+                        // détection des éléments de décors blessant le personnage principale
+                        // uniquement lorsque la plume n'est pas utilisée
                         if ( ! Plume.isPlumeUtilisée
 								&& Link.getBody().getPosition().x > 0 && Link.getBody().getPosition().x * PPM < 600
                                 && Link.getBody().getPosition().y > 0 && Link.getBody().getPosition().y * PPM < 480) {
@@ -462,25 +479,25 @@ public class MainMenu implements Screen{
                             PlacementMainZoneGlace.détectionEauP(Link);
                         }
 						Flèches.déplacement(Link);
-//						Récuparation du réceptacle
+                        //	Récuparation du réceptacle
 						CoeurDeVie.détectionReceptable(Link);
-//                      Récupération des flèches à terre
+                        //  Récupération des flèches à terre
                         Flèches.détectionFlèches(Link);
-//						récupération de vie par les coeurs de vie
+                        //	récupération de la vie par les coeurs de vie
 						CoeurDeVie.détectionCoeur(Link);
-//					 récupération essences
+                        //	Récupération essences
 						Essence.détectionEssence(Link);
 					}
 				}
 			}
-//			Est ce que le joueur est mort?
+            // Est ce que le joueur est mort?
 			if ( MainMenu.Link.getHealth() <= 0) {
 				MainMenu.Link.isAlive = false;
 				MenuGameover.isGO = true;
 				Link.getBody().setLinearVelocity(0, 0);
 			}
 		} else {
-//			'accélérer' le GameOver
+            //	'accélérer' le GameOver
 			if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
 				MenuGameover.opacitéGO = 0.99f;
 			}
@@ -495,44 +512,34 @@ public class MainMenu implements Screen{
 
 	@Override
 	public void render(float delta) {
-		
+
+        // code libgdx
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		
 		game.getBatch().begin();
 
-		if ( ! MenuDémarrer.isInGame ){
+        // vérification de l'état du jeu et affichage en fonction
+		if ( ! MenuDémarrer.isInGame ){ // en jeu
 			MenuDémarrer.affichageMenuDémarrer(game);
 			MenuDémarrer.updateDémarrage(delta);
 		} else {
-
-			if (Link.isAlive && MenuGameover.isGO) {
-				//			  dessiner le menu de game over
+			if (Link.isAlive && MenuGameover.isGO) { // game over
 				MenuGameover.affichageMenuGO(game);
 				updateGO(delta);
-			} else if (MenuPause.isPause ) {
-
+			} else if (MenuPause.isPause ) {        // menu pause
 				MenuPause.updatePause(delta);
 				MenuPause.affichageMenuPause(game);
-			} else if ( Carte.isAfficher ) {
-
+			} else if ( Carte.isAfficher ) {        // carte
 				Carte.updateCarte(delta);
 				Carte.représentation(game);
-
 			} else {
-
-				if (MenuSac.isSacAffiché ) {
-
+				if (MenuSac.isSacAffiché ) {        // sac
 					updateSac(delta);
-					//			=============================================================================================
-					//											  dessiner le sac
-					//			=============================================================================================
-
 					MenuSac.affichéSac(game);
 				} else {
-
-//				lorsque le joueur doit répondre à l'énigme ( ou autre chose nécessitant le clavier )
+//				appelle des fonctions update en fonction de l'état du jeu
                     if ( MainCharacter.etatScenario != -1 && MainCharacter.etatScenario != 10
                             && MainCharacter.etatScenario != 13 && MainCharacter.etatScenario != 17 )
                         MainCharacter.updateJoueur(delta);
@@ -548,6 +555,7 @@ public class MainMenu implements Screen{
 
 					Link.updatePlayer();
 
+                    // permet le défilement des maps quand le joueur change de map
 					if (Link.zone.equals("zoneGlace")) {
 						if (PlacementMainZoneGlace.défilement == false) {
 							PlacementMainZoneGlace.posiSousMap(Link);
@@ -573,28 +581,32 @@ public class MainMenu implements Screen{
 					}
 
 
-					//			=============================================================================================
-					//     		       dessiner les coeurs de vie
-					//			=============================================================================================
-					CoeurDeVie.représentationCoeur(game);
-					// dessiner les essences
+					// affichage des coeurs de vie par terre
+                    CoeurDeVie.représentationCoeur(game);
+					// affichage des essences par terre
 					Essence.représentationEssence(game);
+                    // affichage des flèches par terre
                     Flèches.représentationFlèchesDrop(game);
-
+                    // affichage des flèches tirées
 					Flèches.représentationFlèches(game);
+                    // affichage des bombes déposées
 					Bombe.représentationBombe(game);
-
+                    // affichage du tigre quand on la libéré
 					Tigre.représentationPoursuite(world, game);
 
 
-					//			dessin du joueur
-//				Link.setColor(0.8f,0.8f,0,1f);
+//				Link.setColor(0.8f,0.8f,0,1f); code qu'il aurait fallu utiliser pour changer la couleur du personnage
+
+                    // affichage de la plume
                     if ( Plume.isPlumeUtilisée ){
                         game.getBatch().draw(Plume.plume, Link.getX()-5,Link.getY()-5);
                     }
+
+                    //	affichage du personnage principal
 					Link.draw(game.getBatch());
 
-                    // cache noir quand joueur dans donjon
+                    // cache noir quand le joueur est dans certaine pièce du donjon
+                    // en fonction de l'état de l'item torche
                     if ( PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle7")
                             || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle8")
                             || PlacementMainZoneGlace.positionSousMap.equals("DonjonSalle9") ) {
@@ -605,40 +617,35 @@ public class MainMenu implements Screen{
                     }
                 }
 
-//			 texte de la map totem
+			    // affichage du texte de la map des  totems
 				if (Totem.étatTexte > 0) Totem.représentationTexte(game);
-//			 dessin de l'intéraction avec le fantome, codé ici car doit être au dessus du dessin du personnage
+                // affichage du dialogue avec le fantome et de la fenêtre de réponse du joueur
 				if (Ghost.etatScenario > 0 && Ghost.etatScenario < 14) Ghost.scenario1(game);
 				if (AlphabetEtAcquisition.isAlphabetUtilisé)
 					AlphabetEtAcquisition.affichageMot(game);
-//			représentation de l'achat
+                //	affichage du dialogue avec le vieux marchand
 				if (IglooC5.étatAchat > 0) VieuxMarchand.discussionAchat(game);
-//			texte des bonhommes de neiges
+                //	affichage du dialogue avec le bonhomme de neige
 				if (SnowMan.étatTexte > 0 && SnowMan.étatTexte < 11)
 					SnowMan.représentationTexte(game);
 
 				//		=============================================================================================
-				//     						  dessiner les items à la fois en jeu et dans menuSac
-				//		=============================================================================================
-				potion.affichageTemps();
+				//     						  affichage les items à la fois en jeu et dans menuSac
+				// la potion affiche le temps avant la prochaine utilisation
+                potion.affichageTemps();
 
 				if (MenuSac.itemKOccupé) MenuSac.affichageItemK(game);
 				if (MenuSac.itemLOccupé) MenuSac.affichageItemL(game);
 
 
 				//		=============================================================================================
-				//								dessiner la vie à la fois en jeu et dans menuSac
-				//		=============================================================================================
-
-
+				//								affichage la vie à la fois en jeu et dans menuSac
 				CoeurDeVie.représentationNombreCoeur(game, Link);
 
-//			déssin du nommbres d'essences
-
+                //	affichage du nommbres d'essences que possède le joueur
 				Essence.représentationNombreEssence(game, font);
 
-
-				//		déssin du gameover
+				//		affichage du gameover
 				MenuGameover.GameOver(game);
 			}
 		}
@@ -649,9 +656,10 @@ public class MainMenu implements Screen{
 		game.getBatch().end();
 		
 		
-//		afficher les corps pour visualiser ce avec quoi on travail
+//		afficher les corps pour visualiser ce avec quoi on travaille
 //		this.debugRenderer.render(world, box2DCamera.combined);
-		
+
+        // code libgdx
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
 	}
