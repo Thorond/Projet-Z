@@ -232,7 +232,7 @@ public class SousMapH2 extends Sprite{
             game.getBatch().draw(DonjonGlace.murGlacéPorte1, 480 + x, 240 + y);
         } else if (DonjonGlace.transitionGrille ){
             DonjonGlace.annimationOuvertureGrille(game, x, y);
-        } else {
+        } else if ( DonjonGlace.ouvertureGrille >= 4){
             game.getBatch().draw(DonjonGlace.murGlacéPorte4, 480 + x, 240 + y);
         }
 

@@ -32,10 +32,8 @@ public class MenuGameover extends Menu {
 //				destruction des corps de la sous map sur laquelle on était quand on meurt 
 				GestionDesMapsZoneGlace.destructionDesCorps();
 				
-//				suppression des types de décor 
-				CadrillageMap.setTypeDeDécor();
-				CadrillageMap.setDécoChangéFaux();
-				CoeurDeVie.réinitialisation();
+//				réinitialisation de tous les objets tel coeur de vie et autres
+				PlacementMainZoneGlace.réinitialisation();
 				
 				MainMenu.Link.setDirection(MainMenu.sauvegarde.getDirection());
 				MainMenu.Link.getBody().setTransform(MainMenu.sauvegarde.getCoordX(), MainMenu.sauvegarde.getCoordY(), 0);

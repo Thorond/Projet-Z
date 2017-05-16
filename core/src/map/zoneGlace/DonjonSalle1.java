@@ -29,6 +29,15 @@ public class DonjonSalle1 extends Sprite {
     public static Body cote7 ;
     public static boolean isCote7Created;
 
+    public static Body torche1;
+    public static boolean istorche1Created;
+    public static Body torche2;
+    public static boolean istorche2Created;
+    public static Body torche3;
+    public static boolean istorche3Created;
+    public static Body torche4;
+    public static boolean istorche4Created;
+
     public static void sousMap(GameMain game, int x, int y){
 
         game.getBatch().draw(ClimatMontagneux.glaceSombre3, 0+ x, 0+ y);
@@ -152,6 +161,10 @@ public class DonjonSalle1 extends Sprite {
         game.getBatch().draw(ClimatMontagneux.murSombreGlacéCentre, 540+ x, 420+ y);
 
 
+        ClimatMontagneux.annimationTorche(game,60+ x,60+ y);
+        ClimatMontagneux.annimationTorche(game,480+ x,60+ y);
+        ClimatMontagneux.annimationTorche(game,60+ x,360+ y);
+        ClimatMontagneux.annimationTorche(game,480+ x,360+ y);
     }
 
     public static void destroyBody() {
@@ -176,6 +189,16 @@ public class DonjonSalle1 extends Sprite {
 
         if ( isCote7Created) MainMenu.world.destroyBody(cote7);
         isCote7Created = false;
+
+
+        if ( istorche1Created) MainMenu.world.destroyBody(torche1);
+        istorche1Created = false;
+        if ( istorche2Created) MainMenu.world.destroyBody(torche2);
+        istorche2Created = false;
+        if ( istorche3Created) MainMenu.world.destroyBody(torche3);
+        istorche3Created = false;
+        if ( istorche4Created) MainMenu.world.destroyBody(torche4);
+        istorche4Created = false;
     }
 
     public static void createBodyAndType(World world) {
@@ -207,6 +230,24 @@ public class DonjonSalle1 extends Sprite {
         if ( isCote7Created == false ) {
             cote7 = ClimatMontagneux.createBody(20,390,60,180);
             isCote7Created = true;
+        }
+
+
+        if ( istorche1Created == false ) {
+            torche1 = ClimatMontagneux.createBody( 8*60 +15 ,1*60 +15 ,60,60);
+            istorche1Created = true;
+        }
+        if ( istorche2Created == false ) {
+            torche2 = ClimatMontagneux.createBody( 1*60 +15 ,6*60 +15 ,60,60);
+            istorche2Created = true;
+        }
+        if ( istorche3Created == false ) {
+            torche3 = ClimatMontagneux.createBody( 8*60 +15 ,6*60 +15 ,60,60);
+            istorche3Created = true;
+        }
+        if ( istorche4Created == false ) {
+            torche4 = ClimatMontagneux.createBody( 1*60 +15 ,1*60 +15 ,60,60);
+            istorche4Created = true;
         }
     }
 

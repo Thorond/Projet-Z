@@ -22,7 +22,7 @@ public class DonjonSalle8 extends Sprite {
 
     public static MiniBoss miniBoss;
     public static boolean miniBossEstCrée = false ;
-    public static boolean miniBossEstMort = false;
+    public static boolean miniBossEstMort = false; // à sauvegarder
 
     public static Body cote1 ;
     public static boolean isCote1Created;

@@ -7,6 +7,7 @@ import com.mygdx.game.GameMain;
 
 import decors.ClimatMontagneux;
 import items.Bombe;
+import items.CoeurDeVie;
 import items.Essence;
 import map.zoneGlace.IglooC5;
 import menus.MenuSac;
@@ -25,6 +26,7 @@ public class VieuxMarchand {
 	public static Texture  texte3 = new Texture("texte/vieuxMarchand/texte3.png");
 	public static Texture  texte4 = new Texture("texte/vieuxMarchand/texte4.png");
 	public static Texture  texte5 = new Texture("texte/vieuxMarchand/texte5.png");
+    public static Texture  texte6 = new Texture("texte/vieuxMarchand/texte6.png");
 	
 	public static void annimationAttente1(GameMain game, int x , int y){
 		if ( etatAttente1 == 0 ) game.getBatch().draw(vieuxMarchandDroite1,x,y);
@@ -40,6 +42,7 @@ public class VieuxMarchand {
 		if ( IglooC5.étatAchat == 1 ) game.getBatch().draw(texte0,100,60);
 		else if ( IglooC5.étatAchat == 4 ) game.getBatch().draw(texte4,100,60);
 		else if ( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5 ) game.getBatch().draw(texte1,100,60);
+        else if ( IglooC5.étatAchat == 6 ) game.getBatch().draw(texte6,100,60);
 		else if ( IglooC5.étatAchat == 7 ) game.getBatch().draw(texte2,100,60);
 		else if ( IglooC5.étatAchat == 8 ) game.getBatch().draw(texte3,100,60);
 		else if ( IglooC5.étatAchat == 9 ) game.getBatch().draw(texte5,100,60);
@@ -51,7 +54,7 @@ public class VieuxMarchand {
         if ( Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ){
             if ( IglooC5.étatAchat == 1 ) IglooC5.étatAchat = 2;
             else if ( IglooC5.étatAchat == 4 ) IglooC5.étatAchat = 5;
-            else if ( ! (IglooC5.étatAchat == 2)  && ! (IglooC5.étatAchat == 5) ){
+            else if ( ! (IglooC5.étatAchat == 2)  && ! (IglooC5.étatAchat == 5) && ! (IglooC5.étatAchat == 6)  ){
                 IglooC5.étatAchat = 10;
             }
         } else if ( Gdx.input.isKeyJustPressed(Input.Keys.K) ) {
@@ -78,8 +81,18 @@ public class VieuxMarchand {
                     IglooC5.étatAchat = 8;
                 }
             }
+            else if ( IglooC5.étatAchat == 6 ) {
+                if ( Essence.nombreEssence >= 30 ){
+                    if ( ! IglooC5.isReceptaclePris ) CoeurDeVie.receptacleDeCoeur();
+                    Essence.nombreEssence -= 30 ;
+                    IglooC5.étatAchat = 10;
+                    MainMenu.Link.annimationAward = true;
+                } else {
+                    IglooC5.étatAchat = 8;
+                }
+            }
         }else if ( Gdx.input.isKeyJustPressed(Input.Keys.L) ) {
-            if( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5  ){
+            if( IglooC5.étatAchat == 2 || IglooC5.étatAchat == 5  || IglooC5.étatAchat == 6){
                 IglooC5.étatAchat = 9;
             }
         }

@@ -23,7 +23,7 @@ public class Potion extends Item{
     public static Texture textePotion = new Texture("items/potion/textePotion.png");
 
     public long trenteMin = 1800000 ;
-    public long utilisationPotion = - 1800001 + System.currentTimeMillis();
+    public static long utilisationPotion = - 1800001 + System.currentTimeMillis(); // à sauvegarder?
 
     @Override
     public void utilisationItem( MainCharacter cha) {

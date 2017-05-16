@@ -12,7 +12,6 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.GameMain;
 
-import characters.Boss;
 import characters.Dompteuse;
 import characters.Ghost;
 import characters.MainCharacter;
@@ -21,7 +20,6 @@ import characters.Pnj;
 import characters.SnowMan;
 import characters.Tigre;
 import characters.VieuxMarchand;
-import decors.ClimatMontagneux;
 import decors.DonjonGlace;
 import decors.Totem;
 import interactionClavier.AlphabetEtAcquisition;
@@ -44,13 +42,8 @@ import map.zoneGlace.GestionDesMapsZoneGlace;
 import map.zoneGlace.IglooC1;
 import map.zoneGlace.IglooC5;
 import map.zoneGlace.PlacementMainZoneGlace;
-import map.zoneGlace.SousMapD2;
 import map.zoneGlace.SousMapD5;
 import map.zoneGlace.SousMapF1;
-import map.zoneGlace.SousMapF2;
-import map.zoneGlace.SousMapG5;
-import map.zoneGlace.SousMapH2;
-import map.zoneGlace.SousMapI5;
 import menus.Carte;
 import menus.MenuDémarrer;
 import menus.MenuGameover;
@@ -95,7 +88,7 @@ public class MainMenu implements Screen{
 
 //        musique démarrage
         music.play();
-        music.setLooping(true);
+        music.setLooping(true); // joue la musique en boucle
         music.dispose();
 
         this.game = game;
@@ -119,28 +112,28 @@ public class MainMenu implements Screen{
 
 
 //
-		MenuSac.setItem(plume);
-		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
-		MenuSac.setItem(gantDeForce);
-		MenuSac.setItem(bombe);
-		MenuSac.setItem(arc);
-		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
-        MenuSac.setItem(potion);
-		bombe.setNombreItem(40);
-        Flèches.nombreFlèche = 30;
-        MenuSac.setItem(torche);
+//		MenuSac.setItem(plume);
+//		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
+//		MenuSac.setItem(gantDeForce);
+//		MenuSac.setItem(bombe);
+//		MenuSac.setItem(arc);
+//		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
+//        MenuSac.setItem(potion);
+//		bombe.setNombreItem(40);
+//        Flèches.nombreFlèche = 30;
+//        MenuSac.setItem(torche);
 
-//		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
-//		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
-//        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
-//        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
-//        if ( Bombe.isBombeRécupéré ) {
-//            MenuSac.setItem(bombe);
-//            bombe.setNombreItem(sauvegarde.nombreBombe );
-//        }
-//        if ( Arc.isArcPris) MenuSac.setItem(arc);
-//        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
-//        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
+		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
+		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
+        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
+        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
+        if ( Bombe.isBombeRécupéré ) {
+            MenuSac.setItem(bombe);
+            bombe.setNombreItem(sauvegarde.nombreBombe );
+        }
+        if ( Arc.isArcPris) MenuSac.setItem(arc);
+        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
+        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
 
 		start = System.currentTimeMillis();
 
@@ -657,7 +650,7 @@ public class MainMenu implements Screen{
 		
 		
 //		afficher les corps pour visualiser ce avec quoi on travail
-		this.debugRenderer.render(world, box2DCamera.combined);
+//		this.debugRenderer.render(world, box2DCamera.combined);
 		
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		

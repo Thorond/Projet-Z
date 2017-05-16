@@ -10,7 +10,7 @@ import scenes.MainMenu;
 public class Essence {
 	
 	public static final int essenceMax = 999;
-	public static int nombreEssence = 500; // à sauvegarder
+	public static int nombreEssence = 0; // à sauvegarder
 	
 	public static Texture essenceBleu = new Texture("Divers/essence/essenceBleu.png");
 	public static Texture essenceJaune = new Texture("Divers/essence/essenceJaune.png");

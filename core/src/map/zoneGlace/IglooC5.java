@@ -9,6 +9,7 @@ import characters.MainCharacter;
 import characters.VieuxMarchand;
 import decors.ClimatMontagneux;
 import items.Bombe;
+import items.CoeurDeVie;
 import items.Essence;
 import menus.MenuGameover;
 import scenes.MainMenu;
@@ -48,6 +49,8 @@ public class IglooC5 extends Sprite{
 	public static boolean isTorche1Created;
 	public static Body torche2;
 	public static boolean isTorche2Created;
+
+	public static boolean isReceptaclePris = false; // à sauvegarder
 	
 	
 	public static void représentation(GameMain game, int x, int y){
@@ -149,9 +152,20 @@ public class IglooC5 extends Sprite{
 		MainMenu.font.draw(game.getBatch(), "20", 300 +x, 330+x);
 		game.getBatch().draw(Essence.essenceBleu, 310+ x, 310+ y);
 		game.getBatch().draw(ClimatMontagneux.longTonneau, 320+ x, 300+ y);
+        if ( ! (isReceptaclePris) ) {
+            game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, 400+ x, 330+ y);
+            MainMenu.font.draw(game.getBatch(), "", 430 +x, 350+x);
+            MainMenu.font.draw(game.getBatch(), "30", 430 +x, 330+x);
+            game.getBatch().draw(Essence.essenceBleu, 440+ x, 310+ y);
+        }
 		
 		ClimatMontagneux.annimationTorcheIgloo(game, 140, 180);
 		ClimatMontagneux.annimationTorcheIgloo(game, 380, 180);
+
+        if ( isReceptaclePris && MainMenu.Link.annimationAward ) {
+            game.getBatch().draw(CoeurDeVie.receptacleDeCoeur, MainMenu.Link.getX() + x, MainMenu.Link.getY() + 60+ y);
+            game.getBatch().draw(CoeurDeVie.texteRéceptacle, 100 + x, 60+y);
+        }
 	}
 
 	public static void destroyBody() {
@@ -299,10 +313,16 @@ public class IglooC5 extends Sprite{
 					if ( Link.getX() > 200 && Link.getX() < 240 ){
 						étatAchat = 1 ;
 						MainMenu.Link.setTexture(MainCharacter.linkGaucheRepos);
+                        MainMenu.Link.getBody().setLinearVelocity(0,0);
 					} else if ( Link.getX() > 250 && Link.getX() < 300 ){
-						étatAchat = 4 ; 
-						MainMenu.Link.setTexture(MainCharacter.linkGaucheRepos);
-					}
+                        étatAchat = 4 ;
+                        MainMenu.Link.setTexture(MainCharacter.linkGaucheRepos);
+                        MainMenu.Link.getBody().setLinearVelocity(0,0);
+                    } else if ( Link.getX() > 370 && Link.getX() < 430 && ! (isReceptaclePris)){
+                        étatAchat = 6 ;
+                        MainMenu.Link.setTexture(MainCharacter.linkGaucheRepos);
+                        MainMenu.Link.getBody().setLinearVelocity(0,0);
+                    }
 				}
 			}
 		} if ( étatAchat == 10 ){
