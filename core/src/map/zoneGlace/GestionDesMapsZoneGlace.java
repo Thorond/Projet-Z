@@ -830,13 +830,13 @@ public class GestionDesMapsZoneGlace {
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("G1")) {
             if (! Carte.mapG1Découverte ) Carte.mapG1Découverte = true;
-			SousMapG1.destroyBody();
+			SousMapG1.destroyType();
 			SousMapG1.createBodyAndType(MainMenu.world);
 			SousMapG1.sousMap(game, 0, 0);
 		}
 		else if ( PlacementMainZoneGlace.positionSousMap.equals("H1")) {
             if (! Carte.mapH1Découverte ) Carte.mapH1Découverte = true;
-			SousMapH1.destroyBody();
+			SousMapH1.destroyType();
 			SousMapH1.createBodyAndType(MainMenu.world);
 			SousMapH1.sousMap(game, 0, 0);
 		}
