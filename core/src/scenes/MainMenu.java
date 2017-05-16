@@ -112,28 +112,28 @@ public class MainMenu implements Screen{
 
 
 //
-		MenuSac.setItem(plume);
-		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
-		MenuSac.setItem(gantDeForce);
-		MenuSac.setItem(bombe);
-		MenuSac.setItem(arc);
-		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
-        MenuSac.setItem(potion);
-		bombe.setNombreItem(40);
-        Flèches.nombreFlèche = 30;
-        MenuSac.setItem(torche);
+//		MenuSac.setItem(plume);
+//		MenuSac.setItem(épée); // pour ne pas avoir à aller la rechercher à chaque réinitialisation de sauvegarde
+//		MenuSac.setItem(gantDeForce);
+//		MenuSac.setItem(bombe);
+//		MenuSac.setItem(arc);
+//		MenuSac.setItem(bouclier); // pour ne pas avoir à aller le rechercher à chaque réinitialisation de sauvegarde
+//        MenuSac.setItem(potion);
+//		bombe.setNombreItem(40);
+//        Flèches.nombreFlèche = 30;
+//        MenuSac.setItem(torche);
 
-//		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
-//		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
-//        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
-//        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
-//        if ( Bombe.isBombeRécupéré ) {
-//            MenuSac.setItem(bombe);
-//            bombe.setNombreItem(sauvegarde.nombreBombe );
-//        }
-//        if ( Arc.isArcPris) MenuSac.setItem(arc);
-//        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
-//        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
+		if ( Epee.isEpéePrise )	MenuSac.setItem(épée);
+		if ( Bouclier.isBouclierPris) MenuSac.setItem(bouclier);
+        if ( Plume.isPlumePrise) MenuSac.setItem(plume);
+        if ( GantDeForce.isGantDeForcePris) MenuSac.setItem(gantDeForce);
+        if ( Bombe.isBombeRécupéré ) {
+            MenuSac.setItem(bombe);
+            bombe.setNombreItem(sauvegarde.nombreBombe );
+        }
+        if ( Arc.isArcPris) MenuSac.setItem(arc);
+        if ( Potion.isPotionRécupérer ) MenuSac.setItem(potion);
+        if ( Torche.isTorchePrise ) MenuSac.setItem(torche);
 
 		start = System.currentTimeMillis();
 
@@ -650,7 +650,7 @@ public class MainMenu implements Screen{
 		
 		
 //		afficher les corps pour visualiser ce avec quoi on travail
-		this.debugRenderer.render(world, box2DCamera.combined);
+//		this.debugRenderer.render(world, box2DCamera.combined);
 		
 		world.step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
