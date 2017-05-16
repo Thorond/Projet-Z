@@ -248,7 +248,7 @@ public class MainCharacter extends Characters {
     public static Sprite cacheNoir = new Sprite(cacheNoirT);
     public static float opacité = 0f;
 
-    public static int etatScenario = 10 ; // à sauvegarder -1 à la base
+    public static int etatScenario = -1; // à sauvegarder -1 à la base
 
     public static Texture zeldaGauche = new Texture("Personnage/zelda/zeldaGauche.png");
     public static Texture zeldaKidna = new Texture("Personnage/zelda/zeldaKidna.png");

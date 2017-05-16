@@ -7,6 +7,7 @@ import characters.MainCharacter;
 import map.CadrillageMap;
 import map.zoneGlace.GrotteF5Salle3;
 import map.zoneGlace.GrotteI1Salle1;
+import map.zoneGlace.IglooC5;
 import map.zoneGlace.PlacementMainZoneGlace;
 import map.zoneGlace.SousMapA2;
 import map.zoneGlace.SousMapB3;
@@ -276,6 +277,7 @@ public class CoeurDeVie {
 	
 	public static void receptacleDeCoeur(){
         if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle1")) GrotteI1Salle1.isReceptaclePris = true;
+        if (PlacementMainZoneGlace.positionSousMap.equals("IglooC5")) IglooC5.isReceptaclePris = true;
 		if (PlacementMainZoneGlace.positionSousMap.equals("A2")) SousMapA2.isReceptaclePris = true;
 		if (PlacementMainZoneGlace.positionSousMap.equals("B3")) SousMapB3.isReceptaclePris = true;
 		if (PlacementMainZoneGlace.positionSousMap.equals("F4")) SousMapF4.isReceptaclePris = true;

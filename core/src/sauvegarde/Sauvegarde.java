@@ -61,6 +61,7 @@ public class Sauvegarde implements java.io.Serializable{
 	public String zone;
 	public int HealthMax;
 	public int Health;
+//    public int etatScenarioLink ;
 
 //  *********   items ***********
 	public boolean isEpéePrise;
@@ -126,6 +127,10 @@ public class Sauvegarde implements java.io.Serializable{
     public int nbrTuéSlim ;
     public int nbrTuéPetitSlim ;
     public int yCléDonjon ;
+
+//    public boolean apeEstMort ;
+//    public boolean miniBossEstMort ;
+//    public boolean bossEstMort ;
 
 
 //         *********élément des cartes**********
