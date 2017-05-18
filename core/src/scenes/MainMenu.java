@@ -274,7 +274,7 @@ public class MainMenu implements Screen{
 						|| (Link.zone.equals("zoneDesert") && PlacementMainZoneDesert.défilement == false) ){
 	//				choix clavier du joueur
 					
-					if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER ) ) {
+					if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER ) ) { // enlever le texte sur la map des totems
 						if ( PlacementMainZoneGlace.positionSousMap.equals("G1" )){
 							if ( Totem.étatTexte >0 && Totem.étatTexte < 4 ) Totem.étatTexte ++ ;
 							else if ( Totem.étatTexte == 5 ) Totem.étatTexte = 0;
@@ -355,7 +355,8 @@ public class MainMenu implements Screen{
 								}
 							}
 
-
+							// ces lignes de code permettent au joueur de bouger vers le haut ou vers le bas sans se déplacer vers la gauche
+							// et la droite et inversement
 							if (!(Gdx.input.isKeyPressed(Input.Keys.Q)) && !(Gdx.input.isKeyPressed(Input.Keys.D)))
 								Link.getBody().setLinearVelocity(Link.getBody().getLinearVelocity().x / 1.2f, Link.getBody().getLinearVelocity().y);
 							if (!(Gdx.input.isKeyPressed(Input.Keys.Z)) && !(Gdx.input.isKeyPressed(Input.Keys.S)))
@@ -364,7 +365,7 @@ public class MainMenu implements Screen{
 
 						}
 
-//                        //	mettre le jeu en pause et sauvegarder pour le développeur
+//                        //	mettre le jeu en pause et sauvegarder ***** pour le développeur  *****
 //						if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
 //							if (Link.zone.equals("zoneGlace"))
 //								sauvegarde = new Sauvegarde(Link , PlacementMainZoneGlace.positionSousMap, "zoneGlace");
@@ -518,7 +519,7 @@ public class MainMenu implements Screen{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		
-		game.getBatch().begin();
+		game.getBatch().begin(); // fonction libGDX permettant de commencer à afficher
 
         // vérification de l'état du jeu et affichage en fonction
 		if ( ! MenuDémarrer.isInGame ){ // en jeu
@@ -650,7 +651,7 @@ public class MainMenu implements Screen{
 			}
 		}
 
-        // affichage de la sauvegarde
+        // affichage de la sauvegarde indiquant que le joueur a bien sauvegarder
         MenuPause.affichageSauvegarde(game);
 
 		game.getBatch().end();

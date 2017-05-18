@@ -192,6 +192,7 @@ public class Boss extends Pnj {
     public static Texture transformation4 = new Texture("monstres/boss/transformation4.png");
     public static Texture transformation5 = new Texture("monstres/boss/transformation5.png");
 
+    // téléportation lors du combat
     public static void transformation(GameMain game, int x, int y){
         if ( etatTransformation == 0 ) game.getBatch().draw(transformation1, x, y);
         else if ( etatTransformation == 1 ) game.getBatch().draw(transformation2, x, y);
@@ -212,6 +213,7 @@ public class Boss extends Pnj {
         }
     }
 
+    // téléportation lors du début du jeu
     public void transformation(){
         if ( etatTransformation == 0 ) this.setTexture(transformation1);
         else if ( etatTransformation == 1 ) this.setTexture(transformation2);
@@ -237,6 +239,7 @@ public class Boss extends Pnj {
     public static Texture résidu1 = new Texture("monstres/boss/résidu1.png");
     public static Texture résidu2 = new Texture("monstres/boss/résidu2.png");
 
+    // animation de la 'faille' que le boss laisse derrière lui
     public static void résidu(GameMain game , int x , int y ) {
         if ( etatRésidu == 0 ) game.getBatch().draw(résidu1,x,y);
         else if ( etatRésidu == 1 ) game.getBatch().draw(résidu2,x,y);
@@ -250,7 +253,7 @@ public class Boss extends Pnj {
 
 
 
-//	déplacement aléatoire
+//	déplacement aléatoire pour la phase 2 du boss
 
     @Override
     public void déplacementAléa(){
