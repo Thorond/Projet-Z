@@ -28,7 +28,6 @@ public class Potion extends Item{
     @Override
     public void utilisationItem( MainCharacter cha) {
         if ( System.currentTimeMillis() - utilisationPotion > trenteMin ) {
-            System.out.println("yop");
             cha.setHealth(cha.getHealth() + cha.getHealthMax() / 2);
             if (cha.getHealth() > cha.getHealthMax()) cha.setHealth(cha.getHealthMax());
             utilisationPotion = System.currentTimeMillis();

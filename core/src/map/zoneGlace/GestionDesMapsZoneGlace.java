@@ -776,14 +776,14 @@ public class GestionDesMapsZoneGlace {
 			if ( PlacementMainZoneGlace.x == 600) {
 				PlacementMainZoneGlace.défilement = false;
 				PlacementMainZoneGlace.x = 0;
-				PlacementMainZoneGlace.positionRelativeX = MainMenu.Link.getBody().getPosition().x;
-				PlacementMainZoneGlace.positionRelativeY = MainMenu.Link.getBody().getPosition().y;
+				PlacementMainZoneGlace.positionRelativeX = MainMenu.Link.getBody().getPosition().x; // position de chute
+				PlacementMainZoneGlace.positionRelativeY = MainMenu.Link.getBody().getPosition().y; // position de chute
 			}
 			if ( PlacementMainZoneGlace.y == 480) {
 				PlacementMainZoneGlace.défilement = false;
 				PlacementMainZoneGlace.y = 0;
-				PlacementMainZoneGlace.positionRelativeX = MainMenu.Link.getBody().getPosition().x;
-				PlacementMainZoneGlace.positionRelativeY = MainMenu.Link.getBody().getPosition().y;
+				PlacementMainZoneGlace.positionRelativeX = MainMenu.Link.getBody().getPosition().x; // position de chute
+				PlacementMainZoneGlace.positionRelativeY = MainMenu.Link.getBody().getPosition().y; // position de chute
 			}
 	}
 	

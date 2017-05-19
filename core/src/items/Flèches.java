@@ -42,6 +42,7 @@ public class Flèches extends Sprite {
     public void setBody(Body body) {
         this.body = body;
     }
+    
     void createBody(float x, float y){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -63,6 +64,7 @@ public class Flèches extends Sprite {
         shape.dispose();
     }
 
+    // fonction qui permet d'afficher les graphismes en fonction de la position du corps
     public void updateBody(){
         this.setPosition(this.getBody().getPosition().x *MainMenu.PPM , this.getBody().getPosition().y*MainMenu.PPM);
     }
