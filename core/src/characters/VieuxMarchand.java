@@ -16,6 +16,16 @@ import scenes.MainMenu;
 public class VieuxMarchand {
 
 	public static int etatAttente1 = 0;
+    /*la fonction détection de ce personnage est placé dans la classe IglooC5
+    * si le joueur se positionne devant les bombes, l'état est 1
+    * s'il se positionne devant les carottes, l'état est 4
+    * s'il se positionne devant le réceptacle, l'état est 6
+    * de ces états on passe a 2, 5 et l'état 6 reste celui du choix
+    * pour ces trois états , il y a donc le choix de donner des essences contre un des items
+    * soit non, et état 8,
+    * soit oui et le joueur a assez d'essence et état 7 , 7 et 10
+    * soit le joueur n'en a pas assez et état 8 */
+
 	public static long startAttente1 = System.currentTimeMillis();
 	public static Texture  vieuxMarchandDroite1 = new Texture("monstres/vieuxMarchand/vieuxMarchandDroite1.png");
 	public static Texture  vieuxMarchandDroite2 = new Texture("monstres/vieuxMarchand/vieuxMarchandDroite2.png");

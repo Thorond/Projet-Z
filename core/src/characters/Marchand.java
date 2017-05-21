@@ -110,7 +110,13 @@ public class Marchand extends Pnj{
 
 
     public static int etatScenario = 0 ; // à sauvegarder
-
+    /*état 0, état initiale
+    * état 1,2, dialoge
+    * état 3, choix quant à donner 130 essences pour les gants de force ou non
+    * 6, c'est bon
+    * 4, il n'a pas d'argent mais a dit oui
+    * 5, il n'a pas accepté à 3
+    * 7, fin de discussion*/
 
     public static Texture  texte1 = new Texture("monstres/marchand/texteMarchand1.png");
     public static Texture  texte2 = new Texture("monstres/marchand/texteMarchand2.png");

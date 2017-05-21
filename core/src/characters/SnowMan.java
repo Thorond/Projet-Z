@@ -12,7 +12,14 @@ import scenes.MainMenu;
 
 public class SnowMan {
 	
-	public static int étatTexte = 0 ; // à sauvegarder 
+	public static int étatTexte = 0 ; // à sauvegarder
+	/*état 0, état initiale
+	* état 1,2, dialogue
+	* état 3 , choix de donner ou non les carottes
+	* si non, état état 8
+	* si oui, si le joueur a les carottes, état 4
+	* si le joueur ne les a pas, état 10
+	* puis états complétmentaires */
 	
 	public static Texture texte1 = new Texture("texte/iceman/texte0.png");
 	public static Texture texte2 = new Texture("texte/iceman/texte1.png");

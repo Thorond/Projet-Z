@@ -9,7 +9,12 @@ import map.zoneGlace.IglooD3;
 public class Ghost {
 	
 	public static int etatScenario = 0; // à sauvegarder
-	
+	/*etat == 0 , état initiale
+	* de 1 à 6 il s'agit du dialogue normal
+	* à 7 ( et à 10 , si la réponse a été fausse ) , le joueur fait le choix de répondre à l'énigme ou pas
+	* donc l'état devient 8 ou 14, a 8, il y a l'énigme, à 14 il y a un texte de rupture
+	* à 9 on déclenche la fonction update de l'alphabet
+	* à 11 la réponse est bonne donc il vient les textes de féliciations*/
 	
 	public static int etatAttente1 = 0;
 	public static long startAttente1 = System.currentTimeMillis();
