@@ -28,7 +28,7 @@ public class Slim extends Pnj{
 	}
 
 //	déplacement aléatoire
-	@Override
+	@Override // réécrite pour la durée de déplacement
 	public void déplacementAléa(){
 		double tempo = Math.random();
 		if ( System.currentTimeMillis() - startS > 2000) {

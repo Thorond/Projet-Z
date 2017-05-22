@@ -42,6 +42,7 @@ public class Flèches extends Sprite {
     public void setBody(Body body) {
         this.body = body;
     }
+
     void createBody(float x, float y){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -63,6 +64,7 @@ public class Flèches extends Sprite {
         shape.dispose();
     }
 
+    // fonction qui permet d'afficher les graphismes en fonction de la position du corps
     public void updateBody(){
         this.setPosition(this.getBody().getPosition().x *MainMenu.PPM , this.getBody().getPosition().y*MainMenu.PPM);
     }
@@ -358,6 +360,7 @@ public class Flèches extends Sprite {
         }
     }
 
+    // quand on change de carte, on ne veut pas voir de flèche continuer leur course donc on réinitialise
     public static void réinitialisation() {
         for ( int i = 0 ; i < flèches.length ; i++ ){
             if ( flèches[i].enDéplacement ){
@@ -423,7 +426,7 @@ public class Flèches extends Sprite {
 //                                      drop des flèches
 //    **********************************************************************************
 
-    public boolean estPrésent =false;
+    public boolean estPrésent =false; // permet de vérifier que la place est libre dans le tableau de flèches
     public boolean clignotement = false;
     public long start;
     public long startClignotement;

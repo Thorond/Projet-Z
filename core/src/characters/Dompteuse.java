@@ -19,6 +19,12 @@ public class Dompteuse {
 
 
     public static int etatScenario = 0; // à sauvegarder
+    /* lorsque l'état est à 0 , c'est l'état initiale
+    lorsque le joueur détecte la dompteuse, l'état passe à 1, on affiche le premier texte
+    après, soit le tigre est en présence du joueur et le scénario passe à l'état 2
+    soit il ne l'est pas il le scénario repasse à 0;
+    en appuyant sur entrée, l'état scénario sera à 3 et il ne se passera plus rien
+    */
 
     public static Texture domptTriste = new Texture("monstres/dompteuse/dompteuseTriste.png");
     public static boolean état = false;

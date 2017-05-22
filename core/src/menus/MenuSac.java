@@ -124,7 +124,7 @@ public class MenuSac extends Menu{
 	
 //	
 
-	public static Item[] itemsKL = new Item[2] ;
+	public static Item[] itemsKL = new Item[2] ; // ceci correspond aux deux items que le joueur peut utiliser en jeu
 	
 	public static boolean itemKOccupé = false;
 	public static boolean itemLOccupé = false;

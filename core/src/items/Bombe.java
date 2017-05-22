@@ -65,7 +65,6 @@ public class Bombe extends Item {
 	
 		
 //	dépot de bombes
-	public  boolean bombeDéposée = false;
 	
 	
 	public void utilisationItem(MainCharacter cha){
@@ -95,7 +94,8 @@ public class Bombe extends Item {
 			}
 		}
 	}
-	
+
+	// tout remettre à 0 ( quand on change de map par exemple )
 	public static void réinitialisation(){
 		for ( int i = 0 ; i < bombes.length ; i++) bombes[i].setEstPrésent(false);
 	}

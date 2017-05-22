@@ -21,7 +21,7 @@ public class Essence {
 	public static Texture texteEssence10 = new Texture("texte/divers/texteEssence10.png");
     public static Texture texteEssence25 = new Texture("texte/divers/texteEssence25.png");
 
-	protected boolean estPrésent =false;
+	protected boolean estPrésent =false; // permet de vérifier que la place est libre dans le tableau essences
 	protected boolean clignotement = false;
 	protected long start;
 	protected long startClignotement;
@@ -37,7 +37,8 @@ public class Essence {
 	
 	public Essence(){
 	}
-	
+
+	// le type correspond à la valeur de l'essence
 	public void déposerEssence(int X, int Y){
 		double ty = Math.random();
 		if ( ty >=  0.10) type = 1;

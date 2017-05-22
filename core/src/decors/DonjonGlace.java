@@ -57,6 +57,7 @@ public class DonjonGlace {
 
 	public static Texture  serrure= new Texture("donjon/donjonGlace/serrure.png");
 
+	// permet d'ouvrir la grille du donjon si le joueur possède les trois parties de la clé
     public static void détectionSerrure(MainCharacter Link){
         if ( Link.getBody().getPosition().x * MainMenu.PPM > 410
                 && Link.getBody().getPosition().x * MainMenu.PPM < 450

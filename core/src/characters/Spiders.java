@@ -96,12 +96,12 @@ public class Spiders extends Pnj{
                 if (this.arrét){
                     this.setTexture(spiderBas1);
                 } else {
-                    if (this.textHaut1 == true ) {
+                    if (this.textBas1 == true ) {
                         this.setTexture(spiderBas2);
-                        this.textHaut1 = false;
+                        this.textBas1 = false;
                     } else {
                         this.setTexture(spiderBas3);
-                        this.textHaut1 = true;
+                        this.textBas1 = true;
                     }
                     this.start = System.currentTimeMillis();
                 }

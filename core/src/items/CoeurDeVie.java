@@ -273,7 +273,7 @@ public class CoeurDeVie {
 
     public static Texture texteRéceptacle = new Texture("texte/divers/texteRéceptacle.png");
 	
-	public static int nbrDeReceptacle = 0; // à sauvegarder 
+	public static int nbrDeReceptacle = 0; // à sauvegarder , représente le nombre de réceptacle que le joueur a avant d'avoir un nouveau coeur de vie
 	
 	public static void receptacleDeCoeur(){
         if (PlacementMainZoneGlace.positionSousMap.equals("GrotteI1Salle1")) GrotteI1Salle1.isReceptaclePris = true;

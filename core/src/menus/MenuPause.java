@@ -25,7 +25,8 @@ public class MenuPause extends Menu {
     public static long timerSauvegarde = System.currentTimeMillis();
     public static boolean sauvegardeEnCours = false;
     public static float opacité = 1;
-    public static void affichageSauvegarde(GameMain game){
+
+    public static void affichageSauvegarde(GameMain game){ // pour avertir le joueur qu'il a bien sauvegarder
         if ( sauvegardeEnCours) {
             texteSauvegarde.setX(100 );
             texteSauvegarde.setY(10 );
